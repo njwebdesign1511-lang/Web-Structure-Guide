@@ -1,0 +1,69 @@
+Agrega animaciones elegantes, modernas y relacionadas con auto detailing para la página web de Albert Auto Detailing.
+
+Las animaciones deben sentirse profesionales, no exageradas, y deben estar relacionadas con limpieza, brillo, agua, carros y movimiento premium.
+
+1. ANIMACIÓN DEL HERO
+- Al cargar la página, el título “Albert Auto Detailing” debe aparecer con efecto fade-in y slide-up.
+- El subtítulo debe aparecer después con una transición suave.
+- El fondo del carro debe tener un movimiento lento tipo zoom-in premium.
+- Agregar pequeños reflejos de luz sobre el carro como si brillara la pintura.
+
+2. EFECTO DE AGUA / ESPUMA
+- Agregar partículas suaves tipo gotas de agua moviéndose lentamente en el fondo.
+- En algunas secciones, incluir burbujas o detalles de espuma muy sutiles.
+- No debe tapar el texto ni verse cargado.
+
+3. ANIMACIÓN DE BRILLO EN BOTONES
+- Los botones principales deben tener un efecto shine/gloss cuando el usuario pase el mouse.
+- Ejemplo: una línea de brillo que cruce el botón de izquierda a derecha.
+- Usar colores rojo, blanco y azul claro.
+
+4. SERVICIOS CON ANIMACIÓN
+- Cada tarjeta de servicio debe aparecer una por una al hacer scroll.
+- Efecto: fade-in + slide-up.
+- Al pasar el mouse sobre una tarjeta:
+  - elevar suavemente la tarjeta
+  - agregar glow rojo o azul
+  - el icono debe hacer un pequeño movimiento elegante
+
+5. ANIMACIÓN “CAR WASH”
+- Crear un efecto visual tipo línea de agua pasando por una sección, como si estuviera limpiando.
+- Puede usarse como separador entre secciones.
+- Debe verse moderno, como una línea líquida o brillo azul pasando horizontalmente.
+
+6. GALERÍA
+- Las fotos deben aparecer con animación al hacer scroll.
+- Al pasar el mouse sobre una imagen:
+  - hacer zoom suave
+  - agregar overlay oscuro
+  - mostrar texto como “Premium Detail” o “Before & After”
+
+7. SECCIÓN MOBILE SERVICE
+- Animar un pequeño icono de truck/van moviéndose suavemente de izquierda a derecha.
+- Agregar una línea roja o azul debajo como si fuera movimiento.
+- El texto “We come to you!” debe aparecer con efecto fade-in.
+
+8. CONTACTO
+- Los iconos de teléfono, email e Instagram deben tener animación hover.
+- Al pasar el mouse:
+  - crecer un poco
+  - cambiar a rojo
+  - agregar glow suave
+
+9. MENÚ
+- El menú debe tener efecto underline animado al pasar el mouse.
+- Cuando el usuario haga scroll, el navbar debe quedar fijo arriba con fondo oscuro transparente y blur.
+
+10. SCROLL GENERAL
+- Implementar animaciones suaves al hacer scroll.
+- Usar Intersection Observer o Framer Motion si el proyecto usa React.
+- Las animaciones deben ser rápidas pero elegantes, entre 0.5s y 0.9s.
+
+11. DETALLES PREMIUM
+- Agregar pequeños efectos de luz en bordes de tarjetas.
+- Agregar sombras suaves.
+- Agregar transiciones suaves en todos los botones y tarjetas.
+- No usar animaciones infantiles ni demasiado fuertes.
+
+Objetivo:
+Que la página se sienta profesional, moderna, premium y conectada al mundo de auto detailing: limpieza, brillo, agua, espuma, protección y resultados impecables.
