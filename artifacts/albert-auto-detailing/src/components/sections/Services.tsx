@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings } from "lucide-react";
 import { useContent } from "@/contexts/ContentContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const icons = [Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings, Settings, Settings, Settings];
 
@@ -15,15 +16,21 @@ const itemVariants = {
 
 export default function Services() {
   const { content } = useContent();
+  const { lang, t } = useLanguage();
   const s = content.services;
   const active = s.items.filter(item => item.active);
+
+  const eyebrow = lang === "es" ? t.services.eyebrow : s.eyebrow;
+  const heading  = lang === "es" ? t.services.heading  : s.heading;
+
+  const esItems = t.services.items;
 
   return (
     <section id="services" className="py-24 md:py-32 bg-card relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{s.eyebrow}</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{s.heading}</h3>
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h3>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </div>
         <motion.div
@@ -35,6 +42,9 @@ export default function Services() {
         >
           {active.map((service, index) => {
             const Icon = icons[index % icons.length];
+            const esItem = esItems[index];
+            const title       = lang === "es" && esItem ? esItem.title       : service.title;
+            const description = lang === "es" && esItem ? esItem.description : service.description;
             return (
               <motion.div
                 key={index}
@@ -43,8 +53,8 @@ export default function Services() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Icon className="w-12 h-12 text-primary mb-6 stroke-[1.5]" />
-                <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">{service.title}</h4>
-                <p className="text-gray-400 leading-relaxed">{service.description}</p>
+                <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">{title}</h4>
+                <p className="text-gray-400 leading-relaxed">{description}</p>
               </motion.div>
             );
           })}

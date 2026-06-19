@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/images/hero.png";
 import { useContent } from "@/contexts/ContentContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
   const { content } = useContent();
+  const { lang, t } = useLanguage();
+
   const h = content.hero;
+  const badge    = lang === "es" ? t.hero.badge    : h.badge;
+  const line1    = lang === "es" ? t.hero.line1    : h.line1;
+  const line2    = lang === "es" ? t.hero.line2    : h.line2;
+  const line3_1  = lang === "es" ? t.hero.line3_1  : h.line3_1;
+  const line3_2  = lang === "es" ? t.hero.line3_2  : h.line3_2;
+  const tagline  = lang === "es" ? t.hero.tagline  : h.tagline;
+  const btn1     = lang === "es" ? t.hero.bookNow     : h.btn1;
+  const btn2     = lang === "es" ? t.hero.viewServices : h.btn2;
+  const btn3     = lang === "es" ? t.hero.contactUs   : h.btn3;
 
   return (
     <section id="home" className="relative min-h-[100dvh] flex items-center pt-20">
@@ -21,18 +33,18 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <div className="inline-block px-4 py-1.5 mb-6 border border-primary/30 bg-primary/10 text-primary font-bold tracking-widest text-xs uppercase rounded-sm">
-            {h.badge}
+            {badge}
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-            {h.line1}<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">{h.line2}</span><br />
-            <span className="text-primary">{h.line3_1}</span> {h.line3_2}
+            {line1}<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">{line2}</span><br />
+            <span className="text-primary">{line3_1}</span> {line3_2}
           </h1>
-          <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light">{h.tagline}</p>
+          <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light">{tagline}</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#contact" className="px-8 py-4 bg-primary text-white font-bold tracking-widest uppercase hover:bg-primary/90 transition-colors text-center rounded-sm">{h.btn1}</a>
-            <a href="#services" className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold tracking-widest uppercase hover:bg-white/5 transition-colors text-center rounded-sm">{h.btn2}</a>
-            <a href="#contact" className="px-8 py-4 bg-secondary text-white font-bold tracking-widest uppercase hover:bg-secondary/90 transition-colors text-center rounded-sm">{h.btn3}</a>
+            <a href="#contact" className="px-8 py-4 bg-primary text-white font-bold tracking-widest uppercase hover:bg-primary/90 transition-colors text-center rounded-sm">{btn1}</a>
+            <a href="#services" className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold tracking-widest uppercase hover:bg-white/5 transition-colors text-center rounded-sm">{btn2}</a>
+            <a href="#contact" className="px-8 py-4 bg-secondary text-white font-bold tracking-widest uppercase hover:bg-secondary/90 transition-colors text-center rounded-sm">{btn3}</a>
           </div>
         </motion.div>
       </div>

@@ -1,10 +1,17 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { useContent } from "@/contexts/ContentContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MobileService() {
   const { content } = useContent();
+  const { lang, t } = useLanguage();
   const m = content.mobileService;
+
+  const heading1 = lang === "es" ? t.mobileService.heading1 : m.heading1;
+  const heading2 = lang === "es" ? t.mobileService.heading2 : m.heading2;
+  const body     = lang === "es" ? t.mobileService.body     : m.body;
+  const cta      = lang === "es" ? t.mobileService.cta      : m.cta;
 
   return (
     <section id="mobile-service" className="py-24 relative overflow-hidden">
@@ -28,7 +35,7 @@ export default function MobileService() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-6xl font-display font-bold text-white mb-6 uppercase"
           >
-            {m.heading1} <span className="text-primary">{m.heading2}</span>
+            {heading1} <span className="text-primary">{heading2}</span>
           </motion.h2>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -37,7 +44,7 @@ export default function MobileService() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-300 mb-10 font-light"
           >
-            {m.body}
+            {body}
           </motion.p>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -46,7 +53,7 @@ export default function MobileService() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <a href="#contact" className="inline-block px-10 py-5 bg-primary text-white font-bold tracking-widest uppercase hover:bg-white hover:text-primary transition-colors rounded-sm shadow-xl">
-              {m.cta}
+              {cta}
             </a>
           </motion.div>
         </div>

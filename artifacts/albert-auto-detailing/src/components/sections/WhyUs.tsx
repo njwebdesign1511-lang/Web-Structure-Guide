@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { useContent } from "@/contexts/ContentContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function WhyUs() {
   const { content } = useContent();
+  const { lang, t } = useLanguage();
   const w = content.whyUs;
+
+  const eyebrow  = lang === "es" ? t.whyUs.eyebrow  : w.eyebrow;
+  const heading  = lang === "es" ? t.whyUs.heading  : w.heading;
+  const body     = lang === "es" ? t.whyUs.body     : w.body;
+  const cta      = lang === "es" ? t.whyUs.cta      : w.cta;
+  const benefits = lang === "es" ? t.whyUs.benefits : w.benefits;
 
   return (
     <section id="why-us" className="py-24 md:py-32 bg-background border-b border-border relative">
@@ -16,12 +24,12 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{w.eyebrow}</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{w.heading}</h3>
+            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h3>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">{w.body}</p>
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">{body}</p>
             <a href="#contact" className="text-primary font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
-              {w.cta} <span aria-hidden="true">&rarr;</span>
+              {cta} <span aria-hidden="true">&rarr;</span>
             </a>
           </motion.div>
           <motion.div
@@ -31,7 +39,7 @@ export default function WhyUs() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid sm:grid-cols-2 gap-4"
           >
-            {w.benefits.map((benefit, i) => (
+            {benefits.map((benefit, i) => (
               <div key={i} className="flex items-start gap-3 bg-card p-4 border border-border rounded-sm">
                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
                 <span className="text-gray-200 font-medium">{benefit}</span>
