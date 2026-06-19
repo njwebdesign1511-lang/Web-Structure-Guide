@@ -35,11 +35,7 @@ export default function Navbar() {
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link-animated text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest"
-            >
+            <a key={link.name} href={link.href} className="text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest">
               {link.name}
             </a>
           ))}
@@ -50,10 +46,7 @@ export default function Navbar() {
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
-          <a
-            href="#contact"
-            className="btn-shine px-6 py-2 bg-primary text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm"
-          >
+          <a href="#contact" className="px-6 py-2 bg-primary text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm">
             {t.nav.bookNow}
           </a>
         </nav>
@@ -80,20 +73,11 @@ export default function Navbar() {
           >
             <nav className="flex flex-col py-6 px-6 gap-6">
               {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="nav-link-animated text-lg font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest"
-                >
+                <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest">
                   {link.name}
                 </a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-shine px-6 py-3 bg-primary text-white text-center text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm mt-4"
-              >
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 bg-primary text-white text-center text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm mt-4">
                 {t.nav.bookNow}
               </a>
             </nav>

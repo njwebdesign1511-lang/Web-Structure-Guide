@@ -7,7 +7,6 @@ import WhyUs from "@/components/sections/WhyUs";
 import Gallery from "@/components/sections/Gallery";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
-import WaterDivider from "@/components/ui/WaterDivider";
 import { useContent } from "@/contexts/ContentContext";
 
 export default function Landing() {
@@ -19,14 +18,11 @@ export default function Landing() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <WaterDivider />
         {s.about && <About />}
         {s.services && <Services />}
-        {s.services && <WaterDivider />}
         {s.mobileService && <MobileService />}
         {s.whyUs && <WhyUs />}
         {s.gallery && <Gallery />}
-        {s.gallery && <WaterDivider />}
         {s.contact && <Contact />}
       </main>
       <Footer />

@@ -29,32 +29,9 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5 }}
-              className="text-sm font-bold tracking-widest text-primary uppercase mb-3"
-            >
-              {a.eyebrow}
-            </motion.h2>
-            <motion.h3
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-display font-bold mb-6 text-white"
-            >
-              {a.heading}
-            </motion.h3>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              style={{ originX: 0 }}
-              className="w-20 h-1 bg-primary mb-8"
-            />
+            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{a.eyebrow}</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{a.heading}</h3>
+            <div className="w-20 h-1 bg-primary mb-8" />
             <p className="text-gray-300 text-lg leading-relaxed mb-6">{a.p1}</p>
             <p className="text-gray-400 text-base leading-relaxed mb-8">{a.p2}</p>
             <div className="grid grid-cols-2 gap-6 pt-6 border-t border-border">
