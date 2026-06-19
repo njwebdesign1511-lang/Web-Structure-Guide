@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Me-4W_6IsNEZ359J90Ip-"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/hero.png"
+type = "image"
+title = "Hero auto detailing sports car"
+
+[[generated]]
+id = "0dG-grdNCzPEWIqi__wlJ"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/about.png"
+type = "image"
+title = "About us detailing close up"
+
+[[generated]]
+id = "Vs0PuADhQRYG3TR6kKuW8"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/gallery-1.png"
+type = "image"
+title = "Gallery pristine red paint"
+
+[[generated]]
+id = "NAKjP6n9u95BiLFSGcP_b"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/gallery-2.png"
+type = "image"
+title = "Gallery luxury car interior"
+
+[[generated]]
+id = "GCuEk0n47b-7efgyN9QcR"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/gallery-3.png"
+type = "image"
+title = "Gallery water beading macro"
+
+[[generated]]
+id = "Ul2ODr-RGmDlRx9A6OUdf"
+uri = "file://artifacts/albert-auto-detailing/src/assets/images/gallery-4.png"
+type = "image"
+title = "Gallery spinning polisher machine"

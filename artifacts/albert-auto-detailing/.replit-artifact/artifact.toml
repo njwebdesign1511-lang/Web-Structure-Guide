@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Albert Auto Detailing"
+version = "1.0.0"
+id = "artifacts/albert-auto-detailing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25603
+
+[services.development]
+run = "pnpm --filter @workspace/albert-auto-detailing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/albert-auto-detailing", "run", "build" ]
+publicDir = "artifacts/albert-auto-detailing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25603"
+BASE_PATH = "/"

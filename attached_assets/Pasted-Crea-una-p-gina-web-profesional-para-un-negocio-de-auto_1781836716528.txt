@@ -1,0 +1,104 @@
+Crea una página web profesional para un negocio de auto detailing llamado “Albert Auto Detailing”.
+
+Estilo visual:
+- Diseño moderno, premium y masculino.
+- Colores principales: negro, azul oscuro, rojo y blanco.
+- Inspiración visual: autos deportivos, agua, brillo, limpieza, lujo y detailing profesional.
+- La página debe verse elegante, rápida, responsive y profesional en celular y computadora.
+
+Estructura de la página:
+
+1. HERO / INICIO
+Título principal:
+Albert Auto Detailing
+
+Subtítulo:
+Premium Detailing. Pristine Results.
+
+Frase:
+We take pride in every detail.
+
+Botones:
+- Book Now
+- Contact Us
+- View Services
+
+Agregar imagen o fondo de un carro limpio con agua/espuma.
+
+2. SOBRE NOSOTROS
+Texto:
+At Albert Auto Detailing, we specialize in premium car detailing services designed to keep your vehicle looking clean, fresh, and protected. Since 2023, we have focused on quality, attention to detail, and customer satisfaction. Every vehicle is treated with care because we take pride in every detail.
+
+3. SERVICIOS
+Mostrar los servicios en tarjetas modernas con iconos:
+
+VIP Interior Clean
+Deep clean for a luxurious interior experience.
+
+2 Step Wax
+Enhances shine and protects your paint.
+
+Shampoo
+Thorough hand wash to remove dirt and grime.
+
+Bumper to Bumper
+Complete detailing inside and out.
+
+Headlight Restoration
+Restores clarity and improves night visibility.
+
+Wax
+Long-lasting protection with a brilliant shine.
+
+4. MOBILE SERVICE
+Sección destacada:
+Mobile Service Available!
+
+Texto:
+We come to you! Enjoy professional auto detailing at your home, workplace, or preferred location.
+
+Botón:
+Schedule Mobile Service
+
+5. POR QUÉ ELEGIRNOS
+Agregar beneficios:
+- Premium detailing services
+- Attention to every detail
+- Mobile service available
+- Professional results
+- Interior and exterior care
+- Quality products
+- Customer satisfaction focused
+
+6. GALERÍA
+Crear una sección para fotos de trabajos antes y después.
+Texto:
+See the difference our detailing service can make.
+
+7. CONTACTO
+Título:
+Contact Us
+
+Información:
+Phone: 475-689-8301
+Email: albertautodetailing2094@gmail.com
+Instagram: @albert_auto_detailing
+
+Botones:
+- Call Now
+- Send Email
+- Instagram
+
+8. FOOTER
+Albert Auto Detailing
+Est. 2023
+Premium Detailing. Pristine Results.
+We take pride in every detail.
+
+Funciones importantes:
+- Página responsive.
+- Botones funcionales para llamada, email e Instagram.
+- Diseño one-page con menú arriba: Home, About, Services, Mobile Service, Gallery, Contact.
+- Animaciones suaves.
+- Estilo profesional tipo landing page.
+- Usar tarjetas, iconos y secciones bien organizadas.
