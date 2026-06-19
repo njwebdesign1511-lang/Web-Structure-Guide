@@ -1,0 +1,1 @@
+- [Albert Auto Detailing architecture](albert-detailing-arch.md) — admin panel via Ctrl+Alt+Shift+N, content as single JSONB blob, bearer token = ADMIN_PASSWORD.

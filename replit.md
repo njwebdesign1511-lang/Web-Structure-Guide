@@ -1,44 +1,63 @@
-# [Project name]
+# Albert Auto Detailing
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A professional bilingual (EN/ES) auto detailing business website with a private admin panel for editing all site content.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Required env: `DATABASE_URL` — Postgres connection string, `ADMIN_PASSWORD` — admin panel password
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
+- Frontend: React + Vite (artifacts/albert-auto-detailing)
+- API: Express 5 (artifacts/api-server)
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
 - API codegen: Orval (from OpenAPI spec)
 - Build: esbuild (CJS bundle)
+- Animations: Framer Motion
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/albert-auto-detailing/src/` — React frontend
+  - `src/pages/Landing.tsx` — main page composition
+  - `src/components/sections/` — Hero, About, Services, etc.
+  - `src/contexts/ContentContext.tsx` — dynamic site content state + API sync
+  - `src/contexts/LanguageContext.tsx` — EN/ES toggle
+  - `src/lib/defaultContent.ts` — default content values (source of truth shape)
+  - `src/admin/` — admin panel (AdminPanel, AdminLogin, sections editors)
+- `artifacts/api-server/src/routes/` — content.ts, admin.ts, health.ts
+- `lib/db/src/schema/siteContent.ts` — `site_content` table (key/value JSONB)
+- `lib/api-spec/openapi.yaml` — API contract source of truth
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Admin panel is accessed via keyboard shortcut **Ctrl+Alt+Shift+N** — no public URL, no route.
+- Site content is stored as a single JSONB blob in Postgres (key="main") for simplicity — no per-field rows.
+- Auth is a simple bearer token equal to `ADMIN_PASSWORD` secret — no JWT. Suitable for single-owner site.
+- Frontend merges remote content with `defaultContent` on load, so missing fields always fall back gracefully.
+- Language (EN/ES) is handled client-side via `LanguageContext` — not persisted, resets on reload.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Public landing page: Hero, About, Services, Mobile Service, Why Us, Gallery, Contact, Footer
+- Bilingual toggle (EN/ES) in the navbar
+- Private admin panel (Ctrl+Alt+Shift+N): edit all texts, services, contact info, sections, testimonials, style
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Admin panel accessed via Ctrl+Alt+Shift+N keyboard shortcut.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- After changing `lib/api-spec/openapi.yaml`, run `pnpm --filter @workspace/api-spec run codegen` before typechecking.
+- After changing `lib/db/src/schema/`, run `pnpm --filter @workspace/db run push` to migrate.
+- The API server must be restarted after code changes (it pre-bundles with esbuild).
 
 ## Pointers
 

@@ -1,7 +1,8 @@
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useContent } from "@/contexts/ContentContext";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { content } = useContent();
+  const f = content.footer;
 
   return (
     <footer className="bg-background py-12 border-t border-border">
@@ -13,16 +14,14 @@ export default function Footer() {
             </a>
             <p className="text-gray-500 text-sm tracking-widest uppercase">Est. 2023</p>
           </div>
-
           <div className="text-center md:text-right">
-            <p className="text-gray-300 font-medium mb-1">{t.footer.tagline}</p>
-            <p className="text-gray-500 text-sm">{t.footer.sub}</p>
+            <p className="text-gray-300 font-medium mb-1">{f.tagline}</p>
+            <p className="text-gray-500 text-sm">{f.sub}</p>
           </div>
         </div>
-
         <div className="mt-12 pt-8 border-t border-border/50 text-center">
           <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} Albert Auto Detailing. {t.footer.rights}
+            &copy; {new Date().getFullYear()} Albert Auto Detailing. {f.rights}
           </p>
         </div>
       </div>

@@ -1,22 +1,18 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/images/hero.png";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useContent } from "@/contexts/ContentContext";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { content } = useContent();
+  const h = content.hero;
 
   return (
     <section id="home" className="relative min-h-[100dvh] flex items-center pt-20">
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImg}
-          alt="Albert Auto Detailing Hero"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImg} alt="Albert Auto Detailing Hero" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
         <div className="absolute inset-0 bg-black/40" />
       </div>
-
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,36 +21,18 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <div className="inline-block px-4 py-1.5 mb-6 border border-primary/30 bg-primary/10 text-primary font-bold tracking-widest text-xs uppercase rounded-sm">
-            {t.hero.badge}
+            {h.badge}
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-            {t.hero.line1}<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">{t.hero.line2}</span><br />
-            <span className="text-primary">{t.hero.line3_1}</span> {t.hero.line3_2}
+            {h.line1}<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">{h.line2}</span><br />
+            <span className="text-primary">{h.line3_1}</span> {h.line3_2}
           </h1>
-          <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light">
-            {t.hero.tagline}
-          </p>
-
+          <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light">{h.tagline}</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              className="px-8 py-4 bg-primary text-white font-bold tracking-widest uppercase hover:bg-primary/90 transition-colors text-center rounded-sm"
-            >
-              {t.hero.bookNow}
-            </a>
-            <a
-              href="#services"
-              className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold tracking-widest uppercase hover:bg-white/5 transition-colors text-center rounded-sm"
-            >
-              {t.hero.viewServices}
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 bg-secondary text-white font-bold tracking-widest uppercase hover:bg-secondary/90 transition-colors text-center rounded-sm"
-            >
-              {t.hero.contactUs}
-            </a>
+            <a href="#contact" className="px-8 py-4 bg-primary text-white font-bold tracking-widest uppercase hover:bg-primary/90 transition-colors text-center rounded-sm">{h.btn1}</a>
+            <a href="#services" className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold tracking-widest uppercase hover:bg-white/5 transition-colors text-center rounded-sm">{h.btn2}</a>
+            <a href="#contact" className="px-8 py-4 bg-secondary text-white font-bold tracking-widest uppercase hover:bg-secondary/90 transition-colors text-center rounded-sm">{h.btn3}</a>
           </div>
         </motion.div>
       </div>

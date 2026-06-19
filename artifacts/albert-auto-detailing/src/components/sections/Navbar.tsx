@@ -18,9 +18,7 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,20 +33,12 @@ export default function Navbar() {
         <a href="#home" className="text-xl md:text-2xl font-display font-bold text-white tracking-wider flex items-center gap-2">
           ALBERT<span className="text-primary">AUTO</span>
         </a>
-
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest"
-            >
+            <a key={link.name} href={link.href} className="text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest">
               {link.name}
             </a>
           ))}
-
-          {/* Language Toggle */}
           <button
             onClick={toggle}
             className="text-sm font-bold tracking-widest uppercase text-gray-300 hover:text-white transition-colors border border-white/20 px-3 py-1 rounded-sm hover:border-white/50"
@@ -56,17 +46,11 @@ export default function Navbar() {
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
-
-          <a
-            href="#contact"
-            className="px-6 py-2 bg-primary text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm"
-          >
+          <a href="#contact" className="px-6 py-2 bg-primary text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm">
             {t.nav.bookNow}
           </a>
         </nav>
-
         <div className="flex items-center gap-3 md:hidden">
-          {/* Mobile Language Toggle */}
           <button
             onClick={toggle}
             className="text-xs font-bold tracking-widest uppercase text-gray-300 border border-white/20 px-2 py-1 rounded-sm"
@@ -74,19 +58,11 @@ export default function Navbar() {
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
-
-          {/* Mobile Hamburger */}
-          <button
-            className="text-white p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="text-white p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
-
-      {/* Mobile Nav */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -97,20 +73,11 @@ export default function Navbar() {
           >
             <nav className="flex flex-col py-6 px-6 gap-6">
               {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest"
-                >
+                <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest">
                   {link.name}
                 </a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-6 py-3 bg-primary text-white text-center text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm mt-4"
-              >
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 bg-primary text-white text-center text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm mt-4">
                 {t.nav.bookNow}
               </a>
             </nav>

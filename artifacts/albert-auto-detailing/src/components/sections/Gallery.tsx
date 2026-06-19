@@ -3,32 +3,25 @@ import gallery1 from "@/assets/images/gallery-1.png";
 import gallery2 from "@/assets/images/gallery-2.png";
 import gallery3 from "@/assets/images/gallery-3.png";
 import gallery4 from "@/assets/images/gallery-4.png";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useContent } from "@/contexts/ContentContext";
 
 const imageSrcs = [gallery1, gallery2, gallery3, gallery4];
 
 export default function Gallery() {
-  const { t } = useLanguage();
-
-  const images = imageSrcs.map((src, i) => ({
-    src,
-    alt: t.gallery.alts[i],
-  }));
+  const { content } = useContent();
+  const g = content.gallery;
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.gallery.eyebrow}</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{t.gallery.heading}</h3>
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{g.eyebrow}</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{g.heading}</h3>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            {t.gallery.body}
-          </p>
+          <p className="text-gray-400 max-w-2xl mx-auto">{g.body}</p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {images.map((img, index) => (
+          {imageSrcs.map((src, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -37,14 +30,8 @@ export default function Gallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group aspect-square md:aspect-[4/3] overflow-hidden rounded-sm bg-card border border-border"
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <span className="text-white font-bold tracking-wider uppercase text-sm">{img.alt}</span>
-              </div>
+              <img src={src} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>

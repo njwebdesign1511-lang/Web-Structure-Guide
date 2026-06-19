@@ -1,34 +1,31 @@
 import { motion } from "framer-motion";
-import { Sparkles, Shield, Droplets, Car, Sun, ShieldCheck } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings } from "lucide-react";
+import { useContent } from "@/contexts/ContentContext";
 
-const icons = [Sparkles, Shield, Droplets, Car, Sun, ShieldCheck];
+const icons = [Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings, Settings, Settings, Settings];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
-
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export default function Services() {
-  const { t } = useLanguage();
+  const { content } = useContent();
+  const s = content.services;
+  const active = s.items.filter(item => item.active);
 
   return (
     <section id="services" className="py-24 md:py-32 bg-card relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.services.eyebrow}</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{t.services.heading}</h3>
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{s.eyebrow}</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{s.heading}</h3>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </div>
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -36,15 +33,15 @@ export default function Services() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {t.services.items.map((service, index) => {
-            const Icon = icons[index];
+          {active.map((service, index) => {
+            const Icon = icons[index % icons.length];
             return (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 className="bg-background border border-border p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity opacity-0 group-hover:opacity-100" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Icon className="w-12 h-12 text-primary mb-6 stroke-[1.5]" />
                 <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">{service.title}</h4>
                 <p className="text-gray-400 leading-relaxed">{service.description}</p>

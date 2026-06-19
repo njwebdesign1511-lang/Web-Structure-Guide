@@ -7,19 +7,23 @@ import WhyUs from "@/components/sections/WhyUs";
 import Gallery from "@/components/sections/Gallery";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import { useContent } from "@/contexts/ContentContext";
 
 export default function Landing() {
+  const { content } = useContent();
+  const s = content.sections;
+
   return (
     <div className="min-h-[100dvh] flex flex-col w-full overflow-x-hidden">
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <About />
-        <Services />
-        <MobileService />
-        <WhyUs />
-        <Gallery />
-        <Contact />
+        {s.about && <About />}
+        {s.services && <Services />}
+        {s.mobileService && <MobileService />}
+        {s.whyUs && <WhyUs />}
+        {s.gallery && <Gallery />}
+        {s.contact && <Contact />}
       </main>
       <Footer />
     </div>
