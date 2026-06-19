@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const links = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Mobile", href: "#mobile-service" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, t, toggle } = useLanguage();
+
+  const links = [
+    { name: t.nav.home, href: "#home" },
+    { name: t.nav.about, href: "#about" },
+    { name: t.nav.services, href: "#services" },
+    { name: t.nav.mobile, href: "#mobile-service" },
+    { name: t.nav.gallery, href: "#gallery" },
+    { name: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,22 +47,43 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+
+          {/* Language Toggle */}
+          <button
+            onClick={toggle}
+            className="text-sm font-bold tracking-widest uppercase text-gray-300 hover:text-white transition-colors border border-white/20 px-3 py-1 rounded-sm hover:border-white/50"
+            aria-label="Switch language"
+          >
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+
           <a
             href="#contact"
             className="px-6 py-2 bg-primary text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm"
           >
-            Book Now
+            {t.nav.bookNow}
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          {/* Mobile Language Toggle */}
+          <button
+            onClick={toggle}
+            className="text-xs font-bold tracking-widest uppercase text-gray-300 border border-white/20 px-2 py-1 rounded-sm"
+            aria-label="Switch language"
+          >
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -88,7 +111,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-6 py-3 bg-primary text-white text-center text-sm font-bold tracking-wider uppercase hover:bg-primary/90 transition-colors rounded-sm mt-4"
               >
-                Book Now
+                {t.nav.bookNow}
               </a>
             </nav>
           </motion.div>

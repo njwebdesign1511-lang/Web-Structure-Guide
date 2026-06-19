@@ -3,24 +3,27 @@ import gallery1 from "@/assets/images/gallery-1.png";
 import gallery2 from "@/assets/images/gallery-2.png";
 import gallery3 from "@/assets/images/gallery-3.png";
 import gallery4 from "@/assets/images/gallery-4.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const images = [
-  { src: gallery1, alt: "Pristine red paint" },
-  { src: gallery2, alt: "Luxury car interior" },
-  { src: gallery3, alt: "Water beading macro" },
-  { src: gallery4, alt: "Spinning polisher machine" }
-];
+const imageSrcs = [gallery1, gallery2, gallery3, gallery4];
 
 export default function Gallery() {
+  const { t } = useLanguage();
+
+  const images = imageSrcs.map((src, i) => ({
+    src,
+    alt: t.gallery.alts[i],
+  }));
+
   return (
     <section id="gallery" className="py-24 md:py-32 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">Our Work</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">See The Difference</h3>
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{t.gallery.eyebrow}</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{t.gallery.heading}</h3>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Our results speak for themselves. Browse through some of our recent premium auto detailing projects.
+            {t.gallery.body}
           </p>
         </div>
 
