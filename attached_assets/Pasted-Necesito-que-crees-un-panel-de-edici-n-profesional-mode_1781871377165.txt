@@ -1,0 +1,139 @@
+Necesito que crees un panel de edición profesional, moderno, visual y fácil de usar para administrar toda la información de esta página web.
+
+El panel debe permitir editar absolutamente todo el contenido de la web sin tocar código.
+
+Objetivo del panel:
+Crear un dashboard privado donde el dueño de la página pueda modificar textos, imágenes, colores, botones, información de contacto, redes sociales, servicios, precios, testimonios y cualquier sección visible de la página.
+
+Estructura del panel de edición:
+
+1. Inicio del panel
+
+* Vista general del sitio web.
+* Botón para “Ver página”.
+* Botón para “Guardar cambios”.
+* Botón para “Publicar cambios”.
+* Mensaje de confirmación cuando algo se edite correctamente.
+
+2. Editor de textos
+   Debe permitir editar:
+
+* Título principal del hero.
+* Subtítulo.
+* Descripciones.
+* Textos de botones.
+* Secciones “Sobre nosotros”.
+* Servicios.
+* Preguntas frecuentes.
+* Políticas.
+* Testimonios.
+* Footer.
+
+Cada texto debe tener un campo editable claro y fácil de usar.
+
+3. Editor de imágenes
+   Debe permitir:
+
+* Cambiar logo.
+* Cambiar imagen principal.
+* Cambiar imágenes de servicios.
+* Cambiar imágenes de galería.
+* Agregar nuevas imágenes.
+* Eliminar imágenes.
+* Reordenar imágenes.
+
+Cada imagen debe mostrar una vista previa antes de guardar.
+
+4. Editor de contacto
+   Debe permitir editar:
+
+* Número de teléfono.
+* Número de WhatsApp.
+* Correo electrónico.
+* Dirección.
+* Horario.
+* Links de Instagram, Facebook, TikTok y otras redes.
+* Texto automático del botón de WhatsApp.
+
+5. Editor de botones y llamadas a la acción
+   Debe permitir cambiar:
+
+* Texto del botón.
+* Link del botón.
+* Tipo de botón: WhatsApp, llamada, email, link externo o sección interna.
+* Activar o desactivar botones.
+
+6. Editor de servicios o productos
+   Debe permitir:
+
+* Agregar servicio/producto.
+* Editar nombre.
+* Editar descripción.
+* Editar precio.
+* Cambiar imagen.
+* Activar o desactivar servicio.
+* Reordenar servicios.
+* Eliminar servicios.
+
+7. Editor de colores y estilo
+   Debe permitir cambiar:
+
+* Color principal.
+* Color secundario.
+* Color de botones.
+* Color de fondo.
+* Color de textos.
+* Tipo de fuente si es posible.
+* Modo claro o moderno elegante.
+
+El diseño debe sentirse profesional, limpio, moderno y llamativo.
+
+8. Editor de testimonios
+   Debe permitir:
+
+* Agregar testimonio.
+* Editar nombre del cliente.
+* Editar comentario.
+* Agregar imagen del cliente si aplica.
+* Activar o desactivar testimonios.
+
+9. Editor de secciones
+   Debe permitir activar, desactivar y reordenar secciones como:
+
+* Hero.
+* Sobre nosotros.
+* Servicios.
+* Galería.
+* Testimonios.
+* Contacto.
+* Preguntas frecuentes.
+* Políticas.
+* Footer.
+
+10. Seguridad del panel
+    El panel debe estar protegido con login.
+    Solo el administrador puede entrar.
+    Debe tener botón para cerrar sesión.
+
+11. Diseño del panel
+    El panel debe ser:
+
+* Moderno.
+* Minimalista.
+* Profesional.
+* Responsive.
+* Fácil de usar desde celular y computadora.
+* Con menú lateral en desktop.
+* Con menú desplegable en móvil.
+* Con tarjetas, íconos, botones claros y buena separación visual.
+
+12. Funcionalidades importantes
+
+* Guardar cambios en una base de datos o archivo editable.
+* Mostrar vista previa de los cambios.
+* Confirmar antes de eliminar algo.
+* Mostrar notificaciones tipo “Cambios guardados correctamente”.
+* Que todos los cambios se reflejen automáticamente en la página web.
+
+Quiero que el panel se vea como un dashboard profesional, no como un formulario básico.
+Debe sentirse como un editor moderno para que el cliente pueda manejar su página fácilmente.
