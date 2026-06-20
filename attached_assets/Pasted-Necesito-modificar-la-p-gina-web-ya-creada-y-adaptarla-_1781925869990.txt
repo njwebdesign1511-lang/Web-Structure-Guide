@@ -1,0 +1,133 @@
+Necesito modificar la página web ya creada y adaptarla completamente al negocio **Albert Auto Detailing**, manteniendo la estructura base de la página actual, pero cambiando todo el contenido, colores, secciones, botones, textos, imágenes, formularios y estilo visual según esta información.
+
+La página debe ser profesional, moderna, responsive, bilingüe en inglés y español, con colores principales rojo y azul, animaciones modernas y enfocada en convertir visitantes en clientes por WhatsApp, llamadas, formulario de cotización, reservas de citas e Instagram.
+
+NEGOCIO:
+Albert Auto Detailing
+
+SERVICIO:
+Detailing automotriz profesional. La página debe comunicar que ofrecemos lavado interior y exterior, corrección de pintura, recubrimiento cerámico, restauración de faros, limpieza de motor, protección de cuero y eliminación de manchas.
+
+CLIENTE IDEAL:
+Hombres y mujeres que desean cuidar, restaurar y proteger su vehículo.
+
+IMPORTANTE:
+No mostrar precios en la página web. En lugar de precios, usar textos como:
+“Request a Personalized Quote”
+“Solicitar cotización personalizada”
+“Contact us for pricing”
+“Contáctanos para una cotización”
+
+MENSAJE PRINCIPAL:
+English:
+Professional detailing that restores your vehicle to a like-new shine and protection.
+
+Español:
+Detallado profesional que restaura tu vehículo con brillo, protección y apariencia como nuevo.
+
+SECCIONES QUE DEBE TENER LA PÁGINA:
+
+1. Home / Inicio
+2. About Us / Sobre nosotros
+3. Services / Servicios
+4. Before & After Gallery / Galería de antes y después
+5. Client Testimonials / Testimonios de clientes
+6. FAQ / Preguntas frecuentes
+7. Request a Quote / Solicitar cotización
+8. Book Appointment / Reservar cita
+9. Contact / Contacto
+10. Location Map / Mapa de ubicación
+11. Instagram Integration / Instagram integrado
+
+SERVICIOS A MOSTRAR:
+
+* Interior & Exterior Wash / Lavado interior y exterior
+* Paint Correction / Corrección de pintura
+* Ceramic Coating / Recubrimiento cerámico
+* Headlight Restoration / Restauración de faros
+* Engine Cleaning / Limpieza de motor
+* Leather Protection / Protección de cuero
+* Stain Removal / Eliminación de manchas
+
+PROMOCIONES A MOSTRAR:
+
+* 20% off your first service / 20% de descuento en tu primer servicio
+* $15 off full detailing / $15 de descuento en detailing completo
+* Free interior wash on your first visit / Lavado interior gratis en tu primera visita
+* Limited time offer / Oferta por tiempo limitado
+* Free consultation / Consulta gratuita
+* Special launch packages / Paquetes especiales de lanzamiento
+
+BOTONES PRINCIPALES:
+Agregar botones claros y visibles en toda la página:
+
+* WhatsApp
+* Call Now / Llamar ahora
+* Request Quote / Solicitar cotización
+* Book Appointment / Reservar cita
+* Instagram
+* Get Estimate / Solicitar presupuesto
+
+CONTACTO:
+WhatsApp: 475-689-8301
+Teléfono: 475-689-8301
+Instagram: @albert_auto_detailing
+Email: [albertautodetailing2024@gmail.com](mailto:albertautodetailing2024@gmail.com)
+Ubicación: 12 Jenny Jenks St, Norwalk, Connecticut 06851
+
+Los botones deben funcionar así:
+
+* WhatsApp debe abrir conversación al número 475-689-8301.
+* Call Now debe llamar al 475-689-8301.
+* Email debe abrir correo a [albertautodetailing2024@gmail.com](mailto:albertautodetailing2024@gmail.com).
+* Instagram debe llevar a @albert_auto_detailing.
+* El mapa debe mostrar 12 Jenny Jenks St, Norwalk, Connecticut 06851.
+
+FORMULARIO DE CONTACTO / COTIZACIÓN:
+Crear un formulario profesional con estos campos:
+
+* Name / Nombre
+* Phone / Teléfono
+* Email / Correo
+* Vehicle Make & Model / Marca y modelo del vehículo
+* Service Needed / Servicio que necesita
+* Preferred Date / Fecha preferida
+* Message / Mensaje
+* Submit / Enviar solicitud
+
+GALERÍA:
+Crear una sección de galería para fotos y videos de trabajos realizados. Debe estar preparada para mostrar:
+
+* Fotos de antes y después
+* Videos de trabajos realizados
+* Logo del negocio
+* Testimonios visuales
+* Capturas de reseñas de Google/Facebook
+* Imágenes del taller o equipo
+
+DISEÑO:
+La página debe verse profesional, limpia, moderna y confiable. Usar rojo y azul como colores principales, con fondos oscuros o claros bien combinados, botones llamativos, tarjetas modernas, sombras suaves, bordes redondeados y animaciones elegantes.
+
+RESPONSIVE:
+La página debe verse perfecta en:
+
+* Teléfonos
+* Computadoras
+* Laptops
+* Tablets
+* Otros dispositivos
+
+SEO BÁSICO:
+Optimizar títulos, descripciones y textos para:
+
+* Auto detailing in Norwalk CT
+* Car detailing Norwalk Connecticut
+* Ceramic coating Norwalk CT
+* Paint correction Norwalk CT
+* Interior and exterior car wash Norwalk
+
+IDIOMA:
+La página debe ser bilingüe en inglés y español. Cada sección debe tener contenido en ambos idiomas o permitir cambiar entre English / Español.
+
+IMPORTANTE FINAL:
+No eliminar funciones importantes de la página actual. Solo adaptar y modificar la página existente para que ahora sea completamente de Albert Auto Detailing. No saltarse ninguna sección, botón, información de contacto, promoción, formulario, mapa, galería ni servicio mencionado arriba.

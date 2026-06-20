@@ -3,12 +3,17 @@ import { ToggleLeft, ToggleRight } from "lucide-react";
 
 const sectionLabels: Record<string, string> = {
   hero: "Hero / Inicio",
+  promotions: "Promociones",
   about: "Sobre Nosotros",
   services: "Servicios",
   mobileService: "Servicio Movil",
   whyUs: "Por Que Elegirnos",
-  gallery: "Galeria",
+  gallery: "Galeria / Antes & Despues",
+  testimonials: "Testimonios",
+  faq: "Preguntas Frecuentes (FAQ)",
+  quoteForm: "Formulario de Cotizacion",
   contact: "Contacto",
+  location: "Mapa / Ubicacion",
 };
 
 export default function SectionsEditor() {
