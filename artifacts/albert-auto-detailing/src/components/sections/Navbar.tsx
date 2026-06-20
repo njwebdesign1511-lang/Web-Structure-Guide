@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContent } from "@/contexts/ContentContext";
@@ -53,12 +53,13 @@ export default function Navbar() {
           ))}
           <button
             onClick={toggle}
-            className="text-sm font-bold tracking-widest uppercase transition-colors rounded-sm px-3 py-1"
+            className="flex items-center gap-1.5 transition-colors rounded-sm px-3 py-1.5 text-xs font-bold tracking-widest uppercase"
             style={{ color: "#6FB5FF", border: "1px solid rgba(79,126,184,0.35)" }}
             onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(79,126,184,0.70)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#6FB5FF"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(79,126,184,0.35)"; }}
             aria-label="Switch language"
           >
+            <Globe size={15} />
             {lang === "en" ? "ES" : "EN"}
           </button>
           <a
@@ -76,10 +77,11 @@ export default function Navbar() {
         <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={toggle}
-            className="text-xs font-bold tracking-widest uppercase rounded-sm px-2 py-1"
+            className="flex items-center gap-1 text-xs font-bold tracking-widest uppercase rounded-sm px-2 py-1.5"
             style={{ color: "#6FB5FF", border: "1px solid rgba(79,126,184,0.35)" }}
             aria-label="Switch language"
           >
+            <Globe size={13} />
             {lang === "en" ? "ES" : "EN"}
           </button>
           <button className="text-white p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
