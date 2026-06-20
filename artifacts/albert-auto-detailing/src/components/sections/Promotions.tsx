@@ -14,13 +14,13 @@ export default function Promotions() {
   const activeItems = Array.isArray(items) ? items : [];
 
   return (
-    <section id="promotions" className="py-16 bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-primary/20 border-y border-blue-700/20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent" />
+    <section id="promotions" className="py-16 border-y relative overflow-hidden" style={{ background: "linear-gradient(135deg, #071B45 0%, #020C24 50%, #071B45 100%)", borderColor: "#4F7EB8" + "33" }}>
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at top, rgba(214,28,35,0.08) 0%, transparent 70%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Tag className="w-4 h-4 text-blue-400" />
-            <span className="text-xs font-bold tracking-widest text-blue-400 uppercase">{eyebrow}</span>
+            <Tag className="w-4 h-4" style={{ color: "#6FB5FF" }} />
+            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#6FB5FF" }}>{eyebrow}</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white">{heading}</h2>
         </div>
@@ -32,9 +32,12 @@ export default function Promotions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-white/5 border border-blue-500/20 rounded-lg p-5 text-center hover:border-blue-400/40 hover:bg-white/8 transition-all group"
+              className="rounded-lg p-5 text-center group transition-all"
+              style={{ background: "rgba(79,126,184,0.08)", border: "1px solid rgba(79,126,184,0.25)" }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.5)")}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.25)")}
             >
-              <Star className="w-5 h-5 text-blue-400 mx-auto mb-3 group-hover:text-yellow-400 transition-colors" />
+              <Star className="w-5 h-5 mx-auto mb-3 transition-colors" style={{ color: "#6FB5FF" }} />
               <p className="text-white font-semibold text-sm leading-snug">{item}</p>
             </motion.div>
           ))}
@@ -42,7 +45,10 @@ export default function Promotions() {
         <div className="text-center mt-8">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold tracking-widest uppercase text-sm rounded-sm transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 text-white font-bold tracking-widest uppercase text-sm rounded-sm transition-colors"
+            style={{ background: "#D61C23" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
           >
             <Tag className="w-4 h-4" />
             {lang === "es" ? "Reclamar Oferta" : "Claim This Offer"}

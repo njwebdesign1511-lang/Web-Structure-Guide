@@ -17,7 +17,6 @@ export default function Contact() {
   const eyebrow = lang === "es" ? t.contact.eyebrow : c.eyebrow;
   const heading  = lang === "es" ? t.contact.heading  : c.heading;
   const body     = lang === "es" ? t.contact.body     : c.body;
-
   const esMethods = t.contact.methods;
   const waText = c?.whatsappText ?? "Hi! I'd like to book a detailing service.";
 
@@ -29,50 +28,54 @@ export default function Contact() {
       href: `https://wa.me/${c.whatsapp ?? "14756898301"}?text=${encodeURIComponent(waText)}`,
       actionText: lang === "es" ? esMethods[0].actionText : "Message Us",
       show: !!c.whatsapp,
-      accent: "bg-green-600/10 group-hover:bg-green-600/20 border-green-600/30 group-hover:border-green-400",
-      iconBg: "bg-green-600/20 group-hover:bg-green-600/30",
+      cardStyle: { background: "rgba(214,28,35,0.08)", border: "1px solid rgba(214,28,35,0.25)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(214,28,35,0.55)",
+      iconStyle: { background: "rgba(214,28,35,0.15)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Phone className="w-8 h-8 text-primary" />,
+      Icon: () => <Phone className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
       title: lang === "es" ? esMethods[1].title : "Call Us",
       value: c.phone,
       href: `tel:${String(c.phone).replace(/\D/g, "")}`,
       actionText: lang === "es" ? esMethods[1].actionText : c.callLabel,
       show: !!c.phone,
-      accent: "bg-background hover:border-primary/50",
-      iconBg: "bg-primary/10 group-hover:bg-primary/20",
+      cardStyle: { background: "#071B45", border: "1px solid rgba(79,126,184,0.22)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(79,126,184,0.55)",
+      iconStyle: { background: "rgba(79,126,184,0.12)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Mail className="w-8 h-8 text-primary" />,
+      Icon: () => <Mail className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
       title: lang === "es" ? esMethods[2].title : "Email",
       value: c.email,
       href: `mailto:${c.email}`,
       actionText: lang === "es" ? esMethods[2].actionText : c.emailLabel,
       show: !!c.email,
-      accent: "bg-background hover:border-primary/50",
-      iconBg: "bg-primary/10 group-hover:bg-primary/20",
+      cardStyle: { background: "#071B45", border: "1px solid rgba(79,126,184,0.22)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(79,126,184,0.55)",
+      iconStyle: { background: "rgba(79,126,184,0.12)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Instagram className="w-8 h-8 text-primary" />,
+      Icon: () => <Instagram className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
       title: lang === "es" ? esMethods[3].title : "Instagram",
       value: `@${c.instagram}`,
       href: `https://instagram.com/${c.instagram}`,
       actionText: lang === "es" ? esMethods[3].actionText : c.instagramLabel,
       show: !!c.instagram,
-      accent: "bg-background hover:border-primary/50",
-      iconBg: "bg-primary/10 group-hover:bg-primary/20",
+      cardStyle: { background: "#071B45", border: "1px solid rgba(79,126,184,0.22)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(79,126,184,0.55)",
+      iconStyle: { background: "rgba(79,126,184,0.12)" } as React.CSSProperties,
     },
   ].filter(m => m.show);
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-card relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+    <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#071B45" }}>
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom, rgba(214,28,35,0.08) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
           <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h3>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="text-gray-400 max-w-2xl mx-auto">{body}</p>
+          <p className="max-w-2xl mx-auto" style={{ color: "#EAEAEA" }}>{body}</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
           {methods.map((method, index) => (
@@ -85,15 +88,18 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`border border-border p-7 rounded-sm transition-all group text-center flex flex-col items-center justify-center min-h-[220px] ${method.accent}`}
+              className="rounded-sm p-7 transition-all group text-center flex flex-col items-center justify-center min-h-[220px]"
+              style={method.cardStyle}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.borderColor = method.cardHoverBorder)}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.borderColor = (method.cardStyle.border as string).replace("1px solid ", ""))}
             >
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-5 transition-colors ${method.iconBg}`}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-5 transition-colors" style={method.iconStyle}>
                 <method.Icon />
               </div>
               <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{method.title}</h4>
-              <p className="text-gray-400 mb-5 text-xs break-all">{method.value}</p>
+              <p className="mb-5 text-xs break-all" style={{ color: "#4F7EB8" }}>{method.value}</p>
               <span className="text-primary font-bold text-xs tracking-widest uppercase group-hover:text-white transition-colors mt-auto">
-                {method.actionText} &rarr;
+                {method.actionText} →
               </span>
             </motion.a>
           ))}

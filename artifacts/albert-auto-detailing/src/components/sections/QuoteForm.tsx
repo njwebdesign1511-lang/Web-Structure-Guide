@@ -44,8 +44,8 @@ export default function QuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const contact = content.contact as any;
-    const waNumber = contact?.whatsapp ?? "14756898301";
+    const c = content.contact as any;
+    const waNumber = c?.whatsapp ?? "14756898301";
     const msg = [
       `🚗 *Auto Detailing Quote Request*`,
       ``,
@@ -62,72 +62,91 @@ export default function QuoteForm() {
     setTimeout(() => setSent(false), 4000);
   };
 
-  const inputCls = "w-full bg-background border border-border rounded-sm px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-primary transition-colors";
-  const labelCls = "block text-xs font-bold tracking-widest text-gray-500 uppercase mb-1.5";
+  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#4F7EB8] focus:outline-none transition-colors";
+  const inputStyle = { background: "#020C24", borderColor: "rgba(79,126,184,0.30)" };
+  const labelCls = "block text-xs font-bold tracking-widest uppercase mb-1.5";
 
   return (
-    <section id="quote" className="py-24 md:py-32 bg-card border-t border-border relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/15 via-transparent to-transparent" />
+    <section id="quote" className="py-24 md:py-32 border-t border-border relative overflow-hidden" style={{ background: "#071B45" }}>
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom left, rgba(214,28,35,0.07) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">{eyebrow}</h2>
+          <h2 className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#6FB5FF" }}>{eyebrow}</h2>
           <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h3>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
-          <p className="text-gray-400 max-w-xl mx-auto">{body}</p>
+          <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#4F7EB8" }} />
+          <p className="max-w-xl mx-auto" style={{ color: "#EAEAEA" }}>{body}</p>
         </div>
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-background border border-border rounded-sm p-8 flex flex-col gap-5"
+          className="rounded-sm p-8 flex flex-col gap-5"
+          style={{ background: "#020C24", border: "1px solid rgba(79,126,184,0.25)" }}
         >
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
-              <label className={labelCls}>{labels.name}</label>
-              <input type="text" required value={form.name} onChange={set("name")} className={inputCls} placeholder="John Smith" />
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.name}</label>
+              <input type="text" required value={form.name} onChange={set("name")} className={inputCls} style={inputStyle} placeholder="John Smith"
+                onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
             </div>
             <div>
-              <label className={labelCls}>{labels.phone}</label>
-              <input type="tel" required value={form.phone} onChange={set("phone")} className={inputCls} placeholder="(475) 000-0000" />
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label className={labelCls}>{labels.email}</label>
-              <input type="email" value={form.email} onChange={set("email")} className={inputCls} placeholder="you@email.com" />
-            </div>
-            <div>
-              <label className={labelCls}>{labels.vehicle}</label>
-              <input type="text" required value={form.vehicle} onChange={set("vehicle")} className={inputCls} placeholder="2020 Toyota Camry" />
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.phone}</label>
+              <input type="tel" required value={form.phone} onChange={set("phone")} className={inputCls} style={inputStyle} placeholder="(475) 000-0000"
+                onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
-              <label className={labelCls}>{labels.service}</label>
-              <select required value={form.service} onChange={set("service")} className={inputCls}>
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.email}</label>
+              <input type="email" value={form.email} onChange={set("email")} className={inputCls} style={inputStyle} placeholder="you@email.com"
+                onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
+            </div>
+            <div>
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.vehicle}</label>
+              <input type="text" required value={form.vehicle} onChange={set("vehicle")} className={inputCls} style={inputStyle} placeholder="2020 Toyota Camry"
+                onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.service}</label>
+              <select required value={form.service} onChange={set("service")} className={inputCls} style={{ ...inputStyle, color: form.service ? "#FFFFFF" : "#4F7EB8" }}>
                 <option value="">{lang === "es" ? "Selecciona un servicio" : "Select a service"}</option>
                 {serviceOptions.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div>
-              <label className={labelCls}>{labels.date}</label>
-              <input type="date" value={form.date} onChange={set("date")} className={inputCls} />
+              <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.date}</label>
+              <input type="date" value={form.date} onChange={set("date")} className={inputCls} style={inputStyle}
+                onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
             </div>
           </div>
           <div>
-            <label className={labelCls}>{labels.message}</label>
-            <textarea value={form.message} onChange={set("message")} rows={4} className={`${inputCls} resize-none`} placeholder={lang === "es" ? "Información adicional sobre tu vehículo o servicio..." : "Any additional details about your vehicle or service needed..."} />
+            <label className={labelCls} style={{ color: "#4F7EB8" }}>{labels.message}</label>
+            <textarea value={form.message} onChange={set("message")} rows={4}
+              className={`${inputCls} resize-none`} style={inputStyle}
+              placeholder={lang === "es" ? "Información adicional sobre tu vehículo..." : "Any additional details about your vehicle or service..."}
+              onFocus={e => (e.currentTarget.style.borderColor = "#D61C23")}
+              onBlur={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)")} />
           </div>
           <button
             type="submit"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-green-600 hover:bg-green-500 text-white font-bold tracking-widest uppercase transition-colors rounded-sm text-sm disabled:opacity-60"
+            className="flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase transition-colors rounded-sm text-sm"
+            style={{ background: "#D61C23" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = "#8E0D13")}
+            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = "#D61C23")}
           >
             {sent
-              ? (lang === "es" ? "✓ Enviado — Redirigiendo a WhatsApp…" : "✓ Sent — Opening WhatsApp…")
+              ? (lang === "es" ? "✓ Enviado — Abriendo WhatsApp…" : "✓ Sent — Opening WhatsApp…")
               : (<><Send className="w-4 h-4" /> {labels.submit}</>)}
           </button>
-          <p className="text-center text-xs text-gray-600">
+          <p className="text-center text-xs" style={{ color: "#4F7EB8" }}>
             {lang === "es"
               ? "Al enviar, se abrirá WhatsApp con tu solicitud pre-escrita."
               : "Submitting will open WhatsApp with your request pre-filled for easy sending."}
