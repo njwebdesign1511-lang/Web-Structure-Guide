@@ -1,6 +1,7 @@
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Phone, Mail, Instagram } from "lucide-react";
+import logoImg from "@/assets/images/logo.png";
 
 const WaIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className ?? "w-4 h-4 fill-current"} xmlns="http://www.w3.org/2000/svg">
@@ -24,8 +25,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <a href="#home" className="text-2xl font-display font-bold text-white tracking-wider flex items-center gap-2 mb-3">
-              ALBERT<span style={{ color: "#D61C23" }}>AUTO</span>
+            <a href="#home" className="flex items-center mb-3">
+              <img src={logoImg} alt="Albert Auto Detailing" className="h-20 w-auto object-contain" />
             </a>
             <p className="text-sm tracking-widest uppercase mb-4" style={{ color: "#4F7EB8" }}>Est. 2023 · Norwalk, CT</p>
             <p className="text-sm leading-relaxed mb-1" style={{ color: "#EAEAEA" }}>{tagline}</p>
