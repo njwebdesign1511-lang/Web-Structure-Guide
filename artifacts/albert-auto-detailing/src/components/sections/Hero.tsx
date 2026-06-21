@@ -11,67 +11,41 @@ const WaIcon = () => (
 );
 
 const SLIDES = [
-  {
-    url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=85",
-    brand: "Porsche",
-    accent: "#D61C23",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1920&q=85",
-    brand: "BMW",
-    accent: "#6FB5FF",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=85",
-    brand: "Ferrari",
-    accent: "#D61C23",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1920&q=85",
-    brand: "Lamborghini",
-    accent: "#6FB5FF",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1920&q=85",
-    brand: "Mercedes-AMG",
-    accent: "#EAEAEA",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=1920&q=85",
-    brand: "Acura",
-    accent: "#D61C23",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1920&q=85",
-    brand: "Honda CRV",
-    accent: "#6FB5FF",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=85",
-    brand: "Pickup Truck",
-    accent: "#EAEAEA",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1920&q=85",
-    brand: "Truck",
-    accent: "#D61C23",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1920&q=85",
-    brand: "Nissan",
-    accent: "#6FB5FF",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1920&q=85",
-    brand: "Toyota",
-    accent: "#EAEAEA",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1920&q=85",
-    brand: "Chevrolet",
-    accent: "#D61C23",
-  },
+  { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=85", brand: "Porsche" },
+  { url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=85", brand: "BMW" },
+  { url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=85", brand: "Ferrari" },
+  { url: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=800&q=85", brand: "Lamborghini" },
+  { url: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=85", brand: "Mercedes-AMG" },
+  { url: "https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=800&q=85", brand: "Acura" },
+  { url: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=85", brand: "Honda CRV" },
+  { url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85", brand: "Pickup Truck" },
+  { url: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=800&q=85", brand: "Truck" },
+  { url: "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=85", brand: "Nissan" },
+  { url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=85", brand: "Toyota" },
+  { url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=85", brand: "Chevrolet" },
 ];
+
+const N = SLIDES.length;
+
+function mod(n: number, m: number) {
+  return ((n % m) + m) % m;
+}
+
+// Returns the position data for each visible card based on its offset from center
+function getCardProps(offset: number) {
+  const abs = Math.abs(offset);
+  if (abs > 2) return null; // don't render cards farther than 2 positions
+
+  const rotateY  = offset * 48;                 // degrees: -96, -48, 0, 48, 96
+  const translateZ = abs === 0 ? 120 : abs === 1 ? -30 : -120; // push center forward
+  const translateX = offset * 52;               // % horizontal spread
+  const scale    = abs === 0 ? 1 : abs === 1 ? 0.78 : 0.58;
+  const opacity  = abs === 0 ? 1 : abs === 1 ? 0.65 : 0.30;
+  const zIndex   = 20 - abs * 8;
+  const brightness = abs === 0 ? 1 : abs === 1 ? 0.6 : 0.35;
+
+  return { rotateY, translateZ, translateX, scale, opacity, zIndex, brightness };
+}
 
 export default function Hero() {
   const { content } = useContent();
@@ -88,213 +62,231 @@ export default function Hero() {
   const btn2    = lang === "es" ? t.hero.viewServices : h.btn2;
   const btn3    = lang === "es" ? t.hero.contactUs    : h.btn3;
 
-  const c = content.contact as any;
+  const c        = content.contact as any;
   const waNumber = c?.whatsapp ?? "14756898301";
   const waText   = c?.whatsappText ?? "Hi! I'd like to book a detailing service.";
 
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
 
-  const goTo = useCallback((idx: number) => {
-    setDirection(idx > current ? 1 : -1);
-    setCurrent(idx);
-  }, [current]);
-
-  const next = useCallback(() => {
-    setDirection(1);
-    setCurrent(p => (p + 1) % SLIDES.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setDirection(-1);
-    setCurrent(p => (p - 1 + SLIDES.length) % SLIDES.length);
-  }, []);
+  const next = useCallback(() => setCurrent(p => mod(p + 1, N)), []);
+  const prev = useCallback(() => setCurrent(p => mod(p - 1, N)), []);
 
   useEffect(() => {
-    const id = setInterval(next, 3200);
+    const id = setInterval(next, 3000);
     return () => clearInterval(id);
   }, [next]);
 
-  const slide = SLIDES[current];
+  // Build the 5 visible card indices: [-2, -1, 0, +1, +2]
+  const visibleOffsets = [-2, -1, 0, 1, 2];
 
   return (
-    <section id="home" className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden" style={{ background: "#020C24" }}>
+    <section
+      id="home"
+      className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #020C24 0%, #041535 50%, #071B45 100%)" }}
+    >
+      {/* Background radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(79,126,184,0.08) 0%, transparent 70%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 30% 50%, rgba(214,28,35,0.05) 0%, transparent 70%)" }} />
 
-      {/* ── Carousel background ── */}
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          key={current}
-          custom={direction}
-          variants={{
-            enter: (d: number) => ({ opacity: 0, scale: 1.04, x: d > 0 ? 60 : -60 }),
-            center: { opacity: 1, scale: 1, x: 0 },
-            exit:  (d: number) => ({ opacity: 0, scale: 0.98, x: d > 0 ? -60 : 60 }),
-          }}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="absolute inset-0 z-0"
-        >
-          <img
-            src={slide.url}
-            alt={slide.brand}
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Multi-layer elegant overlay */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(2,12,36,0.97) 0%, rgba(2,12,36,0.80) 40%, rgba(2,12,36,0.35) 70%, rgba(2,12,36,0.10) 100%)" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(2,12,36,0.80) 0%, transparent 40%)" }} />
-        </motion.div>
-      </AnimatePresence>
+      {/* Elegant left border line */}
+      <div className="absolute left-0 top-0 bottom-0 w-px pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, rgba(214,28,35,0.50) 35%, rgba(214,28,35,0.50) 65%, transparent)" }} />
 
-      {/* ── Elegant decorative line ── */}
-      <div className="absolute left-0 top-0 bottom-0 w-px z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(214,28,35,0.60) 30%, rgba(214,28,35,0.60) 70%, transparent 100%)" }} />
-
-      {/* ── Main content ── */}
       <div className="container mx-auto px-6 md:px-10 relative z-10 w-full">
-        <div className="max-w-2xl">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-4 items-center min-h-[calc(100dvh-5rem)]">
 
-          {/* Brand badge — changes with slide */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`badge-${current}`}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.4 }}
-              className="flex items-center gap-3 mb-6"
+          {/* ── Left: Text ── */}
+          <div className="flex flex-col justify-center py-12">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-6" style={{ background: "#D61C23" }} />
+              <span className="text-xs font-bold tracking-[0.25em] uppercase" style={{ color: "#D61C23" }}>{badge}</span>
+            </div>
+
+            <motion.h1
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="font-bold text-white leading-[1.05] mb-5"
+              style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
             >
-              <div className="h-px w-8" style={{ background: slide.accent }} />
-              <span className="text-xs font-bold tracking-[0.25em] uppercase" style={{ color: slide.accent }}>
-                {slide.brand}
-              </span>
-              <div className="h-px w-8" style={{ background: slide.accent }} />
-            </motion.div>
-          </AnimatePresence>
+              {line1}<br />
+              <span style={{ color: "rgba(234,234,234,0.50)" }}>{line2}</span><br />
+              <span style={{ color: "#D61C23" }}>{line3_1}</span>{" "}{line3_2}
+            </motion.h1>
 
-          <div className="inline-block px-4 py-1.5 mb-6 font-bold tracking-widest text-xs uppercase" style={{ border: "1px solid rgba(214,28,35,0.40)", background: "rgba(214,28,35,0.08)", color: "#D61C23", letterSpacing: "0.18em" }}>
-            {badge}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="origin-left mb-5"
+              style={{ height: "1px", background: "linear-gradient(to right, rgba(214,28,35,0.65), rgba(79,126,184,0.25), transparent)", width: "75%" }}
+            />
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-base md:text-lg mb-8 max-w-md italic font-light"
+              style={{ color: "rgba(234,234,234,0.75)", fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            >
+              {tagline}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="flex flex-col sm:flex-row gap-3 flex-wrap"
+            >
+              <a
+                href="#quote"
+                className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm text-center transition-colors"
+                style={{ background: "#D61C23" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+              >{btn1}</a>
+              <a
+                href="#services"
+                className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm text-center transition-all"
+                style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.18)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.38)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.18)"; }}
+              >{btn2}</a>
+              <a
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
+                target="_blank" rel="noopener noreferrer"
+                className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm flex items-center justify-center gap-2 transition-all"
+                style={{ background: "rgba(79,126,184,0.20)", border: "1px solid rgba(79,126,184,0.40)" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.40)")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.20)")}
+              ><WaIcon /> {btn3}</a>
+            </motion.div>
           </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="font-bold text-white mb-6 leading-[1.05]"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
-          >
-            {line1}<br />
-            <span style={{ color: "rgba(234,234,234,0.55)" }}>{line2}</span><br />
-            <span style={{ color: "#D61C23" }}>{line3_1}</span>{" "}{line3_2}
-          </motion.h1>
+          {/* ── Right: 3D Spinning Carousel ── */}
+          <div className="flex flex-col items-center justify-center py-12">
+            {/* Brand label */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`brand-${current}`}
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center gap-3 mb-6"
+              >
+                <div className="h-px w-8" style={{ background: "#D61C23" }} />
+                <span className="text-xs font-bold tracking-[0.25em] uppercase" style={{ color: "#D61C23" }}>
+                  {SLIDES[current].brand}
+                </span>
+                <div className="h-px w-8" style={{ background: "#D61C23" }} />
+              </motion.div>
+            </AnimatePresence>
 
-          {/* Elegant thin separator */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="origin-left mb-6"
-            style={{ height: "1px", background: "linear-gradient(to right, rgba(214,28,35,0.70), rgba(79,126,184,0.30), transparent)", width: "80%" }}
-          />
+            {/* 3D Coverflow stage */}
+            <div
+              className="relative w-full flex items-center justify-center"
+              style={{ height: "300px", perspective: "1200px", perspectiveOrigin: "50% 50%" }}
+            >
+              {visibleOffsets.map(offset => {
+                const idx = mod(current + offset, N);
+                const props = getCardProps(offset);
+                if (!props) return null;
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl mb-10 max-w-xl font-light italic"
-            style={{ color: "rgba(234,234,234,0.80)", fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: "0.02em" }}
-          >
-            {tagline}
-          </motion.p>
+                return (
+                  <motion.div
+                    key={`card-${idx}`}
+                    animate={{
+                      rotateY: props.rotateY,
+                      translateZ: props.translateZ,
+                      x: `${props.translateX}%`,
+                      scale: props.scale,
+                      opacity: props.opacity,
+                    }}
+                    transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="absolute cursor-pointer"
+                    style={{
+                      width: "200px",
+                      height: "260px",
+                      zIndex: props.zIndex,
+                      transformStyle: "preserve-3d",
+                    }}
+                    onClick={() => setCurrent(idx)}
+                  >
+                    <div
+                      className="w-full h-full overflow-hidden"
+                      style={{
+                        borderRadius: "4px",
+                        border: offset === 0 ? "1px solid rgba(214,28,35,0.55)" : "1px solid rgba(79,126,184,0.20)",
+                        boxShadow: offset === 0
+                          ? "0 20px 60px rgba(0,0,0,0.70), 0 0 30px rgba(214,28,35,0.20)"
+                          : "0 8px 24px rgba(0,0,0,0.50)",
+                        filter: `brightness(${props.brightness})`,
+                      }}
+                    >
+                      <img
+                        src={SLIDES[idx].url}
+                        alt={SLIDES[idx].brand}
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                      />
+                      {/* Reflection gradient at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: "linear-gradient(to top, rgba(2,12,36,0.80), transparent)" }} />
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 flex-wrap"
-          >
-            <a
-              href="#quote"
-              className="group relative px-8 py-3.5 text-white font-bold tracking-[0.15em] uppercase text-sm text-center overflow-hidden transition-all"
-              style={{ background: "#D61C23" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
-            >
-              {btn1}
-            </a>
-            <a
-              href="#services"
-              className="px-8 py-3.5 text-white font-bold tracking-[0.15em] uppercase text-sm text-center transition-all"
-              style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.20)" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.40)"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.20)"; }}
-            >
-              {btn2}
-            </a>
-            <a
-              href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 text-white font-bold tracking-[0.15em] uppercase text-sm text-center flex items-center justify-center gap-2 transition-all"
-              style={{ background: "rgba(79,126,184,0.25)", border: "1px solid rgba(79,126,184,0.45)" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.45)")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.25)")}
-            >
-              <WaIcon /> {btn3}
-            </a>
-          </motion.div>
+            {/* Controls */}
+            <div className="flex items-center gap-4 mt-8">
+              <button
+                onClick={prev}
+                className="w-8 h-8 flex items-center justify-center transition-all"
+                style={{ border: "1px solid rgba(255,255,255,0.18)", background: "rgba(2,12,36,0.50)", color: "rgba(255,255,255,0.55)", borderRadius: "2px" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.25)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(214,28,35,0.55)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.50)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.55)"; }}
+              ><ChevronLeft size={15} /></button>
+
+              {/* Dot indicators */}
+              <div className="flex gap-1.5">
+                {SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    style={{
+                      width: i === current ? "20px" : "5px",
+                      height: "3px",
+                      background: i === current ? "#D61C23" : "rgba(255,255,255,0.22)",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "all 0.3s",
+                      borderRadius: "2px",
+                    }}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={next}
+                className="w-8 h-8 flex items-center justify-center transition-all"
+                style={{ border: "1px solid rgba(255,255,255,0.18)", background: "rgba(2,12,36,0.50)", color: "rgba(255,255,255,0.55)", borderRadius: "2px" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.25)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(214,28,35,0.55)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.50)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.55)"; }}
+              ><ChevronRight size={15} /></button>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* ── Slide controls ── */}
-      <div className="absolute bottom-10 right-8 md:right-12 z-20 flex flex-col items-end gap-5">
-        {/* Dot indicators */}
-        <div className="flex gap-2">
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className="transition-all"
-              style={{
-                width: i === current ? "28px" : "6px",
-                height: "3px",
-                background: i === current ? "#D61C23" : "rgba(255,255,255,0.30)",
-                border: "none",
-                cursor: "pointer",
-              }}
-            />
-          ))}
-        </div>
-        {/* Arrow controls */}
-        <div className="flex gap-2">
-          <button
-            onClick={prev}
-            className="w-9 h-9 flex items-center justify-center transition-all"
-            style={{ border: "1px solid rgba(255,255,255,0.20)", background: "rgba(2,12,36,0.50)", color: "rgba(255,255,255,0.60)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.30)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(214,28,35,0.60)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.50)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.20)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.60)"; }}
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            onClick={next}
-            className="w-9 h-9 flex items-center justify-center transition-all"
-            style={{ border: "1px solid rgba(255,255,255,0.20)", background: "rgba(2,12,36,0.50)", color: "rgba(255,255,255,0.60)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.30)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(214,28,35,0.60)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.50)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.20)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.60)"; }}
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
-      </div>
-
-      {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "rgba(255,255,255,0.30)" }}>Scroll</span>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+        <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          style={{ width: "1px", height: "32px", background: "linear-gradient(to bottom, rgba(214,28,35,0.70), transparent)" }}
+          style={{ width: "1px", height: "28px", background: "linear-gradient(to bottom, rgba(214,28,35,0.65), transparent)" }}
         />
       </div>
     </section>
