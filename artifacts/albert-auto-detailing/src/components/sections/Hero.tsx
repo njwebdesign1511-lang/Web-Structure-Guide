@@ -36,6 +36,41 @@ const SLIDES = [
     brand: "Mercedes-AMG",
     accent: "#EAEAEA",
   },
+  {
+    url: "https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=1920&q=85",
+    brand: "Acura",
+    accent: "#D61C23",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1920&q=85",
+    brand: "Honda CRV",
+    accent: "#6FB5FF",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=85",
+    brand: "Pickup Truck",
+    accent: "#EAEAEA",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1920&q=85",
+    brand: "Truck",
+    accent: "#D61C23",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1920&q=85",
+    brand: "Nissan",
+    accent: "#6FB5FF",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1920&q=85",
+    brand: "Toyota",
+    accent: "#EAEAEA",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1920&q=85",
+    brand: "Chevrolet",
+    accent: "#D61C23",
+  },
 ];
 
 export default function Hero() {
@@ -76,7 +111,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const id = setInterval(next, 5500);
+    const id = setInterval(next, 3200);
     return () => clearInterval(id);
   }, [next]);
 
