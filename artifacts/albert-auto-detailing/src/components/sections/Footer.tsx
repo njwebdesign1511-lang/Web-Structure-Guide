@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <a href="#home" className="flex items-center mb-3">
-              <img src={logoImg} alt="Albert Auto Detailing" className="h-20 w-auto object-contain" />
+              <img src={logoImg} alt="Albert Auto Detailing" className="h-28 w-auto object-contain drop-shadow-lg" />
             </a>
             <p className="text-sm tracking-widest uppercase mb-4" style={{ color: "#4F7EB8" }}>Est. 2023 · Norwalk, CT</p>
             <p className="text-sm leading-relaxed mb-1" style={{ color: "#EAEAEA" }}>{tagline}</p>

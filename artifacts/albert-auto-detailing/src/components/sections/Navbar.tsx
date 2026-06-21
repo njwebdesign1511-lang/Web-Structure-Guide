@@ -44,7 +44,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a href="#home" className="flex items-center">
-          <img src={logoImg} alt="Albert Auto Detailing" className="h-14 md:h-16 w-auto object-contain" />
+          <img src={logoImg} alt="Albert Auto Detailing" className="h-16 md:h-20 w-auto object-contain drop-shadow-lg" />
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {links.map((link) => (
