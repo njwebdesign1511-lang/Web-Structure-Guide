@@ -3,7 +3,6 @@ import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContent } from "@/contexts/ContentContext";
-import logoImg from "@/assets/images/logo.png";
 
 const WaIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +43,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a href="#home" className="flex items-center">
-          <img src={logoImg} alt="Albert Auto Detailing" className="h-16 md:h-20 w-auto object-contain drop-shadow-lg" />
+          <span className="font-display font-bold text-white text-sm tracking-widest uppercase leading-tight">Albert<br/>Auto Detailing</span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {links.map((link) => (
