@@ -96,8 +96,7 @@ export default function Contact() {
               <div className="w-16 h-16 rounded-full flex items-center justify-center mb-5 transition-colors" style={method.iconStyle}>
                 <method.Icon />
               </div>
-              <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{method.title}</h4>
-              <p className="mb-5 text-xs break-all" style={{ color: "#4F7EB8" }}>{method.value}</p>
+              <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wide">{method.title}</h4>
               <span className="text-primary font-bold text-xs tracking-widest uppercase group-hover:text-white transition-colors mt-auto">
                 {method.actionText} →
               </span>
