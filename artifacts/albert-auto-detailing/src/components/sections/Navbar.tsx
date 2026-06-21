@@ -55,13 +55,13 @@ export default function Navbar() {
           <button
             onClick={toggle}
             className="flex items-center gap-1.5 transition-colors rounded-sm px-3 py-1.5 text-xs font-bold tracking-widest uppercase"
-            style={{ color: "#6FB5FF", border: "1px solid rgba(79,126,184,0.35)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(79,126,184,0.70)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#6FB5FF"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(79,126,184,0.35)"; }}
+            style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
             aria-label="Switch language"
           >
-            <Globe size={15} />
-            {lang === "en" ? "ES" : "EN"}
+            <Globe size={14} style={{ color: "#6FB5FF" }} />
+            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
+            <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.65rem" }}>|</span>
+            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
           </button>
           <a
             href={waHref}
@@ -79,11 +79,13 @@ export default function Navbar() {
           <button
             onClick={toggle}
             className="flex items-center gap-1 text-xs font-bold tracking-widest uppercase rounded-sm px-2 py-1.5"
-            style={{ color: "#6FB5FF", border: "1px solid rgba(79,126,184,0.35)" }}
+            style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
             aria-label="Switch language"
           >
-            <Globe size={13} />
-            {lang === "en" ? "ES" : "EN"}
+            <Globe size={12} style={{ color: "#6FB5FF" }} />
+            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
+            <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.6rem" }}>|</span>
+            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
           </button>
           <button className="text-white p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
