@@ -26,7 +26,7 @@ export default function Testimonials() {
   if (active.length === 0) return null;
 
   return (
-    <section id="testimonials" className="py-24 md:py-32 border-b border-border relative overflow-hidden" style={{ background: "#020C24" }}>
+    <section id="testimonials" className="py-24 md:py-32 border-b border-border relative overflow-hidden" style={{ background: "#041535" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(79,126,184,0.10) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">

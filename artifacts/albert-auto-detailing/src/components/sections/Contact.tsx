@@ -68,7 +68,7 @@ export default function Contact() {
   ].filter(m => m.show);
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#071B45" }}>
+    <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#0D2D6B" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom, rgba(214,28,35,0.08) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 md:mb-24">

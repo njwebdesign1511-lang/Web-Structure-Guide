@@ -14,7 +14,7 @@ export default function Promotions() {
   const activeItems = Array.isArray(items) ? items : [];
 
   return (
-    <section id="promotions" className="py-16 border-y relative overflow-hidden" style={{ background: "linear-gradient(135deg, #071B45 0%, #020C24 50%, #071B45 100%)", borderColor: "#4F7EB8" + "33" }}>
+    <section id="promotions" className="py-16 border-y relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0D2D6B 0%, #041535 50%, #0D2D6B 100%)", borderColor: "rgba(79,126,184,0.50)" }}>
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at top, rgba(214,28,35,0.08) 0%, transparent 70%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-10">

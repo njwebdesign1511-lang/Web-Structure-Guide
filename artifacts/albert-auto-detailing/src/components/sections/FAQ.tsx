@@ -22,7 +22,7 @@ export default function FAQ() {
   const c = content.contact as any;
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#020C24" }}>
+    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#041535" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>

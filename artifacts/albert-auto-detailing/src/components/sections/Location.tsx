@@ -23,7 +23,7 @@ export default function Location() {
   const mapSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
   return (
-    <section id="location" className="py-24 md:py-32 border-t border-border relative" style={{ background: "#020C24" }}>
+    <section id="location" className="py-24 md:py-32 border-t border-border relative" style={{ background: "#041535" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>

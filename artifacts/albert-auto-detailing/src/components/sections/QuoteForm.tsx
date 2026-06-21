@@ -67,7 +67,7 @@ export default function QuoteForm() {
   const labelCls = "block text-xs font-bold tracking-widest uppercase mb-1.5";
 
   return (
-    <section id="quote" className="py-24 md:py-32 border-t border-border relative overflow-hidden" style={{ background: "#071B45" }}>
+    <section id="quote" className="py-24 md:py-32 border-t border-border relative overflow-hidden" style={{ background: "#0D2D6B" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom left, rgba(214,28,35,0.07) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
         <div className="text-center mb-12">

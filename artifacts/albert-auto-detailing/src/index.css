@@ -41,12 +41,12 @@
   --color-destructive-border: var(--destructive-border);
 
   /* ── Albert Auto Detailing brand palette ── */
-  --color-navy:     #020C24;   /* Deep Navy Blue  – main background     */
-  --color-midnight: #071B45;   /* Midnight Blue   – cards, secondary bg  */
-  --color-metallic: #4F7EB8;   /* Metallic Blue   – borders, details     */
-  --color-electric: #6FB5FF;   /* Electric Blue   – icons, highlights    */
-  --color-red-cta:  #D61C23;   /* Performance Red – primary CTA          */
-  --color-red-dark: #8E0D13;   /* Dark Racing Red – hover, shadows       */
+  --color-navy:     #020C24;
+  --color-midnight: #071B45;
+  --color-metallic: #4F7EB8;
+  --color-electric: #6FB5FF;
+  --color-red-cta:  #D61C23;
+  --color-red-dark: #8E0D13;
 
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Syncopate', sans-serif;
@@ -58,62 +58,55 @@
 }
 
 :root {
-  /* ── Background: Deep Navy Blue #020C24 ── */
-  --background: 222 89% 7%;
+  /* Slightly lighter navy for more luminosity */
+  --background: 222 70% 10%;
   --foreground: 0 0% 100%;
 
-  /* ── Cards: Midnight Blue #071B45 ── */
-  --card: 220 82% 15%;
+  /* Brighter card blue */
+  --card: 220 65% 18%;
   --card-foreground: 0 0% 100%;
-  --card-border: 213 40% 22%;
+  --card-border: 213 50% 35%;
 
-  --popover: 220 82% 15%;
+  --popover: 220 65% 18%;
   --popover-foreground: 0 0% 100%;
-  --popover-border: 213 40% 22%;
+  --popover-border: 213 50% 35%;
 
-  /* ── Primary: Performance Red #D61C23 ── */
-  --primary: 358 77% 47%;
+  /* Performance Red */
+  --primary: 358 80% 50%;
   --primary-foreground: 0 0% 100%;
 
-  /* ── Secondary: Midnight Blue #071B45 ── */
-  --secondary: 220 82% 15%;
+  /* Midnight Blue */
+  --secondary: 220 65% 18%;
   --secondary-foreground: 0 0% 100%;
 
-  /* ── Muted ── */
-  --muted: 220 60% 12%;
-  --muted-foreground: 0 0% 92%;   /* Soft White #EAEAEA */
+  --muted: 220 50% 15%;
+  --muted-foreground: 0 0% 95%;
 
-  /* ── Accent: Electric Blue #6FB5FF ── */
+  /* Electric Blue */
   --accent: 211 100% 72%;
-  --accent-foreground: 222 89% 7%;
+  --accent-foreground: 222 70% 10%;
 
-  /* ── Destructive ── */
-  --destructive: 358 77% 35%;
+  --destructive: 358 80% 40%;
   --destructive-foreground: 0 0% 100%;
 
-  /* ── Borders & inputs: dark metallic blue ── */
-  --border: 213 40% 22%;
-  --input: 220 82% 15%;
-  --ring: 358 77% 47%;
+  /* Brighter metallic blue borders */
+  --border: 213 50% 32%;
+  --input: 220 65% 18%;
+  --ring: 358 80% 50%;
 
   --radius: 0.5rem;
 
-  --button-outline: rgba(255,255,255, .08);
-  --badge-outline: rgba(255,255,255, .04);
+  --button-outline: rgba(255,255,255, .12);
+  --badge-outline: rgba(255,255,255, .06);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .03);
-  --elevate-2: rgba(255,255,255, .07);
+  --elevate-1: rgba(255,255,255, .05);
+  --elevate-2: rgba(255,255,255, .10);
 
-  /* Fallbacks */
   --primary-border: hsl(var(--primary));
   --secondary-border: hsl(var(--secondary));
   --muted-border: hsl(var(--muted));
   --accent-border: hsl(var(--accent));
   --destructive-border: hsl(var(--destructive));
-}
-
-.dark {
-  /* Same as root */
 }
 
 @layer base {
@@ -122,10 +115,29 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground scroll-smooth;
-    background: linear-gradient(180deg, #020C24 0%, #071B45 100%);
+    /* Brighter gradient: lighter navy to vivid midnight blue */
+    background: linear-gradient(180deg, #041535 0%, #0D2D6B 100%);
     background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight uppercase;
+  }
+}
+
+/* ── Luminous glow effects ── */
+@layer utilities {
+  .glow-red {
+    box-shadow: 0 0 20px rgba(214, 28, 35, 0.45), 0 0 60px rgba(214, 28, 35, 0.15);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(111, 181, 255, 0.35), 0 0 60px rgba(111, 181, 255, 0.10);
+  }
+  .glow-border-red {
+    border-color: rgba(214, 28, 35, 0.60) !important;
+    box-shadow: 0 0 12px rgba(214, 28, 35, 0.25);
+  }
+  .glow-border-blue {
+    border-color: rgba(111, 181, 255, 0.55) !important;
+    box-shadow: 0 0 12px rgba(111, 181, 255, 0.20);
   }
 }
