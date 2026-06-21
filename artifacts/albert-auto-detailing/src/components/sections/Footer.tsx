@@ -47,7 +47,7 @@ export default function Footer() {
                   onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
                 >
                   <WaIcon className="w-4 h-4 fill-current" />
-                  <span>WhatsApp: {c.phone}</span>
+                  <span>WhatsApp</span>
                 </a>
               )}
               {c?.phone && (
@@ -57,7 +57,7 @@ export default function Footer() {
                   onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
                 >
                   <Phone className="w-4 h-4" />
-                  <span>{c.phone}</span>
+                  <span>{lang === "es" ? "Teléfono" : "Phone"}</span>
                 </a>
               )}
               {c?.email && (
@@ -67,7 +67,7 @@ export default function Footer() {
                   onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
                 >
                   <Mail className="w-4 h-4" />
-                  <span>{c.email}</span>
+                  <span>{lang === "es" ? "Correo" : "Email"}</span>
                 </a>
               )}
               {c?.instagram && (
@@ -78,7 +78,7 @@ export default function Footer() {
                   onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
                 >
                   <Instagram className="w-4 h-4" />
-                  <span>@{c.instagram}</span>
+                  <span>Instagram</span>
                 </a>
               )}
             </div>
