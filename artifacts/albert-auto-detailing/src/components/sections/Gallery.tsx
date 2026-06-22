@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
-import { createPortal } from "react-dom";
+import {
+  useRef, useState, useEffect, useCallback, type RefObject,
+} from "react";
+import { motion } from "framer-motion";
 import gallery1 from "@/assets/images/gallery-1.png";
 import gallery2 from "@/assets/images/gallery-2.png";
 import gallery3 from "@/assets/images/gallery-3.png";
@@ -9,144 +9,367 @@ import gallery4 from "@/assets/images/gallery-4.png";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const imageSrcs = [gallery1, gallery2, gallery3, gallery4];
+// ─── Types ────────────────────────────────────────────────────────────────────
+interface Pair {
+  id: number | string;
+  title: string;
+  titleEs?: string;
+  description?: string;
+  descriptionEs?: string;
+  beforeSrc: string;
+  afterSrc: string;
+  beforeAlt?: string;
+  afterAlt?: string;
+  visible?: boolean;
+}
 
-function Lightbox({ images, alts, index, onClose }: {
-  images: string[]; alts: string[]; index: number; onClose: () => void;
-}) {
-  const [current, setCurrent] = useState(index);
+// ─── Default pairs using existing gallery images ───────────────────────────────
+const DEFAULT_PAIRS: Pair[] = [
+  {
+    id: "d1",
+    title: "Paint Correction",
+    titleEs: "Corrección de Pintura",
+    description: "Professional paint correction restoring the vehicle to showroom condition.",
+    descriptionEs: "Corrección de pintura profesional, restaurando cada panel a condición de showroom.",
+    beforeSrc: gallery1,
+    afterSrc: gallery2,
+    beforeAlt: "Vehicle before paint correction - Albert Auto Detailing Norwalk CT",
+    afterAlt: "Vehicle after paint correction - Albert Auto Detailing Norwalk CT",
+    visible: true,
+  },
+  {
+    id: "d2",
+    title: "Interior Detail",
+    titleEs: "Detailing Interior",
+    description: "Deep interior cleaning — every surface, crevice, and fabric restored to spotless condition.",
+    descriptionEs: "Limpieza interior profunda — cada superficie, grieta y tela restaurada a condición impecable.",
+    beforeSrc: gallery3,
+    afterSrc: gallery4,
+    beforeAlt: "Car interior before deep cleaning - Albert Auto Detailing",
+    afterAlt: "Car interior after deep cleaning - Albert Auto Detailing",
+    visible: true,
+  },
+];
 
-  const prev = () => setCurrent(i => (i - 1 + images.length) % images.length);
-  const next = () => setCurrent(i => (i + 1) % images.length);
+// ─── Before/After Card ────────────────────────────────────────────────────────
+interface CardProps {
+  pair: Pair;
+  lang: string;
+  isAnimating: boolean;
+  onAnimationEnd: () => void;
+  loading?: "eager" | "lazy";
+}
 
+function BeforeAfterCard({ pair, lang, isAnimating, onAnimationEnd, loading }: CardProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState(50);               // 0-100 percent
+  const [animating, setAnimating] = useState(false); // CSS transition active
+  const userInteracted = useRef(false);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const isDraggingRef = useRef(false);
+  const touchDir = useRef<"h" | "v" | null>(null);
+  const touchStart = useRef({ x: 0, y: 0 });
+
+  const clearTimers = () => { timers.current.forEach(clearTimeout); timers.current = []; };
+
+  // ── Sequential auto-animation ────────────────────────────────────────────────
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    };
-    window.addEventListener("keydown", handler);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", handler);
-      document.body.style.overflow = "";
-    };
+    if (!isAnimating) return;
+
+    if (userInteracted.current) {
+      onAnimationEnd();
+      return;
+    }
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { onAnimationEnd(); return; }
+
+    setAnimating(true);
+    setPos(50);
+
+    // 50 → 20 (show before)
+    const t1 = setTimeout(() => {
+      if (userInteracted.current) { setAnimating(false); onAnimationEnd(); return; }
+      setPos(20);
+
+      // 20 → 80 (show after)
+      const t2 = setTimeout(() => {
+        if (userInteracted.current) { setAnimating(false); onAnimationEnd(); return; }
+        setPos(80);
+
+        // 80 → 50 (center)
+        const t3 = setTimeout(() => {
+          if (userInteracted.current) { setAnimating(false); onAnimationEnd(); return; }
+          setPos(50);
+
+          // done
+          const t4 = setTimeout(() => {
+            setAnimating(false);
+            onAnimationEnd();
+          }, 1800);
+          timers.current.push(t4);
+        }, 1800);
+        timers.current.push(t3);
+      }, 1800);
+      timers.current.push(t2);
+    }, 80); // tiny delay so transition kicks in
+    timers.current.push(t1);
+
+    return clearTimers;
+  }, [isAnimating]);
+
+  // ── Position helpers ─────────────────────────────────────────────────────────
+  const posFromClient = (clientX: number) => {
+    if (!containerRef.current) return 50;
+    const r = containerRef.current.getBoundingClientRect();
+    return Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
+  };
+
+  const stopAnim = useCallback((clientX: number) => {
+    userInteracted.current = true;
+    isDraggingRef.current = true;
+    clearTimers();
+    setAnimating(false);
+    setPos(posFromClient(clientX));
   }, []);
 
-  return createPortal(
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center"
-        style={{ background: "rgba(2,12,36,0.96)", backdropFilter: "blur(8px)" }}
-        onClick={onClose}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Gallery image viewer"
+  // ── Mouse events ─────────────────────────────────────────────────────────────
+  const onMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    stopAnim(e.clientX);
+
+    const onMove = (ev: MouseEvent) => setPos(posFromClient(ev.clientX));
+    const onUp   = () => {
+      isDraggingRef.current = false;
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  };
+
+  // ── Touch events ─────────────────────────────────────────────────────────────
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+    touchDir.current = null;
+    stopAnim(t.clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    if (touchDir.current === null) {
+      const dx = Math.abs(t.clientX - touchStart.current.x);
+      const dy = Math.abs(t.clientY - touchStart.current.y);
+      touchDir.current = dx >= dy ? "h" : "v";
+    }
+    if (touchDir.current === "h") {
+      e.preventDefault();
+      setPos(posFromClient(t.clientX));
+    } else {
+      isDraggingRef.current = false;
+    }
+  };
+
+  const onTouchEnd = () => { isDraggingRef.current = false; };
+
+  // ── Keyboard support ─────────────────────────────────────────────────────────
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    e.preventDefault();
+    userInteracted.current = true;
+    clearTimers();
+    setAnimating(false);
+    setPos(p => Math.max(0, Math.min(100, p + (e.key === "ArrowLeft" ? -5 : 5))));
+  };
+
+  const easing = "1.8s cubic-bezier(0.22, 1, 0.36, 1)";
+  const tr = animating ? easing : "none";
+  const clipBefore = `inset(0 ${100 - pos}% 0 0)`;
+
+  const beforeLabel = lang === "es" ? "ANTES"   : "BEFORE";
+  const afterLabel  = lang === "es" ? "DESPUÉS"  : "AFTER";
+  const title       = (lang === "es" && pair.titleEs) ? pair.titleEs : pair.title;
+  const desc        = (lang === "es" && pair.descriptionEs) ? pair.descriptionEs : pair.description;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="flex flex-col gap-3"
+    >
+      {/* Title */}
+      <h3 className="text-white font-bold text-base tracking-wide">{title}</h3>
+
+      {/* Slider */}
+      <div
+        ref={containerRef}
+        className="relative overflow-hidden rounded-lg select-none"
+        style={{
+          aspectRatio: "4/3",
+          cursor: "col-resize",
+          border: "1px solid rgba(79,126,184,0.20)",
+          touchAction: "pan-y", // allow vertical scroll by default; we override for horizontal drags
+        }}
+        onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+        role="slider"
+        aria-label={`${title} — before and after comparison. Use arrow keys or drag to compare.`}
+        aria-valuenow={Math.round(pos)}
+        aria-valuemin={0}
+        aria-valuemax={100}
       >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-          style={{ background: "rgba(255,255,255,0.08)", color: "white" }}
-          aria-label="Close gallery"
-        >
-          <X size={20} />
-        </button>
+        {/* AFTER image — base layer, full width */}
+        <img
+          src={pair.afterSrc}
+          alt={pair.afterAlt ?? `${title} — after`}
+          loading={loading}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          draggable={false}
+        />
 
-        {/* Counter */}
+        {/* BEFORE image — clipped to show only left portion */}
+        <img
+          src={pair.beforeSrc}
+          alt={pair.beforeAlt ?? `${title} — before`}
+          loading={loading}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{
+            clipPath: clipBefore,
+            transition: animating ? `clip-path ${tr}` : "none",
+          }}
+          draggable={false}
+        />
+
+        {/* Divider line */}
         <div
-          className="absolute top-4 left-1/2 -translate-x-1/2 z-10 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
-          style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.60)" }}
+          className="absolute top-0 bottom-0 pointer-events-none"
+          style={{
+            left: `${pos}%`,
+            transform: "translateX(-50%)",
+            width: "2px",
+            background: "rgba(255,255,255,0.90)",
+            boxShadow: "0 0 8px rgba(0,0,0,0.50)",
+            transition: animating ? `left ${tr}` : "none",
+            zIndex: 10,
+          }}
+        />
+
+        {/* Handle circle */}
+        <div
+          className="absolute top-1/2 pointer-events-none flex items-center justify-center"
+          style={{
+            left: `${pos}%`,
+            transform: "translate(-50%, -50%)",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            background: "white",
+            boxShadow: "0 2px 16px rgba(0,0,0,0.45)",
+            border: "2px solid rgba(214,28,35,0.40)",
+            transition: animating ? `left ${tr}` : "none",
+            zIndex: 11,
+          }}
         >
-          {current + 1} / {images.length}
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+            <path d="M7 10l-4 0M7 10l-2-2M7 10l-2 2M13 10l4 0M13 10l2-2M13 10l2 2" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </div>
 
-        {/* Prev button */}
-        {images.length > 1 && (
-          <button
-            onClick={e => { e.stopPropagation(); prev(); }}
-            className="absolute left-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-            style={{ background: "rgba(255,255,255,0.08)", color: "white" }}
-            aria-label="Previous image"
-          >
-            <ChevronLeft size={20} />
-          </button>
-        )}
-
-        {/* Image */}
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.25 }}
-          className="max-w-5xl w-full max-h-[85vh] mx-16 flex items-center justify-center"
-          onClick={e => e.stopPropagation()}
+        {/* BEFORE label */}
+        <div
+          className="absolute top-3 left-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
+          style={{
+            background: "rgba(2,12,36,0.75)",
+            color: "#EAEAEA",
+            backdropFilter: "blur(4px)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            zIndex: 9,
+          }}
         >
-          <img
-            src={images[current]}
-            alt={alts[current] ?? `Gallery ${current + 1}`}
-            className="max-w-full max-h-[85vh] object-contain rounded-sm"
-            style={{ boxShadow: "0 24px 80px rgba(0,0,0,0.60)" }}
-          />
-        </motion.div>
-
-        {/* Next button */}
-        {images.length > 1 && (
-          <button
-            onClick={e => { e.stopPropagation(); next(); }}
-            className="absolute right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-            style={{ background: "rgba(255,255,255,0.08)", color: "white" }}
-            aria-label="Next image"
-          >
-            <ChevronRight size={20} />
-          </button>
-        )}
-
-        {/* Dots */}
-        <div className="absolute bottom-6 flex items-center gap-2">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={e => { e.stopPropagation(); setCurrent(i); }}
-              className="rounded-full transition-all"
-              style={{
-                width: i === current ? "20px" : "8px",
-                height: "8px",
-                background: i === current ? "#D61C23" : "rgba(255,255,255,0.25)",
-              }}
-              aria-label={`Go to image ${i + 1}`}
-            />
-          ))}
+          {beforeLabel}
         </div>
-      </motion.div>
-    </AnimatePresence>,
-    document.body
+
+        {/* AFTER label */}
+        <div
+          className="absolute top-3 right-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
+          style={{
+            background: "rgba(214,28,35,0.80)",
+            color: "white",
+            backdropFilter: "blur(4px)",
+            zIndex: 9,
+          }}
+        >
+          {afterLabel}
+        </div>
+      </div>
+
+      {/* Optional description */}
+      {desc && (
+        <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+      )}
+    </motion.div>
   );
 }
 
+// ─── Gallery section ──────────────────────────────────────────────────────────
 export default function Gallery() {
   const { content } = useContent();
   const { lang, t } = useLanguage();
   const g = content.gallery;
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [animatingCard, setAnimatingCard] = useState<number | null>(null);
+  const hasAnimated = useRef(false);
 
   const eyebrow = lang === "es" ? t.gallery.eyebrow : g.eyebrow;
   const heading  = lang === "es" ? t.gallery.heading  : g.heading;
   const body     = lang === "es" ? t.gallery.body     : g.body;
-  const alts: string[] = lang === "es" ? [...t.gallery.alts] : [
-    "Professional Ceramic Coating in Norwalk CT - Albert Auto Detailing",
-    "Auto Detailing Before and After - Norwalk Connecticut",
-    "Interior Car Detailing Service - Fairfield County CT",
-    "Exterior Car Detailing and Paint Correction Norwalk CT",
-  ];
+
+  // Merge default pairs with any user-added content pairs
+  const contentPairs: Pair[] = ((content as any).beforeAfterPairs ?? []) as Pair[];
+  const allPairs: Pair[] = [
+    ...DEFAULT_PAIRS,
+    ...contentPairs.filter(p => p.beforeSrc && p.afterSrc),
+  ].filter(p => p.visible !== false);
+
+  // ── Intersection observer triggers sequential animation ──────────────────────
+  useEffect(() => {
+    if (allPairs.length === 0) return;
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          setAnimatingCard(0);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [allPairs.length]);
+
+  const onCardAnimationEnd = useCallback((idx: number) => {
+    setAnimatingCard(prev => (prev === idx ? idx + 1 : prev));
+  }, []);
+
+  const hint = lang === "es"
+    ? "Arrastra el control para comparar el antes y el después"
+    : "Drag the handle to compare before & after";
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-background relative">
+    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,54 +383,25 @@ export default function Gallery() {
           <p className="text-gray-400 max-w-2xl mx-auto">{body}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {imageSrcs.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group aspect-square md:aspect-[4/3] overflow-hidden rounded-sm bg-card border border-border cursor-pointer"
-              onClick={() => setLightboxIndex(index)}
-              role="button"
-              tabIndex={0}
-              aria-label={`View ${alts[index] ?? `gallery image ${index + 1}`} in full size`}
-              onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLightboxIndex(index); } }}
-            >
-              <img
-                src={src}
-                alt={alts[index] ?? `Gallery ${index + 1}`}
-                loading={index < 2 ? "eager" : "lazy"}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Zoom indicator */}
-              <div className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100"
-                style={{ background: "rgba(214,28,35,0.80)", backdropFilter: "blur(4px)" }}>
-                <ZoomIn size={14} className="text-white" />
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-xs font-medium truncate" aria-hidden="true">{alts[index]}</p>
-              </div>
-            </motion.div>
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {allPairs.map((pair, idx) => (
+            <BeforeAfterCard
+              key={pair.id}
+              pair={pair}
+              lang={lang}
+              isAnimating={animatingCard === idx}
+              onAnimationEnd={() => onCardAnimationEnd(idx)}
+              loading={idx === 0 ? "eager" : "lazy"}
+            />
           ))}
         </div>
 
-        {/* Hint text */}
-        <p className="text-center text-xs mt-6" style={{ color: "rgba(79,126,184,0.50)" }}>
-          {lang === "es" ? "Haz clic en cualquier imagen para verla en tamaño completo" : "Click any image to view full size"}
+        {/* Hint */}
+        <p className="text-center text-xs mt-8" style={{ color: "rgba(79,126,184,0.50)" }}>
+          {hint}
         </p>
       </div>
-
-      {lightboxIndex !== null && (
-        <Lightbox
-          images={imageSrcs}
-          alts={alts}
-          index={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-        />
-      )}
     </section>
   );
 }

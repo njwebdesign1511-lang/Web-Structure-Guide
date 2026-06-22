@@ -13,6 +13,7 @@ export type AdminSection =
   | "contact"
   | "sections"
   | "testimonials"
+  | "gallery"
   | "reviews"
   | "leads"
   | "seo"
@@ -33,6 +34,7 @@ const groups: { label: string; items: NavItem[] }[] = [
     items: [
       { id: "texts",        label: "Página Principal", icon: Type },
       { id: "services",     label: "Servicios",        icon: Settings },
+      { id: "gallery",      label: "Galería",          icon: MessageSquare },
       { id: "testimonials", label: "Testimonios",      icon: Star },
       { id: "sections",     label: "Secciones",        icon: Layers },
       { id: "style",        label: "Estilo",           icon: Palette },

@@ -1,0 +1,365 @@
+# MODIFICAR ÚNICAMENTE LA SECCIÓN “ANTES Y DESPUÉS”
+
+Quiero que la sección existente de **Antes y Después** de la página web de Premium Detailing funcione visualmente como el ejemplo del video que proporcioné.
+
+## INSTRUCCIÓN PRINCIPAL
+
+No cambies ninguna otra parte de la página web.
+
+No cambies:
+
+* Colores actuales
+* Tipografías
+* Logo
+* Navbar
+* Hero
+* Video principal
+* Servicios
+* Paquetes
+* Promociones
+* Formularios
+* Galería general
+* Testimonios
+* FAQ
+* Footer
+* Panel administrativo
+* Espaciados generales
+* Diseño móvil
+* Identidad visual
+
+Trabaja exclusivamente en la sección de **Antes y Después**.
+
+No reconstruyas la página y no agregues el video de referencia dentro de la web. El video solamente sirve como ejemplo del comportamiento visual que quiero.
+
+---
+
+# RESULTADO VISUAL QUE QUIERO
+
+La sección debe mostrar comparaciones reales de vehículos mediante tarjetas interactivas.
+
+Cada tarjeta debe contener:
+
+1. Un título corto sobre el trabajo realizado.
+2. Una fotografía del antes.
+3. Una fotografía del después.
+4. Ambas fotografías colocadas exactamente una sobre la otra.
+5. Una división vertical visible entre las dos imágenes.
+6. Un control circular en el centro de la división.
+7. Flechas dentro del control para indicar que puede moverse hacia ambos lados.
+8. Bordes redondeados.
+9. Una descripción corta debajo, solamente si la sección actual ya contiene descripciones.
+
+El usuario debe poder deslizar el control hacia la izquierda o hacia la derecha para descubrir el antes y el después.
+
+---
+
+# COMPORTAMIENTO INTERACTIVO
+
+## En computadora
+
+El usuario debe poder:
+
+* Hacer clic sobre el control circular.
+* Mantener presionado.
+* Arrastrarlo hacia la izquierda o hacia la derecha.
+* Soltarlo en cualquier posición.
+
+También debe funcionar al hacer clic directamente en cualquier parte de la imagen.
+
+## En celular y tablet
+
+El usuario debe poder:
+
+* Tocar el control.
+* Deslizarlo con el dedo.
+* Comparar las dos imágenes sin mover accidentalmente toda la página.
+* Seguir haciendo scroll vertical cuando no esté manipulando el comparador.
+
+Debe funcionar correctamente con:
+
+* Mouse
+* Trackpad
+* Pantalla táctil
+* Teclado, cuando sea posible
+
+---
+
+# ANIMACIÓN AUTOMÁTICA COMO EN EL VIDEO
+
+Cuando la sección aparezca por primera vez en la pantalla, cada tarjeta debe demostrar automáticamente cómo funciona.
+
+La animación debe ocurrir de forma secuencial:
+
+1. Se anima la primera tarjeta.
+2. Cuando termina, se anima la segunda.
+3. Después se anima la tercera.
+4. Continuar con las demás, si existen.
+
+No animes todas las tarjetas al mismo tiempo.
+
+## Movimiento recomendado
+
+Cada comparación debe:
+
+1. Comenzar aproximadamente en el centro, en 50%.
+2. Mover el divisor suavemente hacia un lado.
+3. Mostrar claramente una parte de la imagen completa.
+4. Regresar con suavidad al centro.
+5. Detenerse para permitir la interacción manual.
+
+La animación automática debe ejecutarse una sola vez cuando la sección entra en pantalla.
+
+No debe repetirse constantemente porque puede distraer al visitante.
+
+Si el usuario toca, hace clic o empieza a arrastrar una comparación, la animación automática de esa tarjeta debe detenerse inmediatamente y darle el control al usuario.
+
+---
+
+# FLUIDEZ DE LA ANIMACIÓN
+
+La animación debe verse:
+
+* Suave
+* Elegante
+* Profesional
+* Continua
+* Sin brincos
+* Sin cortes
+* Sin parpadeos
+* Sin congelamientos
+* Sin cambios bruscos de velocidad
+
+Usa una curva de movimiento suave, por ejemplo:
+
+```css
+cubic-bezier(0.22, 1, 0.36, 1)
+```
+
+La transición puede durar aproximadamente entre 1.5 y 2.5 segundos por movimiento.
+
+No utilices una animación excesivamente rápida.
+
+No uses JavaScript que actualice el componente de manera innecesaria en cada fotograma. Utiliza transformaciones y propiedades optimizadas para el navegador.
+
+---
+
+# DISTRIBUCIÓN DE LAS TARJETAS
+
+## Computadora
+
+Mantén una distribución similar al video:
+
+* Tres comparaciones por fila, cuando exista suficiente espacio.
+* Todas con el mismo tamaño.
+* Separación uniforme.
+* Títulos alineados.
+* Imágenes con la misma altura.
+* Controles alineados visualmente.
+
+## Tablet
+
+* Dos comparaciones por fila, cuando el espacio lo permita.
+
+## Celular
+
+* Una comparación por fila.
+* Ancho completo dentro del contenedor.
+* Sin desplazamiento horizontal accidental.
+* Control suficientemente grande para manipularlo con el dedo.
+
+No deformes las fotografías.
+
+Utiliza una proporción consistente y `object-fit: cover`.
+
+---
+
+# DISEÑO DEL CONTROL
+
+La línea divisora debe:
+
+* Ser fina y claramente visible.
+* Mantenerse encima de las dos fotografías.
+* Moverse exactamente con el control.
+* Llegar desde la parte superior hasta la parte inferior de la imagen.
+
+El control circular debe:
+
+* Estar centrado verticalmente.
+* Contener una flecha izquierda y una flecha derecha.
+* Tener buen contraste.
+* Tener una sombra suave.
+* Ser elegante y no demasiado grande.
+* Mantener el estilo visual actual de Premium Detailing.
+
+No cambies los colores globales de la web.
+
+Utiliza los colores existentes de la marca para adaptar el control.
+
+---
+
+# ETIQUETAS “ANTES” Y “DESPUÉS”
+
+Agrega dentro de cada comparación dos etiquetas pequeñas y discretas:
+
+* **ANTES**
+* **DESPUÉS**
+
+La etiqueta “ANTES” debe aparecer en el lado correspondiente a la fotografía original.
+
+La etiqueta “DESPUÉS” debe aparecer en el lado correspondiente al resultado final.
+
+Las etiquetas deben:
+
+* Ser legibles.
+* No cubrir partes importantes del vehículo.
+* Adaptarse al idioma actual de la página.
+* Mostrar “BEFORE / AFTER” en inglés.
+* Mostrar “ANTES / DESPUÉS” en español.
+
+Si el sitio cambia de idioma, las etiquetas también deben cambiar correctamente.
+
+---
+
+# IMÁGENES
+
+Usa únicamente las parejas de imágenes reales que ya existen en la página o en el panel administrativo.
+
+No inventes imágenes.
+
+No utilices fotografías generadas por IA.
+
+No intercambies accidentalmente el antes y el después.
+
+Cada pareja debe mostrar:
+
+* El mismo vehículo.
+* El mismo ángulo o uno lo más parecido posible.
+* La fotografía original a un lado.
+* El resultado terminado al otro.
+
+Las dos imágenes deben ocupar exactamente el mismo espacio para evitar saltos al mover el divisor.
+
+Si alguna comparación no tiene las dos imágenes necesarias, no publiques esa tarjeta hasta que se cargue el par completo.
+
+---
+
+# PANEL ADMINISTRATIVO
+
+Si la sección de Antes y Después se administra desde el panel, permite que el administrador pueda:
+
+* Agregar una nueva comparación.
+* Subir la imagen del antes.
+* Subir la imagen del después.
+* Escribir el título.
+* Escribir una descripción opcional.
+* Elegir el orden.
+* Mostrar u ocultar la comparación.
+* Editar una comparación.
+* Eliminar una comparación.
+
+Antes de publicar una tarjeta, valida que tenga ambas imágenes.
+
+No permitas que una tarjeta se publique solamente con una fotografía.
+
+No elimines ninguna función que ya exista en el panel.
+
+---
+
+# ACCESIBILIDAD
+
+El comparador debe:
+
+* Tener texto alternativo descriptivo en ambas imágenes.
+* Poder identificarse como una comparación de antes y después.
+* Tener un nombre accesible para el control.
+* Mostrar un estado de enfoque visible.
+* Respetar `prefers-reduced-motion`.
+
+Cuando el usuario tenga activada la opción de reducir movimiento:
+
+* No ejecutes la demostración automática.
+* Mantén disponible el control manual.
+
+Ejemplo:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  /* Desactivar la animación automática */
+}
+```
+
+---
+
+# RENDIMIENTO
+
+Las comparaciones deben cargar rápidamente.
+
+Implementa:
+
+* Imágenes optimizadas en WebP o AVIF cuando sea posible.
+* Conservación del archivo original como respaldo.
+* `loading="lazy"` para tarjetas fuera de la primera pantalla.
+* Ancho y alto definidos para evitar movimientos bruscos.
+* Carga anticipada solamente de la primera comparación visible.
+* Sin librerías grandes si el efecto puede hacerse con el código actual.
+
+No sacrifiques la calidad hasta que las fotografías se vean borrosas.
+
+---
+
+# REGLAS IMPORTANTES
+
+1. No reemplaces la sección con un video.
+2. No crees una animación falsa sin interacción.
+3. El control debe poder arrastrarse realmente.
+4. No animes todas las tarjetas al mismo tiempo.
+5. No reproduzcas la animación de manera infinita.
+6. No cambies el resto de la página.
+7. No dupliques la sección existente.
+8. No elimines fotografías actuales.
+9. No inventes contenido.
+10. No publiques comparaciones incompletas.
+11. No permitas que el efecto provoque movimientos bruscos en la página.
+12. No afectes el scroll normal del celular.
+13. No cambies el diseño general para adaptar el componente.
+14. Adapta el componente al diseño que ya existe.
+
+---
+
+# PRUEBAS OBLIGATORIAS
+
+Antes de terminar, verifica:
+
+* Arrastre con mouse.
+* Arrastre con trackpad.
+* Arrastre con el dedo.
+* Funcionamiento en iPhone.
+* Funcionamiento en Android.
+* Funcionamiento en Chrome.
+* Funcionamiento en Safari.
+* Funcionamiento en Edge.
+* Traducción EN/ES.
+* Animación secuencial.
+* Detención de la animación al interactuar.
+* Ausencia de saltos.
+* Ausencia de imágenes deformadas.
+* Ausencia de errores en consola.
+* Correcto funcionamiento del panel administrativo.
+* Correcta correspondencia entre cada antes y después.
+
+---
+
+# ENTREGA FINAL
+
+Al terminar, indícame:
+
+1. Qué componente modificaste.
+2. Qué archivos fueron modificados.
+3. Si utilizaste una librería o código propio.
+4. Cómo funciona la animación automática.
+5. Cómo se detiene cuando el usuario interactúa.
+6. Cómo se agregan nuevas comparaciones desde el panel.
+7. Qué pruebas realizaste en computadora y celular.
+8. Si quedó algún elemento pendiente.
+
+No realices cambios fuera de la sección de Antes y Después.

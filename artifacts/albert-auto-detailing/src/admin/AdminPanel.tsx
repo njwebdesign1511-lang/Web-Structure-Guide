@@ -9,6 +9,7 @@ import ContactEditor from "./sections/ContactEditor";
 import SectionsEditor from "./sections/SectionsEditor";
 import TestimonialsEditor from "./sections/TestimonialsEditor";
 import StyleEditor from "./sections/StyleEditor";
+import GalleryEditor from "./sections/GalleryEditor";
 import ReviewsManager from "./sections/ReviewsManager";
 import LeadsManager from "./sections/LeadsManager";
 import SeoEditor from "./sections/SeoEditor";
@@ -26,6 +27,7 @@ export default function AdminPanel() {
     services:     <ServicesEditor />,
     contact:      <ContactEditor />,
     sections:     <SectionsEditor />,
+    gallery:      <GalleryEditor />,
     testimonials: <TestimonialsEditor />,
     style:        <StyleEditor />,
     reviews:      <ReviewsManager />,
