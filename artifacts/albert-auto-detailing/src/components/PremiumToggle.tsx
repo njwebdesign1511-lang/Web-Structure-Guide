@@ -2,17 +2,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LogOut } from "lucide-react";
 import { usePremium } from "@/contexts/PremiumContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import PremiumLoginModal from "@/components/PremiumLoginModal";
 
 export default function PremiumToggle() {
   const { user, isLoggedIn, premiumMode, togglePremium, logout, openLoginModal } = usePremium();
+  const { lang } = useLanguage();
   const [confirmLogout, setConfirmLogout] = useState(false);
 
   const buttonLabel = !isLoggedIn
-    ? "Iniciar sesión para Premium"
+    ? (lang === "es" ? "Iniciar sesión para Premium" : "Sign In for Premium")
     : premiumMode
     ? `✦ ${user?.name ?? "Premium"}`
-    : `Activar Premium`;
+    : (lang === "es" ? "Activar Premium" : "Enable Premium");
 
   return (
     <>
@@ -61,8 +63,8 @@ export default function PremiumToggle() {
                 className="premium-logout-btn"
                 whileHover={{ scale: 1.18 }}
                 whileTap={{ scale: 0.88 }}
-                aria-label="Cerrar sesión"
-                title="Cerrar sesión"
+                aria-label={lang === "es" ? "Cerrar sesión" : "Sign out"}
+                title={lang === "es" ? "Cerrar sesión" : "Sign out"}
               >
                 <LogOut size={11} />
               </motion.button>
@@ -76,14 +78,16 @@ export default function PremiumToggle() {
                     transition={{ duration: 0.18 }}
                     className="premium-logout-confirm"
                   >
-                    <p>¿Cerrar sesión?</p>
+                    <p>{lang === "es" ? "¿Cerrar sesión?" : "Sign out?"}</p>
                     <div className="premium-logout-confirm-btns">
                       <button
                         onClick={() => { logout(); setConfirmLogout(false); }}
                       >
-                        Sí
+                        {lang === "es" ? "Sí" : "Yes"}
                       </button>
-                      <button onClick={() => setConfirmLogout(false)}>No</button>
+                      <button onClick={() => setConfirmLogout(false)}>
+                        {lang === "es" ? "No" : "No"}
+                      </button>
                     </div>
                   </motion.div>
                 )}

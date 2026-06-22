@@ -3,11 +3,13 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import { usePremium } from "@/contexts/PremiumContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Tab = "login" | "register";
 
 export default function PremiumLoginModal() {
   const { showLoginModal, closeLoginModal, login, register } = usePremium();
+  const { lang } = useLanguage();
 
   const [tab, setTab]             = useState<Tab>("login");
   const [name, setName]           = useState("");
@@ -27,7 +29,6 @@ export default function PremiumLoginModal() {
     return () => clearTimeout(t);
   }, [showLoginModal]);
 
-  // Reset form when switching tabs
   useEffect(() => {
     setError(""); setName(""); setEmail(""); setPassword(""); setShowPw(false);
     setTimeout(() => emailRef.current?.focus(), 80);
@@ -39,6 +40,26 @@ export default function PremiumLoginModal() {
     return () => window.removeEventListener("keydown", fn);
   }, [showLoginModal, closeLoginModal]);
 
+  const t = {
+    title:         lang === "es" ? "Experiencia Premium"                                    : "Premium Experience",
+    subtitleLogin: lang === "es" ? "Inicia sesión para activar efectos visuales exclusivos" : "Sign in to activate exclusive visual effects",
+    subtitleReg:   lang === "es" ? "Crea tu cuenta para acceder a la experiencia premium"   : "Create your account to access the premium experience",
+    tabLogin:      lang === "es" ? "Iniciar Sesión"   : "Sign In",
+    tabRegister:   lang === "es" ? "Crear Cuenta"     : "Create Account",
+    namePh:        lang === "es" ? "Tu nombre"        : "Your name",
+    emailPh:       lang === "es" ? "Tu email"         : "Your email",
+    pwPh:          lang === "es" ? "Contraseña"       : "Password",
+    pwRegPh:       lang === "es" ? "Contraseña (mín. 6 caracteres)" : "Password (min. 6 characters)",
+    submitLogin:   lang === "es" ? "✨ Iniciar Sesión" : "✨ Sign In",
+    submitReg:     lang === "es" ? "✨ Crear Cuenta"   : "✨ Create Account",
+    processing:    lang === "es" ? "Procesando…"      : "Processing…",
+    errFields:     lang === "es" ? "Completa todos los campos"                          : "Please fill in all fields",
+    errPwLen:      lang === "es" ? "La contraseña debe tener al menos 6 caracteres"    : "Password must be at least 6 characters",
+    errUnknown:    lang === "es" ? "Error desconocido"                                  : "Unknown error",
+    closeLabel:    lang === "es" ? "Cerrar"           : "Close",
+    togglePw:      lang === "es" ? "Mostrar u ocultar contraseña" : "Show or hide password",
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
@@ -48,16 +69,16 @@ export default function PremiumLoginModal() {
     let result: { ok: boolean; error?: string };
 
     if (tab === "login") {
-      if (!email || !password) { setError("Completa todos los campos"); setLoading(false); return; }
+      if (!email || !password) { setError(t.errFields); setLoading(false); return; }
       result = await login(email, password);
     } else {
-      if (!name || !email || !password) { setError("Completa todos los campos"); setLoading(false); return; }
-      if (password.length < 6) { setError("La contraseña debe tener al menos 6 caracteres"); setLoading(false); return; }
+      if (!name || !email || !password) { setError(t.errFields); setLoading(false); return; }
+      if (password.length < 6) { setError(t.errPwLen); setLoading(false); return; }
       result = await register(name, email, password);
     }
 
     setLoading(false);
-    if (!result.ok) setError(result.error ?? "Error desconocido");
+    if (!result.ok) setError(result.error ?? t.errUnknown);
   };
 
   return createPortal(
@@ -79,18 +100,16 @@ export default function PremiumLoginModal() {
             className="premium-login-card"
             onClick={e => e.stopPropagation()}
           >
-            <button className="premium-login-close" onClick={closeLoginModal} aria-label="Cerrar">
+            <button className="premium-login-close" onClick={closeLoginModal} aria-label={t.closeLabel}>
               <X size={15} />
             </button>
 
             {/* Header */}
             <div className="premium-login-header">
               <div className="premium-login-icon">✨</div>
-              <h2 className="premium-login-title">Experiencia Premium</h2>
+              <h2 className="premium-login-title">{t.title}</h2>
               <p className="premium-login-subtitle">
-                {tab === "login"
-                  ? "Inicia sesión para activar efectos visuales exclusivos"
-                  : "Crea tu cuenta para acceder a la experiencia premium"}
+                {tab === "login" ? t.subtitleLogin : t.subtitleReg}
               </p>
             </div>
 
@@ -101,14 +120,14 @@ export default function PremiumLoginModal() {
                 onClick={() => setTab("login")}
                 type="button"
               >
-                Iniciar Sesión
+                {t.tabLogin}
               </button>
               <button
                 className={`premium-login-tab${tab === "register" ? " active" : ""}`}
                 onClick={() => setTab("register")}
                 type="button"
               >
-                Crear Cuenta
+                {t.tabRegister}
               </button>
             </div>
 
@@ -131,7 +150,7 @@ export default function PremiumLoginModal() {
                         value={name}
                         onChange={e => setName(e.target.value)}
                         className="premium-login-input"
-                        placeholder="Tu nombre"
+                        placeholder={t.namePh}
                         autoComplete="name"
                       />
                     </div>
@@ -146,7 +165,7 @@ export default function PremiumLoginModal() {
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       className="premium-login-input"
-                      placeholder="Tu email"
+                      placeholder={t.emailPh}
                       autoComplete="email"
                     />
                   </div>
@@ -159,14 +178,14 @@ export default function PremiumLoginModal() {
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       className="premium-login-input"
-                      placeholder={tab === "register" ? "Contraseña (mín. 6 caracteres)" : "Contraseña"}
+                      placeholder={tab === "register" ? t.pwRegPh : t.pwPh}
                       autoComplete={tab === "login" ? "current-password" : "new-password"}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPw(s => !s)}
                       className="premium-login-eye"
-                      aria-label="Mostrar u ocultar contraseña"
+                      aria-label={t.togglePw}
                     >
                       {showPw ? <EyeOff size={13} /> : <Eye size={13} />}
                     </button>
@@ -193,11 +212,7 @@ export default function PremiumLoginModal() {
                 disabled={loading}
                 className="premium-login-submit"
               >
-                {loading
-                  ? "Procesando…"
-                  : tab === "login"
-                    ? "✨ Iniciar Sesión"
-                    : "✨ Crear Cuenta"}
+                {loading ? t.processing : tab === "login" ? t.submitLogin : t.submitReg}
               </button>
             </form>
           </motion.div>

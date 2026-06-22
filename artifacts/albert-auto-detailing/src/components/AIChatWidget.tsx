@@ -133,7 +133,7 @@ export default function AIChatWidget() {
         const copy = [...prev];
         copy[copy.length - 1] = {
           role: "assistant",
-          content: "Lo siento, hubo un error. Por favor intenta de nuevo.",
+          content: lang === "es" ? "Lo siento, hubo un error. Por favor intenta de nuevo." : "Sorry, an error occurred. Please try again.",
         };
         return copy;
       });
@@ -158,7 +158,7 @@ export default function AIChatWidget() {
         className="ai-chat-fab"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
-        aria-label="Abrir asistente IA"
+        aria-label={lang === "es" ? "Abrir asistente IA" : "Open AI assistant"}
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
@@ -173,7 +173,9 @@ export default function AIChatWidget() {
           </motion.span>
         </AnimatePresence>
         <span className="ai-chat-fab-label">
-          {open ? "Cerrar" : "Asistente IA"}
+          {open
+            ? (lang === "es" ? "Cerrar" : "Close")
+            : (lang === "es" ? "Asistente IA" : "AI Assistant")}
         </span>
         {!open && unread && <span className="ai-chat-unread" />}
       </motion.button>
@@ -194,11 +196,11 @@ export default function AIChatWidget() {
                 <ChatGPTIcon size={16} />
               </div>
               <div className="ai-chat-header-info">
-                <span className="ai-chat-header-name">Asistente IA</span>
+                <span className="ai-chat-header-name">{lang === "es" ? "Asistente IA" : "AI Assistant"}</span>
                 <span className="ai-chat-header-sub">Albert Auto Detailing</span>
               </div>
-              <div className="ai-chat-header-dot" title="En línea" />
-              <button className="ai-chat-close" onClick={() => setOpen(false)} aria-label="Cerrar">
+              <div className="ai-chat-header-dot" title={lang === "es" ? "En línea" : "Online"} />
+              <button className="ai-chat-close" onClick={() => setOpen(false)} aria-label={lang === "es" ? "Cerrar" : "Close"}>
                 <X size={15} />
               </button>
             </div>
@@ -239,7 +241,7 @@ export default function AIChatWidget() {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Escribe tu pregunta…"
+                placeholder={lang === "es" ? "Escribe tu pregunta…" : "Type your question…"}
                 className="ai-chat-input"
                 rows={1}
                 disabled={streaming}
