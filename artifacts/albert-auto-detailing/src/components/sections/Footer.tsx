@@ -115,12 +115,12 @@ export default function Footer() {
               {lang === "es" ? "Servicios" : "Services"}
             </h4>
             <div className="flex flex-col gap-2">
-              {["Interior & Exterior Wash","Paint Correction","Ceramic Coating","Headlight Restoration","Engine Cleaning","Leather Protection","Stain Removal"].map(s => (
-                <a key={s} href="#services" className="text-sm transition-colors"
+              {t.services.items.slice(0, 7).map(svc => (
+                <a key={svc.title} href="#services" className="text-sm transition-colors"
                   style={{ color: "#ffffff" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#cccccc")}
                   onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#ffffff")}
-                >{s}</a>
+                >{svc.title}</a>
               ))}
             </div>
           </div>

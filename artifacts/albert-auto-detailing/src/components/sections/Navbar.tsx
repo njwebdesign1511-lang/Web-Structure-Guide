@@ -22,7 +22,7 @@ export default function Navbar() {
     { name: t.nav.about, href: "#about" },
     { name: t.nav.services, href: "#services" },
     { name: t.nav.gallery, href: "#gallery" },
-    { name: "FAQ", href: "#faq" },
+    { name: t.nav.faq, href: "#faq" },
     { name: t.nav.contact, href: "#contact" },
   ];
 

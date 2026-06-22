@@ -8,6 +8,7 @@ export const translations = {
       services: "Services",
       mobile: "Mobile",
       gallery: "Gallery",
+      faq: "FAQ",
       contact: "Contact",
       bookNow: "Get Quote",
     },
@@ -42,6 +43,7 @@ export const translations = {
         { title: "Leather Protection", description: "Deep conditioning and protection treatment that restores suppleness, color, and durability to leather surfaces." },
         { title: "Stain Removal", description: "Advanced treatment to eliminate tough stains from upholstery, carpets, and surfaces — results guaranteed." },
       { title: "Full Detailing Package", description: "The complete treatment — interior deep clean, exterior wash, paint correction, and protection — all in one premium package." },
+        { title: "Dash Cam Installation", description: "Professional dash cam installation for your vehicle's safety and security monitoring on every drive." },
       ],
     },
     promotions: {
@@ -160,6 +162,7 @@ export const translations = {
       services: "Servicios",
       mobile: "Móvil",
       gallery: "Galería",
+      faq: "Preguntas",
       contact: "Contacto",
       bookNow: "Cotización",
     },
@@ -194,6 +197,7 @@ export const translations = {
         { title: "Protección de Cuero", description: "Tratamiento de acondicionamiento y protección profunda que restaura la suavidad, color y durabilidad del cuero." },
         { title: "Eliminación de Manchas", description: "Tratamiento avanzado para eliminar manchas difíciles en tapicería, alfombras y superficies — resultados garantizados." },
         { title: "Paquete Completo de Detailing", description: "El tratamiento completo — limpieza profunda interior, lavado exterior, corrección de pintura y protección — todo en un paquete premium." },
+        { title: "Instalación de Dash Cam", description: "Instalación profesional de cámara dash cam para la seguridad y monitoreo de tu vehículo en cada viaje." },
       ],
     },
     promotions: {
