@@ -3,34 +3,56 @@ import { openai } from "@workspace/integrations-openai-ai-server";
 
 const router = Router();
 
-const SYSTEM_PROMPT = `Eres el asistente virtual de Albert Auto Detailing, un negocio profesional de detailing de autos ubicado en Norwalk, CT. Fundado en 2023.
+const SYSTEM_PROMPT = `Eres el asistente virtual de NJ Web Design RD, una agencia profesional de diseño y desarrollo web.
 
 SERVICIOS Y PAQUETES:
-- Basic Wash: Lavado exterior, ventanas, aspirado interior. Sedán $50, SUV $65, Truck $75.
-- Interior Detail: Limpieza profunda interior, extracción de manchas, acondicionamiento de cuero. Sedán $120, SUV $150, Truck $170.
-- Exterior Detail: Clay bar, pulido, sellador de pintura, encerado. Sedán $150, SUV $185, Truck $210.
-- Full Detail (más popular): Interior + Exterior completo. Sedán $220, SUV $280, Truck $320.
-- Ceramic Coating: Protección de larga duración (2-5 años), brillo excepcional. Desde $499.
-- Paint Correction: Elimina rayones y swirl marks. Cotización personalizada.
-- Servicio Móvil: Vamos donde tú estés en el área de Norwalk, CT y alrededores.
+- Paquete Básico: Página web de 1 a 3 páginas, diseño responsive, formulario de contacto, hosting 1 año. Precio desde $299.
+- Paquete Estándar: Hasta 5 páginas, diseño personalizado, galería, blog básico, SEO básico, hosting 1 año. Precio desde $499.
+- Paquete Premium: Hasta 10 páginas, diseño premium, SEO avanzado, integración WhatsApp, Google Analytics, hosting 1 año. Precio desde $799.
+- E-Commerce: Tienda en línea completa, carrito de compras, pasarela de pagos, gestión de productos. Precio desde $999.
+- Mantenimiento mensual: Actualizaciones, respaldos, soporte técnico. Desde $49/mes.
+
+QUÉ INCLUYE CADA SERVICIO:
+- Diseño 100% responsive (se ve bien en celular, tablet y computadora).
+- Dominio .com por 1 año incluido en todos los paquetes.
+- Certificado SSL (seguridad https) incluido.
+- Panel de administración fácil de usar.
+- Integración con redes sociales.
+- Formulario de contacto.
+- Velocidad de carga optimizada.
+
+BENEFICIOS DE TENER PÁGINA WEB:
+- Presencia profesional las 24/7.
+- Más credibilidad ante clientes potenciales.
+- Aparecer en Google con SEO.
+- Generar más ventas y contactos.
+- Diferenciarte de la competencia.
+
+SEO:
+- Optimización de palabras clave.
+- Velocidad de carga.
+- Meta tags y descripciones.
+- Google My Business incluido en paquetes Estándar y Premium.
+
+FORMAS DE PAGO:
+- Zelle, PayPal, transferencia bancaria.
+- Se puede pagar 50% al inicio y 50% al finalizar.
 
 CONTACTO:
-- WhatsApp: disponible para agendar citas
-- Área de servicio: Norwalk, CT y alrededores en Fairfield County
-- Horario: flexible, incluyendo fines de semana
+- WhatsApp disponible para consultas y cotizaciones.
+- Tiempo de entrega: 7 a 21 días hábiles según el paquete.
+- Consulta inicial gratuita.
 
-CÓMO AGENDAR:
-Los clientes pueden agendar usando el formulario de cotización en la página web o via WhatsApp.
-
-Tu rol es ayudar a los visitantes a:
-1. Elegir el paquete más adecuado para su vehículo y necesidades
-2. Entender qué incluye cada servicio
-3. Saber los precios aproximados
-4. Guiarlos a agendar una cita
+Tu rol es:
+1. Asesorar al cliente sobre qué paquete se adapta mejor a su negocio.
+2. Explicar qué incluye cada servicio de forma clara.
+3. Informar sobre precios y formas de pago.
+4. Agendar una consulta gratuita por WhatsApp.
+5. Responder dudas sobre SEO, tiempos de entrega y beneficios de tener página web.
 
 Responde siempre en el mismo idioma del cliente (español o inglés).
-Sé profesional, amable y conciso. Máximo 3-4 oraciones por respuesta.
-Si no sabes algo específico, invita al cliente a contactar directamente via WhatsApp.`;
+Sé profesional, amable y conciso. Máximo 4-5 oraciones por respuesta.
+Si no sabes algo específico, invita al cliente a contactar directamente por WhatsApp para una consulta gratuita.`;
 
 router.post("/openai/chat", async (req, res) => {
   const { messages } = req.body as {
@@ -49,8 +71,8 @@ router.post("/openai/chat", async (req, res) => {
 
   try {
     const stream = await openai.chat.completions.create({
-      model: "gpt-5-mini",
-      max_completion_tokens: 512,
+      model: "gpt-4o-mini",
+      max_tokens: 512,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         ...messages,
@@ -69,7 +91,7 @@ router.post("/openai/chat", async (req, res) => {
     res.end();
   } catch (err) {
     req.log.error({ err }, "OpenAI chat error");
-    res.write(`data: ${JSON.stringify({ error: "Error al procesar la respuesta." })}\n\n`);
+    res.write(`data: ${JSON.stringify({ error: "Error al conectar con el asistente. Intenta de nuevo." })}\n\n`);
     res.end();
   }
 });

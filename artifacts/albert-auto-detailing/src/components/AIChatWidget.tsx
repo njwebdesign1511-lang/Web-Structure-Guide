@@ -25,7 +25,7 @@ interface Message {
 const WELCOME_MESSAGE: Message = {
   role: "assistant",
   content:
-    "Hola 👋 Soy el asistente virtual de Albert Auto Detailing. Puedo ayudarte a elegir el mejor paquete para tu vehículo o resolver tus dudas sobre nuestros servicios. ¿En qué puedo ayudarte?",
+    "Hola 👋 Soy el asistente virtual de NJ Web Design RD. Puedo ayudarte a elegir el paquete ideal para tu negocio, explicarte precios, qué incluye cada servicio, y cómo agendar tu consulta gratuita. ¿En qué puedo ayudarte?",
 };
 
 export default function AIChatWidget() {
