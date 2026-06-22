@@ -59,8 +59,9 @@ export default function Hero() {
   const line3_2 = lang === "es" ? t.hero.line3_2 : h.line3_2;
   const tagline = lang === "es" ? t.hero.tagline : h.tagline;
   const btn1    = lang === "es" ? t.hero.bookNow      : h.btn1;
-  const btn2    = lang === "es" ? t.hero.viewServices : h.btn2;
   const btn3    = lang === "es" ? t.hero.contactUs    : h.btn3;
+  const callNow = lang === "es" ? "Llamar Ahora"     : "Call Now";
+  const bookAppt = lang === "es" ? "Reservar Cita"   : "Book Appointment";
 
   const c        = content.contact as any;
   const waNumber = c?.whatsapp ?? "14756898301";
@@ -138,22 +139,35 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.55 }}
               className="flex flex-col sm:flex-row gap-3 flex-wrap"
             >
-              <a
-                href="#quote"
+              {/* Request a Quote — primary red */}
+              <a href="#quote"
                 className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm text-center transition-colors"
                 style={{ background: "#D61C23" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
               >{btn1}</a>
-              <a
-                href="#services"
+
+              {/* Book Appointment — outline */}
+              <a href="#quote"
                 className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm text-center transition-all"
-                style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.18)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.38)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.18)"; }}
-              >{btn2}</a>
-              <a
-                href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
+                style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.22)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.45)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.22)"; }}
+              >{bookAppt}</a>
+
+              {/* Call Now */}
+              <a href={`tel:${String((content.contact as any).phone ?? "4756898301").replace(/\D/g, "")}`}
+                className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm text-center transition-all flex items-center justify-center gap-2"
+                style={{ background: "transparent", border: "1px solid rgba(214,28,35,0.40)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.15)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.70)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.40)"; }}
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                {callNow}
+              </a>
+
+              {/* WhatsApp */}
+              <a href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
                 target="_blank" rel="noopener noreferrer"
                 className="px-7 py-3 text-white font-bold tracking-[0.14em] uppercase text-sm flex items-center justify-center gap-2 transition-all"
                 style={{ background: "rgba(79,126,184,0.20)", border: "1px solid rgba(79,126,184,0.40)" }}

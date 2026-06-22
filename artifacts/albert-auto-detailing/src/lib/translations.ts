@@ -41,6 +41,7 @@ export const translations = {
         { title: "Engine Cleaning", description: "Thorough engine bay degreasing and cleaning for a pristine engine that performs and looks its best." },
         { title: "Leather Protection", description: "Deep conditioning and protection treatment that restores suppleness, color, and durability to leather surfaces." },
         { title: "Stain Removal", description: "Advanced treatment to eliminate tough stains from upholstery, carpets, and surfaces — results guaranteed." },
+      { title: "Full Detailing Package", description: "The complete treatment — interior deep clean, exterior wash, paint correction, and protection — all in one premium package." },
       ],
     },
     promotions: {
@@ -192,6 +193,7 @@ export const translations = {
         { title: "Limpieza de Motor", description: "Desengrase y limpieza completa del compartimento del motor para un motor que luce y funciona en su mejor estado." },
         { title: "Protección de Cuero", description: "Tratamiento de acondicionamiento y protección profunda que restaura la suavidad, color y durabilidad del cuero." },
         { title: "Eliminación de Manchas", description: "Tratamiento avanzado para eliminar manchas difíciles en tapicería, alfombras y superficies — resultados garantizados." },
+        { title: "Paquete Completo de Detailing", description: "El tratamiento completo — limpieza profunda interior, lavado exterior, corrección de pintura y protección — todo en un paquete premium." },
       ],
     },
     promotions: {
@@ -244,12 +246,12 @@ export const translations = {
       eyebrow: "Preguntas Frecuentes",
       heading: "¿Tienes Preguntas?",
       items: [
-        { q: "¿Cuánto tarda un detailing completo?", a: "Un detailing completo interior y exterior tarda entre 3 y 5 horas según el tamaño y condición del vehículo." },
-        { q: "¿Ofrecen servicio móvil?", a: "¡Sí! Vamos a tu casa, trabajo o cualquier lugar en el área de Norwalk, CT. Solo comparte tu dirección al reservar." },
-        { q: "¿Cuánto cuesta el detailing?", a: "Ofrecemos cotizaciones personalizadas según tu vehículo y servicios necesarios. Contáctanos para un presupuesto gratis sin compromiso." },
-        { q: "¿Cada cuánto debo hacer detallar mi auto?", a: "Recomendamos un detailing completo cada 4–6 meses y un lavado de mantenimiento mensual para mantener tu vehículo en óptimas condiciones." },
-        { q: "¿Qué productos usan?", a: "Usamos exclusivamente productos premium de grado profesional, seguros para la pintura, interior y superficies de tu vehículo." },
-        { q: "¿Ofrecen recubrimiento cerámico?", a: "¡Sí! Nuestro recubrimiento cerámico ofrece protección duradera. Te recomendamos el mejor paquete para tu vehículo." },
+        { q: "¿Ofrecen cotizaciones personalizadas?", a: "¡Sí! Ofrecemos cotizaciones personalizadas gratuitas y sin compromiso. Contáctanos por WhatsApp, teléfono o nuestro formulario y adaptamos un paquete a tu vehículo." },
+        { q: "¿Cómo puedo reservar una cita?", a: "Puedes reservar por WhatsApp al 475-689-8301, llamarnos directamente o completar nuestro formulario en línea. Confirmamos tu cita rápidamente." },
+        { q: "¿Muestran precios en la página?", a: "No mostramos precios fijos porque cada vehículo y servicio es único. Contáctanos para una cotización gratuita y personalizada — sin compromiso." },
+        { q: "¿Qué servicios ofrecen?", a: "Ofrecemos lavado interior y exterior, corrección de pintura, recubrimiento cerámico, restauración de faros, limpieza de motor, protección de cuero, eliminación de manchas y paquetes completos de detailing." },
+        { q: "¿Dónde están ubicados?", a: "Estamos en 12 Jenny Jenks St, Norwalk, Connecticut 06851. También ofrecemos servicio móvil en Norwalk, Stamford, Bridgeport y áreas cercanas de CT." },
+        { q: "¿Puedo contactarlos por WhatsApp?", a: "¡Por supuesto! WhatsApp es nuestro canal preferido. Escríbenos o llámanos al 475-689-8301 y respondemos lo antes posible." },
       ],
     },
     quoteForm: {

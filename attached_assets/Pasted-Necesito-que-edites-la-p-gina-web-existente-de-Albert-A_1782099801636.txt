@@ -1,0 +1,228 @@
+Necesito que edites la página web existente de **Albert Auto Detailing** usando la siguiente información.
+No necesito que crees una página nueva desde cero, sino que actualices y adaptes la web actual con esta estructura, contenido, colores, botones y funciones.
+
+# Proyecto Web – Albert Auto Detailing
+
+## 1. Nombre del negocio
+
+Albert Auto Detailing
+
+## 2. Idioma de la página
+
+La página debe ser bilingüe:
+
+* Inglés
+* Español
+
+Debe tener opción para cambiar entre ambos idiomas o mostrar el contenido en ambos idiomas de forma organizada.
+
+## 3. Mensaje principal
+
+**English:**
+Professional detailing that restores your vehicle to a like-new shine and protection.
+
+**Español:**
+Detallado profesional que restaura tu vehículo con brillo, protección y apariencia como nuevo.
+
+## 4. Estilo visual
+
+Quiero un diseño moderno, profesional y premium, enfocado en servicios de detailing automotriz.
+
+El diseño debe transmitir:
+
+* Limpieza
+* Confianza
+* Profesionalismo
+* Calidad
+* Resultados premium
+
+## 5. Colores principales
+
+Usar una combinación profesional de:
+
+* Rojo
+* Azul
+* Blanco
+* Negro o gris oscuro como apoyo
+
+No usar colores demasiado encendidos ni infantiles. Debe verse elegante y profesional.
+
+## 6. Secciones que debe tener la página
+
+### Home / Inicio
+
+Crear una sección principal con imagen o video de carro limpio/detallado, mensaje fuerte y botones de acción.
+
+Botones principales:
+
+* WhatsApp
+* Call Now
+* Request a Quote
+* Book Appointment
+
+### About Us / Sobre Nosotros
+
+Agregar una sección explicando que Albert Auto Detailing ofrece detailing automotriz profesional, enfocado en restaurar, proteger y mejorar la apariencia del vehículo.
+
+### Services / Servicios
+
+Agregar los servicios principales:
+
+* Interior and exterior wash
+* Paint correction
+* Ceramic coating
+* Headlight restoration
+* Engine cleaning
+* Leather protection
+* Stain removal
+* Full detailing
+
+No mostrar precios.
+En lugar de precios, colocar:
+“Contact us for a personalized quote.”
+
+### Gallery / Galería
+
+Agregar una galería de fotos antes y después.
+
+Debe permitir mostrar:
+
+* Fotos de trabajos realizados
+* Antes y después
+* Videos de detailing
+* Imágenes del taller o equipo
+
+### Testimonials / Testimonios
+
+Agregar una sección para reseñas de clientes.
+
+Usar espacio para:
+
+* Testimonios escritos
+* Capturas de reseñas de Google o Facebook
+* Opiniones de clientes satisfechos
+
+### Promotions / Promociones
+
+Agregar una sección de promociones con estas ofertas:
+
+* 20% off your first service
+* $15 off full detailing
+* Free interior wash on your first visit
+* Limited time offer
+* Free consultation
+* Special launch packages
+
+### FAQ / Preguntas frecuentes
+
+Agregar preguntas frecuentes como:
+
+* Do you offer personalized quotes?
+* How can I book an appointment?
+* Do you show prices online?
+* What services do you offer?
+* Where are you located?
+* Can I contact you through WhatsApp?
+
+### Contact / Contacto
+
+Agregar toda la información de contacto:
+
+WhatsApp / Phone: 475-689-8301
+Instagram: @albert_auto_detailing
+Email: [albertautodetailing2024@gmail.com](mailto:albertautodetailing2024@gmail.com)
+Location: 12 Jenny Jenks St, Norwalk, Connecticut 06851
+
+Agregar:
+
+* Botón de WhatsApp
+* Botón de llamada directa
+* Botón de Instagram
+* Formulario de contacto
+* Formulario para solicitar cotización
+* Mapa de ubicación
+
+## 7. Acciones principales de la página
+
+La página debe estar enfocada en que el cliente pueda:
+
+* Enviar mensaje por WhatsApp
+* Llamar directamente
+* Solicitar cotización
+* Reservar una cita
+* Contactar por Instagram
+* Completar un formulario
+
+## 8. Formularios
+
+Crear un formulario de cotización con estos campos:
+
+* Nombre completo
+* Número de teléfono
+* Email
+* Tipo de servicio que necesita
+* Marca del vehículo
+* Modelo del vehículo
+* Año del vehículo
+* Mensaje adicional
+* Botón: Request Quote / Solicitar cotización
+
+## 9. Botones importantes
+
+Agregar botones visibles en varias partes de la página:
+
+* WhatsApp
+* Call Now
+* Request a Quote
+* Book Appointment
+* View Gallery
+* Contact Us
+
+## 10. Diseño responsive
+
+La página debe verse perfecta en:
+
+* Celulares
+* Computadoras
+* Laptops
+* Tablets
+* Otros dispositivos
+
+Debe estar optimizada especialmente para celular.
+
+## 11. Animaciones modernas
+
+Agregar animaciones elegantes y profesionales, por ejemplo:
+
+* Animaciones suaves al hacer scroll
+* Efectos en botones
+* Aparición de secciones
+* Transiciones modernas
+* Efectos sutiles en fotos de antes y después
+
+No usar animaciones exageradas.
+
+## 12. SEO básico
+
+Agregar SEO básico para que la página pueda posicionarse mejor en Google.
+
+Usar palabras clave como:
+
+* Auto detailing Norwalk CT
+* Car detailing Norwalk
+* Ceramic coating Norwalk
+* Interior car cleaning
+* Exterior car wash
+* Paint correction
+* Professional auto detailing
+
+## 13. Importante
+
+No mostrar precios en la página.
+
+En todas las áreas donde normalmente iría un precio, colocar un mensaje como:
+
+“Contact us for a personalized quote.”
+“Solicita una cotización personalizada.”
+
+El objetivo principal de esta edición es que la página se vea profesional, moderna y que convierta visitantes en clientes.

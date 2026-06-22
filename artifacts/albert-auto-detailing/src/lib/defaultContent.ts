@@ -31,6 +31,7 @@ export const defaultContent = {
       { title: "Engine Cleaning", description: "Thorough engine bay degreasing and cleaning for a pristine engine that performs and looks its best.", active: true },
       { title: "Leather Protection", description: "Deep conditioning and protection treatment that restores suppleness, color, and durability to leather surfaces.", active: true },
       { title: "Stain Removal", description: "Advanced treatment to eliminate tough stains from upholstery, carpets, and surfaces — results guaranteed.", active: true },
+      { title: "Full Detailing Package", description: "The complete treatment — interior deep clean, exterior wash, paint correction, and protection — all in one premium package.", active: true },
     ],
   },
   promotions: {
@@ -78,12 +79,12 @@ export const defaultContent = {
     eyebrow: "FAQ",
     heading: "Got Questions?",
     items: [
-      { q: "How long does a full detail take?", a: "A complete interior and exterior detail typically takes 3–5 hours depending on vehicle size and condition." },
-      { q: "Do you offer mobile service?", a: "Yes! We come to your home, workplace, or any preferred location in the Norwalk, CT area. Just share your address when booking." },
-      { q: "How much does detailing cost?", a: "We provide personalized quotes based on your vehicle and services needed. Contact us for a free, no-obligation estimate." },
-      { q: "How often should I get my car detailed?", a: "We recommend a full detail every 4–6 months and a maintenance wash monthly to keep your vehicle in top condition." },
-      { q: "What products do you use?", a: "We use only professional-grade, premium products that are safe for your vehicle's paint, interior, and surfaces." },
-      { q: "Do you offer ceramic coating?", a: "Yes! Our ceramic coating provides long-lasting protection. We can recommend the best package for your vehicle." },
+      { q: "Do you offer personalized quotes?", a: "Yes! We offer free, no-obligation personalized quotes. Reach us via WhatsApp, phone, or our quote form and we'll tailor a package to your vehicle and needs." },
+      { q: "How can I book an appointment?", a: "You can book through WhatsApp at 475-689-8301, call us directly, or fill out our online quote form. We'll confirm your appointment promptly." },
+      { q: "Do you show prices online?", a: "We don't list fixed prices because every vehicle and service is unique. Contact us for a free personalized quote — no obligation whatsoever." },
+      { q: "What services do you offer?", a: "We offer interior & exterior wash, paint correction, ceramic coating, headlight restoration, engine cleaning, leather protection, stain removal, and full detailing packages." },
+      { q: "Where are you located?", a: "We are based at 12 Jenny Jenks St, Norwalk, Connecticut 06851. We also offer mobile service throughout Norwalk, Stamford, Bridgeport, and surrounding CT areas." },
+      { q: "Can I contact you through WhatsApp?", a: "Absolutely! WhatsApp is our preferred channel. Message or call us at 475-689-8301 and we'll respond as quickly as possible." },
     ],
   },
   contact: {
@@ -112,7 +113,7 @@ export const defaultContent = {
   location: {
     eyebrow: "Find Us",
     heading: "Our Location",
-    address: "Norwalk, Connecticut 06851",
+    address: "12 Jenny Jenks St, Norwalk, Connecticut 06851",
     hours: "Mon–Sat: 8am–6pm",
     areaNote: "We also offer mobile service throughout Norwalk, Stamford, Bridgeport, and surrounding CT areas.",
   },
