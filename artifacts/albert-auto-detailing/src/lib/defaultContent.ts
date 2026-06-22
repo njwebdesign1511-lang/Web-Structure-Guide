@@ -70,11 +70,7 @@ export const defaultContent = {
     heading: "Before & After",
     body: "Our results speak for themselves. Browse through some of our recent premium auto detailing projects.",
   },
-  testimonials: [
-    { name: "Carlos M.", comment: "Absolutely incredible service! My car looks brand new after the ceramic coating. Albert and his team are true professionals.", active: true },
-    { name: "Maria G.", comment: "Best detailing in Norwalk! They restored my headlights and did a full interior clean. I couldn't be happier with the results.", active: true },
-    { name: "John D.", comment: "The paint correction on my BMW was flawless. These guys know what they're doing. Highly recommend Albert Auto Detailing!", active: true },
-  ],
+  testimonials: [],
   faq: {
     eyebrow: "FAQ",
     heading: "Got Questions?",
