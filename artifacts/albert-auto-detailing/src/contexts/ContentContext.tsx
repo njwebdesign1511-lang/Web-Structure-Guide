@@ -1,12 +1,14 @@
-import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { defaultContent, type SiteContent } from "@/lib/defaultContent";
 
 interface ContentContextValue {
   content: SiteContent;
   setContent: (c: SiteContent) => void;
   saveContent: (c: SiteContent) => Promise<void>;
+  discardChanges: () => void;
   saving: boolean;
   saved: boolean;
+  isDirty: boolean;
   token: string | null;
   setToken: (t: string | null) => void;
   logout: () => void;
@@ -31,7 +33,9 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
   const [content, setContentState] = useState<SiteContent>(defaultContent);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
   const [token, setTokenState] = useState<string | null>(null);
+  const lastSavedRef = useRef<SiteContent>(defaultContent);
 
   const setToken = (t: string | null) => {
     setTokenState(t);
@@ -44,7 +48,10 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
       .then((r) => r.json())
       .then((data) => {
         if (data && Object.keys(data).length > 0) {
-          setContentState(mergeWithDefaults(data));
+          const merged = mergeWithDefaults(data);
+          setContentState(merged);
+          lastSavedRef.current = merged;
+          setIsDirty(false);
         }
       })
       .catch(() => {});
@@ -52,6 +59,12 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
 
   const setContent = useCallback((c: SiteContent) => {
     setContentState(c);
+    setIsDirty(true);
+  }, []);
+
+  const discardChanges = useCallback(() => {
+    setContentState(lastSavedRef.current);
+    setIsDirty(false);
   }, []);
 
   const saveContent = useCallback(async (c: SiteContent) => {
@@ -68,6 +81,8 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
       });
       if (!res.ok) throw new Error("Failed to save");
       setContentState(c);
+      lastSavedRef.current = c;
+      setIsDirty(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } finally {
@@ -76,7 +91,7 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
   }, [token]);
 
   return (
-    <ContentContext.Provider value={{ content, setContent, saveContent, saving, saved, token, setToken, logout }}>
+    <ContentContext.Provider value={{ content, setContent, saveContent, discardChanges, saving, saved, isDirty, token, setToken, logout }}>
       {children}
     </ContentContext.Provider>
   );
