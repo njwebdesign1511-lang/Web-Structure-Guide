@@ -16,14 +16,19 @@ export default function Gallery() {
   const eyebrow = lang === "es" ? t.gallery.eyebrow : g.eyebrow;
   const heading  = lang === "es" ? t.gallery.heading  : g.heading;
   const body     = lang === "es" ? t.gallery.body     : g.body;
-  const alts     = lang === "es" ? t.gallery.alts     : ["Gallery 1", "Gallery 2", "Gallery 3", "Gallery 4"];
+  const alts     = lang === "es" ? t.gallery.alts     : [
+    "Professional Ceramic Coating in Norwalk CT - Albert Auto Detailing",
+    "Auto Detailing Before and After - Norwalk Connecticut",
+    "Interior Car Detailing Service - Fairfield County CT",
+    "Exterior Car Detailing and Paint Correction Norwalk CT",
+  ];
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h3>
+          <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="text-gray-400 max-w-2xl mx-auto">{body}</p>
         </div>

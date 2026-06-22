@@ -27,7 +27,7 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] md:aspect-square rounded-sm overflow-hidden relative border border-border">
-              <img src={aboutImg} alt="Professional detailing work" className="w-full h-full object-cover" />
+              <img src={aboutImg} alt="Professional Auto Detailing Service in Norwalk CT - Albert Auto Detailing" className="w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 border border-primary/20 backdrop-blur-sm -z-10 rounded-sm" />
@@ -38,8 +38,8 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{heading}</h3>
+            <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
             <p className="text-gray-300 text-lg leading-relaxed mb-6">{p1}</p>
             <p className="text-gray-400 text-base leading-relaxed mb-8">{p2}</p>

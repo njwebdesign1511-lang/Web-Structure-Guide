@@ -94,8 +94,8 @@ export default function QuoteForm() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom left, rgba(214,28,35,0.07) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#6FB5FF" }}>{eyebrow}</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h3>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#6FB5FF" }}>{eyebrow}</p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-px mx-auto mb-6" style={{ background: "linear-gradient(to right, transparent, #4F7EB8, transparent)" }} />
           <p className="max-w-xl mx-auto italic" style={{ color: "#EAEAEA", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.05rem" }}>{body}</p>
         </div>

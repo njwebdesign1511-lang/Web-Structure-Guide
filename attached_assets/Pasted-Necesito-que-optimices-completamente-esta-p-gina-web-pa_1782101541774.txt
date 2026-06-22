@@ -1,0 +1,129 @@
+Necesito que optimices completamente esta página web para SEO local y SEO técnico.
+
+IMPORTANTE:
+No cambies el diseño visual de la página ni la estructura actual. Solo optimiza el SEO.
+
+# SEO Local
+
+Optimiza la web para aparecer en búsquedas relacionadas con:
+
+* Auto Detailing Norwalk CT
+* Car Detailing Norwalk
+* Auto Detailer Near Me
+* Ceramic Coating Norwalk
+* Headlight Restoration Norwalk
+* Interior Car Cleaning Norwalk
+* Exterior Car Detailing Connecticut
+* Engine Bay Cleaning Norwalk
+* Professional Auto Detailing Connecticut
+* Mobile Auto Detailing Near Me
+
+# Meta Tags
+
+Crear títulos y descripciones optimizadas para Google.
+
+Ejemplo:
+
+Title:
+Albert Auto Detailing | Professional Car Detailing in Norwalk CT
+
+Meta Description:
+Professional auto detailing in Norwalk, CT. Interior detailing, ceramic coating, paint correction, engine cleaning, headlight restoration and more. Contact us today for a free quote.
+
+# Open Graph
+
+Agregar Open Graph para:
+
+* Facebook
+* Instagram
+* WhatsApp
+* Messenger
+
+Configurar:
+
+* og:title
+* og:description
+* og:image
+* og:url
+
+# Structured Data
+
+Agregar Schema Markup Local Business.
+
+Incluir:
+
+* Business Name
+* Address
+* Phone Number
+* Email
+* Website
+* Services
+* Social Media
+
+# Imágenes
+
+Optimizar todas las imágenes:
+
+* Compresión automática
+* Lazy Loading
+* Alt Text SEO
+
+Ejemplos:
+
+alt="Professional Ceramic Coating in Norwalk CT"
+
+alt="Auto Detailing Before and After"
+
+alt="Interior Car Detailing Service"
+
+# Rendimiento
+
+Optimizar para Google PageSpeed:
+
+* Lazy Loading
+* Minify CSS
+* Minify JavaScript
+* Optimized Images
+* Fast Mobile Loading
+
+# SEO para móviles
+
+Verificar que la web tenga:
+
+* Mobile First Design
+* Responsive Layout
+* Fast Loading Speed
+* Touch Friendly Buttons
+
+# Encabezados SEO
+
+Utilizar correctamente:
+
+* H1 (solo uno)
+* H2
+* H3
+
+Organizar todas las secciones siguiendo buenas prácticas SEO.
+
+# Sitemap y Robots
+
+Crear automáticamente:
+
+* sitemap.xml
+* robots.txt
+
+# SEO de ubicación
+
+Agregar referencias estratégicas a:
+
+Norwalk, Connecticut
+
+Connecticut
+
+Fairfield County
+
+para mejorar el posicionamiento local.
+
+# Resultado esperado
+
+Quiero que la página esté optimizada para posicionarse en Google de manera profesional sin modificar el diseño existente.

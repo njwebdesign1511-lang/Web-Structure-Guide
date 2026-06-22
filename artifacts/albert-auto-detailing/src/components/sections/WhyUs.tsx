@@ -24,8 +24,8 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h3>
+            <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
             <p className="text-gray-400 text-lg leading-relaxed mb-8">{body}</p>
             <a href="#contact" className="text-primary font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
