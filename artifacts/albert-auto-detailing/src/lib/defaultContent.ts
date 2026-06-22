@@ -1,10 +1,10 @@
 export const defaultContent = {
   hero: {
     badge: "Est. 2023 · Norwalk, CT",
-    line1: "Premium",
+    line1: "Precision",
     line2: "Detailing.",
-    line3_1: "Expert",
-    line3_2: "Results.",
+    line3_1: "Perfected.",
+    line3_2: "",
     tagline: "Professional detailing that restores your vehicle to a like-new shine and protection.",
     btn1: "Get a Free Quote",
     btn2: "Our Services",
