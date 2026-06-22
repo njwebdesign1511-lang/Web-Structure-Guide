@@ -1,4 +1,5 @@
 import SeoHelmet from "@/components/SeoHelmet";
+import HowItWorks from "@/components/sections/HowItWorks";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -67,6 +68,7 @@ export default function Landing() {
         <ServicesPackages />
         {s.mobileService && <MobileService />}
         {s.whyUs && <WhyUs />}
+        <HowItWorks />
         {s.gallery && <Gallery />}
         {s.testimonials && <Testimonials />}
         {s.faq && <FAQ />}

@@ -128,10 +128,29 @@ export default function Footer() {
             </div>
           </div>
         </motion.div>
-        <div className="pt-8 text-center" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
-          <p className="text-xs" style={{ color: "#4F7EB8" }}>
-            &copy; {new Date().getFullYear()} Albert Auto Detailing. {rights}
-          </p>
+        <div className="pt-8" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs" style={{ color: "#4F7EB8" }}>
+              &copy; {new Date().getFullYear()} Albert Auto Detailing. {rights}
+            </p>
+            <div className="flex items-center gap-4">
+              <a href="/privacy" className="text-xs transition-colors"
+                style={{ color: "rgba(79,126,184,0.65)" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.65)")}
+              >
+                {lang === "es" ? "Política de Privacidad" : "Privacy Policy"}
+              </a>
+              <span style={{ color: "rgba(79,126,184,0.25)" }}>·</span>
+              <a href="/terms" className="text-xs transition-colors"
+                style={{ color: "rgba(79,126,184,0.65)" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.65)")}
+              >
+                {lang === "es" ? "Términos y Condiciones" : "Terms & Conditions"}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

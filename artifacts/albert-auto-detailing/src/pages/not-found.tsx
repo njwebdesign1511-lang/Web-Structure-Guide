@@ -1,21 +1,30 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import logoImg from "@assets/logo-transparent.png";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center px-4 font-sans"
+      style={{ background: "#020C24", color: "#EAEAEA" }}
+    >
+      <a href="/" className="mb-10">
+        <img src={logoImg} alt="Albert Auto Detailing" className="h-24 w-auto object-contain" />
+      </a>
 
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+      <p className="text-8xl font-bold mb-4" style={{ color: "#D61C23", letterSpacing: "-0.04em" }}>404</p>
+      <h1 className="text-2xl font-bold text-white mb-3">Page Not Found</h1>
+      <p className="text-gray-400 text-sm text-center max-w-sm mb-10">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+
+      <a
+        href="/"
+        className="inline-flex items-center gap-2 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-sm transition-all"
+        style={{ background: "#D61C23", color: "white" }}
+        onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#b91c1c"; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#D61C23"; }}
+      >
+        ← Back to Home
+      </a>
     </div>
   );
 }

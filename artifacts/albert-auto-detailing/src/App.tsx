@@ -7,6 +7,8 @@ import { ContentProvider } from "@/contexts/ContentContext";
 import { PremiumProvider } from "@/contexts/PremiumContext";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/not-found";
+import PrivacyPage from "@/pages/PrivacyPage";
+import TermsPage from "@/pages/TermsPage";
 import AdminPanel from "@/admin/AdminPanel";
 
 function AppInner() {
@@ -30,6 +32,8 @@ function AppInner() {
   return (
     <Switch>
       <Route path="/" component={Landing} />
+      <Route path="/privacy" component={PrivacyPage} />
+      <Route path="/terms" component={TermsPage} />
       <Route component={NotFound} />
     </Switch>
   );

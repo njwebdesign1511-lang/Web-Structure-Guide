@@ -1,0 +1,818 @@
+# ACTUALIZACIÓN COMPLETA DE LA PÁGINA WEB
+
+## Premium Detailing — Expert Results
+
+Necesito que revises y mejores la página web existente de **Premium Detailing**, con el objetivo de convertirla en una página profesional, completa, rápida, confiable y preparada para generar clientes.
+
+## INSTRUCCIÓN PRINCIPAL Y OBLIGATORIA
+
+La página web ya está creada.
+
+**No debes rediseñar ni reconstruir la página desde cero.**
+
+No cambies ninguno de los siguientes elementos existentes:
+
+* Colores
+* Tipografías
+* Logotipo
+* Imágenes
+* Videos
+* Textos
+* Títulos
+* Botones
+* Tamaños
+* Espaciados
+* Márgenes
+* Orden de las secciones
+* Estructura visual
+* Estilo general
+* Animaciones existentes
+* Navegación
+* Diseño móvil
+* Identidad de la marca
+
+Tu trabajo consiste únicamente en:
+
+1. Revisar cuidadosamente todo el proyecto actual.
+2. Identificar qué elementos ya existen.
+3. Corregir errores técnicos.
+4. Mejorar la funcionalidad.
+5. Agregar únicamente los elementos que falten.
+6. No duplicar secciones, botones ni funcionalidades.
+7. Mantener el diseño actual exactamente como está.
+
+Antes de editar cualquier archivo, crea una copia de seguridad o un punto de restauración del proyecto actual.
+
+---
+
+# FASE 1: AUDITORÍA DEL PROYECTO ACTUAL
+
+Antes de hacer cambios:
+
+1. Revisa todos los archivos del proyecto.
+2. Identifica el framework y las tecnologías utilizadas.
+3. Revisa las páginas, componentes, estilos, rutas, formularios y funciones.
+4. Comprueba qué secciones ya están creadas.
+5. Revisa la versión de computadora, tablet y celular.
+6. Detecta botones, enlaces o formularios que no estén funcionando.
+7. Revisa errores en la consola.
+8. Revisa errores del servidor.
+9. Revisa rutas rotas.
+10. Revisa imágenes o videos que no carguen correctamente.
+11. Revisa si existen elementos duplicados.
+12. Revisa si la página tiene problemas de velocidad.
+13. Revisa si el video principal se reproduce correctamente.
+
+No hagas cambios visuales durante esta auditoría.
+
+---
+
+# FASE 2: ESTRUCTURA PRINCIPAL
+
+La página debe incluir las siguientes áreas. Si alguna ya existe, no la dupliques ni cambies su diseño. Solo verifica que funcione correctamente.
+
+## 1. Encabezado y navegación
+
+Debe incluir:
+
+* Logotipo
+* Menú de navegación
+* Enlaces a las secciones correctas
+* Botón principal de reserva o cotización
+* Menú móvil funcional
+* Navegación fija o fluida, solamente si ya forma parte del diseño
+
+Comprueba que cada opción del menú dirija a la sección correcta.
+
+---
+
+## 2. Sección principal o Hero
+
+Debe comunicar claramente:
+
+**Premium Detailing. Expert Results.**
+
+Debe incluir:
+
+* Video profesional de carros o detailing
+* Título principal
+* Mensaje corto
+* Botón para reservar
+* Botón para solicitar cotización, si ya está contemplado
+* Diseño adaptado a celulares
+
+El video debe:
+
+* Reproducirse automáticamente
+* Estar silenciado
+* Repetirse en loop
+* Usar `playsinline`
+* No mostrar controles
+* No congelarse
+* No desplazarse de forma cortante
+* No deformarse
+* Usar `object-fit: cover`
+* Tener imagen de portada como respaldo
+* Tener versión MP4 y, si está disponible, WebM
+* Cargar sin bloquear el resto de la página
+
+Ejemplo de propiedades:
+
+```html
+autoplay
+muted
+loop
+playsinline
+preload="metadata"
+```
+
+Si el navegador no reproduce el video, debe mostrar automáticamente la imagen de portada.
+
+---
+
+## 3. Servicios
+
+Verifica que los servicios estén presentados de manera clara.
+
+La página puede incluir servicios como:
+
+* Detailing interior
+* Detailing exterior
+* Lavado completo
+* Limpieza profunda
+* Corrección de pintura
+* Pulido
+* Ceramic coating
+* Restauración de faros
+* Limpieza de motor
+* Protección de cuero
+* Eliminación de manchas
+* Protección de superficies
+
+Cada servicio debe tener:
+
+* Nombre
+* Descripción clara
+* Imagen o ícono
+* Botón para solicitar información o cotización
+
+No inventes precios.
+
+Si la página no muestra precios, utiliza un mensaje como:
+
+**“Solicita una cotización personalizada según el vehículo y el servicio requerido.”**
+
+No agregues servicios que el negocio no ofrece.
+
+---
+
+## 4. Beneficios
+
+Debe existir una sección que explique por qué elegir Premium Detailing.
+
+Puede incluir:
+
+* Atención profesional
+* Productos de alta calidad
+* Cuidado de cada detalle
+* Resultados duraderos
+* Tratamientos personalizados
+* Protección del vehículo
+* Servicio confiable
+* Experiencia premium
+
+No agregues estadísticas falsas ni afirmaciones que no hayan sido proporcionadas.
+
+---
+
+## 5. Proceso de servicio
+
+Si esta sección no existe, agrégala respetando el diseño actual.
+
+Debe explicar el proceso de forma sencilla:
+
+1. El cliente solicita información.
+2. Indica los datos de su vehículo.
+3. Selecciona el servicio.
+4. Recibe una cotización.
+5. Confirma su cita.
+6. El equipo realiza el servicio.
+7. El cliente recibe el vehículo terminado.
+
+La sección debe ser clara y fácil de entender.
+
+---
+
+## 6. Formulario de cotización
+
+El formulario debe funcionar realmente.
+
+Debe solicitar únicamente la información necesaria:
+
+* Nombre
+* Teléfono
+* Correo electrónico
+* Marca del vehículo
+* Modelo
+* Año
+* Tipo de vehículo
+* Servicio solicitado
+* Estado general del vehículo
+* Fecha preferida
+* Mensaje adicional
+
+El formulario debe:
+
+* Validar los campos
+* Indicar claramente los campos obligatorios
+* Mostrar errores comprensibles
+* Mostrar un mensaje de confirmación después del envío
+* Evitar envíos duplicados
+* Proteger contra spam
+* Funcionar en celular
+* Enviar la información correctamente
+* No recargar la página innecesariamente
+
+Mensaje de confirmación recomendado:
+
+**“Gracias por solicitar tu cotización. Hemos recibido tu información y nos comunicaremos contigo lo antes posible.”**
+
+No muestres mensajes falsos de envío si el formulario no está conectado correctamente.
+
+---
+
+## 7. Sistema de reservas
+
+Si ya existe una integración de reservas, no la cambies.
+
+Solo verifica que:
+
+* El enlace funcione
+* Abra correctamente en celular
+* El cliente pueda seleccionar fecha y hora
+* Los botones dirijan al sistema correcto
+* No existan enlaces rotos
+* El proceso sea fácil de completar
+
+Si todavía no existe un sistema de reservas, deja preparada una integración sin inventar una plataforma ni crear reservas falsas.
+
+---
+
+## 8. Galería de trabajos
+
+La galería debe mostrar trabajos reales de detailing.
+
+Debe permitir incluir:
+
+* Antes y después
+* Exterior
+* Interior
+* Pintura
+* Rines
+* Faros
+* Motor
+* Ceramic coating
+
+La galería debe:
+
+* Cargar rápido
+* Mostrar imágenes claras
+* Mantener sus proporciones
+* Funcionar en celular
+* Poder abrir las imágenes en una vista ampliada
+* Tener navegación accesible
+* No deformar las fotografías
+
+Utiliza carga diferida `lazy loading` en las imágenes que estén fuera de la primera pantalla.
+
+---
+
+## 9. Testimonios y reseñas
+
+Si ya existe una sección de testimonios, no la dupliques.
+
+Debe permitir mostrar:
+
+* Nombre del cliente
+* Calificación
+* Comentario
+* Imagen, solamente cuando exista autorización
+* Reseñas de Google, si existe una integración válida
+
+No inventes reseñas, nombres, estrellas ni testimonios.
+
+Si aún no hay reseñas disponibles, deja la estructura preparada sin publicar contenido falso.
+
+---
+
+## 10. Preguntas frecuentes
+
+Debe existir una sección de preguntas frecuentes clara y fácil de usar.
+
+Puede responder preguntas como:
+
+* ¿Cuánto tarda un servicio?
+* ¿Debo reservar con anticipación?
+* ¿Cómo se calcula el precio?
+* ¿Qué diferencia existe entre un lavado y un detailing?
+* ¿Qué incluye la limpieza interior?
+* ¿Cuánto dura el ceramic coating?
+* ¿Trabajan con todo tipo de vehículos?
+* ¿Qué debo hacer antes de llevar el vehículo?
+* ¿Cuáles métodos de pago aceptan?
+* ¿Qué ocurre si necesito cambiar mi cita?
+
+Las respuestas deben basarse únicamente en la información real del negocio.
+
+No inventes políticas.
+
+---
+
+## 11. Información de contacto
+
+La información de contacto debe ser fácil de encontrar.
+
+Puede incluir:
+
+* Teléfono
+* WhatsApp
+* Correo electrónico
+* Dirección
+* Ciudad y estado
+* Horario
+* Redes sociales
+* Mapa, si existe una ubicación física
+
+Todos los botones deben abrir el destino correcto.
+
+El número de teléfono debe usar enlace `tel:`.
+
+El correo debe usar enlace `mailto:`.
+
+WhatsApp debe abrir una conversación con un mensaje inicial relacionado con la cotización.
+
+---
+
+## 12. Pie de página
+
+El footer debe incluir:
+
+* Logotipo o nombre del negocio
+* Descripción breve
+* Enlaces principales
+* Servicios
+* Contacto
+* Redes sociales
+* Política de privacidad
+* Términos y condiciones
+* Política de cancelación, si corresponde
+* Copyright con año automático
+
+El año debe actualizarse automáticamente mediante código.
+
+---
+
+# FASE 3: ASISTENTE DE INTELIGENCIA ARTIFICIAL
+
+La página puede incluir un botón flotante que abra el asistente virtual de Premium Detailing.
+
+No debe responder como un chatbot general.
+
+Debe actuar como asesor del negocio.
+
+## El asistente debe ayudar con:
+
+* Servicios disponibles
+* Diferencias entre servicios
+* Beneficios del detailing
+* Recomendaciones generales
+* Proceso de cotización
+* Reservas
+* Preparación del vehículo
+* Información de contacto
+
+## Reglas del asistente
+
+* No debe inventar precios.
+* No debe inventar promociones.
+* No debe inventar horarios.
+* No debe inventar políticas.
+* No debe garantizar resultados que no estén confirmados.
+* No debe responder preguntas fuera del negocio.
+* Debe motivar al usuario a solicitar una cotización.
+* Debe recomendar hablar con una persona cuando no tenga información suficiente.
+
+Mensaje inicial:
+
+**“Hola 👋 Soy el asistente virtual de Premium Detailing. Puedo ayudarte a conocer nuestros servicios, recomendarte una opción para tu vehículo o guiarte para solicitar una cotización.”**
+
+Respuesta para preguntas fuera del tema:
+
+**“Puedo ayudarte con información sobre nuestros servicios de detailing, cotizaciones, reservas y cuidado de vehículos.”**
+
+## Requisitos técnicos del asistente
+
+* Usar una conexión real con la API.
+* Mantener la clave API exclusivamente en el backend.
+* Utilizar variables de entorno.
+* Nunca exponer la clave en el navegador.
+* Crear un endpoint seguro para el chat.
+* Validar los mensajes.
+* Limitar la cantidad de solicitudes.
+* Mostrar indicador de escritura.
+* Manejar errores.
+* Evitar respuestas duplicadas.
+* Mantener el historial de la conversación actual.
+* Funcionar en celular y computadora.
+
+Mensaje de error:
+
+**“El asistente no está disponible en este momento. Intenta nuevamente o contáctanos directamente.”**
+
+---
+
+# FASE 4: ANIMACIONES Y EXPERIENCIA PREMIUM
+
+No cambies las animaciones existentes.
+
+Solo corrige las que:
+
+* Se corten
+* Se congelen
+* Se repitan incorrectamente
+* Aparezcan demasiado rápido
+* Afecten la lectura
+* Provoquen movimientos bruscos
+
+Las animaciones deben ser:
+
+* Elegantes
+* Suaves
+* Profesionales
+* Rápidas pero no agresivas
+* Consistentes
+* Optimizadas
+
+Utiliza preferiblemente:
+
+* Fade-in
+* Slide-up suave
+* Elevación ligera de tarjetas
+* Zoom mínimo en imágenes
+* Transiciones de entre 250 y 600 milisegundos
+* Animaciones activadas solamente cuando el elemento entra en pantalla
+
+No utilices:
+
+* Parpadeos
+* Giros exagerados
+* Movimientos infantiles
+* Efectos que distraigan
+* Animaciones constantes sin propósito
+* Animaciones que afecten el rendimiento
+
+Respeta la configuración:
+
+```css
+@media (prefers-reduced-motion: reduce)
+```
+
+Cuando el usuario prefiera menos movimiento, reduce o elimina las animaciones.
+
+---
+
+# FASE 5: DISEÑO RESPONSIVE
+
+La página debe funcionar correctamente en:
+
+* Celulares pequeños
+* Celulares grandes
+* Tablets
+* Laptops
+* Monitores grandes
+
+Verifica especialmente:
+
+* Menú móvil
+* Video principal
+* Formularios
+* Botones
+* Galería
+* Testimonios
+* Preguntas frecuentes
+* Chat de IA
+* Footer
+* Textos largos
+* Imágenes
+* Espacios laterales
+
+No debe existir desplazamiento horizontal accidental.
+
+No debe haber elementos fuera de pantalla.
+
+Los botones deben tener un área táctil cómoda.
+
+---
+
+# FASE 6: SEO
+
+Realiza optimización SEO sin cambiar los textos visibles, salvo que sea estrictamente necesario y manteniendo el mismo significado.
+
+## Configura:
+
+* Título SEO único
+* Meta description
+* Etiqueta canonical
+* Open Graph
+* Twitter Cards
+* Favicon
+* Sitemap.xml
+* Robots.txt
+* Datos estructurados
+* Encabezados H1, H2 y H3 correctamente organizados
+* Textos alternativos en imágenes
+* URLs limpias
+* Enlaces internos
+* Página 404 personalizada
+* Etiqueta de idioma
+* Información local del negocio
+
+Debe existir un solo H1 principal por página.
+
+No uses palabras clave de forma excesiva.
+
+No agregues ciudades, direcciones ni servicios que no hayan sido confirmados.
+
+## Datos estructurados recomendados
+
+Utiliza Schema.org cuando corresponda:
+
+* LocalBusiness
+* AutoRepair o servicio automotriz relacionado
+* Service
+* FAQPage
+* Review, solamente con reseñas reales
+* BreadcrumbList
+
+Valida los datos estructurados y evita información falsa.
+
+---
+
+# FASE 7: VELOCIDAD Y RENDIMIENTO
+
+Optimiza el proyecto sin reducir visualmente la calidad de la página.
+
+Debes:
+
+* Comprimir imágenes
+* Utilizar WebP o AVIF cuando sea posible
+* Mantener archivos originales como respaldo
+* Implementar lazy loading
+* Optimizar el video
+* Evitar cargar librerías innecesarias
+* Eliminar código no utilizado
+* Minificar archivos de producción
+* Evitar JavaScript que bloquee la página
+* Cargar scripts no esenciales de forma diferida
+* Optimizar fuentes
+* Prevenir cambios bruscos de diseño
+* Configurar caché
+* Reducir solicitudes innecesarias
+
+No reduzcas la calidad del video hasta que se vea borroso.
+
+El contenido principal debe aparecer rápidamente, incluso si el video todavía está cargando.
+
+---
+
+# FASE 8: ACCESIBILIDAD
+
+La página debe poder utilizarse con teclado y lectores de pantalla.
+
+Verifica:
+
+* Contraste adecuado
+* Texto alternativo
+* Etiquetas en formularios
+* Estados de enfoque visibles
+* Botones con nombres accesibles
+* Menú navegable con teclado
+* Modales accesibles
+* Chat accesible
+* Orden correcto de encabezados
+* Mensajes de error comprensibles
+* Atributos ARIA solamente cuando sean necesarios
+
+No cambies los colores existentes, salvo que exista un problema serio de legibilidad. En ese caso, mejora el contraste sin alterar la identidad visual.
+
+---
+
+# FASE 9: SEGURIDAD
+
+Implementa medidas básicas de seguridad:
+
+* Variables de entorno
+* Protección de claves privadas
+* Validación en frontend y backend
+* Sanitización de formularios
+* Protección contra spam
+* Límite de solicitudes
+* Encabezados de seguridad
+* HTTPS
+* Protección contra inyección
+* Protección contra XSS
+* No almacenar información sensible innecesariamente
+* Mensajes de error que no revelen información interna
+
+No dejes credenciales dentro del código.
+
+No publiques archivos `.env`.
+
+---
+
+# FASE 10: ANALÍTICAS Y MEDICIÓN
+
+Deja preparada la integración para:
+
+* Google Analytics
+* Google Search Console
+* Google Tag Manager, si es necesario
+* Eventos de conversión
+
+Los eventos importantes pueden incluir:
+
+* Clic en reservar
+* Clic en solicitar cotización
+* Clic en WhatsApp
+* Clic en teléfono
+* Formulario enviado
+* Inicio de conversación con la IA
+* Reproducción del video principal
+
+No agregues identificadores falsos.
+
+Utiliza variables de entorno o espacios claramente identificados para añadir los códigos reales.
+
+---
+
+# FASE 11: PÁGINAS LEGALES
+
+Verifica si existen:
+
+* Política de privacidad
+* Términos y condiciones
+* Política de cancelación
+* Política de cookies, cuando corresponda
+
+No inventes políticas específicas.
+
+Crea la estructura visual y deja claramente indicado qué información debe ser revisada y aprobada por el propietario del negocio.
+
+---
+
+# FASE 12: MANEJO DE ERRORES
+
+La página debe manejar correctamente:
+
+* Imágenes que no carguen
+* Video que no se reproduzca
+* Formularios incompletos
+* Fallos del servidor
+* Fallos de la API
+* Enlaces inexistentes
+* Página 404
+* Internet lento
+* Chat no disponible
+
+No muestres pantallas en blanco.
+
+No muestres mensajes técnicos al usuario.
+
+Utiliza mensajes claros y profesionales.
+
+---
+
+# FASE 13: PRUEBAS OBLIGATORIAS
+
+Antes de considerar el trabajo terminado, realiza pruebas en:
+
+* Google Chrome
+* Safari
+* Microsoft Edge
+* Navegador móvil
+* iPhone
+* Android
+* Tablet
+* Computadora
+
+Verifica:
+
+* Menú
+* Botones
+* Formularios
+* Reservas
+* WhatsApp
+* Teléfono
+* Correo
+* Video
+* Galería
+* Chat
+* Animaciones
+* Enlaces
+* Footer
+* Página 404
+* Responsive design
+* Velocidad
+* Errores de consola
+
+No des el trabajo por terminado mientras existan errores importantes en la consola.
+
+---
+
+# FASE 14: REGLAS PARA NO DAÑAR EL PROYECTO
+
+Estas reglas son obligatorias:
+
+1. No reconstruir la página.
+2. No cambiar la identidad visual.
+3. No reemplazar textos existentes sin autorización.
+4. No cambiar colores.
+5. No cambiar fuentes.
+6. No cambiar imágenes.
+7. No cambiar videos.
+8. No cambiar el orden de las secciones.
+9. No eliminar funcionalidades existentes.
+10. No duplicar componentes.
+11. No agregar información inventada.
+12. No agregar precios falsos.
+13. No agregar testimonios falsos.
+14. No agregar estadísticas falsas.
+15. No crear botones que no funcionen.
+16. No crear formularios simulados.
+17. No exponer claves privadas.
+18. No afectar la versión móvil.
+19. No introducir dependencias innecesarias.
+20. No publicar cambios sin revisar todo el proyecto.
+
+Si una función ya existe, mejórala en lugar de crear otra.
+
+Si una mejora requiere cambiar el diseño existente, conserva el diseño y busca una solución técnica que no altere la apariencia.
+
+---
+
+# ORDEN DE TRABAJO
+
+Trabaja en este orden:
+
+1. Crear respaldo.
+2. Auditar el proyecto.
+3. Identificar problemas.
+4. Corregir errores.
+5. Reparar botones y enlaces.
+6. Optimizar el video.
+7. Optimizar formularios.
+8. Mejorar responsive design.
+9. Agregar funciones faltantes.
+10. Configurar SEO.
+11. Mejorar velocidad.
+12. Mejorar accesibilidad.
+13. Mejorar seguridad.
+14. Configurar analíticas.
+15. Realizar pruebas.
+16. Entregar un resumen de los cambios.
+
+---
+
+# ENTREGA FINAL
+
+Al terminar, entrégame un resumen dividido en cuatro partes:
+
+## 1. Elementos que ya existían
+
+Indica qué componentes y funciones encontraste en la página.
+
+## 2. Problemas corregidos
+
+Explica qué errores técnicos fueron reparados.
+
+## 3. Elementos agregados
+
+Indica exactamente qué funciones nuevas fueron añadidas.
+
+## 4. Elementos pendientes
+
+Indica qué información, claves, cuentas, enlaces o integraciones todavía debe proporcionar el propietario.
+
+No digas solamente que “todo está listo”.
+
+Describe claramente cada cambio y confirma que:
+
+* La página funciona en celular y computadora.
+* No cambiaste el diseño original.
+* No duplicaste secciones.
+* Los formularios funcionan.
+* El video funciona.
+* Los botones funcionan.
+* El chat funciona o indica qué configuración falta.
+* No existen errores importantes en la consola.
+* La página está lista para publicarse.
