@@ -1,0 +1,868 @@
+# AMPLIAR EL PANEL DE EDICIÓN EXISTENTE PARA CONTROLAR TODA LA PÁGINA WEB
+
+Necesito modificar y ampliar el **panel de edición que ya existe actualmente en la página web**.
+
+## INSTRUCCIÓN PRINCIPAL Y OBLIGATORIA
+
+**No reemplaces el panel de administración existente.**
+
+**No crees un panel nuevo.**
+
+**No elimines ninguna función que ya existe.**
+
+Debes revisar el panel actual, conservar su diseño, acceso, autenticación, rutas, base de datos y funciones existentes, y agregarle las herramientas necesarias para que desde ese mismo panel se pueda editar prácticamente toda la página web.
+
+El objetivo es convertir el panel existente en un sistema completo de administración de contenido.
+
+---
+
+# 1. REVISIÓN ANTES DE MODIFICAR
+
+Antes de hacer cambios:
+
+1. Revisa todos los archivos relacionados con el panel actual.
+2. Identifica cómo funciona el inicio de sesión.
+3. Identifica las rutas protegidas.
+4. Revisa cómo guarda actualmente la información.
+5. Revisa las tablas o colecciones de la base de datos.
+6. Identifica las funciones que ya existen.
+7. Conserva todos los datos actuales.
+8. Crea una copia de seguridad antes de modificar la estructura.
+9. No cambies el acceso actual al panel.
+10. No rompas ninguna función existente.
+
+Extiende el panel actual utilizando la misma tecnología y arquitectura del proyecto.
+
+---
+
+# 2. OBJETIVO GENERAL
+
+Desde el panel de administración existente quiero poder:
+
+* Editar textos.
+* Cambiar títulos.
+* Cambiar subtítulos.
+* Cambiar descripciones.
+* Cambiar botones.
+* Cambiar enlaces.
+* Cambiar imágenes.
+* Cambiar videos.
+* Agregar contenido.
+* Eliminar contenido.
+* Ocultar contenido.
+* Mostrar contenido.
+* Cambiar el orden de las secciones.
+* Cambiar el orden de los elementos dentro de cada sección.
+* Agregar y eliminar servicios.
+* Agregar y eliminar paquetes.
+* Agregar y eliminar promociones.
+* Agregar y eliminar fotografías.
+* Administrar comparaciones de antes y después.
+* Administrar preguntas frecuentes.
+* Administrar testimonios.
+* Administrar información de contacto.
+* Administrar SEO.
+* Administrar páginas legales.
+* Administrar el contenido del chatbot.
+
+Toda la información debe guardarse correctamente en la base de datos y reflejarse en la página web sin necesidad de editar código manualmente.
+
+---
+
+# 3. NO REEMPLAZAR CONTENIDO ACTUAL
+
+Todo el contenido que ya aparece actualmente en la página debe mantenerse.
+
+Al conectar las secciones con la base de datos:
+
+* Migra el contenido actual.
+* No borres textos.
+* No pierdas imágenes.
+* No elimines servicios.
+* No elimines paquetes.
+* No elimines testimonios.
+* No elimines configuraciones.
+* No cambies el diseño visual.
+* No dejes secciones vacías.
+
+Primero guarda el contenido actual en la nueva estructura editable y después conecta cada sección con el panel.
+
+---
+
+# 4. PANEL PRINCIPAL
+
+Organiza el panel existente mediante categorías claras, sin cambiar innecesariamente su estilo visual.
+
+Las categorías recomendadas son:
+
+1. Página principal
+2. Navegación
+3. Hero
+4. Sobre nosotros
+5. Servicios
+6. Paquetes
+7. Promociones
+8. Servicio móvil
+9. Beneficios
+10. Cómo funciona
+11. Galería
+12. Antes y después
+13. Testimonios
+14. Preguntas frecuentes
+15. Formulario de cotización
+16. Contacto y ubicación
+17. Footer
+18. Asistente IA
+19. SEO
+20. Páginas legales
+21. Formularios recibidos
+22. Automatizaciones
+23. Configuración general
+
+No dupliques las secciones administrativas que ya existan. Amplía las actuales.
+
+---
+
+# 5. EDITAR NAVEGACIÓN
+
+Desde el panel quiero poder:
+
+* Cambiar el nombre de cada opción del menú.
+* Editar el nombre en inglés y español.
+* Cambiar el enlace o sección de destino.
+* Cambiar el orden de las opciones.
+* Mostrar u ocultar una opción.
+* Agregar una nueva opción.
+* Eliminar una opción.
+* Editar el botón principal del menú.
+* Cambiar el texto y enlace del botón.
+* Cambiar el logotipo.
+* Agregar texto alternativo al logotipo.
+
+No permitas que una opción del menú quede vinculada a una sección inexistente.
+
+---
+
+# 6. EDITAR EL HERO
+
+Desde el panel quiero poder editar:
+
+* Título principal.
+* Subtítulo.
+* Descripción.
+* Texto de los botones.
+* Enlaces de los botones.
+* Video principal.
+* Imagen de respaldo del video.
+* Imagen alternativa para celulares, si se utiliza.
+* Posición del contenido.
+* Visibilidad de cada botón.
+* Texto en inglés y español.
+
+Al cambiar el video:
+
+* Permite subir MP4 y WebM.
+* Valida el formato y el tamaño.
+* Mantén el video anterior hasta que el nuevo termine de subirse.
+* No permitas que la sección se rompa si falla la carga.
+* Permite restaurar el video anterior.
+
+No cambies el diseño actual del Hero.
+
+---
+
+# 7. EDITAR “SOBRE NOSOTROS”
+
+Permite editar:
+
+* Título.
+* Subtítulo.
+* Descripción.
+* Imagen.
+* Texto alternativo.
+* Botones.
+* Enlaces.
+* Estadísticas, solamente si existen.
+* Idioma inglés y español.
+* Mostrar u ocultar la sección.
+
+No inventes información nueva.
+
+---
+
+# 8. ADMINISTRAR SERVICIOS
+
+Esta sección es prioritaria.
+
+Desde el panel necesito poder:
+
+* Ver todos los servicios.
+* Agregar un servicio.
+* Editar un servicio.
+* Eliminar un servicio.
+* Duplicar un servicio.
+* Mostrar u ocultar un servicio.
+* Cambiar el orden arrastrando los elementos.
+* Cambiar la imagen.
+* Cambiar el ícono.
+* Cambiar el nombre.
+* Cambiar la descripción.
+* Cambiar el botón.
+* Cambiar el enlace.
+* Agregar características.
+* Eliminar características.
+* Editar contenido en inglés y español.
+* Marcar un servicio como destacado.
+* Elegir si aparece en la página principal.
+* Elegir si aparece en el formulario de cotización.
+
+Antes de eliminar un servicio, muestra una confirmación clara.
+
+Si un servicio tiene formularios o información relacionada, no borres accidentalmente esos datos.
+
+---
+
+# 9. ADMINISTRAR PAQUETES
+
+Permite:
+
+* Agregar paquetes.
+* Editar paquetes.
+* Eliminar paquetes.
+* Ocultar paquetes.
+* Cambiar el orden.
+* Cambiar nombre.
+* Cambiar descripción.
+* Cambiar imagen.
+* Cambiar precio, solamente si el negocio decide mostrarlo.
+* Ocultar el precio.
+* Agregar o eliminar lo que incluye.
+* Editar botón y enlace.
+* Marcar un paquete como recomendado.
+* Editar inglés y español.
+
+No publiques precios vacíos, incompletos o falsos.
+
+---
+
+# 10. ADMINISTRAR PROMOCIONES
+
+Desde el panel quiero poder:
+
+* Crear promociones.
+* Editar promociones.
+* Eliminar promociones.
+* Activar o desactivar promociones.
+* Establecer fecha de inicio.
+* Establecer fecha de finalización.
+* Cambiar título.
+* Cambiar descripción.
+* Cambiar imagen.
+* Cambiar código promocional.
+* Cambiar botón y enlace.
+* Marcar una promoción como destacada.
+* Programar su publicación.
+* Programar su desactivación automática.
+
+Cuando una promoción expire, debe ocultarse automáticamente sin eliminarse de la base de datos.
+
+---
+
+# 11. ADMINISTRAR SERVICIO MÓVIL
+
+Permite editar:
+
+* Título.
+* Descripción.
+* Imagen.
+* Zonas atendidas.
+* Condiciones.
+* Botón.
+* Enlace.
+* Estado activo o inactivo.
+* Contenido en inglés y español.
+
+---
+
+# 12. ADMINISTRAR BENEFICIOS Y “POR QUÉ ELEGIRNOS”
+
+Permite:
+
+* Agregar beneficios.
+* Editar beneficios.
+* Eliminar beneficios.
+* Cambiar íconos.
+* Cambiar títulos.
+* Cambiar descripciones.
+* Cambiar el orden.
+* Mostrar u ocultar elementos.
+* Editar inglés y español.
+
+---
+
+# 13. ADMINISTRAR “CÓMO FUNCIONA”
+
+Permite:
+
+* Agregar pasos.
+* Editar pasos.
+* Eliminar pasos.
+* Cambiar número.
+* Cambiar título.
+* Cambiar descripción.
+* Cambiar ícono.
+* Cambiar orden.
+* Mostrar u ocultar pasos.
+* Editar inglés y español.
+
+Mantén el diseño zigzag actual si ya existe.
+
+---
+
+# 14. ADMINISTRAR GALERÍA
+
+Desde el panel quiero poder:
+
+* Subir fotografías.
+* Subir varias fotografías a la vez.
+* Reemplazar fotografías.
+* Eliminar fotografías.
+* Cambiar el orden.
+* Crear categorías.
+* Asignar una fotografía a una categoría.
+* Agregar título.
+* Agregar descripción.
+* Agregar texto alternativo.
+* Mostrar u ocultar una imagen.
+* Marcar una imagen como destacada.
+* Elegir cuáles aparecen primero.
+* Ver una vista previa.
+* Comprimir y optimizar las imágenes automáticamente.
+
+Formatos permitidos:
+
+* JPG
+* PNG
+* WebP
+* AVIF, si el sistema lo soporta
+
+No permitas archivos peligrosos ni formatos no autorizados.
+
+Al eliminar una imagen, muestra una confirmación.
+
+---
+
+# 15. ADMINISTRAR “ANTES Y DESPUÉS”
+
+Desde el panel quiero poder:
+
+* Crear una comparación.
+* Subir la imagen del antes.
+* Subir la imagen del después.
+* Reemplazar cualquiera de las dos imágenes.
+* Cambiar título.
+* Cambiar descripción.
+* Cambiar el orden.
+* Mostrar u ocultar la comparación.
+* Editar inglés y español.
+* Eliminar la comparación.
+* Ver una vista previa del comparador.
+
+No permitas publicar una comparación si falta una de las dos imágenes.
+
+Valida que ambas imágenes tengan proporciones compatibles.
+
+---
+
+# 16. ADMINISTRAR TESTIMONIOS Y RESEÑAS
+
+Mantén las funciones que ya existen y agrega:
+
+* Crear testimonio manual.
+* Editar testimonio.
+* Eliminar testimonio.
+* Aprobar o rechazar una reseña.
+* Mostrar u ocultar una reseña.
+* Cambiar el orden.
+* Marcar como destacada.
+* Agregar nombre.
+* Agregar fotografía.
+* Agregar calificación.
+* Agregar comentario.
+* Agregar fecha.
+* Identificar si proviene de Google o de la web.
+
+No publiques reseñas nuevas automáticamente sin aprobación, salvo que ya exista una configuración específica.
+
+---
+
+# 17. ADMINISTRAR PREGUNTAS FRECUENTES
+
+Permite:
+
+* Agregar preguntas.
+* Editar preguntas.
+* Eliminar preguntas.
+* Cambiar respuestas.
+* Cambiar el orden.
+* Mostrar u ocultar preguntas.
+* Crear categorías.
+* Editar inglés y español.
+
+---
+
+# 18. ADMINISTRAR FORMULARIO DE COTIZACIÓN
+
+No reemplaces el formulario existente.
+
+Desde el panel quiero poder:
+
+* Cambiar el título.
+* Cambiar la descripción.
+* Cambiar textos de ayuda.
+* Cambiar el texto del botón.
+* Activar o desactivar campos opcionales.
+* Elegir qué servicios aparecen.
+* Cambiar el orden de los campos.
+* Marcar campos como obligatorios.
+* Editar el mensaje de confirmación.
+* Editar el mensaje de WhatsApp.
+* Configurar el número de WhatsApp receptor.
+* Activar o desactivar notificaciones.
+
+No permitas eliminar campos esenciales sin advertencia.
+
+Mantén conectada la base de datos actual.
+
+---
+
+# 19. ADMINISTRAR CONTACTO Y UBICACIÓN
+
+Permite editar:
+
+* Nombre del negocio.
+* Teléfono.
+* WhatsApp.
+* Correo electrónico.
+* Dirección.
+* Ciudad.
+* Estado.
+* Código postal.
+* Área de servicio.
+* Horario.
+* Días de operación.
+* Enlace de Google Maps.
+* Coordenadas del mapa, si se utilizan.
+* Instagram.
+* Facebook.
+* TikTok.
+* YouTube.
+* Otras redes sociales.
+
+Todos los cambios deben actualizarse automáticamente en:
+
+* Sección de contacto.
+* Footer.
+* Botones flotantes.
+* Formularios.
+* Datos estructurados SEO.
+* Chatbot, cuando corresponda.
+
+---
+
+# 20. ADMINISTRAR FOOTER
+
+Permite editar:
+
+* Logotipo.
+* Descripción.
+* Enlaces.
+* Servicios mostrados.
+* Información de contacto.
+* Redes sociales.
+* Textos legales.
+* Copyright.
+* Texto en inglés y español.
+* Visibilidad de cada columna.
+
+El año debe seguir actualizándose automáticamente.
+
+---
+
+# 21. ADMINISTRAR ASISTENTE IA
+
+No expongas claves privadas en el panel ni en el frontend.
+
+Desde el panel quiero poder editar:
+
+* Nombre del asistente.
+* Mensaje de bienvenida.
+* Personalidad.
+* Instrucciones sobre el negocio.
+* Servicios que puede recomendar.
+* Preguntas frecuentes.
+* Mensaje cuando no conoce una respuesta.
+* Mensaje de error.
+* Número de WhatsApp para transferir al cliente.
+* Estado activo o inactivo.
+* Color o posición, solamente dentro de las opciones ya permitidas por el diseño.
+
+La API key debe permanecer en variables de entorno seguras.
+
+---
+
+# 22. ADMINISTRAR SEO
+
+Amplía la sección de SEO existente.
+
+Permite editar:
+
+* Meta title.
+* Meta description.
+* Keywords.
+* Imagen para compartir.
+* Open Graph title.
+* Open Graph description.
+* Canonical URL.
+* Robots index/noindex.
+* Texto alternativo de imágenes.
+* Datos del negocio para Schema.org.
+* Google Analytics ID.
+* Search Console verification.
+* Favicon.
+
+Permite configurar SEO por página, no solamente de forma global.
+
+---
+
+# 23. ADMINISTRAR PÁGINAS LEGALES
+
+Permite editar desde el panel:
+
+* Política de privacidad.
+* Términos y condiciones.
+* Política de cancelación.
+* Política de cookies.
+* Fecha de última actualización.
+* Contenido en inglés y español.
+* Estado publicado o borrador.
+
+No reemplaces los textos actuales sin guardar una copia.
+
+---
+
+# 24. EDITAR ORDEN Y VISIBILIDAD DE SECCIONES
+
+Crea una sección llamada:
+
+**“Orden de la página”** o **“Page Builder”**
+
+Desde ahí quiero poder:
+
+* Ver todas las secciones existentes.
+* Cambiar su orden arrastrando.
+* Mostrar una sección.
+* Ocultar una sección.
+* Restaurar el orden original.
+* Ver una vista previa.
+
+No permitas eliminar permanentemente secciones estructurales esenciales desde esta pantalla. Utiliza mostrar/ocultar.
+
+---
+
+# 25. EDICIÓN DE TEXTOS EN DOS IDIOMAS
+
+Todo contenido visible debe permitir editar:
+
+* Versión en inglés.
+* Versión en español.
+
+El panel debe mostrar claramente cuál idioma se está editando.
+
+No mezcles los dos idiomas en un mismo campo.
+
+Si falta una traducción, muestra una advertencia antes de publicar.
+
+---
+
+# 26. GESTOR DE ARCHIVOS
+
+Agrega dentro del panel existente una biblioteca de medios.
+
+Debe permitir:
+
+* Ver imágenes y videos subidos.
+* Buscar archivos.
+* Filtrar por tipo.
+* Ver tamaño.
+* Ver fecha.
+* Copiar enlace.
+* Reutilizar un archivo.
+* Reemplazar un archivo.
+* Eliminar archivos no utilizados.
+* Identificar qué sección utiliza cada archivo.
+
+No elimines un archivo que esté siendo utilizado sin mostrar una advertencia.
+
+---
+
+# 27. GUARDAR, PREVISUALIZAR Y PUBLICAR
+
+Cada sección debe tener:
+
+* Botón Guardar.
+* Botón Vista previa.
+* Botón Publicar, si se utiliza sistema de borradores.
+* Botón Cancelar.
+* Confirmación visual cuando se guarde.
+* Mensaje claro cuando ocurra un error.
+
+No muestres “Guardado” si la operación realmente falló.
+
+Los cambios no deben desaparecer al recargar la página.
+
+---
+
+# 28. HISTORIAL Y RESTAURACIÓN
+
+Agrega, si es compatible con la arquitectura actual:
+
+* Historial de cambios.
+* Fecha de modificación.
+* Usuario que hizo el cambio.
+* Restaurar versión anterior.
+* Restaurar contenido original.
+
+Como mínimo, conserva la versión anterior antes de reemplazar textos, imágenes o videos importantes.
+
+---
+
+# 29. SEGURIDAD DEL PANEL
+
+El atajo de teclado para abrir el panel no es suficiente como seguridad.
+
+Mantén el acceso actual, pero verifica que exista:
+
+* Inicio de sesión real.
+* Sesiones seguras.
+* Rutas protegidas en el servidor.
+* Validación de permisos.
+* Cierre de sesión.
+* Protección contra acceso directo a las rutas.
+* Protección contra intentos repetidos.
+* Validación y sanitización de datos.
+* Restricción de tipos de archivos.
+* Restricción de tamaño de archivos.
+* Protección de claves privadas.
+
+Un usuario no autenticado no debe poder editar contenido aunque conozca la URL del panel.
+
+---
+
+# 30. DISEÑO DEL PANEL
+
+No rediseñes completamente el panel existente.
+
+Conserva:
+
+* Colores.
+* Estilo.
+* Tipografía.
+* Navegación.
+* Componentes.
+* Forma de acceso.
+
+Solamente mejora la organización cuando sea necesario para añadir las nuevas funciones.
+
+El panel debe funcionar correctamente en:
+
+* Computadora.
+* Tablet.
+* Celular.
+
+---
+
+# 31. BASE DE DATOS
+
+Toda la información editable debe guardarse de forma permanente.
+
+No almacenes el contenido principal únicamente en:
+
+* LocalStorage.
+* Variables temporales.
+* Archivos del frontend.
+* Estados de React.
+
+Utiliza la base de datos existente.
+
+Crea migraciones seguras si es necesario.
+
+No borres tablas ni datos actuales.
+
+Antes de modificar la estructura:
+
+1. Crea respaldo.
+2. Revisa relaciones.
+3. Migra los datos actuales.
+4. Verifica que no se pierda información.
+5. Prueba creación, edición y eliminación.
+
+---
+
+# 32. REGLAS OBLIGATORIAS
+
+1. No reemplazar el panel existente.
+2. No crear otro panel separado.
+3. No eliminar funciones actuales.
+4. No cambiar el diseño público de la web.
+5. No borrar contenido existente.
+6. No perder datos de la base de datos.
+7. No duplicar secciones administrativas.
+8. No dejar botones sin funcionamiento.
+9. No crear funciones simuladas.
+10. No indicar que algo se guardó si no se guardó.
+11. No guardar claves privadas en el frontend.
+12. No permitir acceso administrativo sin autenticación.
+13. No publicar contenido incompleto.
+14. No eliminar archivos utilizados sin advertencia.
+15. No romper el sistema bilingüe.
+16. No cambiar rutas existentes sin actualizar correctamente sus referencias.
+17. No modificar toda la aplicación de una sola vez sin probar cada módulo.
+18. No hacer cambios destructivos sin respaldo.
+
+---
+
+# 33. ORDEN DE IMPLEMENTACIÓN
+
+Trabaja por etapas:
+
+## Etapa 1
+
+* Crear respaldo.
+* Auditar el panel actual.
+* Auditar la base de datos.
+* Documentar funciones existentes.
+
+## Etapa 2
+
+* Crear estructura de contenido editable.
+* Migrar el contenido actual.
+* Conectar textos e imágenes existentes.
+
+## Etapa 3
+
+* Servicios.
+* Paquetes.
+* Promociones.
+* Galería.
+* Antes y después.
+
+## Etapa 4
+
+* Navegación.
+* Hero.
+* About.
+* Beneficios.
+* Cómo funciona.
+* FAQ.
+* Footer.
+
+## Etapa 5
+
+* Contacto.
+* Formularios.
+* Testimonios.
+* IA.
+* SEO.
+* Páginas legales.
+
+## Etapa 6
+
+* Orden de secciones.
+* Biblioteca de medios.
+* Historial.
+* Seguridad.
+* Pruebas finales.
+
+Prueba cada etapa antes de continuar con la siguiente.
+
+---
+
+# 34. PRUEBAS OBLIGATORIAS
+
+Antes de terminar, prueba:
+
+* Agregar un servicio.
+* Editar un servicio.
+* Ocultar un servicio.
+* Eliminar un servicio.
+* Restaurar un servicio.
+* Cambiar una fotografía.
+* Agregar una fotografía.
+* Eliminar una fotografía.
+* Cambiar el video principal.
+* Agregar una comparación de antes y después.
+* Editar preguntas frecuentes.
+* Cambiar información de contacto.
+* Cambiar textos en inglés.
+* Cambiar textos en español.
+* Cambiar el orden de las secciones.
+* Guardar los cambios.
+* Recargar la página.
+* Confirmar que los cambios permanezcan.
+* Verificar la página pública.
+* Verificar computadora y celular.
+* Verificar autenticación.
+* Verificar rutas protegidas.
+* Verificar errores de consola.
+* Verificar errores del servidor.
+
+---
+
+# 35. ENTREGA FINAL
+
+Cuando termines, entrega un reporte que indique:
+
+## Panel existente conservado
+
+Confirma qué archivos, funciones, accesos y componentes del panel original se conservaron.
+
+## Funciones ampliadas
+
+Indica cada nueva función agregada al panel.
+
+## Secciones completamente editables
+
+Haz una lista de las secciones que ya pueden editarse.
+
+## Secciones pendientes
+
+Indica claramente qué elementos todavía no pueden editarse y por qué.
+
+## Base de datos
+
+Explica qué tablas o colecciones se agregaron o modificaron.
+
+## Migración
+
+Confirma que el contenido anterior fue conservado.
+
+## Seguridad
+
+Explica cómo se protegen las rutas administrativas.
+
+## Pruebas
+
+Indica qué operaciones CRUD fueron probadas:
+
+* Crear.
+* Leer.
+* Editar.
+* Eliminar.
+* Ocultar.
+* Ordenar.
+* Publicar.
+
+No respondas únicamente que “todo está listo”. Entrega detalles comprobables.
+
+La prioridad principal es **ampliar el panel existente sin reemplazarlo, sin eliminar funciones y sin perder contenido**.
