@@ -25,7 +25,7 @@ interface Message {
 const WELCOME_MESSAGE: Message = {
   role: "assistant",
   content:
-    "Hola 👋 Soy el asistente virtual de NJ Web Design RD. Puedo ayudarte a elegir el paquete ideal para tu negocio, explicarte precios, qué incluye cada servicio, y cómo agendar tu consulta gratuita. ¿En qué puedo ayudarte?",
+    "Hola 👋 Soy el asistente virtual de Premium Detailing. Puedo ayudarte a conocer nuestros servicios, recomendarte el mejor tratamiento para tu vehículo o guiarte para solicitar una cotización.",
 };
 
 export default function AIChatWidget() {
