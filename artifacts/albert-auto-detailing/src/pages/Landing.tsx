@@ -13,6 +13,7 @@ import QuoteForm from "@/components/sections/QuoteForm";
 import Contact from "@/components/sections/Contact";
 import Location from "@/components/sections/Location";
 import Footer from "@/components/sections/Footer";
+import PremiumToggle from "@/components/PremiumToggle";
 import { useContent } from "@/contexts/ContentContext";
 
 const WaIcon = () => (
@@ -72,6 +73,7 @@ export default function Landing() {
       </main>
       <Footer />
       <WaFab href={waHref} />
+      <PremiumToggle />
     </div>
   );
 }

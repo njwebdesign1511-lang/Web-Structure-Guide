@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ContentProvider } from "@/contexts/ContentContext";
+import { PremiumProvider } from "@/contexts/PremiumContext";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/not-found";
 import AdminPanel from "@/admin/AdminPanel";
@@ -38,10 +39,12 @@ function App() {
   return (
     <ContentProvider>
       <LanguageProvider>
-        <TooltipProvider>
-          <AppInner />
-          <Toaster />
-        </TooltipProvider>
+        <PremiumProvider>
+          <TooltipProvider>
+            <AppInner />
+            <Toaster />
+          </TooltipProvider>
+        </PremiumProvider>
       </LanguageProvider>
     </ContentProvider>
   );
