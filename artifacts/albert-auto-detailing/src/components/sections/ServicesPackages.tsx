@@ -243,41 +243,35 @@ export default function ServicesPackages() {
                 variants={cardVariants}
                 className="flex flex-col rounded-sm overflow-hidden group"
                 style={{
-                  background: "#041535",
-                  border: isHighlight
-                    ? "1px solid rgba(214,28,35,0.45)"
-                    : "1px solid rgba(79,126,184,0.18)",
-                  transition: "border-color 0.25s, box-shadow 0.25s",
+                  background: "#FFFFFF",
+                  border: isHighlight ? "1px solid #D61C23" : "1px solid #E0E0E0",
+                  transition: "box-shadow 0.25s",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = isHighlight ? "rgba(214,28,35,0.75)" : "rgba(79,126,184,0.45)";
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = isHighlight
-                    ? "0 8px 32px rgba(214,28,35,0.18)"
-                    : "0 8px 32px rgba(79,126,184,0.14)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.14)";
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = isHighlight ? "rgba(214,28,35,0.45)" : "rgba(79,126,184,0.18)";
                   (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                 }}
               >
                 {/* Top accent bar */}
-                <div className="h-0.5 w-full" style={{ background: isHighlight ? "#D61C23" : "rgba(79,126,184,0.40)" }} />
+                <div className="h-1 w-full" style={{ background: isHighlight ? "#D61C23" : "#111111" }} />
 
                 <div className="flex flex-col flex-1 p-6 gap-4">
                   {/* Name + Price */}
                   <div>
                     <h3
-                      className="font-bold text-white uppercase tracking-wide leading-tight mb-3"
-                      style={{ fontSize: "0.95rem" }}
+                      className="font-bold uppercase tracking-wide leading-tight mb-3"
+                      style={{ fontSize: "0.95rem", color: "#111111" }}
                     >
                       {name}
                     </h3>
                     {pkg.price ? (
                       <div className="flex items-baseline gap-1">
-                        <span className="text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>{startingFrom}</span>
+                        <span className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.40)" }}>{startingFrom}</span>
                         <span
                           className="text-3xl font-bold"
-                          style={{ color: isHighlight ? "#D61C23" : "#6FB5FF" }}
+                          style={{ color: isHighlight ? "#D61C23" : "#111111" }}
                         >
                           {pkg.price}
                         </span>
@@ -285,7 +279,7 @@ export default function ServicesPackages() {
                     ) : (
                       <span
                         className="text-sm font-semibold italic"
-                        style={{ color: "rgba(255,255,255,0.45)" }}
+                        style={{ color: "rgba(0,0,0,0.45)" }}
                       >
                         {contactPrice}
                       </span>
@@ -293,7 +287,7 @@ export default function ServicesPackages() {
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px w-full" style={{ background: "rgba(79,126,184,0.15)" }} />
+                  <div className="h-px w-full" style={{ background: "rgba(0,0,0,0.10)" }} />
 
                   {/* Features */}
                   <ul className="flex flex-col gap-2 flex-1">
@@ -301,9 +295,9 @@ export default function ServicesPackages() {
                       <li key={fi} className="flex items-start gap-2">
                         <Check
                           className="shrink-0 mt-0.5"
-                          style={{ width: "13px", height: "13px", color: isHighlight ? "#D61C23" : "#4F7EB8", strokeWidth: 2.5 }}
+                          style={{ width: "13px", height: "13px", color: isHighlight ? "#D61C23" : "#111111", strokeWidth: 2.5 }}
                         />
-                        <span className="text-xs leading-relaxed" style={{ color: "rgba(234,234,234,0.70)" }}>{f}</span>
+                        <span className="text-xs leading-relaxed" style={{ color: "#333333" }}>{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -313,10 +307,10 @@ export default function ServicesPackages() {
                     {/* Book Now */}
                     <a
                       href="#quote"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 text-white font-bold text-xs tracking-widest uppercase transition-colors"
-                      style={{ background: "#D61C23" }}
-                      onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-                      onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}
                     >
                       <CalendarCheck className="w-3.5 h-3.5" />
                       {bookLabel}
@@ -325,10 +319,10 @@ export default function ServicesPackages() {
                     {/* Request Quote */}
                     <a
                       href="#quote"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 text-white font-bold text-xs tracking-widest uppercase transition-all"
-                      style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.18)" }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.38)"; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.18)"; }}
+                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}
                     >
                       <FileText className="w-3.5 h-3.5" />
                       {quoteLabel}
@@ -339,10 +333,10 @@ export default function ServicesPackages() {
                       href={waHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 text-white font-bold text-xs tracking-widest uppercase transition-all"
-                      style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)" }}
-                      onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.35)")}
-                      onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.15)")}
+                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
                       WhatsApp
