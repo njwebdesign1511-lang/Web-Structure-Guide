@@ -88,18 +88,27 @@ export default function Footer() {
                   <span>Instagram</span>
                 </a>
               )}
-              <div className="pt-2 mt-1" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
+              <div className="pt-3 mt-2" style={{ borderTop: "1px solid rgba(79,126,184,0.20)" }}>
+                <p className="text-xs mb-1" style={{ color: "rgba(111,181,255,0.50)" }}>
+                  {lang === "es" ? "Sitio desarrollado por" : "Site developed by"}
+                </p>
                 <a
                   href="https://njwebdesignrd.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs transition-colors"
-                  style={{ color: "rgba(79,126,184,0.55)" }}
-                  onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#6FB5FF")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.55)")}
+                  className="inline-flex items-center gap-1.5 font-bold text-sm tracking-wide transition-all"
+                  style={{ color: "#D61C23" }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#ff3d44";
+                    (e.currentTarget as HTMLAnchorElement).style.textShadow = "0 0 12px rgba(214,28,35,0.45)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#D61C23";
+                    (e.currentTarget as HTMLAnchorElement).style.textShadow = "none";
+                  }}
                 >
-                  {lang === "es" ? "Sitio desarrollado por" : "Site developed by"}{" "}
-                  <span className="font-semibold">njwebdesignrd.com</span>
+                  <span>⚡</span>
+                  njwebdesignrd.com
                 </a>
               </div>
             </div>
