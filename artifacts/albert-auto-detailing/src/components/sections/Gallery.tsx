@@ -282,7 +282,7 @@ function BeforeAfterCard({ pair, lang, isAnimating, onAnimationEnd, loading }: C
           </svg>
         </div>
 
-        {/* BEFORE label */}
+        {/* BEFORE label — fades when slider moves far left (showing more after) */}
         <div
           className="absolute top-3 left-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
           style={{
@@ -291,12 +291,14 @@ function BeforeAfterCard({ pair, lang, isAnimating, onAnimationEnd, loading }: C
             backdropFilter: "blur(4px)",
             border: "1px solid rgba(255,255,255,0.15)",
             zIndex: 9,
+            opacity: Math.min(1, pos / 25),
+            transition: "opacity 0.3s ease",
           }}
         >
           {beforeLabel}
         </div>
 
-        {/* AFTER label */}
+        {/* AFTER label — fades when slider moves far right (showing more before) */}
         <div
           className="absolute top-3 right-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
           style={{
@@ -304,6 +306,8 @@ function BeforeAfterCard({ pair, lang, isAnimating, onAnimationEnd, loading }: C
             color: "white",
             backdropFilter: "blur(4px)",
             zIndex: 9,
+            opacity: Math.min(1, (100 - pos) / 25),
+            transition: "opacity 0.3s ease",
           }}
         >
           {afterLabel}
