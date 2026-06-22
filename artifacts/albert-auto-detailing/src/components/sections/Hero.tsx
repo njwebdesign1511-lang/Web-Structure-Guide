@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoImg from "@assets/logo-transparent.png";
 
 const WaIcon = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -19,56 +21,101 @@ export default function Hero() {
   const { lang, t } = useLanguage();
 
   const h = content.hero;
-  const badge   = lang === "es" ? t.hero.badge   : h.badge;
-  const line1   = lang === "es" ? t.hero.line1   : h.line1;
-  const line2   = lang === "es" ? t.hero.line2   : h.line2;
-  const line3_1 = lang === "es" ? t.hero.line3_1 : h.line3_1;
-  const line3_2 = lang === "es" ? t.hero.line3_2 : h.line3_2;
-  const tagline = lang === "es" ? t.hero.tagline : h.tagline;
-  const btn1    = lang === "es" ? t.hero.bookNow      : h.btn1;
-  const btn3    = lang === "es" ? t.hero.contactUs    : h.btn3;
-  const callNow  = lang === "es" ? "Llamar Ahora"   : "Call Now";
-  const bookAppt = lang === "es" ? "Reservar Cita"  : "Book Appointment";
+  const badge    = lang === "es" ? t.hero.badge   : h.badge;
+  const line1    = lang === "es" ? t.hero.line1   : h.line1;
+  const line2    = lang === "es" ? t.hero.line2   : h.line2;
+  const line3_1  = lang === "es" ? t.hero.line3_1 : h.line3_1;
+  const line3_2  = lang === "es" ? t.hero.line3_2 : h.line3_2;
+  const tagline  = lang === "es" ? t.hero.tagline : h.tagline;
+  const btn1     = lang === "es" ? t.hero.bookNow      : h.btn1;
+  const btn3     = lang === "es" ? t.hero.contactUs    : h.btn3;
+  const callNow  = lang === "es" ? "Llamar Ahora"      : "Call Now";
+  const bookAppt = lang === "es" ? "Reservar Cita"     : "Book Appointment";
 
   const c        = content.contact as any;
   const waNumber = c?.whatsapp ?? "14756898301";
   const waText   = c?.whatsappText ?? "Hi! I'd like to book a detailing service.";
   const phone    = String(c?.phone ?? "4756898301").replace(/\D/g, "");
 
+  // ── Video + logo splash logic ──
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showLogo, setShowLogo] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleVideoEnded = useCallback(() => {
+    setShowLogo(true);
+    timerRef.current = setTimeout(() => {
+      setShowLogo(false);
+      videoRef.current?.play();
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
   return (
     <section
       id="home"
       className="relative min-h-[100dvh] flex items-center overflow-hidden"
     >
-      {/* ── Full-screen background video ── */}
+      {/* ── Full-screen background video (no loop — we handle it manually) ── */}
       <video
+        ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         disablePictureInPicture
+        onEnded={handleVideoEnded}
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
 
+      {/* ── Logo splash shown for 2 s at end of each video loop ── */}
+      <AnimatePresence>
+        {showLogo && (
+          <motion.div
+            key="logo-splash"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ zIndex: 5, background: "rgba(2,12,36,0.95)" }}
+          >
+            <motion.img
+              src={logoImg}
+              alt="Albert Auto Detailing"
+              initial={{ scale: 0.80, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 1.05, opacity: 0 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="w-56 md:w-72 object-contain drop-shadow-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* ── Dark gradient overlay so text is always readable ── */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 1,
-          background: "linear-gradient(105deg, rgba(2,12,36,0.88) 0%, rgba(2,12,36,0.70) 45%, rgba(2,12,36,0.40) 100%)",
+          background: "linear-gradient(105deg, rgba(2,12,36,0.88) 0%, rgba(2,12,36,0.70) 45%, rgba(2,12,36,0.38) 100%)",
         }}
       />
 
-      {/* ── Extra bottom fade for scroll indicator ── */}
+      {/* ── Bottom fade for scroll indicator ── */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{ zIndex: 2, background: "linear-gradient(to top, rgba(2,12,36,0.80), transparent)" }}
       />
 
-      {/* ── Left vertical accent line ── */}
+      {/* ── Left accent line ── */}
       <div
         className="absolute left-0 top-0 bottom-0 w-px pointer-events-none"
         style={{ zIndex: 2, background: "linear-gradient(to bottom, transparent, rgba(214,28,35,0.55) 30%, rgba(214,28,35,0.55) 70%, transparent)" }}
@@ -97,7 +144,7 @@ export default function Hero() {
             className="font-bold text-white leading-[1.04] mb-6"
             style={{
               fontSize: "clamp(3rem, 7.5vw, 6rem)",
-              textShadow: "0 2px 24px rgba(0,0,0,0.60)",
+              textShadow: "0 2px 24px rgba(0,0,0,0.65)",
             }}
           >
             {line1}<br />
@@ -125,7 +172,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="text-lg md:text-xl mb-10 max-w-lg italic font-light"
             style={{
-              color: "rgba(255,255,255,0.85)",
+              color: "rgba(255,255,255,0.88)",
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               textShadow: "0 1px 12px rgba(0,0,0,0.55)",
             }}
@@ -167,7 +214,7 @@ export default function Hero() {
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.12)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.50)"; }}
             ><PhoneIcon /> {callNow}</a>
 
-            {/* WhatsApp — blue tinted */}
+            {/* WhatsApp */}
             <a
               href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
               target="_blank"

@@ -3,7 +3,7 @@ import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContent } from "@/contexts/ContentContext";
-import logoImg from "@assets/WhatsApp_Image_2026-06-19_at_10.23.59_PM_1782017772024.jpeg";
+import logoImg from "@assets/logo-transparent.png";
 
 const WaIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0" xmlns="http://www.w3.org/2000/svg">
