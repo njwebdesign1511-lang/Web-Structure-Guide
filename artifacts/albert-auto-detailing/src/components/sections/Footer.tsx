@@ -88,6 +88,20 @@ export default function Footer() {
                   <span>Instagram</span>
                 </a>
               )}
+              <div className="pt-2 mt-1" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
+                <a
+                  href="https://njwebdesignrd.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs transition-colors"
+                  style={{ color: "rgba(79,126,184,0.55)" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#6FB5FF")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.55)")}
+                >
+                  {lang === "es" ? "Sitio desarrollado por" : "Site developed by"}{" "}
+                  <span className="font-semibold">njwebdesignrd.com</span>
+                </a>
+              </div>
             </div>
           </div>
           <div>
