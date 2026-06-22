@@ -220,7 +220,7 @@ export default function Hero() {
             {/* Request a Quote — solid red */}
             <a
               href="#quote"
-              className="btn-lift px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-colors"
+              className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
               style={{ background: "#D61C23" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
@@ -229,7 +229,7 @@ export default function Hero() {
             {/* Book Appointment — white outline */}
             <a
               href="#quote"
-              className="btn-lift px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-all"
+              className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.30)", backdropFilter: "blur(4px)" }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.55)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.30)"; }}
@@ -238,7 +238,7 @@ export default function Hero() {
             {/* Call Now — red outline */}
             <a
               href={`tel:${phone}`}
-              className="px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm flex items-center justify-center gap-2 transition-all"
+              className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm flex items-center justify-center gap-2"
               style={{ background: "rgba(214,28,35,0.12)", border: "1px solid rgba(214,28,35,0.50)", backdropFilter: "blur(4px)" }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.30)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.80)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.12)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.50)"; }}
@@ -249,7 +249,7 @@ export default function Hero() {
               href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm flex items-center justify-center gap-2 transition-all"
+              className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm flex items-center justify-center gap-2"
               style={{ background: "rgba(79,126,184,0.20)", border: "1px solid rgba(79,126,184,0.45)", backdropFilter: "blur(4px)" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.45)")}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.20)")}

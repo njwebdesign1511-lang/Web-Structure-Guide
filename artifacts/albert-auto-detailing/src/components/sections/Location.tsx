@@ -108,7 +108,7 @@ export default function Location() {
               href={`https://wa.me/${c?.whatsapp ?? "14756898301"}?text=${encodeURIComponent(c?.whatsappText ?? "Hi! I'd like to book.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase text-sm rounded-sm transition-colors"
+              className="site-btn flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase text-sm rounded-sm"
               style={{ background: "#D61C23" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}

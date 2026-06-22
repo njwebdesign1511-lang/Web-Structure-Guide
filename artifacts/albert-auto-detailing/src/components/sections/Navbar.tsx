@@ -67,7 +67,7 @@ export default function Navbar() {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 text-white text-sm font-bold tracking-wider uppercase transition-colors rounded-sm flex items-center gap-2"
+            className="site-btn px-5 py-2 text-white text-sm font-bold tracking-wider uppercase rounded-sm flex items-center gap-2"
             style={{ background: "#D61C23" }}
             onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
             onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
@@ -110,7 +110,7 @@ export default function Navbar() {
               <a
                 href="#quote"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase transition-colors rounded-sm"
+                className="site-btn px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase rounded-sm"
                 style={{ background: "#4F7EB8" }}
               >
                 {lang === "es" ? "Solicitar Cotización" : "Get Free Quote"}
@@ -119,7 +119,7 @@ export default function Navbar() {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase transition-colors rounded-sm"
+                className="site-btn px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase rounded-sm"
                 style={{ background: "#D61C23" }}
               >
                 WhatsApp

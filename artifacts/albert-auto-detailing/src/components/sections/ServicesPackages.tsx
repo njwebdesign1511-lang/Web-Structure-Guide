@@ -314,7 +314,7 @@ export default function ServicesPackages() {
                     {/* Book Now */}
                     <a
                       href="#quote"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      className="site-btn flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase"
                       style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}
@@ -326,7 +326,7 @@ export default function ServicesPackages() {
                     {/* Request Quote */}
                     <a
                       href="#quote"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      className="site-btn flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase"
                       style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}
@@ -340,7 +340,7 @@ export default function ServicesPackages() {
                       href={waHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase transition-colors"
+                      className="site-btn flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase"
                       style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.color = "#111111"; }}

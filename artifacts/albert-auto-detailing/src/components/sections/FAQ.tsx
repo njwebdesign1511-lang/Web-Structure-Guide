@@ -83,7 +83,7 @@ export default function FAQ() {
             href={`https://wa.me/${c?.whatsapp ?? "14756898301"}?text=${encodeURIComponent(c?.whatsappText ?? "Hi! I have a question.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm tracking-widest uppercase rounded-sm transition-colors"
+            className="site-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm tracking-widest uppercase rounded-sm"
             style={{ background: "#D61C23" }}
             onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
             onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}

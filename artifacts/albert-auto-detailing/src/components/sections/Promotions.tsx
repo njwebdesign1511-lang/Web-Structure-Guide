@@ -45,7 +45,7 @@ export default function Promotions() {
         <div className="text-center mt-8">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 px-6 py-3 text-white font-bold tracking-widest uppercase text-sm rounded-sm transition-colors"
+            className="site-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold tracking-widest uppercase text-sm rounded-sm"
             style={{ background: "#D61C23" }}
             onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
             onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}

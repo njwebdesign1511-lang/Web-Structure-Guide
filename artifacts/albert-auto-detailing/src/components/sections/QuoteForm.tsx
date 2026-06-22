@@ -183,7 +183,7 @@ export default function QuoteForm() {
 
           <button
             type="submit"
-            className="flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase transition-colors rounded-sm text-sm"
+            className="site-btn flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase rounded-sm text-sm"
             style={{ background: "#D61C23" }}
             onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = "#8E0D13")}
             onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = "#D61C23")}

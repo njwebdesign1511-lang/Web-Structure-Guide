@@ -52,7 +52,7 @@ export default function MobileService() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="#contact" className="inline-block px-10 py-5 bg-primary text-white font-bold tracking-widest uppercase hover:bg-white hover:text-primary transition-colors rounded-sm shadow-xl">
+            <a href="#contact" className="site-btn inline-block px-10 py-5 bg-primary text-white font-bold tracking-widest uppercase hover:bg-white hover:text-primary rounded-sm shadow-xl">
               {cta}
             </a>
           </motion.div>
