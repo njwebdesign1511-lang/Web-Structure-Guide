@@ -100,12 +100,12 @@ export default function Hero() {
         )}
       </AnimatePresence>
 
-      {/* ── Dark gradient overlay so text is always readable ── */}
+      {/* ── Subtle gradient only on the left for text readability ── */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 1,
-          background: "linear-gradient(105deg, rgba(2,12,36,0.88) 0%, rgba(2,12,36,0.70) 45%, rgba(2,12,36,0.38) 100%)",
+          background: "linear-gradient(105deg, rgba(2,12,36,0.62) 0%, rgba(2,12,36,0.30) 45%, rgba(2,12,36,0.04) 100%)",
         }}
       />
 
