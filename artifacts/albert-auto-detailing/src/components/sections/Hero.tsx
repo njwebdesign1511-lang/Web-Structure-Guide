@@ -84,8 +84,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ zIndex: 5, background: "rgba(2,12,36,0.95)" }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-6"
+            style={{ zIndex: 5, background: "#020C24" }}
           >
             <motion.img
               src={logoImg}
@@ -94,8 +94,32 @@ export default function Hero() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1.05, opacity: 0 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="w-56 md:w-72 object-contain drop-shadow-2xl"
+              className="object-contain"
+              style={{
+                width: "clamp(180px, 28vw, 340px)",
+                filter: "drop-shadow(0 0 24px rgba(255,255,255,0.25))",
+              }}
             />
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
+              className="flex flex-col items-center gap-1"
+            >
+              <span
+                className="font-display font-bold uppercase tracking-[0.22em] text-white"
+                style={{ fontSize: "clamp(1.1rem, 3vw, 2rem)", letterSpacing: "0.22em" }}
+              >
+                Albert Auto Detailing
+              </span>
+              <span
+                className="text-xs md:text-sm uppercase tracking-[0.18em]"
+                style={{ color: "#D61C23", letterSpacing: "0.18em" }}
+              >
+                Norwalk, Connecticut
+              </span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
