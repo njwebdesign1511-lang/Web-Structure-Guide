@@ -31,14 +31,10 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
   const [content, setContentState] = useState<SiteContent>(defaultContent);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [token, setTokenState] = useState<string | null>(() => {
-    return localStorage.getItem("admin_token");
-  });
+  const [token, setTokenState] = useState<string | null>(null);
 
   const setToken = (t: string | null) => {
     setTokenState(t);
-    if (t) localStorage.setItem("admin_token", t);
-    else localStorage.removeItem("admin_token");
   };
 
   const logout = () => setToken(null);

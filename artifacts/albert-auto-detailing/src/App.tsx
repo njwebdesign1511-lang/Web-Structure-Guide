@@ -10,20 +10,25 @@ import NotFound from "@/pages/not-found";
 import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
 import AdminPanel from "@/admin/AdminPanel";
+import { useContent } from "@/contexts/ContentContext";
 
 function AppInner() {
   const [adminOpen, setAdminOpen] = useState(false);
+  const { logout } = useContent();
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.altKey && e.shiftKey && e.key === "N") {
         e.preventDefault();
-        setAdminOpen((prev) => !prev);
+        setAdminOpen((prev) => {
+          if (prev) logout();
+          return !prev;
+        });
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [logout]);
 
   if (adminOpen) {
     return <AdminPanel />;
