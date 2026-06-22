@@ -163,7 +163,7 @@ export default function AIChatWidget() {
           </motion.span>
         </AnimatePresence>
         <span className="ai-chat-fab-label">
-          {open ? "Cerrar" : "💬 Asistente IA"}
+          {open ? "Cerrar" : "Asistente IA"}
         </span>
         {!open && unread && <span className="ai-chat-unread" />}
       </motion.button>
