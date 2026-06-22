@@ -71,12 +71,18 @@ export default function Contact() {
     <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#0D2D6B" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom, rgba(214,28,35,0.08) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16 md:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16 md:mb-24"
+        >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="max-w-2xl mx-auto" style={{ color: "#EAEAEA" }}>{body}</p>
-        </div>
+        </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
           {methods.map((method, index) => (
             <motion.a

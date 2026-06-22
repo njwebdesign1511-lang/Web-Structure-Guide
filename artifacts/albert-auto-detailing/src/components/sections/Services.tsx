@@ -28,11 +28,17 @@ export default function Services() {
   return (
     <section id="services" className="py-24 md:py-32 bg-card relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 md:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16 md:mb-24"
+        >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
-        </div>
+        </motion.div>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -49,6 +55,7 @@ export default function Services() {
               <motion.div
                 key={index}
                 variants={itemVariants}
+                whileHover={{ y: -6, transition: { type: "spring", stiffness: 320, damping: 22 } }}
                 className="bg-background border border-border p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />

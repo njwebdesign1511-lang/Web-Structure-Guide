@@ -25,11 +25,17 @@ export default function Location() {
   return (
     <section id="location" className="py-24 md:py-32 border-t border-border relative" style={{ background: "#041535" }}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
-        </div>
+        </motion.div>
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <motion.div
             initial={{ opacity: 0, x: -24 }}

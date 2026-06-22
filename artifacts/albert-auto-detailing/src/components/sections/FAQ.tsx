@@ -24,14 +24,28 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#041535" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-3">
           {items.map((item, i) => (
-            <div key={i} className="rounded-sm overflow-hidden" style={{ border: "1px solid rgba(79,126,184,0.25)", background: "#071B45" }}>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: i * 0.06, ease: "easeOut" }}
+              className="rounded-sm overflow-hidden"
+              style={{ border: "1px solid rgba(79,126,184,0.25)", background: "#071B45" }}
+            >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left group transition-colors"
@@ -58,7 +72,7 @@ export default function FAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="mt-10 text-center">

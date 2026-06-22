@@ -164,4 +164,41 @@
     border-color: rgba(79, 126, 184, 0.40);
     background: rgba(7, 27, 69, 0.75);
   }
+
+  /* ── Smooth scroll ── */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ── Navbar link underline slide animation ── */
+  .nav-link {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1.5px;
+    background: #D61C23;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ── Button hover lift (applies globally to anchor/button elements with .btn-lift) ── */
+  .btn-lift {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .btn-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+  }
+  .btn-lift:active {
+    transform: translateY(0px);
+  }
 }

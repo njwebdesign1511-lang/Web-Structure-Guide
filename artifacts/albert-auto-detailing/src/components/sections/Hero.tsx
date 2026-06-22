@@ -220,7 +220,7 @@ export default function Hero() {
             {/* Request a Quote — solid red */}
             <a
               href="#quote"
-              className="px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-colors"
+              className="btn-lift px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-colors"
               style={{ background: "#D61C23" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
@@ -229,7 +229,7 @@ export default function Hero() {
             {/* Book Appointment — white outline */}
             <a
               href="#quote"
-              className="px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-all"
+              className="btn-lift px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center transition-all"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.30)", backdropFilter: "blur(4px)" }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.55)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.30)"; }}

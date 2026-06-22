@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Phone, Mail, Instagram } from "lucide-react";
@@ -23,7 +24,13 @@ export default function Footer() {
   return (
     <footer className="pt-16 pb-8" style={{ background: "#020C24", borderTop: "1px solid rgba(79,126,184,0.20)" }}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid md:grid-cols-3 gap-12 mb-12"
+        >
           <div>
             <a href="#home" className="flex items-center mb-3">
               <img src={logoImg} alt="Albert Auto Detailing" className="h-32 w-auto object-contain" />
@@ -97,7 +104,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="pt-8 text-center" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
           <p className="text-xs" style={{ color: "#4F7EB8" }}>
             &copy; {new Date().getFullYear()} Albert Auto Detailing. {rights}

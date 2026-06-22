@@ -1,0 +1,74 @@
+Necesito agregar un Modo Experiencia Premium a mi página web, pero sin cambiar nada del diseño actual.
+
+Instrucción principal
+
+No cambies textos, colores, imágenes, secciones, botones, menú, tipografía, estructura, márgenes ni diseño responsive.
+Solo agrega este efecto especial de experiencia premium.
+
+Qué quiero agregar
+
+Agrega un botón pequeño y elegante que diga:
+
+✨ Experiencia Premium
+
+Este botón debe estar visible, pero discreto. Puede ir en una esquina de la página o cerca del menú, sin tapar contenido importante.
+
+Cuando el usuario toque el botón
+
+Debe activarse un modo visual elegante con:
+
+Animaciones más suaves
+Que las secciones aparezcan con más fluidez.
+Que los textos y cards tengan transiciones premium.
+Brillos sutiles
+Agrega pequeños efectos de brillo en botones, títulos o cards.
+Que sean delicados, no exagerados.
+Fondo con movimiento ligero
+Agrega un efecto muy suave en el fondo.
+Puede ser un degradado lento o luces suaves.
+No debe distraer ni afectar la lectura.
+Efectos en servicios o cards
+Al pasar el mouse, las cards pueden elevarse ligeramente.
+Agregar sombra elegante y transición suave.
+No cambiar tamaños ni contenido.
+Frases destacadas
+Algunas frases importantes pueden aparecer con un fade-in elegante.
+No agregar textos nuevos sin permiso.
+Solo resaltar frases ya existentes.
+Botones más vivos
+Al pasar el mouse, los botones pueden tener:
+aumento leve
+sombra suave
+brillo delicado
+Mantener los mismos colores.
+Botón para desactivar
+
+El mismo botón debe permitir activar y desactivar el modo premium.
+
+Cuando esté activado puede decir:
+
+✨ Premium Activado
+
+Cuando esté desactivado puede decir:
+
+✨ Experiencia Premium
+
+Estilo que quiero
+
+Quiero que se vea:
+
+moderno
+elegante
+fino
+limpio
+premium
+profesional
+llamativo sin exagerar
+Muy importante
+
+No rediseñes la web.
+No cambies el contenido.
+No agregues nuevas secciones.
+No dañes la versión móvil.
+No hagas animaciones rápidas ni infantiles.
+Solo agrega el modo experiencia premium con efectos visuales elegantes.

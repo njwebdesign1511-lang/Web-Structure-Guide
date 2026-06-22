@@ -26,12 +26,18 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-24 md:py-32 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 md:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16 md:mb-24"
+        >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="text-gray-400 max-w-2xl mx-auto">{body}</p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {imageSrcs.map((src, index) => (
             <motion.div

@@ -29,11 +29,17 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 md:py-32 border-b border-border relative overflow-hidden" style={{ background: "#041535" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(79,126,184,0.10) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#6FB5FF" }}>{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 mx-auto" style={{ background: "#4F7EB8" }} />
-        </div>
+        </motion.div>
         <div className="grid md:grid-cols-3 gap-6">
           {active.map((item, i) => (
             <motion.div
