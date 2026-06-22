@@ -70,7 +70,13 @@ export default function Hero() {
         disablePictureInPicture
         onEnded={handleVideoEnded}
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
+        style={{
+          zIndex: 0,
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
+          willChange: "transform",
+          imageRendering: "auto",
+        }}
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
