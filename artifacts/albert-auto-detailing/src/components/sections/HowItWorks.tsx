@@ -50,9 +50,9 @@ export default function HowItWorks() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 md:mb-20"
         >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#D61C23" }}>{eyebrow}</p>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#FF2534" }}>{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
-          <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#D61C23" }} />
+          <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#FF2534" }} />
           <p className="text-gray-400 max-w-xl mx-auto">{sub}</p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function HowItWorks() {
                         backdropFilter: "blur(4px)",
                       }}
                     >
-                      <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#D61C23" }}>{step.n}</p>
+                      <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#FF2534" }}>{step.n}</p>
                       <h3 className="text-white font-bold text-lg mb-2">{step.title}</h3>
                       <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
                     </div>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                   {/* Center circle */}
                   <div
                     className="relative z-10 hidden md:flex w-10 h-10 rounded-full items-center justify-center shrink-0"
-                    style={{ background: "#D61C23", border: "3px solid #020C24", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
+                    style={{ background: "#FF2534", border: "3px solid #020C24", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
                   >
                     <span className="text-white text-xs font-bold">{i + 1}</span>
                   </div>
@@ -103,7 +103,7 @@ export default function HowItWorks() {
                   {/* Mobile number bubble */}
                   <div
                     className="md:hidden w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                    style={{ background: "rgba(214,28,35,0.15)", border: "1px solid rgba(214,28,35,0.35)", color: "#D61C23" }}
+                    style={{ background: "rgba(214,28,35,0.15)", border: "1px solid rgba(214,28,35,0.35)", color: "#FF2534" }}
                   >
                     <span className="text-sm font-bold">{i + 1}</span>
                   </div>
@@ -127,9 +127,9 @@ export default function HowItWorks() {
           <a
             href="#quote"
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-sm transition-all"
-            style={{ background: "#D61C23", color: "white" }}
+            style={{ background: "#FF2534", color: "white" }}
             onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#b91c1c"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#D61C23"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FF2534"; }}
           >
             {lang === "es" ? "Solicitar Cotización" : "Request a Quote"}
           </a>

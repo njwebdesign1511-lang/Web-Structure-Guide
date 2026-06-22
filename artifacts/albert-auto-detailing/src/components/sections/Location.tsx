@@ -67,7 +67,7 @@ export default function Location() {
               <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.25)" }}>
                 <MapPin className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#4F7EB8" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#3D94FF" }}>
                     {lang === "es" ? "Dirección" : "Address"}
                   </p>
                   <p className="text-white font-medium">{c.address}</p>
@@ -86,7 +86,7 @@ export default function Location() {
               <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.25)" }}>
                 <Clock className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#4F7EB8" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#3D94FF" }}>
                     {lang === "es" ? "Horario" : "Hours"}
                   </p>
                   <p className="text-white font-medium">{c.hours}</p>
@@ -95,9 +95,9 @@ export default function Location() {
             )}
             {areaNote && (
               <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "rgba(79,126,184,0.08)", border: "1px solid rgba(79,126,184,0.30)" }}>
-                <Car className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#6FB5FF" }} />
+                <Car className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#85CCFF" }} />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#6FB5FF" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#85CCFF" }}>
                     {lang === "es" ? "Área de Servicio" : "Service Area"}
                   </p>
                   <p className="text-sm leading-relaxed" style={{ color: "#EAEAEA" }}>{areaNote}</p>
@@ -109,9 +109,9 @@ export default function Location() {
               target="_blank"
               rel="noopener noreferrer"
               className="site-btn flex items-center justify-center gap-3 px-8 py-4 text-white font-bold tracking-widest uppercase text-sm rounded-sm"
-              style={{ background: "#D61C23" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+              style={{ background: "#FF2534" }}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
             >
               <WaIcon />
               {lang === "es" ? "Reservar por WhatsApp" : "Book via WhatsApp"}

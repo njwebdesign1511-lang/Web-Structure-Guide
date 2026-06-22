@@ -76,7 +76,7 @@ export default function FAQ() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <p className="text-sm mb-4" style={{ color: "#4F7EB8" }}>
+          <p className="text-sm mb-4" style={{ color: "#3D94FF" }}>
             {lang === "es" ? "¿Más preguntas? Escríbenos directamente." : "More questions? Reach out to us directly."}
           </p>
           <a
@@ -84,9 +84,9 @@ export default function FAQ() {
             target="_blank"
             rel="noopener noreferrer"
             className="site-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm tracking-widest uppercase rounded-sm"
-            style={{ background: "#D61C23" }}
-            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+            style={{ background: "#FF2534" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
           >
             <WaIcon />
             {lang === "es" ? "WhatsApp" : "Chat on WhatsApp"}

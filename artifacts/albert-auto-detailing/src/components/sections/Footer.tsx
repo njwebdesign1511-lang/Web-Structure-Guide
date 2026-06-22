@@ -35,12 +35,12 @@ export default function Footer() {
             <a href="#home" className="flex items-center mb-3">
               <img src={logoImg} alt="Albert Auto Detailing" className="h-32 w-auto object-contain" />
             </a>
-            <p className="text-sm tracking-widest uppercase mb-4" style={{ color: "#4F7EB8" }}>Est. 2023 · Norwalk, CT</p>
+            <p className="text-sm tracking-widest uppercase mb-4" style={{ color: "#3D94FF" }}>Est. 2023 · Norwalk, CT</p>
             <p className="text-sm leading-relaxed mb-1" style={{ color: "#EAEAEA" }}>{tagline}</p>
-            <p className="text-sm" style={{ color: "#4F7EB8" }}>{sub}</p>
+            <p className="text-sm" style={{ color: "#3D94FF" }}>{sub}</p>
           </div>
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#6FB5FF" }}>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#85CCFF" }}>
               {lang === "es" ? "Contacto" : "Contact"}
             </h4>
             <div className="flex flex-col gap-3">
@@ -49,9 +49,9 @@ export default function Footer() {
                   href={`https://wa.me/${c.whatsapp}?text=${encodeURIComponent(waText)}`}
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm transition-colors"
-                  style={{ color: "#4F7EB8" }}
-                  onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#D61C23")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+                  style={{ color: "#3D94FF" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#FF2534")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
                 >
                   <WaIcon className="w-4 h-4 fill-current" />
                   <span>WhatsApp</span>
@@ -59,9 +59,9 @@ export default function Footer() {
               )}
               {c?.phone && (
                 <a href={`tel:${String(c.phone).replace(/\D/g,"")}`} className="flex items-center gap-3 text-sm transition-colors"
-                  style={{ color: "#4F7EB8" }}
+                  style={{ color: "#3D94FF" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
                 >
                   <Phone className="w-4 h-4" />
                   <span>{lang === "es" ? "Teléfono" : "Phone"}</span>
@@ -69,9 +69,9 @@ export default function Footer() {
               )}
               {c?.email && (
                 <a href={`mailto:${c.email}`} className="flex items-center gap-3 text-sm transition-colors"
-                  style={{ color: "#4F7EB8" }}
+                  style={{ color: "#3D94FF" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
                 >
                   <Mail className="w-4 h-4" />
                   <span>{lang === "es" ? "Correo" : "Email"}</span>
@@ -80,9 +80,9 @@ export default function Footer() {
               {c?.instagram && (
                 <a href={`https://instagram.com/${c.instagram}`} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm transition-colors"
-                  style={{ color: "#4F7EB8" }}
+                  style={{ color: "#3D94FF" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
                 >
                   <Instagram className="w-4 h-4" />
                   <span>Instagram</span>
@@ -97,13 +97,13 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-bold text-sm tracking-wide transition-all"
-                  style={{ color: "#D61C23" }}
+                  style={{ color: "#FF2534" }}
                   onMouseEnter={e => {
                     (e.currentTarget as HTMLAnchorElement).style.color = "#ff3d44";
                     (e.currentTarget as HTMLAnchorElement).style.textShadow = "0 0 12px rgba(214,28,35,0.45)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#D61C23";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#FF2534";
                     (e.currentTarget as HTMLAnchorElement).style.textShadow = "none";
                   }}
                 >
@@ -114,15 +114,15 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#6FB5FF" }}>
+            <h4 className="font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#85CCFF" }}>
               {lang === "es" ? "Servicios" : "Services"}
             </h4>
             <div className="flex flex-col gap-2">
               {["Interior & Exterior Wash","Paint Correction","Ceramic Coating","Headlight Restoration","Engine Cleaning","Leather Protection","Stain Removal"].map(s => (
                 <a key={s} href="#services" className="text-sm transition-colors"
-                  style={{ color: "#4F7EB8" }}
+                  style={{ color: "#3D94FF" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
                 >{s}</a>
               ))}
             </div>
@@ -130,7 +130,7 @@ export default function Footer() {
         </motion.div>
         <div className="pt-8" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs" style={{ color: "#4F7EB8" }}>
+            <p className="text-xs" style={{ color: "#3D94FF" }}>
               &copy; {new Date().getFullYear()} Albert Auto Detailing. {rights}
             </p>
             <div className="flex items-center gap-4">

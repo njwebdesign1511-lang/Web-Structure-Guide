@@ -16,7 +16,7 @@ function Stars({ n }: { n: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={12} style={{ fill: i < n ? "#D61C23" : "transparent", color: "#D61C23" }} />
+        <Star key={i} size={12} style={{ fill: i < n ? "#FF2534" : "transparent", color: "#FF2534" }} />
       ))}
     </div>
   );
@@ -101,7 +101,7 @@ export default function ReviewsManager() {
                     <span className="text-white font-semibold text-sm">{r.name}</span>
                     <Stars n={r.rating} />
                     {r.service && (
-                      <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(79,126,184,0.15)", color: "#6FB5FF" }}>
+                      <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(79,126,184,0.15)", color: "#85CCFF" }}>
                         {r.service}
                       </span>
                     )}

@@ -55,10 +55,10 @@ export default function LeadsManager() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {[
-          { icon: Users, label: "Leads totales", val: stats?.total ?? "—", color: "#D61C23" },
-          { icon: Phone, label: "Recientes", val: stats?.recent?.length ?? "—", color: "#4F7EB8" },
-          { icon: Car, label: "Con vehículo", val: stats?.recent?.filter(l => l.vehicle)?.length ?? "—", color: "#6FB5FF" },
-          { icon: Mail, label: "Con email", val: stats?.recent?.filter(l => l.email)?.length ?? "—", color: "#4F7EB8" },
+          { icon: Users, label: "Leads totales", val: stats?.total ?? "—", color: "#FF2534" },
+          { icon: Phone, label: "Recientes", val: stats?.recent?.length ?? "—", color: "#3D94FF" },
+          { icon: Car, label: "Con vehículo", val: stats?.recent?.filter(l => l.vehicle)?.length ?? "—", color: "#85CCFF" },
+          { icon: Mail, label: "Con email", val: stats?.recent?.filter(l => l.email)?.length ?? "—", color: "#3D94FF" },
         ].map(({ icon: Icon, label, val, color }) => (
           <div key={label} className="bg-[#111827] border border-white/10 rounded-xl p-4">
             <div className="flex items-center gap-2 mb-2">
@@ -119,7 +119,7 @@ export default function LeadsManager() {
                     <div key={label} className="bg-[#0a0d14] rounded-lg p-3">
                       <p className="text-gray-600 text-xs mb-0.5">{label}</p>
                       {href ? (
-                        <a href={href} className="text-sm font-medium" style={{ color: "#6FB5FF" }}>{val}</a>
+                        <a href={href} className="text-sm font-medium" style={{ color: "#85CCFF" }}>{val}</a>
                       ) : (
                         <p className="text-white text-sm font-medium">{val}</p>
                       )}

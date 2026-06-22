@@ -58,7 +58,7 @@ export default function Navbar() {
             style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
             aria-label="Switch language"
           >
-            <Globe size={14} style={{ color: "#6FB5FF" }} />
+            <Globe size={14} style={{ color: "#85CCFF" }} />
             <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
             <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.65rem" }}>|</span>
             <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
@@ -68,9 +68,9 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="site-btn px-5 py-2 text-white text-sm font-bold tracking-wider uppercase rounded-sm flex items-center gap-2"
-            style={{ background: "#D61C23" }}
-            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+            style={{ background: "#FF2534" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
           >
             <WaIcon /> {t.nav.bookNow}
           </a>
@@ -82,7 +82,7 @@ export default function Navbar() {
             style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
             aria-label="Switch language"
           >
-            <Globe size={12} style={{ color: "#6FB5FF" }} />
+            <Globe size={12} style={{ color: "#85CCFF" }} />
             <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
             <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.6rem" }}>|</span>
             <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
@@ -111,7 +111,7 @@ export default function Navbar() {
                 href="#quote"
                 onClick={() => setMobileMenuOpen(false)}
                 className="site-btn px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase rounded-sm"
-                style={{ background: "#4F7EB8" }}
+                style={{ background: "#3D94FF" }}
               >
                 {lang === "es" ? "Solicitar Cotización" : "Get Free Quote"}
               </a>
@@ -120,7 +120,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="site-btn px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase rounded-sm"
-                style={{ background: "#D61C23" }}
+                style={{ background: "#FF2534" }}
               >
                 WhatsApp
               </a>

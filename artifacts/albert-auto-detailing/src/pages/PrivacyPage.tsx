@@ -12,9 +12,9 @@ export default function PrivacyPage() {
         <a href="/" className="flex items-center">
           <img src={logoImg} alt="Albert Auto Detailing" className="h-14 w-auto object-contain" />
         </a>
-        <a href="/" className="text-sm transition-colors" style={{ color: "#4F7EB8" }}
+        <a href="/" className="text-sm transition-colors" style={{ color: "#3D94FF" }}
           onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
-          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F7EB8")}
+          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#3D94FF")}
         >
           ← {isEs ? "Volver al inicio" : "Back to home"}
         </a>
@@ -22,11 +22,11 @@ export default function PrivacyPage() {
 
       <main className="container mx-auto px-4 md:px-6 py-16 max-w-3xl">
         <div className="mb-8">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#D61C23" }}>Legal</p>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#FF2534" }}>Legal</p>
           <h1 className="text-4xl font-bold text-white mb-4">
             {isEs ? "Política de Privacidad" : "Privacy Policy"}
           </h1>
-          <p className="text-sm" style={{ color: "#4F7EB8" }}>
+          <p className="text-sm" style={{ color: "#3D94FF" }}>
             Albert Auto Detailing — Norwalk, CT &nbsp;·&nbsp; {isEs ? "Última actualización" : "Last updated"}: {new Date().getFullYear()}
           </p>
         </div>
@@ -101,12 +101,12 @@ export default function PrivacyPage() {
                 ? "Para preguntas sobre esta política, contáctanos en:"
                 : "For questions about this policy, contact us at:"}
             </p>
-            <p className="text-sm mt-2" style={{ color: "#6FB5FF" }}>Albert Auto Detailing — Norwalk, CT</p>
+            <p className="text-sm mt-2" style={{ color: "#85CCFF" }}>Albert Auto Detailing — Norwalk, CT</p>
           </section>
         </div>
       </main>
 
-      <footer className="border-t py-6 text-center text-xs" style={{ borderColor: "rgba(79,126,184,0.15)", color: "#4F7EB8" }}>
+      <footer className="border-t py-6 text-center text-xs" style={{ borderColor: "rgba(79,126,184,0.15)", color: "#3D94FF" }}>
         &copy; {new Date().getFullYear()} Albert Auto Detailing. {isEs ? "Todos los derechos reservados." : "All rights reserved."}
       </footer>
     </div>

@@ -33,7 +33,7 @@ export default function Contact() {
       iconStyle: { background: "rgba(214,28,35,0.15)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Phone className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
+      Icon: () => <Phone className="w-8 h-8" style={{ color: "#85CCFF" }} />,
       title: lang === "es" ? esMethods[1].title : "Call Us",
       value: c.phone,
       href: `tel:${String(c.phone).replace(/\D/g, "")}`,
@@ -44,7 +44,7 @@ export default function Contact() {
       iconStyle: { background: "rgba(79,126,184,0.12)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Mail className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
+      Icon: () => <Mail className="w-8 h-8" style={{ color: "#85CCFF" }} />,
       title: lang === "es" ? esMethods[2].title : "Email",
       value: c.email,
       href: `mailto:${c.email}`,
@@ -55,7 +55,7 @@ export default function Contact() {
       iconStyle: { background: "rgba(79,126,184,0.12)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Instagram className="w-8 h-8" style={{ color: "#6FB5FF" }} />,
+      Icon: () => <Instagram className="w-8 h-8" style={{ color: "#85CCFF" }} />,
       title: lang === "es" ? esMethods[3].title : "Instagram",
       value: `@${c.instagram}`,
       href: `https://instagram.com/${c.instagram}`,

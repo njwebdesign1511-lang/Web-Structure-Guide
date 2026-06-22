@@ -30,7 +30,7 @@ function WelcomeSplash() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.4 }}
           className="text-2xl md:text-3xl font-bold tracking-widest uppercase"
-          style={{ color: "#D61C23", fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          style={{ color: "#FF2534", fontFamily: "'Cormorant Garamond', Georgia, serif" }}
         >
           Welcome boss
         </motion.p>
@@ -39,7 +39,7 @@ function WelcomeSplash() {
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.6, delay: 0.5, ease: "easeInOut" }}
           className="h-0.5 w-48"
-          style={{ background: "linear-gradient(to right, transparent, #D61C23, transparent)", transformOrigin: "left" }}
+          style={{ background: "linear-gradient(to right, transparent, #FF2534, transparent)", transformOrigin: "left" }}
         />
       </motion.div>
     </motion.div>

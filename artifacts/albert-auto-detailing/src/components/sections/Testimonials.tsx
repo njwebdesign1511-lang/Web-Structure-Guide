@@ -19,7 +19,7 @@ function StarRating({ count = 5 }: { count?: number }) {
         <Star
           key={i}
           className="w-4 h-4"
-          style={{ fill: i < count ? "#D61C23" : "transparent", color: "#D61C23" }}
+          style={{ fill: i < count ? "#FF2534" : "transparent", color: "#FF2534" }}
         />
       ))}
     </div>
@@ -44,7 +44,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (n: number) =
           >
             <Star
               className="w-7 h-7"
-              style={{ fill: active ? "#D61C23" : "transparent", color: active ? "#D61C23" : "rgba(79,126,184,0.40)" }}
+              style={{ fill: active ? "#FF2534" : "transparent", color: active ? "#FF2534" : "rgba(79,126,184,0.40)" }}
             />
           </button>
         );
@@ -142,9 +142,9 @@ export default function Testimonials() {
     }
   };
 
-  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#4F7EB8] focus:outline-none transition-colors";
+  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#3D94FF] focus:outline-none transition-colors";
   const inputStyle = { background: "#020C24", borderColor: "rgba(79,126,184,0.30)" };
-  const focusIn  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "#D61C23");
+  const focusIn  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "#FF2534");
   const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)");
 
   const sliderVariants = {
@@ -171,9 +171,9 @@ export default function Testimonials() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#6FB5FF" }}>{eyebrow}</p>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#85CCFF" }}>{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
-          <div className="w-20 h-1 mx-auto" style={{ background: "#4F7EB8" }} />
+          <div className="w-20 h-1 mx-auto" style={{ background: "#3D94FF" }} />
           {reviews.length > 0 && (
             <p className="mt-4 text-sm" style={{ color: "rgba(111,181,255,0.55)" }}>
               {reviews.length}+ {L.customers}
@@ -190,7 +190,7 @@ export default function Testimonials() {
           >
             <div className="flex justify-center gap-1 mb-4">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-6 h-6" style={{ fill: "rgba(214,28,35,0.25)", color: "#D61C23" }} />
+                <Star key={i} className="w-6 h-6" style={{ fill: "rgba(214,28,35,0.25)", color: "#FF2534" }} />
               ))}
             </div>
             <p className="text-sm" style={{ color: "rgba(111,181,255,0.55)" }}>{L.noReviews}</p>
@@ -205,7 +205,7 @@ export default function Testimonials() {
               <button
                 onClick={() => go(-1)}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 md:-translate-x-14 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all"
-                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#6FB5FF" }}
+                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(79,126,184,0.30)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "rgba(79,126,184,0.15)")}
               >
@@ -234,13 +234,13 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3 pt-4 border-t border-border">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0"
-                      style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#6FB5FF" }}
+                      style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
                     >
                       {reviews[current].name[0]?.toUpperCase()}
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">{reviews[current].name}</p>
-                      <p className="text-xs" style={{ color: "#4F7EB8" }}>
+                      <p className="text-xs" style={{ color: "#3D94FF" }}>
                         {reviews[current].service ?? (lang === "es" ? "Cliente verificado" : "Verified Customer")}
                       </p>
                     </div>
@@ -253,7 +253,7 @@ export default function Testimonials() {
               <button
                 onClick={() => go(1)}
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 md:translate-x-14 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all"
-                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#6FB5FF" }}
+                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(79,126,184,0.30)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "rgba(79,126,184,0.15)")}
               >
@@ -274,7 +274,7 @@ export default function Testimonials() {
                 style={{
                   width: i === current ? "28px" : "8px",
                   height: "8px",
-                  background: i === current ? "#D61C23" : "rgba(79,126,184,0.35)",
+                  background: i === current ? "#FF2534" : "rgba(79,126,184,0.35)",
                 }}
               />
             ))}
@@ -306,7 +306,7 @@ export default function Testimonials() {
             <button
               onClick={() => setFormOpen(true)}
               className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-sm transition-all"
-              style={{ background: "rgba(214,28,35,0.12)", border: "1px solid rgba(214,28,35,0.35)", color: "#D61C23" }}
+              style={{ background: "rgba(214,28,35,0.12)", border: "1px solid rgba(214,28,35,0.35)", color: "#FF2534" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.22)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.12)"; }}
             >
@@ -340,7 +340,7 @@ export default function Testimonials() {
 
               {/* Star rating input */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6FB5FF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#85CCFF" }}>
                   {L.ratingLabel}
                 </label>
                 <StarInput value={form.rating} onChange={n => setForm(f => ({ ...f, rating: n }))} />
@@ -348,7 +348,7 @@ export default function Testimonials() {
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#6FB5FF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
                   {L.nameLabel}
                 </label>
                 <input
@@ -366,7 +366,7 @@ export default function Testimonials() {
 
               {/* Service */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#6FB5FF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
                   {L.serviceLabel}
                 </label>
                 <input
@@ -383,7 +383,7 @@ export default function Testimonials() {
 
               {/* Comment */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#6FB5FF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
                   {L.commentLabel}
                 </label>
                 <textarea
@@ -403,9 +403,9 @@ export default function Testimonials() {
                 type="submit"
                 disabled={submitting || !form.name.trim() || !form.comment.trim()}
                 className="flex items-center justify-center gap-2 font-bold text-sm py-3 rounded-sm transition-all disabled:opacity-50"
-                style={{ background: "#D61C23", color: "white" }}
+                style={{ background: "#FF2534", color: "white" }}
                 onMouseEnter={e => { if (!submitting) (e.currentTarget as HTMLButtonElement).style.background = "#b91c1c"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#D61C23"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#FF2534"; }}
               >
                 <Send size={14} />
                 {submitting ? L.submitting : L.submit}

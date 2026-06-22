@@ -79,7 +79,7 @@ export default function AdminNav({ active, onChange }: Props) {
           <p className="text-xs font-bold tracking-widest uppercase" style={{ color: "rgba(111,181,255,0.50)" }}>Admin Panel</p>
         </div>
         <h2 className="text-white font-bold text-base leading-tight">
-          Albert <span style={{ color: "#D61C23" }}>Auto</span> Detailing
+          Albert <span style={{ color: "#FF2534" }}>Auto</span> Detailing
         </h2>
       </div>
 
@@ -110,7 +110,7 @@ export default function AdminNav({ active, onChange }: Props) {
                 >
                   <Icon size={15} />
                   <span className="flex-1 text-left">{label}</span>
-                  {isActive && <ChevronRight size={13} style={{ color: "#D61C23" }} />}
+                  {isActive && <ChevronRight size={13} style={{ color: "#FF2534" }} />}
                 </button>
               );
             })}
@@ -129,9 +129,9 @@ export default function AdminNav({ active, onChange }: Props) {
           onClick={handleSave}
           disabled={saving}
           className="flex items-center justify-center gap-2 w-full font-bold text-xs tracking-widest uppercase py-3 rounded-lg transition-all mb-2 disabled:opacity-50"
-          style={{ background: "#D61C23", color: "white" }}
+          style={{ background: "#FF2534", color: "white" }}
           onMouseEnter={e => { if (!saving) (e.currentTarget as HTMLButtonElement).style.background = "#b91c1c"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#D61C23"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#FF2534"; }}
         >
           {saving ? "Guardando..." : "Guardar Cambios"}
         </button>
@@ -172,14 +172,14 @@ export default function AdminNav({ active, onChange }: Props) {
         className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14"
         style={{ background: "#0d1117", borderBottom: "1px solid rgba(79,126,184,0.12)" }}
       >
-        <h2 className="text-white font-bold text-sm">Albert <span style={{ color: "#D61C23" }}>Admin</span></h2>
+        <h2 className="text-white font-bold text-sm">Albert <span style={{ color: "#FF2534" }}>Admin</span></h2>
         <div className="flex items-center gap-2">
           {saved && <span className="text-xs font-medium" style={{ color: "#4ade80" }}>✓ Guardado</span>}
           <button
             onClick={handleSave}
             disabled={saving}
             className="text-white text-xs font-bold px-3 py-1.5 rounded-lg disabled:opacity-50"
-            style={{ background: "#D61C23" }}
+            style={{ background: "#FF2534" }}
           >
             {saving ? "..." : "Guardar"}
           </button>

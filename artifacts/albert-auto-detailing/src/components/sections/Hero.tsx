@@ -121,7 +121,7 @@ export default function Hero() {
               </span>
               <span
                 className="text-xs md:text-sm uppercase tracking-[0.18em]"
-                style={{ color: "#D61C23", letterSpacing: "0.18em" }}
+                style={{ color: "#FF2534", letterSpacing: "0.18em" }}
               >
                 Norwalk, Connecticut
               </span>
@@ -162,8 +162,8 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-6"
           >
-            <div className="h-px w-8" style={{ background: "#D61C23" }} />
-            <span className="text-xs font-bold tracking-[0.28em] uppercase" style={{ color: "#D61C23" }}>{badge}</span>
+            <div className="h-px w-8" style={{ background: "#FF2534" }} />
+            <span className="text-xs font-bold tracking-[0.28em] uppercase" style={{ color: "#FF2534" }}>{badge}</span>
           </motion.div>
 
           {/* Headline */}
@@ -179,7 +179,7 @@ export default function Hero() {
           >
             {line1}<br />
             <span style={{ color: "rgba(234,234,234,0.45)" }}>{line2}</span><br />
-            <span style={{ color: "#D61C23" }}>{line3_1}</span>{" "}{line3_2}
+            <span style={{ color: "#FF2534" }}>{line3_1}</span>{" "}{line3_2}
           </motion.h1>
 
           {/* Divider */}
@@ -221,9 +221,9 @@ export default function Hero() {
             <a
               href="#quote"
               className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
-              style={{ background: "#D61C23" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+              style={{ background: "#FF2534" }}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
             >{btn1}</a>
 
             {/* Book Appointment — white outline */}

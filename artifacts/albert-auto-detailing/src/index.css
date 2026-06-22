@@ -43,10 +43,10 @@
   /* ── Albert Auto Detailing brand palette ── */
   --color-navy:     #020C24;
   --color-midnight: #071B45;
-  --color-metallic: #4F7EB8;
-  --color-electric: #6FB5FF;
-  --color-red-cta:  #D61C23;
-  --color-red-dark: #8E0D13;
+  --color-metallic: #3D94FF;
+  --color-electric: #85CCFF;
+  --color-red-cta:  #FF2534;
+  --color-red-dark: #C41C27;
 
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Syncopate', sans-serif;
@@ -70,7 +70,7 @@
   --popover-foreground: 0 0% 100%;
   --popover-border: 213 45% 28%;
 
-  --primary: 358 80% 50%;
+  --primary: 358 100% 58%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 220 60% 14%;
@@ -140,28 +140,28 @@
   }
 
   .glow-red {
-    box-shadow: 0 0 24px rgba(214, 28, 35, 0.40), 0 0 60px rgba(214, 28, 35, 0.12);
+    box-shadow: 0 0 24px rgba(255, 37, 52, 0.40), 0 0 60px rgba(255, 37, 52, 0.12);
   }
   .glow-blue {
-    box-shadow: 0 0 24px rgba(111, 181, 255, 0.30), 0 0 60px rgba(111, 181, 255, 0.08);
+    box-shadow: 0 0 24px rgba(133, 204, 255, 0.30), 0 0 60px rgba(133, 204, 255, 0.08);
   }
   .glow-border-red {
-    border-color: rgba(214, 28, 35, 0.55) !important;
-    box-shadow: 0 0 14px rgba(214, 28, 35, 0.22);
+    border-color: rgba(255, 37, 52, 0.55) !important;
+    box-shadow: 0 0 14px rgba(255, 37, 52, 0.22);
   }
   .glow-border-blue {
-    border-color: rgba(111, 181, 255, 0.50) !important;
-    box-shadow: 0 0 14px rgba(111, 181, 255, 0.18);
+    border-color: rgba(133, 204, 255, 0.50) !important;
+    box-shadow: 0 0 14px rgba(133, 204, 255, 0.18);
   }
 
   /* Elegant card glass */
   .glass-card {
     background: rgba(7, 27, 69, 0.60);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(79, 126, 184, 0.20);
+    border: 1px solid rgba(61, 148, 255, 0.20);
   }
   .glass-card:hover {
-    border-color: rgba(79, 126, 184, 0.40);
+    border-color: rgba(61, 148, 255, 0.40);
     background: rgba(7, 27, 69, 0.75);
   }
 
@@ -182,7 +182,7 @@
     left: 0;
     width: 0%;
     height: 1.5px;
-    background: #D61C23;
+    background: #FF2534;
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .nav-link:hover::after {
@@ -615,7 +615,7 @@
     width: 100%;
     padding: 0.75rem;
     border-radius: 0.65rem;
-    background: linear-gradient(135deg, #D61C23 0%, #8E0D13 100%);
+    background: linear-gradient(135deg, #FF2534 0%, #C41C27 100%);
     color: #fff;
     font-size: 0.75rem;
     font-weight: 800;
@@ -721,7 +721,7 @@
     width: 0.55rem;
     height: 0.55rem;
     border-radius: 9999px;
-    background: #D61C23;
+    background: #FF2534;
     border: 1.5px solid #020C24;
     animation: aiChatPulse 2s ease-in-out infinite;
   }
@@ -882,7 +882,7 @@
     border-bottom-left-radius: 0.25rem;
   }
   .ai-chat-bubble.user {
-    background: linear-gradient(135deg, #D61C23 0%, #8E0D13 100%);
+    background: linear-gradient(135deg, #FF2534 0%, #C41C27 100%);
     color: rgba(255,255,255,0.95);
     border-bottom-right-radius: 0.25rem;
     box-shadow: 0 3px 10px rgba(214,28,35,0.25);
@@ -950,7 +950,7 @@
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #D61C23 0%, #8E0D13 100%);
+    background: linear-gradient(135deg, #FF2534 0%, #C41C27 100%);
     color: white;
     display: flex;
     align-items: center;

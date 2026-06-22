@@ -128,7 +128,7 @@ function PairCard({
                 <img src={pair.afterSrc} alt="After preview" className="mt-2 h-20 w-full object-cover rounded-lg" onError={e => ((e.currentTarget as HTMLImageElement).style.display = "none")} />
               )}
             </div>
-            <div className="rounded-lg p-3 text-xs" style={{ background: "rgba(79,126,184,0.08)", border: "1px solid rgba(79,126,184,0.20)", color: "#6FB5FF" }}>
+            <div className="rounded-lg p-3 text-xs" style={{ background: "rgba(79,126,184,0.08)", border: "1px solid rgba(79,126,184,0.20)", color: "#85CCFF" }}>
               💡 Sube las imágenes a un servicio de imágenes (Google Photos, Imgur, Cloudinary, etc.) y pega la URL aquí.
             </div>
           </div>
@@ -176,9 +176,9 @@ export default function GalleryEditor() {
         </div>
         <button onClick={addPair}
           className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-colors"
-          style={{ background: "#D61C23", color: "white" }}
+          style={{ background: "#FF2534", color: "white" }}
           onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = "#b91c1c")}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = "#D61C23")}
+          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = "#FF2534")}
         >
           <Plus size={14} /> Agregar comparación
         </button>

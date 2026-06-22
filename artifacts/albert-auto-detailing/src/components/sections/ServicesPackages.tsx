@@ -225,9 +225,9 @@ export default function ServicesPackages() {
 
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-xs font-bold tracking-[0.28em] uppercase mb-3" style={{ color: "#D61C23" }}>{eyebrow}</p>
+          <p className="text-xs font-bold tracking-[0.28em] uppercase mb-3" style={{ color: "#FF2534" }}>{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-5">{heading}</h2>
-          <div className="w-20 h-px mx-auto mb-6" style={{ background: "linear-gradient(to right, transparent, #D61C23, transparent)" }} />
+          <div className="w-20 h-px mx-auto mb-6" style={{ background: "linear-gradient(to right, transparent, #FF2534, transparent)" }} />
           <p className="max-w-xl mx-auto text-base" style={{ color: "rgba(234,234,234,0.65)" }}>{subtitle}</p>
         </div>
 
@@ -251,7 +251,7 @@ export default function ServicesPackages() {
                 className="flex flex-col rounded-sm overflow-hidden group"
                 style={{
                   background: "#FFFFFF",
-                  border: isHighlight ? "1px solid #D61C23" : "1px solid #E0E0E0",
+                  border: isHighlight ? "1px solid #FF2534" : "1px solid #E0E0E0",
                   transition: "box-shadow 0.25s",
                 }}
                 onMouseEnter={e => {
@@ -262,7 +262,7 @@ export default function ServicesPackages() {
                 }}
               >
                 {/* Top accent bar */}
-                <div className="h-1 w-full" style={{ background: isHighlight ? "#D61C23" : "#111111" }} />
+                <div className="h-1 w-full" style={{ background: isHighlight ? "#FF2534" : "#111111" }} />
 
                 <div className="flex flex-col flex-1 p-6 gap-4">
                   {/* Name + Price */}
@@ -302,7 +302,7 @@ export default function ServicesPackages() {
                       <li key={fi} className="flex items-start gap-2">
                         <Check
                           className="shrink-0 mt-0.5"
-                          style={{ width: "13px", height: "13px", color: isHighlight ? "#D61C23" : "#111111", strokeWidth: 2.5 }}
+                          style={{ width: "13px", height: "13px", color: isHighlight ? "#FF2534" : "#111111", strokeWidth: 2.5 }}
                         />
                         <span className="text-xs leading-relaxed" style={{ color: "#333333" }}>{f}</span>
                       </li>

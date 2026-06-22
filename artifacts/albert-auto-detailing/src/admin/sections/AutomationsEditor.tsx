@@ -66,7 +66,7 @@ const autos: AutoItem[] = [
 
 const statusConfig = {
   active: { label: "Activo", color: "#4ade80", bg: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.20)" },
-  ready:  { label: "Listo", color: "#6FB5FF", bg: "rgba(79,126,184,0.08)", border: "rgba(79,126,184,0.20)" },
+  ready:  { label: "Listo", color: "#85CCFF", bg: "rgba(79,126,184,0.08)", border: "rgba(79,126,184,0.20)" },
   pending:{ label: "Próximamente", color: "#6b7280", bg: "rgba(107,114,128,0.08)", border: "rgba(107,114,128,0.15)" },
 };
 

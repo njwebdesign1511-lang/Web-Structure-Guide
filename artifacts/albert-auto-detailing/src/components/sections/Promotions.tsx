@@ -19,8 +19,8 @@ export default function Promotions() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Tag className="w-4 h-4" style={{ color: "#6FB5FF" }} />
-            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#6FB5FF" }}>{eyebrow}</span>
+            <Tag className="w-4 h-4" style={{ color: "#85CCFF" }} />
+            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#85CCFF" }}>{eyebrow}</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white">{heading}</h2>
         </div>
@@ -37,7 +37,7 @@ export default function Promotions() {
               onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.5)")}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.25)")}
             >
-              <Star className="w-5 h-5 mx-auto mb-3 transition-colors" style={{ color: "#6FB5FF" }} />
+              <Star className="w-5 h-5 mx-auto mb-3 transition-colors" style={{ color: "#85CCFF" }} />
               <p className="text-white font-semibold text-sm leading-snug">{item}</p>
             </motion.div>
           ))}
@@ -46,9 +46,9 @@ export default function Promotions() {
           <a
             href="#quote"
             className="site-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold tracking-widest uppercase text-sm rounded-sm"
-            style={{ background: "#D61C23" }}
-            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13")}
-            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#D61C23")}
+            style={{ background: "#FF2534" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
           >
             <Tag className="w-4 h-4" />
             {lang === "es" ? "Reclamar Oferta" : "Claim This Offer"}

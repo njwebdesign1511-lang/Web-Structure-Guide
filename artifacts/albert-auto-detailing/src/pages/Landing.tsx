@@ -32,13 +32,13 @@ function WaFab({ href }: { href: string }) {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-[5.2rem] right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all"
-      style={{ background: "#D61C23", boxShadow: "0 4px 20px rgba(214,28,35,0.45)" }}
+      style={{ background: "#FF2534", boxShadow: "0 4px 20px rgba(214,28,35,0.45)" }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13";
+        (e.currentTarget as HTMLAnchorElement).style.background = "#C41C27";
         (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 30px rgba(214,28,35,0.65)";
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLAnchorElement).style.background = "#D61C23";
+        (e.currentTarget as HTMLAnchorElement).style.background = "#FF2534";
         (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(214,28,35,0.45)";
       }}
       aria-label="Chat on WhatsApp"
