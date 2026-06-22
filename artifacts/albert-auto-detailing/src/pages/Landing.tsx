@@ -29,7 +29,7 @@ function WaFab({ href }: { href: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all"
+      className="fixed bottom-[5.2rem] right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all"
       style={{ background: "#D61C23", boxShadow: "0 4px 20px rgba(214,28,35,0.45)" }}
       onMouseEnter={e => {
         (e.currentTarget as HTMLAnchorElement).style.background = "#8E0D13";

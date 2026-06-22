@@ -1,6 +1,21 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Bot, ChevronDown, Loader2 } from "lucide-react";
+import { X, Send, ChevronDown, Loader2 } from "lucide-react";
+
+function ChatGPTIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 41 41"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.13-3.386 10.079 10.079 0 0 0-10.43 4.963 9.962 9.962 0 0 0-6.66 4.834 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.129 3.386 10.079 10.079 0 0 0 10.43-4.963 9.967 9.967 0 0 0 6.66-4.834 10.079 10.079 0 0 0-1.239-11.818zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.051-4.645a7.497 7.497 0 0 1 11.133 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.499v4.993l-4.331 2.5-4.331-2.5V18z" />
+    </svg>
+  );
+}
 
 interface Message {
   role: "user" | "assistant";
@@ -144,7 +159,7 @@ export default function AIChatWidget() {
             transition={{ duration: 0.18 }}
             style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
-            {open ? <ChevronDown size={22} /> : <Bot size={22} />}
+            {open ? <ChevronDown size={22} /> : <ChatGPTIcon size={22} />}
           </motion.span>
         </AnimatePresence>
         <span className="ai-chat-fab-label">
@@ -166,7 +181,7 @@ export default function AIChatWidget() {
             {/* Header */}
             <div className="ai-chat-header">
               <div className="ai-chat-header-avatar">
-                <Bot size={16} />
+                <ChatGPTIcon size={16} />
               </div>
               <div className="ai-chat-header-info">
                 <span className="ai-chat-header-name">Asistente IA</span>
@@ -190,7 +205,7 @@ export default function AIChatWidget() {
                 >
                   {msg.role === "assistant" && (
                     <div className="ai-chat-bubble-icon">
-                      <Bot size={11} />
+                      <ChatGPTIcon size={11} />
                     </div>
                   )}
                   <div className={`ai-chat-bubble ${msg.role}`}>
