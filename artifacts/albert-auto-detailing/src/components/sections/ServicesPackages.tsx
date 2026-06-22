@@ -278,7 +278,7 @@ export default function ServicesPackages() {
                         <span className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.40)" }}>{startingFrom}</span>
                         <span
                           className="text-3xl font-bold"
-                          style={{ color: isHighlight ? "#D61C23" : "#111111" }}
+                          style={{ color: "#111111" }}
                         >
                           {pkg.price}
                         </span>
