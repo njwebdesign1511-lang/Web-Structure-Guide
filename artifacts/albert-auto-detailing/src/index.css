@@ -640,6 +640,37 @@
     cursor: not-allowed;
   }
 
+  /* ── Tabs ── */
+  .premium-login-tabs {
+    display: flex;
+    border: 1px solid rgba(79,126,184,0.22);
+    border-radius: 0.6rem;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+  }
+  .premium-login-tab {
+    flex: 1;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    color: rgba(255,255,255,0.40);
+    border: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .premium-login-tab:hover:not(.active) {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.65);
+  }
+  .premium-login-tab.active {
+    background: rgba(79,126,184,0.20);
+    color: rgba(255,255,255,0.92);
+    box-shadow: inset 0 -2px 0 rgba(79,126,184,0.70);
+  }
+
   /* ═══════════════════════════════════════
      ASISTENTE IA — CHAT WIDGET
   ═══════════════════════════════════════ */

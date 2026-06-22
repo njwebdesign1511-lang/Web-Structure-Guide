@@ -1,24 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Eye, EyeOff, Lock } from "lucide-react";
+import { X, Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import { usePremium } from "@/contexts/PremiumContext";
 
+type Tab = "login" | "register";
+
 export default function PremiumLoginModal() {
-  const { showLoginModal, closeLoginModal, login } = usePremium();
+  const { showLoginModal, closeLoginModal, login, register } = usePremium();
+
+  const [tab, setTab]             = useState<Tab>("login");
+  const [name, setName]           = useState("");
+  const [email, setEmail]         = useState("");
   const [password, setPassword]   = useState("");
   const [showPw, setShowPw]       = useState(false);
   const [error, setError]         = useState("");
   const [loading, setLoading]     = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+
+  const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (showLoginModal) {
-      setPassword(""); setError(""); setShowPw(false);
-      const t = setTimeout(() => inputRef.current?.focus(), 140);
+      setName(""); setEmail(""); setPassword("");
+      setError(""); setShowPw(false); setTab("login");
+      const t = setTimeout(() => emailRef.current?.focus(), 140);
       return () => clearTimeout(t);
     }
   }, [showLoginModal]);
+
+  // Reset form when switching tabs
+  useEffect(() => {
+    setError(""); setName(""); setEmail(""); setPassword(""); setShowPw(false);
+    setTimeout(() => emailRef.current?.focus(), 80);
+  }, [tab]);
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => { if (e.key === "Escape") closeLoginModal(); };
@@ -28,11 +42,23 @@ export default function PremiumLoginModal() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!password || loading) return;
-    setLoading(true); setError("");
-    const ok = await login(password);
+    if (loading) return;
+    setLoading(true);
+    setError("");
+
+    let result: { ok: boolean; error?: string };
+
+    if (tab === "login") {
+      if (!email || !password) { setError("Completa todos los campos"); setLoading(false); return; }
+      result = await login(email, password);
+    } else {
+      if (!name || !email || !password) { setError("Completa todos los campos"); setLoading(false); return; }
+      if (password.length < 6) { setError("La contraseña debe tener al menos 6 caracteres"); setLoading(false); return; }
+      result = await register(name, email, password);
+    }
+
     setLoading(false);
-    if (!ok) setError("Contraseña incorrecta · Incorrect password");
+    if (!result.ok) setError(result.error ?? "Error desconocido");
   };
 
   return createPortal(
@@ -58,35 +84,96 @@ export default function PremiumLoginModal() {
               <X size={15} />
             </button>
 
+            {/* Header */}
             <div className="premium-login-header">
               <div className="premium-login-icon">✨</div>
               <h2 className="premium-login-title">Experiencia Premium</h2>
               <p className="premium-login-subtitle">
-                Inicia sesión para activar efectos visuales exclusivos
+                {tab === "login"
+                  ? "Inicia sesión para activar efectos visuales exclusivos"
+                  : "Crea tu cuenta para acceder a la experiencia premium"}
               </p>
             </div>
 
+            {/* Tabs */}
+            <div className="premium-login-tabs">
+              <button
+                className={`premium-login-tab${tab === "login" ? " active" : ""}`}
+                onClick={() => setTab("login")}
+                type="button"
+              >
+                Iniciar Sesión
+              </button>
+              <button
+                className={`premium-login-tab${tab === "register" ? " active" : ""}`}
+                onClick={() => setTab("register")}
+                type="button"
+              >
+                Crear Cuenta
+              </button>
+            </div>
+
             <form onSubmit={handleSubmit} className="premium-login-form">
-              <div className="premium-login-input-wrap">
-                <Lock size={13} className="premium-login-input-icon" />
-                <input
-                  ref={inputRef}
-                  type={showPw ? "text" : "password"}
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  className="premium-login-input"
-                  placeholder="Contraseña / Password"
-                  autoComplete="current-password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPw(s => !s)}
-                  className="premium-login-eye"
-                  aria-label="Mostrar u ocultar contraseña"
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={tab}
+                  initial={{ opacity: 0, x: tab === "login" ? -12 : 12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: tab === "login" ? 12 : -12 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}
                 >
-                  {showPw ? <EyeOff size={13} /> : <Eye size={13} />}
-                </button>
-              </div>
+                  {/* Name field — register only */}
+                  {tab === "register" && (
+                    <div className="premium-login-input-wrap">
+                      <User size={13} className="premium-login-input-icon" />
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        className="premium-login-input"
+                        placeholder="Tu nombre"
+                        autoComplete="name"
+                      />
+                    </div>
+                  )}
+
+                  {/* Email */}
+                  <div className="premium-login-input-wrap">
+                    <Mail size={13} className="premium-login-input-icon" />
+                    <input
+                      ref={emailRef}
+                      type="email"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      className="premium-login-input"
+                      placeholder="Tu email"
+                      autoComplete="email"
+                    />
+                  </div>
+
+                  {/* Password */}
+                  <div className="premium-login-input-wrap">
+                    <Lock size={13} className="premium-login-input-icon" />
+                    <input
+                      type={showPw ? "text" : "password"}
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      className="premium-login-input"
+                      placeholder={tab === "register" ? "Contraseña (mín. 6 caracteres)" : "Contraseña"}
+                      autoComplete={tab === "login" ? "current-password" : "new-password"}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPw(s => !s)}
+                      className="premium-login-eye"
+                      aria-label="Mostrar u ocultar contraseña"
+                    >
+                      {showPw ? <EyeOff size={13} /> : <Eye size={13} />}
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
               <AnimatePresence>
                 {error && (
@@ -104,10 +191,14 @@ export default function PremiumLoginModal() {
 
               <button
                 type="submit"
-                disabled={loading || !password}
+                disabled={loading}
                 className="premium-login-submit"
               >
-                {loading ? "Verificando…" : "✨ Activar Experiencia Premium"}
+                {loading
+                  ? "Procesando…"
+                  : tab === "login"
+                    ? "✨ Iniciar Sesión"
+                    : "✨ Crear Cuenta"}
               </button>
             </form>
           </motion.div>

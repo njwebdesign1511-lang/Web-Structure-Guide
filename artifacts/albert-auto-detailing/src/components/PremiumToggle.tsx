@@ -5,14 +5,14 @@ import { usePremium } from "@/contexts/PremiumContext";
 import PremiumLoginModal from "@/components/PremiumLoginModal";
 
 export default function PremiumToggle() {
-  const { isLoggedIn, premiumMode, togglePremium, logout, openLoginModal } = usePremium();
+  const { user, isLoggedIn, premiumMode, togglePremium, logout, openLoginModal } = usePremium();
   const [confirmLogout, setConfirmLogout] = useState(false);
 
   const buttonLabel = !isLoggedIn
     ? "Iniciar sesión para Premium"
     : premiumMode
-    ? "Premium Activada"
-    : "Activar Premium";
+    ? `✦ ${user?.name ?? "Premium"}`
+    : `Activar Premium`;
 
   return (
     <>
