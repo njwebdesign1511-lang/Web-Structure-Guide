@@ -3,22 +3,22 @@ import { Plus, Trash2, ToggleLeft, ToggleRight } from "lucide-react";
 import { useState } from "react";
 import type { SiteContent } from "@/lib/defaultContent";
 
+type Testimonial = { name: string; comment: string; service?: string; active: boolean };
+
 export default function TestimonialsEditor() {
   const { content, setContent } = useContent();
   const [confirm, setConfirm] = useState<number | null>(null);
 
-  const testimonials = (content as any).testimonials as Array<{
-    name: string; comment: string; active: boolean;
-  }> ?? [];
+  const testimonials = ((content as any).testimonials as Testimonial[]) ?? [];
 
-  const save = (items: typeof testimonials) => {
+  const save = (items: Testimonial[]) => {
     const next = structuredClone(content) as any;
     next.testimonials = items;
     setContent(next as SiteContent);
   };
 
   const add = () => {
-    save([...testimonials, { name: "Nombre del Cliente", comment: "Excelente servicio, muy profesional.", active: true }]);
+    save([...testimonials, { name: "Nombre del Cliente", comment: "Excelente servicio, muy profesional.", service: "", active: true }]);
   };
 
   const update = (i: number, field: string, value: any) => {
@@ -88,6 +88,16 @@ export default function TestimonialsEditor() {
                   </button>
                 )}
               </div>
+
+              {/* Service performed */}
+              <input
+                type="text"
+                value={t.service ?? ""}
+                onChange={(e) => update(i, "service", e.target.value)}
+                className="w-full bg-[#0a0d14] border border-white/10 rounded-lg px-3 py-2 text-gray-400 text-sm focus:outline-none focus:border-red-500 mb-2"
+                placeholder="Servicio realizado (ej: Ceramic Coating, Paint Correction...)"
+              />
+
               <textarea
                 value={t.comment}
                 onChange={(e) => update(i, "comment", e.target.value)}

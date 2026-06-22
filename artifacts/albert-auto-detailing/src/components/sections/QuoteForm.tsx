@@ -61,7 +61,7 @@ export default function QuoteForm() {
   const set = (k: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const c = content.contact as any;
     const waNumber = c?.whatsapp ?? "14756898301";
@@ -77,9 +77,25 @@ export default function QuoteForm() {
       form.date ? `*Preferred Date:* ${form.date}` : "",
       form.message ? `*Message:* ${form.message}` : "",
     ].filter(Boolean).join("\n");
+
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        phone: form.phone,
+        email: form.email || undefined,
+        vehicle: vehicleInfo || undefined,
+        service: form.service || undefined,
+        preferredDate: form.date || undefined,
+        message: form.message || undefined,
+        lang,
+      }),
+    }).catch(() => {});
+
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, "_blank");
     setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setTimeout(() => { setSent(false); setForm(empty); }, 4000);
   };
 
   const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#4F7EB8] focus:outline-none transition-colors";
