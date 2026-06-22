@@ -41,16 +41,16 @@ export default function About() {
             <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">{p1}</p>
-            <p className="text-gray-400 text-base leading-relaxed mb-8">{p2}</p>
+            <p className="text-gray-200 text-lg leading-relaxed mb-6">{p1}</p>
+            <p className="text-gray-300 text-base leading-relaxed mb-8">{p2}</p>
             <div className="grid grid-cols-2 gap-6 pt-6 border-t border-border">
               <div>
                 <div className="text-3xl font-display font-bold text-white mb-2">{a.stat1Value}</div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{stat1Label}</div>
+                <div className="text-sm text-gray-300 uppercase tracking-wider">{stat1Label}</div>
               </div>
               <div>
                 <div className="text-3xl font-display font-bold text-white mb-2">{a.stat2Value}</div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider">{stat2Label}</div>
+                <div className="text-sm text-gray-300 uppercase tracking-wider">{stat2Label}</div>
               </div>
             </div>
           </motion.div>

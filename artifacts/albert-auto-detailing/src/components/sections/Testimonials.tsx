@@ -157,9 +157,9 @@ export default function Testimonials() {
     <section
       id="testimonials"
       className="py-24 md:py-32 border-b border-border relative overflow-hidden"
-      style={{ background: "#041535" }}
+      style={{ background: "#051c42" }}
     >
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(79,126,184,0.10) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(79,126,184,0.14) 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(255,37,52,0.06) 0%, transparent 55%)" }} />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
 
@@ -224,7 +224,7 @@ export default function Testimonials() {
                   exit="exit"
                   transition={{ duration: 0.38, ease: "easeInOut" }}
                   className="p-8 relative"
-                  style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.20)" }}
+                  style={{ background: "#0a2255", border: "1px solid rgba(79,126,184,0.28)" }}
                 >
                   <Quote className="w-8 h-8 absolute top-6 right-6" style={{ color: "rgba(79,126,184,0.25)" }} />
                   <StarRating count={reviews[current].rating} />
@@ -325,7 +325,7 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: 16 }}
               transition={{ duration: 0.35 }}
               className="max-w-2xl mx-auto mt-6 rounded-sm p-8 flex flex-col gap-5"
-              style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.25)" }}
+              style={{ background: "#0a2255", border: "1px solid rgba(79,126,184,0.32)" }}
             >
               <div className="flex items-center justify-between mb-1">
                 <h3 className="text-white font-bold text-lg">{L.writeReview}</h3>

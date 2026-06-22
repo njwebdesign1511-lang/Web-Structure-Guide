@@ -69,10 +69,10 @@ export default function Services() {
                 whileHover={{ y: -6, transition: { type: "spring", stiffness: 320, damping: 22 } }}
                 className="bg-background border border-border p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Icon className="w-12 h-12 text-primary mb-6 stroke-[1.5]" />
                 <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">{title}</h4>
-                <p className="text-gray-400 leading-relaxed">{description}</p>
+                <p className="text-gray-300 leading-relaxed">{description}</p>
               </motion.div>
             );
           })}

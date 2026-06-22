@@ -27,7 +27,7 @@ export default function WhyUs() {
             <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">{body}</p>
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">{body}</p>
             <a href="#contact" className="text-primary font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
               {cta} <span aria-hidden="true">&rarr;</span>
             </a>
@@ -40,9 +40,9 @@ export default function WhyUs() {
             className="grid sm:grid-cols-2 gap-4"
           >
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex items-start gap-3 bg-card p-4 border border-border rounded-sm">
+              <div key={i} className="flex items-start gap-3 bg-card p-4 border border-border/70 rounded-sm hover:border-primary/30 transition-colors" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.18)" }}>
                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                <span className="text-gray-200 font-medium">{benefit}</span>
+                <span className="text-white font-medium">{benefit}</span>
               </div>
             ))}
           </motion.div>

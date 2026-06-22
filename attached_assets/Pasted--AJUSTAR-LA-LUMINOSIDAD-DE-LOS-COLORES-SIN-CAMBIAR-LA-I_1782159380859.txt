@@ -1,0 +1,288 @@
+# AJUSTAR LA LUMINOSIDAD DE LOS COLORES SIN CAMBIAR LA IDENTIDAD VISUAL
+
+Necesito mejorar la apariencia visual de la página web para que se vea más clara, luminosa, moderna y llamativa, pero sin cambiar los colores actuales de la marca.
+
+## INSTRUCCIÓN PRINCIPAL
+
+No reemplaces la paleta de colores existente.
+
+No agregues colores nuevos que no pertenezcan a la identidad visual actual.
+
+No cambies:
+
+* Colores principales de la marca
+* Logotipo
+* Tipografía
+* Diseño
+* Estructura
+* Imágenes
+* Contenido
+* Posición de los elementos
+* Secciones
+* Botones
+* Estilo general
+
+El objetivo es mantener exactamente la misma identidad visual, pero hacer que los colores actuales se vean:
+
+* Más luminosos
+* Más claros
+* Más limpios
+* Más vivos
+* Más elegantes
+* Más fáciles de apreciar
+* Más atractivos para la vista
+
+---
+
+# QUÉ DEBES MODIFICAR
+
+## 1. Aumentar la luminosidad de los colores actuales
+
+Toma los colores existentes y crea versiones ligeramente más luminosas, sin cambiar su tonalidad original.
+
+Por ejemplo:
+
+* Mantener el mismo azul, pero hacerlo un poco más brillante.
+* Mantener el mismo dorado, pero hacerlo más visible.
+* Mantener el mismo negro, pero evitar que toda la página se vea demasiado oscura.
+* Mantener el mismo gris, pero mejorar su claridad.
+* Mantener los mismos degradados, pero hacerlos más limpios y luminosos.
+
+No conviertas colores oscuros en colores completamente diferentes.
+
+---
+
+## 2. Mejorar los fondos oscuros
+
+Si existen secciones con fondos negros o muy oscuros:
+
+* Mantén el fondo oscuro.
+* Evita que se vea plano o apagado.
+* Agrega una luminosidad muy sutil.
+* Puedes utilizar degradados suaves.
+* Puedes agregar reflejos muy delicados.
+* Puedes agregar un resplandor muy ligero en áreas importantes.
+* Evita que el fondo sea negro puro en todas partes.
+
+Puedes utilizar tonos oscuros con pequeñas variaciones para crear profundidad.
+
+El resultado debe seguir viéndose elegante y premium.
+
+---
+
+## 3. Mejorar los textos
+
+Asegúrate de que los textos se lean con claridad.
+
+* Los títulos deben tener mayor presencia.
+* Los textos blancos no deben verse grises o apagados.
+* Los textos secundarios deben seguir siendo legibles.
+* Mejora el contraste entre texto y fondo.
+* No cambies el tamaño ni la tipografía.
+* No utilices blanco puro de manera excesiva si afecta la elegancia.
+
+Los textos deben verse claros sin parecer demasiado fuertes.
+
+---
+
+## 4. Mejorar botones
+
+Mantén los colores y formas actuales de los botones.
+
+Solo mejora:
+
+* Brillo
+* Contraste
+* Sombra
+* Estado hover
+* Estado activo
+* Visibilidad
+
+Los botones principales deben llamar más la atención sin verse exagerados.
+
+Al pasar el mouse, agrega:
+
+* Un brillo suave
+* Una sombra más visible
+* Una elevación ligera
+* Una transición fluida
+
+No cambies el color principal del botón.
+
+---
+
+## 5. Mejorar cards y secciones
+
+Las tarjetas deben verse mejor separadas del fondo.
+
+Puedes utilizar:
+
+* Bordes ligeramente más visibles
+* Sombras suaves
+* Fondos con pequeñas variaciones de luminosidad
+* Reflejos discretos
+* Contraste más claro entre tarjeta y fondo
+
+No cambies el tamaño ni la posición de las tarjetas.
+
+No agregues efectos exagerados.
+
+---
+
+## 6. Mejorar colores dorados, metálicos o de acento
+
+Si la página utiliza dorado, amarillo, azul, morado u otro color de acento:
+
+* Haz que sea más visible.
+* Evita que se vea opaco.
+* Mejora su brillo de manera elegante.
+* Mantén la misma familia de color.
+* Evita tonos neón.
+* Evita colores infantiles.
+* Evita saturación excesiva.
+
+El color debe destacar, pero seguir viéndose premium.
+
+---
+
+## 7. Mejorar degradados
+
+Mantén los degradados existentes, pero puedes:
+
+* Aumentar ligeramente su luminosidad.
+* Mejorar la transición entre colores.
+* Evitar zonas demasiado oscuras.
+* Evitar cortes visibles.
+* Hacer que el degradado se vea más limpio.
+* Añadir un punto de luz sutil.
+
+No crees degradados completamente diferentes.
+
+---
+
+## 8. Mejorar imágenes y video
+
+No reemplaces imágenes ni videos.
+
+Puedes mejorar únicamente:
+
+* La superposición oscura encima del video.
+* La opacidad del overlay.
+* El contraste con el texto.
+* La claridad general.
+* La integración entre contenido y fondo.
+
+Si existe un overlay demasiado oscuro, redúcelo ligeramente para que el video se vea mejor.
+
+No elimines el overlay si el texto pierde legibilidad.
+
+---
+
+# NIVEL DE CAMBIO
+
+Los cambios deben ser moderados.
+
+No quiero una transformación completa.
+
+Quiero una mejora aproximada de luminosidad entre:
+
+* 10% y 20% en fondos
+* 10% y 15% en colores de acento
+* 5% y 10% en bordes y sombras
+
+No apliques estos valores de forma ciega. Ajusta visualmente cada sección para mantener equilibrio.
+
+---
+
+# CONTRASTE Y ACCESIBILIDAD
+
+Verifica que:
+
+* Los textos se lean correctamente.
+* Los botones sean fáciles de identificar.
+* Los enlaces sean visibles.
+* No existan textos claros sobre fondos claros.
+* No existan textos oscuros sobre fondos oscuros.
+* Los colores mantengan buen contraste.
+* La web se vea bien en interiores y exteriores.
+* La página siga siendo cómoda para la vista.
+
+Utiliza estándares de contraste accesible siempre que sea posible.
+
+---
+
+# COSAS QUE NO DEBES HACER
+
+No debes:
+
+* Cambiar la paleta original.
+* Convertir la página en colores neón.
+* Hacer que se vea infantil.
+* Agregar demasiados brillos.
+* Agregar luces que distraigan.
+* Saturar demasiado los colores.
+* Cambiar el logo.
+* Cambiar las fotografías.
+* Cambiar el diseño.
+* Cambiar la tipografía.
+* Cambiar el contenido.
+* Aplicar filtros fuertes a toda la web.
+* Hacer que el texto sea difícil de leer.
+* Usar sombras muy oscuras o muy grandes.
+
+---
+
+# REVISIÓN POR DISPOSITIVO
+
+Comprueba la nueva luminosidad en:
+
+* Computadora
+* Laptop
+* Tablet
+* iPhone
+* Android
+* Pantallas con brillo bajo
+* Pantallas con brillo alto
+* Modo oscuro del navegador
+* Modo claro del navegador, si aplica
+
+La página debe seguir viéndose elegante y equilibrada en todos los dispositivos.
+
+---
+
+# RESULTADO FINAL ESPERADO
+
+La página debe conservar exactamente su identidad actual, pero verse:
+
+* Más iluminada
+* Más viva
+* Más clara
+* Más profesional
+* Más moderna
+* Más elegante
+* Más atractiva
+* Más fácil de leer
+* Más llamativa sin ser exagerada
+
+No quiero un rediseño.
+
+Quiero una mejora visual de iluminación, contraste y claridad.
+
+---
+
+# ENTREGA FINAL
+
+Al terminar, indícame:
+
+1. Qué colores fueron ajustados.
+2. Cuánto aumentó aproximadamente la luminosidad.
+3. Qué fondos fueron mejorados.
+4. Qué botones recibieron ajustes.
+5. Qué overlays fueron modificados.
+6. Qué degradados fueron mejorados.
+7. Qué cambios se hicieron para mejorar el contraste.
+8. Confirma que no se cambió la paleta original.
+9. Confirma que no se cambió el diseño.
+10. Confirma que la web sigue funcionando correctamente en celular y computadora.
+
+Antes de publicar los cambios, crea una copia de seguridad de los estilos actuales.
