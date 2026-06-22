@@ -96,18 +96,15 @@ export default function Footer() {
                   href="https://njwebdesignrd.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-bold text-sm tracking-wide transition-all"
-                  style={{ color: "#FF2534" }}
+                  className="inline-flex items-center font-bold text-sm tracking-wide transition-all"
+                  style={{ color: "#ffffff" }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#ff3d44";
-                    (e.currentTarget as HTMLAnchorElement).style.textShadow = "0 0 12px rgba(214,28,35,0.45)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#cccccc";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#FF2534";
-                    (e.currentTarget as HTMLAnchorElement).style.textShadow = "none";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff";
                   }}
                 >
-                  <span>⚡</span>
                   njwebdesignrd.com
                 </a>
               </div>
