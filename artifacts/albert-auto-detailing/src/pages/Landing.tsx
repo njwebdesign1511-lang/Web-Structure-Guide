@@ -2,6 +2,7 @@ import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
+import ServicesPackages from "@/components/sections/ServicesPackages";
 import Promotions from "@/components/sections/Promotions";
 import MobileService from "@/components/sections/MobileService";
 import WhyUs from "@/components/sections/WhyUs";
@@ -59,6 +60,7 @@ export default function Landing() {
         {s.promotions && <Promotions />}
         {s.about && <About />}
         {s.services && <Services />}
+        <ServicesPackages />
         {s.mobileService && <MobileService />}
         {s.whyUs && <WhyUs />}
         {s.gallery && <Gallery />}

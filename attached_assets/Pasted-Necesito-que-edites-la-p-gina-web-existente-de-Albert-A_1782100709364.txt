@@ -1,0 +1,118 @@
+Necesito que edites la página web existente de **Albert Auto Detailing** para agregar estos servicios.
+
+IMPORTANTE:
+No cambies el diseño general de la página, no cambies colores, logo, estructura principal, botones, navegación ni secciones existentes.
+Solo agrega estos servicios a la sección de servicios actual. Si la página no tiene una sección adecuada para mostrar paquetes con precios, crea una nueva sección profesional llamada:
+
+**Our Services & Packages**
+o
+**Servicios y Paquetes**
+
+La sección debe verse moderna, limpia, profesional y responsive para celular.
+
+# Servicios que debes agregar
+
+## Diamond Plate Ceramic Coating — $450
+
+* Superior Scratch Resistance
+* Up to 3 Years of Durability
+* UV Protection
+* Environmental Contaminant Resistance
+* Extreme Hydrophobic Protection
+
+## Dash Cam Sales & Installation
+
+* Continuous Recording
+* Impact Sensor Technology
+* Night Vision
+* Professional Installation
+* Wi-Fi & Cloud Options Available
+
+Nota: Este servicio no tiene precio visible. Colocar “Contact for pricing” o “Request a quote”.
+
+## Engine Bay Cleaning — $200
+
+* Component Protection
+* Professional Degreaser Application
+* Controlled Pressure Rinse
+* Plastic & Rubber Conditioning
+* Deep Clean Finish with Enhanced Shine
+
+## VIP Interior Clean — $120
+
+* Detailed Carpet & Upholstery Vacuuming
+* Windows Cleaned Inside & Out
+* Dashboard, Door Panels, Air Vents & Crevices Cleaned
+* Trash Removal
+* Door Jambs Cleaned
+* Tire Shine
+
+## Express Wax — $100
+
+* Hand-Applied Wax
+* Orbital Polishing
+* Interior Vacuum
+* Windows Cleaned Inside & Out
+* Pressure Wheel Cleaning + Tire Shine
+
+## Headlight Restoration — $100
+
+* Ultimate Wash
+* Headlight Restoration
+* New UV Protective Coating
+* Completed in About 45 Minutes
+* 1-Year Written Warranty
+
+## Bumper to Bumper — $350
+
+* Exterior Paint Preparation
+* Advanced 2-Step Wax
+* Carpet & Upholstery Vacuum and Shampoo
+* Leather Cleaning & Conditioning
+* Windows Cleaned Inside & Out
+* Door Jambs Cleaned
+* Dashboard & Center Console Cleaned
+* Pressure Wheel Cleaning + Tire Shine
+* Black Plastic Trim Restoration
+
+## Luxury Interior Detail — $250
+
+* Carpet & Upholstery Vacuum and Shampoo
+* Leather Cleaning & Conditioning
+* Door Panels Cleaned
+* Windows Cleaned Inside & Out
+* Door Jambs Cleaned
+* Dashboard & Center Console Cleaned
+* Tire Shine
+
+# Diseño de la sección
+
+Cada servicio debe estar en una tarjeta profesional con:
+
+* Nombre del servicio
+* Precio visible
+* Lista de lo que incluye
+* Botón: “Book Now”
+* Botón: “Request Quote”
+* Botón de WhatsApp
+
+Para el servicio “Dash Cam Sales & Installation”, como no tiene precio, mostrar:
+**Contact for pricing**
+
+# Funcionalidad
+
+Los botones deben llevar a las acciones principales de la web:
+
+* WhatsApp: 475-689-8301
+* Llamada directa: 475-689-8301
+* Instagram: @albert_auto_detailing
+* Formulario de cotización
+
+# Importante para Replit
+
+No elimines nada de la página actual.
+No cambies el contenido existente.
+No cambies el diseño principal.
+Solo agrega esta nueva sección de servicios o actualiza la sección de servicios existente con estos paquetes.
+
+La sección debe combinar con el estilo actual de la web y verse bien en celular, tablet y computadora.
