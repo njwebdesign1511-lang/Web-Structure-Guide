@@ -1,0 +1,577 @@
+# CAMBIAR ÚNICAMENTE LA TIPOGRAFÍA DE LA PÁGINA WEB
+
+Necesito cambiar solamente las tipografías de la página web para que tenga una apariencia más elegante, moderna y premium.
+
+## INSTRUCCIÓN PRINCIPAL Y OBLIGATORIA
+
+No rediseñes la página.
+
+No cambies nada que no esté relacionado directamente con la tipografía.
+
+No cambies:
+
+* Colores
+* Fondos
+* Imágenes
+* Videos
+* Logotipo
+* Secciones
+* Orden de las secciones
+* Contenido
+* Textos
+* Botones
+* Enlaces
+* Bordes
+* Sombras
+* Animaciones
+* Márgenes
+* Espaciados
+* Tamaños de contenedores
+* Posición de los elementos
+* Diseño móvil
+* Panel administrativo
+* Funcionalidades
+* Formularios
+* Base de datos
+
+El único cambio solicitado es aplicar las nuevas tipografías correctamente en toda la página.
+
+---
+
+# TIPOGRAFÍAS QUE DEBES UTILIZAR
+
+## Para títulos
+
+Utiliza:
+
+**Cinzel**
+
+Cinzel debe aplicarse solamente en:
+
+* Título principal del Hero
+* Títulos de secciones
+* Títulos de servicios
+* Títulos de paquetes
+* Títulos de promociones
+* Títulos de tarjetas
+* Títulos de formularios
+* Títulos de páginas legales
+* Encabezados H1
+* Encabezados H2
+* Encabezados H3
+* Frases importantes que actualmente funcionan como títulos
+
+Pesos permitidos:
+
+* 500
+* 600
+* 700
+
+No utilices Cinzel en párrafos largos, formularios, menú ni botones.
+
+---
+
+## Para textos generales
+
+Utiliza:
+
+**Montserrat**
+
+Montserrat debe aplicarse en:
+
+* Menú de navegación
+* Párrafos
+* Descripciones
+* Botones
+* Formularios
+* Campos de entrada
+* Selectores
+* Mensajes de confirmación
+* Preguntas frecuentes
+* Testimonios
+* Información de contacto
+* Footer
+* Chat de inteligencia artificial
+* Panel administrativo
+* Textos legales
+* Etiquetas
+* Enlaces
+* Textos pequeños
+
+Pesos permitidos:
+
+* 400 para párrafos
+* 500 para menú y etiquetas
+* 600 para botones y elementos importantes
+* 700 solamente cuando sea necesario destacar información
+
+---
+
+# IMPORTACIÓN DE LAS FUENTES
+
+Carga las fuentes correctamente desde Google Fonts o mediante el sistema de fuentes que ya utiliza el proyecto.
+
+Puedes usar:
+
+```html
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+/>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+/>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+Si el proyecto utiliza React, Vite, Next.js, Tailwind o alguna librería de fuentes, integra las tipografías siguiendo la arquitectura existente.
+
+No agregues la importación varias veces.
+
+---
+
+# VARIABLES DE TIPOGRAFÍA
+
+Define variables globales para evitar estilos duplicados:
+
+```css
+:root {
+  --font-heading: "Cinzel", Georgia, serif;
+  --font-body: "Montserrat", Arial, sans-serif;
+}
+```
+
+Aplica Montserrat como tipografía general:
+
+```css
+body {
+  font-family: var(--font-body);
+}
+```
+
+Aplica Cinzel solamente a títulos:
+
+```css
+h1,
+h2,
+h3,
+.section-title,
+.hero-title,
+.service-title,
+.package-title,
+.promotion-title,
+.card-title,
+.form-title,
+.legal-page-title {
+  font-family: var(--font-heading);
+}
+```
+
+Aplica Montserrat al resto de los elementos:
+
+```css
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+nav,
+li,
+span,
+small,
+blockquote {
+  font-family: var(--font-body);
+}
+```
+
+Adapta los selectores a las clases reales que ya existen en el proyecto.
+
+No cambies los nombres de las clases actuales si no es necesario.
+
+---
+
+# TÍTULO PRINCIPAL DEL HERO
+
+El título principal debe utilizar:
+
+* Cinzel
+* Peso 700
+* La misma medida actual
+* La misma posición
+* El mismo color
+* El mismo espaciado visual general
+
+No cambies el tamaño actual del título salvo que la nueva fuente provoque un desbordamiento.
+
+Si es necesario hacer un ajuste mínimo para evitar que el título se corte, utiliza `clamp()` sin cambiar visualmente el diseño.
+
+Ejemplo:
+
+```css
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+```
+
+No conviertas todos los títulos a mayúsculas automáticamente.
+
+Respeta exactamente cómo están escritos actualmente.
+
+---
+
+# TÍTULOS DE SECCIONES
+
+Todos los títulos principales de las secciones deben utilizar Cinzel.
+
+Ejemplos:
+
+* About Us
+* Our Services
+* Packages
+* Promotions
+* Mobile Service
+* Why Choose Us
+* How It Works
+* Gallery
+* Before & After
+* Testimonials
+* Frequently Asked Questions
+* Get a Quote
+* Contact Us
+
+En español:
+
+* Sobre Nosotros
+* Nuestros Servicios
+* Paquetes
+* Promociones
+* Servicio Móvil
+* Por Qué Elegirnos
+* Cómo Funciona
+* Galería
+* Antes y Después
+* Testimonios
+* Preguntas Frecuentes
+* Solicita una Cotización
+* Contacto
+
+No cambies las palabras actuales. Estos son solamente ejemplos de los elementos que deben utilizar Cinzel.
+
+---
+
+# TÍTULOS DE SERVICIOS Y TARJETAS
+
+Los nombres de servicios, paquetes y tarjetas deben utilizar Cinzel con peso 600.
+
+Ejemplo:
+
+```css
+.service-title,
+.package-title,
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+```
+
+Las descripciones dentro de las tarjetas deben permanecer en Montserrat.
+
+---
+
+# MENÚ DE NAVEGACIÓN
+
+El menú debe utilizar Montserrat.
+
+Configuración recomendada:
+
+```css
+nav,
+.nav-link,
+.mobile-menu-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+```
+
+No cambies:
+
+* Tamaño del menú
+* Posición
+* Colores
+* Espaciados
+* Efectos hover
+* Menú móvil
+
+---
+
+# BOTONES
+
+Todos los botones deben utilizar Montserrat con peso 600.
+
+Ejemplo:
+
+```css
+button,
+.btn,
+.button,
+.cta-button {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+```
+
+No cambies:
+
+* Color
+* Tamaño
+* Forma
+* Bordes
+* Fondo
+* Sombra
+* Animaciones
+* Enlaces
+* Función
+
+No conviertas automáticamente el texto de los botones a mayúsculas si actualmente no lo está.
+
+---
+
+# PÁRRAFOS Y DESCRIPCIONES
+
+Todos los párrafos deben utilizar Montserrat con peso 400.
+
+Ejemplo:
+
+```css
+p,
+.description,
+.section-description,
+.service-description {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+```
+
+Mantén:
+
+* El mismo tamaño
+* La misma altura de línea
+* El mismo color
+* El mismo ancho
+* La misma alineación
+
+---
+
+# FORMULARIOS
+
+Los siguientes elementos deben utilizar Montserrat:
+
+* Etiquetas
+* Campos
+* Placeholders
+* Selectores
+* Textareas
+* Botones
+* Mensajes de error
+* Mensajes de confirmación
+
+Ejemplo:
+
+```css
+input,
+textarea,
+select,
+label,
+.form-message {
+  font-family: var(--font-body);
+}
+```
+
+No cambies el funcionamiento del formulario.
+
+No cambies los campos.
+
+No cambies la conexión con la base de datos o WhatsApp.
+
+---
+
+# CHAT DE INTELIGENCIA ARTIFICIAL
+
+El chat debe utilizar Montserrat en:
+
+* Mensaje inicial
+* Respuestas
+* Campo de escritura
+* Botones
+* Etiquetas
+* Mensajes de error
+
+El nombre o título principal del asistente puede usar Cinzel solamente si visualmente funciona como encabezado.
+
+No cambies la lógica ni la conexión de la inteligencia artificial.
+
+---
+
+# PANEL ADMINISTRATIVO
+
+El panel debe seguir funcionando igual.
+
+Aplica Montserrat en:
+
+* Menús
+* Formularios
+* Botones
+* Tablas
+* Campos
+* Etiquetas
+* Mensajes
+
+Puedes utilizar Cinzel solamente en los títulos principales de cada módulo del panel, siempre que no afecte la claridad.
+
+No reemplaces ni reconstruyas el panel.
+
+---
+
+# SISTEMA BILINGÜE
+
+La tipografía debe aplicarse correctamente tanto en inglés como en español.
+
+Verifica especialmente:
+
+* Letras acentuadas
+* La letra ñ
+* Signos de interrogación
+* Signos de exclamación
+* Palabras largas
+* Botones
+* Menú móvil
+
+Ningún texto debe cortarse al cambiar de idioma.
+
+---
+
+# RENDIMIENTO
+
+Optimiza la carga de las fuentes.
+
+Utiliza:
+
+* `preconnect`
+* `display=swap`
+* Solamente los pesos necesarios
+* Fuentes de respaldo
+
+No cargues pesos que no se estén utilizando.
+
+Evita que la página quede en blanco mientras se cargan las fuentes.
+
+---
+
+# RESPONSIVE DESIGN
+
+Prueba la tipografía en:
+
+* Celulares pequeños
+* Celulares grandes
+* Tablets
+* Laptops
+* Computadoras
+* Pantallas grandes
+
+Verifica que:
+
+* Los títulos no se corten.
+* El menú no se salga de la pantalla.
+* Los botones mantengan su tamaño.
+* Los textos no se monten unos sobre otros.
+* No aparezca scroll horizontal.
+* El Hero conserve su diseño.
+* Las tarjetas conserven su altura y alineación.
+
+Solamente realiza ajustes mínimos de tamaño si la nueva fuente provoca un problema real de desbordamiento.
+
+---
+
+# REGLAS OBLIGATORIAS
+
+1. Cambiar únicamente las tipografías.
+2. Usar Cinzel solamente en títulos.
+3. Usar Montserrat en textos generales.
+4. No cambiar colores.
+5. No cambiar el diseño.
+6. No cambiar el contenido.
+7. No cambiar imágenes ni videos.
+8. No cambiar animaciones.
+9. No modificar funcionalidades.
+10. No reemplazar componentes.
+11. No reconstruir la página.
+12. No cambiar la estructura.
+13. No cambiar el panel administrativo.
+14. No modificar la base de datos.
+15. No cambiar tamaños sin una razón técnica.
+16. No agregar estilos nuevos que no estén relacionados con las fuentes.
+17. No dejar la fuente anterior aplicada accidentalmente en algunas secciones.
+18. No utilizar Cinzel en párrafos largos.
+
+---
+
+# PRUEBAS ANTES DE TERMINAR
+
+Revisa:
+
+* Hero
+* Navbar
+* Menú móvil
+* Títulos de secciones
+* Servicios
+* Paquetes
+* Promociones
+* Galería
+* Antes y después
+* Testimonios
+* FAQ
+* Formularios
+* Contacto
+* Footer
+* Chat
+* Panel administrativo
+* Páginas legales
+* Versión en inglés
+* Versión en español
+* Computadora
+* Tablet
+* iPhone
+* Android
+
+Comprueba que no existan errores en la consola.
+
+---
+
+# ENTREGA FINAL
+
+Al terminar, indícame:
+
+1. En qué archivo se importaron Cinzel y Montserrat.
+2. Qué selectores utilizan Cinzel.
+3. Qué selectores utilizan Montserrat.
+4. Si fue necesario hacer algún ajuste mínimo de tamaño.
+5. Confirma que no cambiaste colores.
+6. Confirma que no cambiaste el diseño.
+7. Confirma que no cambiaste textos.
+8. Confirma que no modificaste funcionalidades.
+9. Confirma que la web funciona correctamente en celular y computadora.
+
+La prioridad es cambiar únicamente la tipografía y conservar todo lo demás exactamente igual.
