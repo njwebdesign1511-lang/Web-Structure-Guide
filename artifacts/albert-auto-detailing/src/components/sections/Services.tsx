@@ -1,9 +1,20 @@
 import { motion } from "framer-motion";
-import { Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings } from "lucide-react";
+import { Droplets, Sparkles, Shield, Lightbulb, Settings2, ShieldCheck, Wand2, Star, Camera } from "lucide-react";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const icons = [Sparkles, Shield, Droplets, Car, Sun, ShieldCheck, Settings, Settings, Settings, Settings];
+// One unique icon per service (order matches defaultContent services array)
+const icons = [
+  Droplets,    // Interior & Exterior Wash
+  Sparkles,    // Paint Correction
+  Shield,      // Ceramic Coating
+  Lightbulb,   // Headlight Restoration
+  Settings2,   // Engine Cleaning
+  ShieldCheck, // Leather Protection
+  Wand2,       // Stain Removal
+  Star,        // Full Detailing Package
+  Camera,      // Dash Cam Installation
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
