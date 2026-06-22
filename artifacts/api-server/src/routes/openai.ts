@@ -3,7 +3,14 @@ import { openai } from "@workspace/integrations-openai-ai-server";
 
 const router = Router();
 
-const SYSTEM_PROMPT = `Eres el asistente virtual de Premium Detailing, un negocio profesional de detailing automotriz premium. Tu lema es "Premium Detailing. Expert Results."
+function buildSystemPrompt(lang: "en" | "es"): string {
+  const langInstruction = lang === "en"
+    ? "IMPORTANT: You MUST respond exclusively in English, regardless of what language the user writes in."
+    : "IMPORTANTE: Debes responder EXCLUSIVAMENTE en español, sin importar en qué idioma escriba el usuario.";
+
+  return `${langInstruction}
+
+Eres el asistente virtual de Premium Detailing, un negocio profesional de detailing automotriz premium. Tu lema es "Premium Detailing. Expert Results."
 
 ROL:
 Actúas como asesor virtual profesional. Solo respondes sobre los servicios, tratamientos, reservas y cotizaciones de este negocio de detailing. Si el usuario pregunta algo fuera del tema del negocio, responde exactamente: "Puedo ayudarte con información sobre nuestros servicios de detailing, reservas o cotizaciones para tu vehículo."
@@ -41,10 +48,12 @@ REGLAS DE COMPORTAMIENTO:
 - Máximo 3-4 oraciones por respuesta.
 - Siempre motiva al cliente a reservar una cita o pedir una cotización.
 - Nunca respondas como un asistente de IA general; eres exclusivamente el asesor de Premium Detailing.`;
+}
 
 router.post("/openai/chat", async (req, res) => {
-  const { messages } = req.body as {
+  const { messages, lang } = req.body as {
     messages: { role: "user" | "assistant"; content: string }[];
+    lang?: "en" | "es";
   };
 
   if (!Array.isArray(messages) || messages.length === 0) {
@@ -62,7 +71,7 @@ router.post("/openai/chat", async (req, res) => {
       model: "gpt-4o-mini",
       max_tokens: 512,
       messages: [
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: buildSystemPrompt(lang ?? "en") },
         ...messages,
       ],
       stream: true,

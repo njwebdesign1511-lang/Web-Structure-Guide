@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, ChevronDown, Loader2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function ChatGPTIcon({ size = 20 }: { size?: number }) {
   return (
@@ -22,21 +23,29 @@ interface Message {
   content: string;
 }
 
-const WELCOME_MESSAGE: Message = {
-  role: "assistant",
-  content:
-    "Hola 👋 Soy el asistente virtual de Premium Detailing. Puedo ayudarte a conocer nuestros servicios, recomendarte el mejor tratamiento para tu vehículo o guiarte para solicitar una cotización.",
+const WELCOME: Record<"en" | "es", string> = {
+  es: "Hola 👋 Soy el asistente virtual de Premium Detailing. Puedo ayudarte a conocer nuestros servicios, recomendarte el mejor tratamiento para tu vehículo o guiarte para solicitar una cotización.",
+  en: "Hi 👋 I'm the virtual assistant of Premium Detailing. I can help you learn about our services, recommend the best treatment for your vehicle, or guide you to request a quote.",
 };
 
 export default function AIChatWidget() {
+  const { lang } = useLanguage();
+  const welcomeMsg = (): Message => ({ role: "assistant", content: WELCOME[lang] });
+
   const [open, setOpen]           = useState(false);
-  const [messages, setMessages]   = useState<Message[]>([WELCOME_MESSAGE]);
+  const [messages, setMessages]   = useState<Message[]>(() => [welcomeMsg()]);
   const [input, setInput]         = useState("");
   const [streaming, setStreaming] = useState(false);
   const [unread, setUnread]       = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef  = useRef<HTMLTextAreaElement>(null);
   const abortRef  = useRef<AbortController | null>(null);
+
+  // Reset welcome message when language changes
+  useEffect(() => {
+    setMessages([welcomeMsg()]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   useEffect(() => {
     if (open) {
@@ -70,6 +79,7 @@ export default function AIChatWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
+          lang,
         }),
         signal: abortRef.current.signal,
       });
