@@ -14,6 +14,7 @@ import Contact from "@/components/sections/Contact";
 import Location from "@/components/sections/Location";
 import Footer from "@/components/sections/Footer";
 import PremiumToggle from "@/components/PremiumToggle";
+import AIChatWidget from "@/components/AIChatWidget";
 import { useContent } from "@/contexts/ContentContext";
 
 const WaIcon = () => (
@@ -74,6 +75,7 @@ export default function Landing() {
       <Footer />
       <WaFab href={waHref} />
       <PremiumToggle />
+      <AIChatWidget />
     </div>
   );
 }
