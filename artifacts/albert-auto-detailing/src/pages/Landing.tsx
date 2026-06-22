@@ -1,3 +1,4 @@
+import SeoHelmet from "@/components/SeoHelmet";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -56,6 +57,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-[100dvh] flex flex-col w-full overflow-x-hidden">
+      <SeoHelmet />
       <Navbar />
       <main className="flex-1">
         <Hero />

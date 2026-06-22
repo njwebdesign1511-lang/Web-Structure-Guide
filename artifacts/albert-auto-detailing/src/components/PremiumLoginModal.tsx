@@ -20,12 +20,11 @@ export default function PremiumLoginModal() {
   const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (showLoginModal) {
-      setName(""); setEmail(""); setPassword("");
-      setError(""); setShowPw(false); setTab("login");
-      const t = setTimeout(() => emailRef.current?.focus(), 140);
-      return () => clearTimeout(t);
-    }
+    if (!showLoginModal) return;
+    setName(""); setEmail(""); setPassword("");
+    setError(""); setShowPw(false); setTab("login");
+    const t = setTimeout(() => emailRef.current?.focus(), 140);
+    return () => clearTimeout(t);
   }, [showLoginModal]);
 
   // Reset form when switching tabs

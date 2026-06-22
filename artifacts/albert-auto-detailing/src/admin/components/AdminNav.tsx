@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useContent } from "@/contexts/ContentContext";
 import {
-  LayoutDashboard, Type, Image, Phone, Settings, Layers,
+  LayoutDashboard, Type, Settings, Phone, Layers,
   Star, Palette, LogOut, Menu, X, ExternalLink,
-  ChevronRight,
+  ChevronRight, Globe, Zap, MessageSquare, FileText,
 } from "lucide-react";
 
 export type AdminSection =
@@ -13,103 +13,171 @@ export type AdminSection =
   | "contact"
   | "sections"
   | "testimonials"
+  | "reviews"
+  | "leads"
+  | "seo"
+  | "automations"
   | "style";
 
-interface Props {
-  active: AdminSection;
-  onChange: (s: AdminSection) => void;
-}
+interface NavItem { id: AdminSection; label: string; icon: any; badge?: string }
 
-const nav: { id: AdminSection; label: string; icon: any }[] = [
-  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "texts", label: "Textos", icon: Type },
-  { id: "services", label: "Servicios", icon: Settings },
-  { id: "contact", label: "Contacto", icon: Phone },
-  { id: "sections", label: "Secciones", icon: Layers },
-  { id: "testimonials", label: "Testimonios", icon: Star },
-  { id: "style", label: "Estilo", icon: Palette },
+const groups: { label: string; items: NavItem[] }[] = [
+  {
+    label: "Principal",
+    items: [
+      { id: "dashboard",    label: "Dashboard",        icon: LayoutDashboard },
+    ],
+  },
+  {
+    label: "Contenido",
+    items: [
+      { id: "texts",        label: "Página Principal", icon: Type },
+      { id: "services",     label: "Servicios",        icon: Settings },
+      { id: "testimonials", label: "Testimonios",      icon: Star },
+      { id: "sections",     label: "Secciones",        icon: Layers },
+      { id: "style",        label: "Estilo",           icon: Palette },
+    ],
+  },
+  {
+    label: "Clientes",
+    items: [
+      { id: "reviews",      label: "Reseñas",          icon: Star },
+      { id: "leads",        label: "Formularios",      icon: FileText },
+    ],
+  },
+  {
+    label: "Marketing",
+    items: [
+      { id: "seo",          label: "SEO",              icon: Globe },
+      { id: "automations",  label: "Automatizaciones", icon: Zap },
+    ],
+  },
+  {
+    label: "Ajustes",
+    items: [
+      { id: "contact",      label: "Contacto",         icon: Phone },
+    ],
+  },
 ];
+
+interface Props { active: AdminSection; onChange: (s: AdminSection) => void }
 
 export default function AdminNav({ active, onChange }: Props) {
   const { logout, saving, saved, saveContent, content } = useContent();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleSave = async () => {
-    await saveContent(content);
-  };
+  const handleSave = async () => { await saveContent(content); };
 
-  const NavItems = () => (
-    <>
-      {nav.map(({ id, label, icon: Icon }) => (
+  const SidebarContent = () => (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <div className="px-4 py-5 mb-2" style={{ borderBottom: "1px solid rgba(79,126,184,0.12)" }}>
+        <div className="flex items-center gap-2 mb-0.5">
+          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+          <p className="text-xs font-bold tracking-widest uppercase" style={{ color: "rgba(111,181,255,0.50)" }}>Admin Panel</p>
+        </div>
+        <h2 className="text-white font-bold text-base leading-tight">
+          Albert <span style={{ color: "#D61C23" }}>Auto</span> Detailing
+        </h2>
+      </div>
+
+      {/* Nav groups */}
+      <nav className="flex-1 overflow-y-auto px-3 py-2">
+        {groups.map(group => (
+          <div key={group.label} className="mb-4">
+            <p className="text-xs font-bold tracking-widest uppercase px-2 mb-1.5" style={{ color: "rgba(79,126,184,0.45)" }}>
+              {group.label}
+            </p>
+            {group.items.map(({ id, label, icon: Icon }) => {
+              const isActive = active === id;
+              return (
+                <button
+                  key={id}
+                  onClick={() => { onChange(id); setMobileOpen(false); }}
+                  className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-all mb-0.5"
+                  style={isActive ? {
+                    background: "rgba(214,28,35,0.12)",
+                    color: "#ff6b6e",
+                    border: "1px solid rgba(214,28,35,0.25)",
+                  } : {
+                    color: "rgba(156,163,175,1)",
+                    border: "1px solid transparent",
+                  }}
+                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)"; }}
+                  onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                >
+                  <Icon size={15} />
+                  <span className="flex-1 text-left">{label}</span>
+                  {isActive && <ChevronRight size={13} style={{ color: "#D61C23" }} />}
+                </button>
+              );
+            })}
+          </div>
+        ))}
+      </nav>
+
+      {/* Footer actions */}
+      <div className="px-3 py-4" style={{ borderTop: "1px solid rgba(79,126,184,0.12)" }}>
+        {saved && (
+          <div className="text-center text-xs font-medium py-1.5 rounded-lg mb-2" style={{ color: "#4ade80", background: "rgba(74,222,128,0.08)" }}>
+            ✓ Guardado correctamente
+          </div>
+        )}
         <button
-          key={id}
-          onClick={() => { onChange(id); setMobileOpen(false); }}
-          className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-            active === id
-              ? "bg-red-600/20 text-red-400 border border-red-600/30"
-              : "text-gray-400 hover:text-white hover:bg-white/5"
-          }`}
+          onClick={handleSave}
+          disabled={saving}
+          className="flex items-center justify-center gap-2 w-full font-bold text-xs tracking-widest uppercase py-3 rounded-lg transition-all mb-2 disabled:opacity-50"
+          style={{ background: "#D61C23", color: "white" }}
+          onMouseEnter={e => { if (!saving) (e.currentTarget as HTMLButtonElement).style.background = "#b91c1c"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#D61C23"; }}
         >
-          <Icon size={16} />
-          {label}
-          {active === id && <ChevronRight size={14} className="ml-auto" />}
+          {saving ? "Guardando..." : "Guardar Cambios"}
         </button>
-      ))}
-    </>
+        <div className="flex gap-2">
+          <a
+            href="/" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center gap-1.5 flex-1 border text-xs font-medium py-2 rounded-lg transition-colors"
+            style={{ borderColor: "rgba(79,126,184,0.25)", color: "rgba(111,181,255,0.70)" }}
+          >
+            <ExternalLink size={11} /> Ver Sitio
+          </a>
+          <button
+            onClick={logout}
+            className="flex items-center justify-center gap-1.5 flex-1 border text-xs font-medium py-2 rounded-lg transition-colors"
+            style={{ borderColor: "rgba(255,255,255,0.08)", color: "rgba(156,163,175,0.7)" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#f87171"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "rgba(156,163,175,0.7)"; }}
+          >
+            <LogOut size={11} /> Salir
+          </button>
+        </div>
+      </div>
+    </div>
   );
 
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden md:flex flex-col w-64 min-h-screen bg-[#111827] border-r border-white/10 p-4 shrink-0">
-        <div className="mb-8 px-2">
-          <p className="text-xs font-bold tracking-widest text-gray-500 uppercase mb-1">Admin Panel</p>
-          <h2 className="text-white font-bold text-lg leading-tight">Albert Auto<span className="text-red-500"> Detailing</span></h2>
-        </div>
-
-        <nav className="flex flex-col gap-1 flex-1">
-          <NavItems />
-        </nav>
-
-        <div className="mt-8 flex flex-col gap-2 pt-4 border-t border-white/10">
-          {saved && (
-            <div className="text-center text-xs text-green-400 font-medium py-1 bg-green-400/10 rounded-lg">
-              Guardado correctamente
-            </div>
-          )}
-          <button
-            onClick={handleSave}
-            disabled={saving}
-            className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-bold text-xs tracking-widest uppercase py-3 rounded-lg transition-colors"
-          >
-            {saving ? "Guardando..." : "Guardar Cambios"}
-          </button>
-          <a
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full border border-white/10 hover:border-white/30 text-gray-400 hover:text-white font-medium text-xs tracking-widest uppercase py-2.5 rounded-lg transition-colors"
-          >
-            <ExternalLink size={13} /> Ver Pagina
-          </a>
-          <button
-            onClick={logout}
-            className="flex items-center justify-center gap-2 w-full text-gray-500 hover:text-red-400 text-xs font-medium py-2 transition-colors"
-          >
-            <LogOut size={13} /> Cerrar Sesion
-          </button>
-        </div>
+      <aside
+        className="hidden md:flex flex-col w-60 min-h-screen shrink-0"
+        style={{ background: "#0d1117", borderRight: "1px solid rgba(79,126,184,0.12)" }}
+      >
+        <SidebarContent />
       </aside>
 
       {/* Mobile topbar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#111827] border-b border-white/10 flex items-center justify-between px-4 h-14">
-        <h2 className="text-white font-bold text-sm">Albert <span className="text-red-500">Admin</span></h2>
+      <div
+        className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14"
+        style={{ background: "#0d1117", borderBottom: "1px solid rgba(79,126,184,0.12)" }}
+      >
+        <h2 className="text-white font-bold text-sm">Albert <span style={{ color: "#D61C23" }}>Admin</span></h2>
         <div className="flex items-center gap-2">
-          {saved && <span className="text-green-400 text-xs">Guardado</span>}
+          {saved && <span className="text-xs font-medium" style={{ color: "#4ade80" }}>✓ Guardado</span>}
           <button
             onClick={handleSave}
             disabled={saving}
-            className="bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg"
+            className="text-white text-xs font-bold px-3 py-1.5 rounded-lg disabled:opacity-50"
+            style={{ background: "#D61C23" }}
           >
             {saving ? "..." : "Guardar"}
           </button>
@@ -122,20 +190,9 @@ export default function AdminNav({ active, onChange }: Props) {
       {/* Mobile drawer */}
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-40 pt-14">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
-          <div className="relative bg-[#111827] w-72 h-full p-4 flex flex-col">
-            <nav className="flex flex-col gap-1 flex-1 mt-4">
-              <NavItems />
-            </nav>
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
-              <a href="/" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-400 text-sm py-2 px-2">
-                <ExternalLink size={14} /> Ver Pagina
-              </a>
-              <button onClick={logout} className="flex items-center gap-2 text-red-400 text-sm py-2 px-2">
-                <LogOut size={14} /> Cerrar Sesion
-              </button>
-            </div>
+          <div className="absolute inset-0 bg-black/70" onClick={() => setMobileOpen(false)} />
+          <div className="relative w-64 h-full" style={{ background: "#0d1117" }}>
+            <SidebarContent />
           </div>
         </div>
       )}

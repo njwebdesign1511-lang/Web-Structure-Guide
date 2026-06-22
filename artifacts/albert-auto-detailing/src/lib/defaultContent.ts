@@ -71,6 +71,13 @@ export const defaultContent = {
     body: "Our results speak for themselves. Browse through some of our recent premium auto detailing projects.",
   },
   testimonials: [],
+  seo: {
+    title: "Albert Auto Detailing | Professional Car Detailing in Norwalk CT",
+    description: "Professional auto detailing in Norwalk, CT. Interior detailing, ceramic coating, paint correction, engine cleaning, headlight restoration and more. Serving Fairfield County, Connecticut.",
+    keywords: "auto detailing Norwalk CT, car detailing Norwalk, ceramic coating, paint correction, interior detailing, exterior detailing, headlight restoration, detailing near me, premium detailing",
+    gaId: "",
+    gscCode: "",
+  },
   faq: {
     eyebrow: "FAQ",
     heading: "Got Questions?",

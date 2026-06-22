@@ -9,6 +9,10 @@ import ContactEditor from "./sections/ContactEditor";
 import SectionsEditor from "./sections/SectionsEditor";
 import TestimonialsEditor from "./sections/TestimonialsEditor";
 import StyleEditor from "./sections/StyleEditor";
+import ReviewsManager from "./sections/ReviewsManager";
+import LeadsManager from "./sections/LeadsManager";
+import SeoEditor from "./sections/SeoEditor";
+import AutomationsEditor from "./sections/AutomationsEditor";
 
 export default function AdminPanel() {
   const { token } = useContent();
@@ -16,22 +20,26 @@ export default function AdminPanel() {
 
   if (!token) return <AdminLogin />;
 
-  const content = {
-    dashboard: <Dashboard onNavigate={setSection} />,
-    texts: <TextsEditor />,
-    services: <ServicesEditor />,
-    contact: <ContactEditor />,
-    sections: <SectionsEditor />,
+  const panels: Record<AdminSection, React.ReactNode> = {
+    dashboard:    <Dashboard onNavigate={setSection} />,
+    texts:        <TextsEditor />,
+    services:     <ServicesEditor />,
+    contact:      <ContactEditor />,
+    sections:     <SectionsEditor />,
     testimonials: <TestimonialsEditor />,
-    style: <StyleEditor />,
-  }[section];
+    style:        <StyleEditor />,
+    reviews:      <ReviewsManager />,
+    leads:        <LeadsManager />,
+    seo:          <SeoEditor />,
+    automations:  <AutomationsEditor />,
+  };
 
   return (
-    <div className="flex min-h-screen bg-[#0a0d14] font-sans">
+    <div className="flex min-h-screen font-sans" style={{ background: "#0a0d14" }}>
       <AdminNav active={section} onChange={setSection} />
       <main className="flex-1 md:ml-0 pt-14 md:pt-0 overflow-y-auto">
         <div className="p-4 md:p-8 max-w-4xl">
-          {content}
+          {panels[section]}
         </div>
       </main>
     </div>
