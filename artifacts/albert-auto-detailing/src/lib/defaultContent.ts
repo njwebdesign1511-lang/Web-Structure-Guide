@@ -32,6 +32,7 @@ export const defaultContent = {
       { title: "Leather Protection", description: "Deep conditioning and protection treatment that restores suppleness, color, and durability to leather surfaces.", active: true },
       { title: "Stain Removal", description: "Advanced treatment to eliminate tough stains from upholstery, carpets, and surfaces — results guaranteed.", active: true },
       { title: "Full Detailing Package", description: "The complete treatment — interior deep clean, exterior wash, paint correction, and protection — all in one premium package.", active: true },
+      { title: "Dash Cam Installation", description: "Professional installation of dash cameras for continuous recording, impact detection, and night vision. Wi-Fi and cloud options available.", active: true },
     ],
   },
   promotions: {
