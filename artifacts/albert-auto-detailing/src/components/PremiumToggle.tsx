@@ -27,13 +27,6 @@ export default function PremiumToggle() {
           whileTap={{ scale: 0.96 }}
           aria-label={buttonLabel}
         >
-          <motion.span
-            className="premium-toggle-icon"
-            animate={premiumMode ? { rotate: [0, 15, -10, 0] } : { rotate: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            ✨
-          </motion.span>
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
               key={!isLoggedIn ? "login" : premiumMode ? "on" : "off"}
