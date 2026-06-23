@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback, memo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import galleryLexusBefore    from "@assets/gallery-lexus-before.png";
 import galleryLexusAfter     from "@assets/gallery-lexus-after.png";
 import galleryHondaBefore    from "@/assets/images/gallery-honda-before.png";
@@ -62,76 +62,6 @@ const DEFAULT_PAIRS: Pair[] = [
   },
 ];
 
-// ─── Lightbox ──────────────────────────────────────────────────────────────────
-interface LightboxProps {
-  src: string;
-  alt: string;
-  onClose: () => void;
-}
-
-const Lightbox = memo(function Lightbox({ src, alt, onClose }: LightboxProps) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
-        className="fixed inset-0 flex items-center justify-center"
-        style={{ zIndex: 9999, background: "rgba(0,0,0,0.92)", backdropFilter: "blur(6px)" }}
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ scale: 0.88, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.92, opacity: 0 }}
-          transition={{ duration: 0.28, ease: "easeOut" }}
-          className="relative flex items-center justify-center"
-          style={{ maxWidth: "min(92vw, 900px)", maxHeight: "90vh" }}
-          onClick={e => e.stopPropagation()}
-        >
-          <img
-            src={src}
-            alt={alt}
-            className="rounded-xl object-contain"
-            style={{
-              maxWidth: "100%",
-              maxHeight: "88vh",
-              boxShadow: "0 8px 64px rgba(0,0,0,0.8)",
-              display: "block",
-            }}
-          />
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            className="absolute -top-4 -right-4 flex items-center justify-center rounded-full text-white font-bold"
-            style={{
-              width: "36px",
-              height: "36px",
-              background: "#FF2534",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.6)",
-              fontSize: "1.1rem",
-              lineHeight: 1,
-            }}
-          >
-            ✕
-          </button>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-});
-
 // ─── Before/After Card ──────────────────────────────────────────────────────────
 interface CardProps {
   pair: Pair;
@@ -139,13 +69,12 @@ interface CardProps {
   isAnimating: boolean;
   onAnimationEnd: () => void;
   loading?: "eager" | "lazy";
-  onOpenImage: (src: string, alt: string) => void;
 }
 
 const STEP_MS = 1800;
 
 const BeforeAfterCard = memo(function BeforeAfterCard({
-  pair, lang, isAnimating, onAnimationEnd, loading, onOpenImage,
+  pair, lang, isAnimating, onAnimationEnd, loading,
 }: CardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const beforeImgRef = useRef<HTMLImageElement>(null);
@@ -270,12 +199,6 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
   const title = (lang === "es" && pair.titleEs)       ? pair.titleEs       : pair.title;
   const desc  = (lang === "es" && pair.descriptionEs) ? pair.descriptionEs : pair.description;
 
-  const expandIcon = (
-    <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
-      <path d="M2 2h4M2 2v4M14 2h-4M14 2v4M2 14h4M2 14v-4M14 14h-4M14 14v-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-    </svg>
-  );
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -367,32 +290,6 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         </div>
       </div>
 
-      {/* Expand buttons */}
-      <div className="flex gap-2">
-        <button
-          onClick={() => onOpenImage(pair.beforeSrc, pair.beforeAlt ?? `${title} — before`)}
-          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-all"
-          style={{ background: "rgba(2,12,36,0.08)", border: "1px solid rgba(2,12,36,0.15)", color: "#374151" }}
-          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.15)"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.08)"; }}
-          aria-label={`View before image for ${title}`}
-        >
-          {expandIcon}
-          {lang === "es" ? "Ver Antes" : "View Before"}
-        </button>
-        <button
-          onClick={() => onOpenImage(pair.afterSrc, pair.afterAlt ?? `${title} — after`)}
-          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-all"
-          style={{ background: "rgba(214,28,35,0.06)", border: "1px solid rgba(214,28,35,0.20)", color: "#C41C27" }}
-          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.14)"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.06)"; }}
-          aria-label={`View after image for ${title}`}
-        >
-          {expandIcon}
-          {lang === "es" ? "Ver Después" : "View After"}
-        </button>
-      </div>
-
       {desc && <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>}
     </motion.div>
   );
@@ -407,8 +304,6 @@ export default memo(function Gallery() {
   const sectionRef  = useRef<HTMLElement>(null);
   const hasAnimated = useRef(false);
   const [currentAnim, setCurrentAnim] = useState<number | null>(null);
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
-
   const eyebrow = lang === "es" ? t.gallery.eyebrow : g.eyebrow;
   const heading  = lang === "es" ? t.gallery.heading  : g.heading;
   const body     = lang === "es" ? t.gallery.body     : g.body;
@@ -438,25 +333,12 @@ export default memo(function Gallery() {
     setCurrentAnim(prev => (prev === idx ? idx + 1 : prev));
   }, []);
 
-  const openImage = useCallback((src: string, alt: string) => {
-    setLightbox({ src, alt });
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightbox(null);
-  }, []);
-
   const hint = lang === "es"
     ? "Arrastra el control para comparar el antes y el después"
     : "Drag the handle to compare before & after";
 
   return (
-    <>
-      {lightbox && (
-        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />
-      )}
-
-      <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#FFFFFF" }}>
+    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#FFFFFF" }}>
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -480,14 +362,12 @@ export default memo(function Gallery() {
                 isAnimating={currentAnim === idx}
                 onAnimationEnd={() => onCardEnd(idx)}
                 loading={idx === 0 ? "eager" : "lazy"}
-                onOpenImage={openImage}
               />
             ))}
           </div>
 
           <p className="text-center text-xs mt-8 text-gray-400">{hint}</p>
         </div>
-      </section>
-    </>
+    </section>
   );
 });
