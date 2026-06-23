@@ -3,7 +3,7 @@ import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContent } from "@/contexts/ContentContext";
-import logoImg from "@assets/logo-transparent.png";
+import logoImg from "@assets/logo-clean.png";
 
 const WaIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -43,8 +43,36 @@ export default function Navbar() {
       style={scrolled ? { background: "rgba(0,24,48,0.94)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(20,96,160,0.20)" } : { background: "transparent" }}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#home" className="flex items-center">
-          <img src={logoImg} alt="Albert Auto Detailing" className="h-14 md:h-16 w-auto object-contain" />
+        <a href="#home" className="flex items-center gap-3">
+          <img
+            src={logoImg}
+            alt="Albert Auto Detailing"
+            className="w-auto object-contain shrink-0"
+            style={{
+              height: "clamp(64px, 8vw, 84px)",
+              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.8))",
+            }}
+          />
+          <div className="flex flex-col leading-tight">
+            <span
+              className="font-display font-bold uppercase text-white"
+              style={{ fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)", letterSpacing: "0.08em" }}
+            >
+              Albert Auto
+            </span>
+            <span
+              className="font-display font-bold uppercase"
+              style={{ fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)", letterSpacing: "0.08em", color: "#FF2534" }}
+            >
+              Detailing
+            </span>
+            <span
+              className="text-white/50 uppercase"
+              style={{ fontSize: "clamp(0.55rem, 0.7vw, 0.65rem)", letterSpacing: "0.18em" }}
+            >
+              Norwalk, CT
+            </span>
+          </div>
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {links.map((link) => (
