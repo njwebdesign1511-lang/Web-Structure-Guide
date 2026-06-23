@@ -31,7 +31,7 @@ export default function HowItWorks() {
     : "From request to result — a simple, clear, and transparent process.";
 
   return (
-    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#020C24" }}>
+    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#EEF5FF" }}>
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div style={{
@@ -51,9 +51,9 @@ export default function HowItWorks() {
           className="text-center mb-16 md:mb-20"
         >
           <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#FF2534" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
           <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#FF2534" }} />
-          <p className="text-gray-400 max-w-xl mx-auto">{sub}</p>
+          <p className="text-gray-600 max-w-xl mx-auto">{sub}</p>
         </motion.div>
 
         {/* Steps */}
@@ -81,14 +81,14 @@ export default function HowItWorks() {
                     <div
                       className="inline-block rounded-sm p-5 md:p-6 max-w-sm w-full"
                       style={{
-                        background: "rgba(255,255,255,0.025)",
-                        border: "1px solid rgba(79,126,184,0.18)",
-                        backdropFilter: "blur(4px)",
+                        background: "#FFFFFF",
+                        border: "1px solid #CBD8F0",
+                        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                       }}
                     >
                       <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#FF2534" }}>{step.n}</p>
-                      <h3 className="text-white font-bold text-lg mb-2">{step.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                      <h3 className="text-[#020C24] font-bold text-lg mb-2">{step.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
 

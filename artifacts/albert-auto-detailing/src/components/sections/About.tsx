@@ -16,7 +16,7 @@ export default function About() {
   const stat2Label = lang === "es" ? t.about.stat2Label : a.stat2Label;
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
@@ -39,18 +39,18 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{heading}</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-[#020C24]">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-200 text-lg leading-relaxed mb-6">{p1}</p>
-            <p className="text-gray-300 text-base leading-relaxed mb-8">{p2}</p>
-            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-border">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">{p1}</p>
+            <p className="text-gray-600 text-base leading-relaxed mb-8">{p2}</p>
+            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-200">
               <div>
-                <div className="text-3xl font-display font-bold text-white mb-2">{a.stat1Value}</div>
-                <div className="text-sm text-gray-300 uppercase tracking-wider">{stat1Label}</div>
+                <div className="text-3xl font-display font-bold text-[#020C24] mb-2">{a.stat1Value}</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat1Label}</div>
               </div>
               <div>
-                <div className="text-3xl font-display font-bold text-white mb-2">{a.stat2Value}</div>
-                <div className="text-sm text-gray-300 uppercase tracking-wider">{stat2Label}</div>
+                <div className="text-3xl font-display font-bold text-[#020C24] mb-2">{a.stat2Value}</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat2Label}</div>
               </div>
             </div>
           </motion.div>

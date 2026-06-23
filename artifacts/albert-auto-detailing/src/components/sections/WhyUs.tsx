@@ -15,7 +15,7 @@ export default function WhyUs() {
   const benefits = lang === "es" ? t.whyUs.benefits : w.benefits;
 
   return (
-    <section id="why-us" className="py-24 md:py-32 bg-background border-b border-border relative">
+    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5EDF8" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
@@ -25,10 +25,10 @@ export default function WhyUs() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-[#020C24] uppercase">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">{body}</p>
-            <a href="#contact" className="text-primary font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">{body}</p>
+            <a href="#contact" className="text-primary font-bold tracking-widest uppercase hover:text-[#020C24] transition-colors flex items-center gap-2">
               {cta} <span aria-hidden="true">&rarr;</span>
             </a>
           </motion.div>
@@ -40,9 +40,9 @@ export default function WhyUs() {
             className="grid sm:grid-cols-2 gap-4"
           >
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex items-start gap-3 bg-card p-4 border border-border/70 rounded-sm hover:border-primary/30 transition-colors" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.18)" }}>
+              <div key={i} className="flex items-start gap-3 p-4 border border-blue-100 rounded-sm hover:border-primary/40 transition-colors" style={{ background: "#EEF5FF" }}>
                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                <span className="text-white font-medium">{benefit}</span>
+                <span className="text-[#020C24] font-medium">{benefit}</span>
               </div>
             ))}
           </motion.div>

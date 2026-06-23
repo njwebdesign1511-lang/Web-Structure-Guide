@@ -37,7 +37,7 @@ export default function Services() {
   const esItems = t.services.items;
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-card relative">
+    <section id="services" className="py-24 md:py-32 relative" style={{ background: "#EEF5FF" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -47,7 +47,7 @@ export default function Services() {
           className="text-center mb-16 md:mb-24"
         >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </motion.div>
         <motion.div
@@ -67,12 +67,12 @@ export default function Services() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -6, transition: { type: "spring", stiffness: 320, damping: 22 } }}
-                className="bg-background border border-border p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden"
+                className="bg-white border border-blue-100 p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden shadow-sm"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Icon className="w-12 h-12 text-primary mb-6 stroke-[1.5]" />
-                <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">{title}</h4>
-                <p className="text-gray-300 leading-relaxed">{description}</p>
+                <h4 className="text-xl font-bold text-[#020C24] mb-4 uppercase tracking-wide">{title}</h4>
+                <p className="text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
             );
           })}

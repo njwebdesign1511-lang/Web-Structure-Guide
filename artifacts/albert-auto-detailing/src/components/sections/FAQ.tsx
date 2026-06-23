@@ -22,7 +22,7 @@ export default function FAQ() {
   const c = content.contact as any;
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#041535" }}>
+    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#EEF5FF" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -32,7 +32,7 @@ export default function FAQ() {
           className="text-center mb-16"
         >
           <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </motion.div>
         <div className="flex flex-col gap-3">
@@ -44,7 +44,7 @@ export default function FAQ() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.06, ease: "easeOut" }}
               className="rounded-sm overflow-hidden"
-              style={{ border: "1px solid rgba(79,126,184,0.25)", background: "#071B45" }}
+              style={{ border: "1px solid #CBD8F0", background: "#FFFFFF" }}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
@@ -53,7 +53,7 @@ export default function FAQ() {
                 onMouseEnter={e => ((e.currentTarget).style.background = "rgba(79,126,184,0.08)")}
                 onMouseLeave={e => ((e.currentTarget).style.background = "transparent")}
               >
-                <span className="text-white font-semibold pr-4 group-hover:text-primary transition-colors">{item.q}</span>
+                <span className="text-[#020C24] font-semibold pr-4 group-hover:text-primary transition-colors">{item.q}</span>
                 <span className="shrink-0 text-primary">
                   {open === i ? <Minus size={18} /> : <Plus size={18} />}
                 </span>
@@ -66,7 +66,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                   >
-                    <div className="px-6 pb-5 text-sm leading-relaxed border-t border-border pt-4" style={{ color: "#EAEAEA" }}>
+                    <div className="px-6 pb-5 text-sm leading-relaxed border-t border-gray-200 pt-4" style={{ color: "#374151" }}>
                       {item.a}
                     </div>
                   </motion.div>

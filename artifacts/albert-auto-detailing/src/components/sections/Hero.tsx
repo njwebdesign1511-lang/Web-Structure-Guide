@@ -175,6 +175,10 @@ export default function Hero() {
             style={{
               fontSize: "clamp(3rem, 7.5vw, 6rem)",
               textShadow: "0 2px 24px rgba(0,0,0,0.65)",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: 600,
+              textTransform: "none",
+              letterSpacing: "0.03em",
             }}
           >
             {line1}<br />
@@ -217,9 +221,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.58 }}
             className="flex flex-wrap gap-3"
           >
-            {/* Request a Quote — solid red */}
+            {/* Get a Free Quote — solid red → goes to contact/WhatsApp section */}
             <a
-              href="#quote"
+              href="#contact"
               className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
               style={{ background: "#FF2534" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
@@ -243,17 +247,6 @@ export default function Hero() {
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.30)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.80)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(214,28,35,0.12)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(214,28,35,0.50)"; }}
             ><PhoneIcon /> {callNow}</a>
-
-            {/* WhatsApp */}
-            <a
-              href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm flex items-center justify-center gap-2"
-              style={{ background: "rgba(79,126,184,0.20)", border: "1px solid rgba(79,126,184,0.45)", backdropFilter: "blur(4px)" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.45)")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "rgba(79,126,184,0.20)")}
-            ><WaIcon /> {btn3}</a>
           </motion.div>
         </div>
       </div>
