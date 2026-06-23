@@ -16,7 +16,7 @@ export default function About() {
   const stat2Label = lang === "es" ? t.about.stat2Label : a.stat2Label;
 
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#ECF3FC" }}>
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#CCDFF5" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div

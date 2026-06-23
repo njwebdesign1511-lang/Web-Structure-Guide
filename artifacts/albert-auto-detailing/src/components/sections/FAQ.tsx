@@ -22,7 +22,7 @@ export default function FAQ() {
   const c = content.contact as any;
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#D8EAF8" }}>
+    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#BBCFF0" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -44,7 +44,7 @@ export default function FAQ() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.06, ease: "easeOut" }}
               className="rounded-sm overflow-hidden"
-              style={{ border: "1px solid #CBD8F0", background: "#FFFFFF" }}
+              style={{ border: "1px solid #AABDE0", background: "#FFFFFF" }}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}

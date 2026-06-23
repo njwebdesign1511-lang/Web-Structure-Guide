@@ -15,7 +15,7 @@ export default function WhyUs() {
   const benefits = lang === "es" ? t.whyUs.benefits : w.benefits;
 
   return (
-    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#ECF3FC", borderBottom: "1px solid #C8DCEE" }}>
+    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#CCDFF5", borderBottom: "1px solid #AECAE6" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
@@ -40,7 +40,7 @@ export default function WhyUs() {
             className="grid sm:grid-cols-2 gap-4"
           >
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex items-start gap-3 p-4 border border-blue-100 rounded-sm hover:border-primary/40 transition-colors" style={{ background: "#D8EAF8" }}>
+              <div key={i} className="flex items-start gap-3 p-4 border border-blue-100 rounded-sm hover:border-primary/40 transition-colors" style={{ background: "#BBCFF0" }}>
                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
                 <span className="text-[#020C24] font-medium">{benefit}</span>
               </div>
