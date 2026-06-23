@@ -50,7 +50,7 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left group transition-colors"
                 style={{ background: "transparent" }}
-                onMouseEnter={e => ((e.currentTarget).style.background = "rgba(79,126,184,0.08)")}
+                onMouseEnter={e => ((e.currentTarget).style.background = "rgba(29,63,117,0.06)")}
                 onMouseLeave={e => ((e.currentTarget).style.background = "transparent")}
               >
                 <span className="text-[#020C24] font-semibold pr-4 group-hover:text-primary transition-colors">{item.q}</span>
@@ -76,7 +76,7 @@ export default function FAQ() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <p className="text-sm mb-4" style={{ color: "#3D94FF" }}>
+          <p className="text-sm mb-4" style={{ color: "#4a7fc1" }}>
             {lang === "es" ? "¿Más preguntas? Escríbenos directamente." : "More questions? Reach out to us directly."}
           </p>
           <a

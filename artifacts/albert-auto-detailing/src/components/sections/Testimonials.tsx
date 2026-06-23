@@ -44,7 +44,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (n: number) =
           >
             <Star
               className="w-7 h-7"
-              style={{ fill: active ? "#FF2534" : "transparent", color: active ? "#FF2534" : "rgba(79,126,184,0.40)" }}
+              style={{ fill: active ? "#FF2534" : "transparent", color: active ? "#FF2534" : "rgba(74,127,193,0.40)" }}
             />
           </button>
         );
@@ -142,10 +142,10 @@ export default function Testimonials() {
     }
   };
 
-  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#3D94FF] focus:outline-none transition-colors";
-  const inputStyle = { background: "#020C24", borderColor: "rgba(79,126,184,0.30)" };
+  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#89abda] focus:outline-none transition-colors";
+  const inputStyle = { background: "#0d1e38", borderColor: "rgba(74,127,193,0.30)" };
   const focusIn  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "#FF2534");
-  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "rgba(79,126,184,0.30)");
+  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "rgba(74,127,193,0.30)");
 
   const sliderVariants = {
     enter:  (d: number) => ({ x: d > 0 ? "60%" : "-60%", opacity: 0 }),
@@ -157,9 +157,9 @@ export default function Testimonials() {
     <section
       id="testimonials"
       className="py-24 md:py-32 border-b border-border relative overflow-hidden"
-      style={{ background: "#051c42" }}
+      style={{ background: "#112050" }}
     >
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(79,126,184,0.14) 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(255,37,52,0.06) 0%, transparent 55%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(29,63,117,0.18) 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(255,37,52,0.06) 0%, transparent 55%)" }} />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
 
@@ -171,11 +171,11 @@ export default function Testimonials() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#85CCFF" }}>{eyebrow}</p>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#89abda" }}>{eyebrow}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
-          <div className="w-20 h-1 mx-auto" style={{ background: "#3D94FF" }} />
+          <div className="w-20 h-1 mx-auto" style={{ background: "#4a7fc1" }} />
           {reviews.length > 0 && (
-            <p className="mt-4 text-sm" style={{ color: "rgba(111,181,255,0.55)" }}>
+            <p className="mt-4 text-sm" style={{ color: "rgba(137,171,218,0.60)" }}>
               {reviews.length}+ {L.customers}
             </p>
           )}
@@ -193,7 +193,7 @@ export default function Testimonials() {
                 <Star key={i} className="w-6 h-6" style={{ fill: "rgba(214,28,35,0.25)", color: "#FF2534" }} />
               ))}
             </div>
-            <p className="text-sm" style={{ color: "rgba(111,181,255,0.55)" }}>{L.noReviews}</p>
+            <p className="text-sm" style={{ color: "rgba(137,171,218,0.60)" }}>{L.noReviews}</p>
           </motion.div>
         ) : (
           <div
@@ -205,9 +205,9 @@ export default function Testimonials() {
               <button
                 onClick={() => go(-1)}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 md:-translate-x-14 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all"
-                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(79,126,184,0.30)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "rgba(79,126,184,0.15)")}
+                style={{ background: "rgba(29,63,117,0.20)", border: "1px solid rgba(74,127,193,0.35)", color: "#89abda" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(29,63,117,0.40)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "rgba(29,63,117,0.20)")}
               >
                 <ChevronLeft size={16} />
               </button>
@@ -224,9 +224,9 @@ export default function Testimonials() {
                   exit="exit"
                   transition={{ duration: 0.38, ease: "easeInOut" }}
                   className="p-8 relative"
-                  style={{ background: "#0a2255", border: "1px solid rgba(79,126,184,0.28)" }}
+                  style={{ background: "#162860", border: "1px solid rgba(74,127,193,0.28)" }}
                 >
-                  <Quote className="w-8 h-8 absolute top-6 right-6" style={{ color: "rgba(79,126,184,0.25)" }} />
+                  <Quote className="w-8 h-8 absolute top-6 right-6" style={{ color: "rgba(74,127,193,0.28)" }} />
                   <StarRating count={reviews[current].rating} />
                   <p className="mt-4 mb-6 leading-relaxed italic text-base md:text-lg" style={{ color: "#EAEAEA" }}>
                     "{reviews[current].comment}"
@@ -234,13 +234,13 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3 pt-4 border-t border-border">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0"
-                      style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
+                      style={{ background: "rgba(29,63,117,0.25)", border: "1px solid rgba(74,127,193,0.35)", color: "#89abda" }}
                     >
                       {reviews[current].name[0]?.toUpperCase()}
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">{reviews[current].name}</p>
-                      <p className="text-xs" style={{ color: "#3D94FF" }}>
+                      <p className="text-xs" style={{ color: "#4a7fc1" }}>
                         {reviews[current].service ?? (lang === "es" ? "Cliente verificado" : "Verified Customer")}
                       </p>
                     </div>
@@ -253,9 +253,9 @@ export default function Testimonials() {
               <button
                 onClick={() => go(1)}
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 md:translate-x-14 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all"
-                style={{ background: "rgba(79,126,184,0.15)", border: "1px solid rgba(79,126,184,0.30)", color: "#85CCFF" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(79,126,184,0.30)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "rgba(79,126,184,0.15)")}
+                style={{ background: "rgba(29,63,117,0.20)", border: "1px solid rgba(74,127,193,0.35)", color: "#89abda" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(29,63,117,0.40)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "rgba(29,63,117,0.20)")}
               >
                 <ChevronRight size={16} />
               </button>
@@ -274,7 +274,7 @@ export default function Testimonials() {
                 style={{
                   width: i === current ? "28px" : "8px",
                   height: "8px",
-                  background: i === current ? "#FF2534" : "rgba(79,126,184,0.35)",
+                  background: i === current ? "#FF2534" : "rgba(74,127,193,0.35)",
                 }}
               />
             ))}
@@ -325,7 +325,7 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: 16 }}
               transition={{ duration: 0.35 }}
               className="max-w-2xl mx-auto mt-6 rounded-sm p-8 flex flex-col gap-5"
-              style={{ background: "#0a2255", border: "1px solid rgba(79,126,184,0.32)" }}
+              style={{ background: "#162860", border: "1px solid rgba(74,127,193,0.32)" }}
             >
               <div className="flex items-center justify-between mb-1">
                 <h3 className="text-white font-bold text-lg">{L.writeReview}</h3>
@@ -340,7 +340,7 @@ export default function Testimonials() {
 
               {/* Star rating input */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#85CCFF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#89abda" }}>
                   {L.ratingLabel}
                 </label>
                 <StarInput value={form.rating} onChange={n => setForm(f => ({ ...f, rating: n }))} />
@@ -348,7 +348,7 @@ export default function Testimonials() {
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#89abda" }}>
                   {L.nameLabel}
                 </label>
                 <input
@@ -366,7 +366,7 @@ export default function Testimonials() {
 
               {/* Service */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#89abda" }}>
                   {L.serviceLabel}
                 </label>
                 <input
@@ -383,7 +383,7 @@ export default function Testimonials() {
 
               {/* Comment */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#85CCFF" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#89abda" }}>
                   {L.commentLabel}
                 </label>
                 <textarea

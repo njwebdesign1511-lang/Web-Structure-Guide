@@ -22,7 +22,7 @@ export default function Footer() {
   const waText = c?.whatsappText ?? "Hi! I'd like to book a detailing service.";
 
   return (
-    <footer className="pt-16 pb-8" style={{ background: "#020C24", borderTop: "1px solid rgba(79,126,184,0.20)" }}>
+    <footer className="pt-16 pb-8" style={{ background: "#0d1e38", borderTop: "1px solid rgba(74,127,193,0.20)" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -40,7 +40,7 @@ export default function Footer() {
             <p className="text-sm" style={{ color: "#ffffff" }}>{sub}</p>
           </div>
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#85CCFF" }}>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#89abda" }}>
               {lang === "es" ? "Contacto" : "Contact"}
             </h4>
             <div className="flex flex-col gap-3">
@@ -88,8 +88,8 @@ export default function Footer() {
                   <span>Instagram</span>
                 </a>
               )}
-              <div className="pt-3 mt-2" style={{ borderTop: "1px solid rgba(79,126,184,0.20)" }}>
-                <p className="text-xs mb-1" style={{ color: "rgba(111,181,255,0.50)" }}>
+              <div className="pt-3 mt-2" style={{ borderTop: "1px solid rgba(74,127,193,0.20)" }}>
+                <p className="text-xs mb-1" style={{ color: "rgba(137,171,218,0.55)" }}>
                   {lang === "es" ? "Sitio desarrollado por" : "Site developed by"}
                 </p>
                 <a
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#85CCFF" }}>
+            <h4 className="font-bold uppercase tracking-widest text-xs mb-4" style={{ color: "#89abda" }}>
               {lang === "es" ? "Servicios" : "Services"}
             </h4>
             <div className="flex flex-col gap-2">
@@ -125,24 +125,24 @@ export default function Footer() {
             </div>
           </div>
         </motion.div>
-        <div className="pt-8" style={{ borderTop: "1px solid rgba(79,126,184,0.15)" }}>
+        <div className="pt-8" style={{ borderTop: "1px solid rgba(74,127,193,0.15)" }}>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs" style={{ color: "#3D94FF" }}>
+            <p className="text-xs" style={{ color: "#89abda" }}>
               &copy; {new Date().getFullYear()} Albert Auto Detailing. {rights}
             </p>
             <div className="flex items-center gap-4">
               <a href="/privacy" className="text-xs transition-colors"
-                style={{ color: "rgba(79,126,184,0.65)" }}
+                style={{ color: "rgba(137,171,218,0.65)" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
-                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.65)")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(137,171,218,0.65)")}
               >
                 {lang === "es" ? "Política de Privacidad" : "Privacy Policy"}
               </a>
-              <span style={{ color: "rgba(79,126,184,0.25)" }}>·</span>
+              <span style={{ color: "rgba(137,171,218,0.25)" }}>·</span>
               <a href="/terms" className="text-xs transition-colors"
-                style={{ color: "rgba(79,126,184,0.65)" }}
+                style={{ color: "rgba(137,171,218,0.65)" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
-                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(79,126,184,0.65)")}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(137,171,218,0.65)")}
               >
                 {lang === "es" ? "Términos y Condiciones" : "Terms & Conditions"}
               </a>

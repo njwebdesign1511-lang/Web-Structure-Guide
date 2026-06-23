@@ -36,7 +36,7 @@ export default function HowItWorks() {
       <div className="absolute inset-0 pointer-events-none">
         <div style={{
           position: "absolute", top: "30%", right: "-10%", width: "500px", height: "500px",
-          background: "radial-gradient(circle, rgba(79,126,184,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(29,63,117,0.06) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
       </div>
@@ -61,7 +61,7 @@ export default function HowItWorks() {
           {/* Vertical connector line (desktop) */}
           <div
             className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px"
-            style={{ background: "linear-gradient(to bottom, transparent, rgba(79,126,184,0.25) 10%, rgba(79,126,184,0.25) 90%, transparent)", transform: "translateX(-50%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent, rgba(74,127,193,0.25) 10%, rgba(74,127,193,0.25) 90%, transparent)", transform: "translateX(-50%)" }}
           />
 
           <div className="flex flex-col gap-6 md:gap-8">
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                   {/* Center circle */}
                   <div
                     className="relative z-10 hidden md:flex w-10 h-10 rounded-full items-center justify-center shrink-0"
-                    style={{ background: "#FF2534", border: "3px solid #020C24", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
+                    style={{ background: "#FF2534", border: "3px solid #0d1e38", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
                   >
                     <span className="text-white text-xs font-bold">{i + 1}</span>
                   </div>

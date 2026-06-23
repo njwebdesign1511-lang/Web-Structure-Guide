@@ -102,7 +102,7 @@ export default function Dashboard({ onNavigate }: Props) {
             </div>
           </div>
           <div className="bg-[#0a0d14] rounded-lg p-4 text-center border border-white/5">
-            <div className="text-2xl font-bold" style={{ color: "#3D94FF" }}>
+            <div className="text-2xl font-bold" style={{ color: "#4a7fc1" }}>
               {content.contact.email ? "✓" : "—"}
             </div>
             <div className="text-xs text-gray-500 mt-1 flex items-center justify-center gap-1">

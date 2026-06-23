@@ -12,7 +12,7 @@ function WelcomeSplash() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center"
-      style={{ background: "#020C24" }}
+      style={{ background: "#0d1e38" }}
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0, y: 20 }}

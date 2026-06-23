@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}
-      style={scrolled ? { background: "rgba(2,12,36,0.92)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(79,126,184,0.20)" } : { background: "transparent" }}
+      style={scrolled ? { background: "rgba(13,30,56,0.94)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(74,127,193,0.20)" } : { background: "transparent" }}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a href="#home" className="flex items-center">
@@ -55,13 +55,13 @@ export default function Navbar() {
           <button
             onClick={toggle}
             className="flex items-center gap-1.5 transition-colors rounded-sm px-3 py-1.5 text-xs font-bold tracking-widest uppercase"
-            style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
+            style={{ border: "1px solid rgba(74,127,193,0.40)", background: "rgba(29,63,117,0.40)" }}
             aria-label="Switch language"
           >
-            <Globe size={14} style={{ color: "#85CCFF" }} />
-            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
-            <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.65rem" }}>|</span>
-            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
+            <Globe size={14} style={{ color: "#89abda" }} />
+            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(137,171,218,0.55)" }}>EN</span>
+            <span style={{ color: "rgba(137,171,218,0.35)", fontSize: "0.65rem" }}>|</span>
+            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(137,171,218,0.55)" }}>ES</span>
           </button>
           <a
             href={waHref}
@@ -79,13 +79,13 @@ export default function Navbar() {
           <button
             onClick={toggle}
             className="flex items-center gap-1 text-xs font-bold tracking-widest uppercase rounded-sm px-2 py-1.5"
-            style={{ border: "1px solid rgba(79,126,184,0.40)", background: "rgba(15,40,100,0.50)" }}
+            style={{ border: "1px solid rgba(74,127,193,0.40)", background: "rgba(29,63,117,0.40)" }}
             aria-label="Switch language"
           >
-            <Globe size={12} style={{ color: "#85CCFF" }} />
-            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>EN</span>
-            <span style={{ color: "rgba(111,181,255,0.35)", fontSize: "0.6rem" }}>|</span>
-            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(111,181,255,0.45)" }}>ES</span>
+            <Globe size={12} style={{ color: "#89abda" }} />
+            <span style={{ color: lang === "en" ? "#FFFFFF" : "rgba(137,171,218,0.55)" }}>EN</span>
+            <span style={{ color: "rgba(137,171,218,0.35)", fontSize: "0.6rem" }}>|</span>
+            <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(137,171,218,0.55)" }}>ES</span>
           </button>
           <button className="text-white p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,7 +99,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full shadow-2xl md:hidden"
-            style={{ background: "#020C24", borderBottom: "1px solid rgba(79,126,184,0.20)" }}
+            style={{ background: "#0d1e38", borderBottom: "1px solid rgba(74,127,193,0.20)" }}
           >
             <nav className="flex flex-col py-6 px-6 gap-5">
               {links.map((link) => (
@@ -111,7 +111,7 @@ export default function Navbar() {
                 href="#quote"
                 onClick={() => setMobileMenuOpen(false)}
                 className="site-btn px-6 py-3 text-white text-center text-sm font-bold tracking-wider uppercase rounded-sm"
-                style={{ background: "#3D94FF" }}
+                style={{ background: "#4a7fc1" }}
               >
                 {lang === "es" ? "Solicitar Cotización" : "Get Free Quote"}
               </a>

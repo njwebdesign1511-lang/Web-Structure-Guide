@@ -23,7 +23,7 @@ export default function Location() {
   const mapSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
   return (
-    <section id="location" className="py-24 md:py-32 border-t border-border relative" style={{ background: "#041535" }}>
+    <section id="location" className="py-24 md:py-32 border-t border-border relative" style={{ background: "#0f2347" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -43,7 +43,7 @@ export default function Location() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="rounded-sm overflow-hidden aspect-video"
-            style={{ border: "1px solid rgba(79,126,184,0.30)", background: "#071B45" }}
+            style={{ border: "1px solid rgba(74,127,193,0.30)", background: "#132354" }}
           >
             <iframe
               title="Albert Auto Detailing Location"
@@ -64,10 +64,10 @@ export default function Location() {
             className="flex flex-col gap-5"
           >
             {c.address && (
-              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.25)" }}>
+              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#132354", border: "1px solid rgba(74,127,193,0.25)" }}>
                 <MapPin className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#3D94FF" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#4a7fc1" }}>
                     {lang === "es" ? "Dirección" : "Address"}
                   </p>
                   <p className="text-white font-medium">{c.address}</p>
@@ -83,10 +83,10 @@ export default function Location() {
               </div>
             )}
             {c.hours && (
-              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#071B45", border: "1px solid rgba(79,126,184,0.25)" }}>
+              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "#132354", border: "1px solid rgba(74,127,193,0.25)" }}>
                 <Clock className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#3D94FF" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#4a7fc1" }}>
                     {lang === "es" ? "Horario" : "Hours"}
                   </p>
                   <p className="text-white font-medium">{c.hours}</p>
@@ -94,10 +94,10 @@ export default function Location() {
               </div>
             )}
             {areaNote && (
-              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "rgba(79,126,184,0.08)", border: "1px solid rgba(79,126,184,0.30)" }}>
-                <Car className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#85CCFF" }} />
+              <div className="flex items-start gap-4 rounded-sm p-5" style={{ background: "rgba(29,63,117,0.18)", border: "1px solid rgba(74,127,193,0.30)" }}>
+                <Car className="w-6 h-6 shrink-0 mt-0.5" style={{ color: "#89abda" }} />
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#85CCFF" }}>
+                  <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#89abda" }}>
                     {lang === "es" ? "Área de Servicio" : "Service Area"}
                   </p>
                   <p className="text-sm leading-relaxed" style={{ color: "#EAEAEA" }}>{areaNote}</p>

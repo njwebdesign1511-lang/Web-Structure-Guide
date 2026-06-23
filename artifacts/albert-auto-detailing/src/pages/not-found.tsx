@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 font-sans"
-      style={{ background: "#020C24", color: "#EAEAEA" }}
+      style={{ background: "#0d1e38", color: "#EAEAEA" }}
     >
       <a href="/" className="mb-10">
         <img src={logoImg} alt="Albert Auto Detailing" className="h-24 w-auto object-contain" />

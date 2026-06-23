@@ -91,7 +91,7 @@ export default function Hero() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="absolute inset-0 flex flex-col items-center justify-center gap-6"
-            style={{ zIndex: 5, background: "#020C24" }}
+            style={{ zIndex: 5, background: "#0d1e38" }}
           >
             <motion.img
               src={logoImg}
@@ -195,7 +195,7 @@ export default function Hero() {
             style={{
               height: "1px",
               width: "65%",
-              background: "linear-gradient(to right, rgba(214,28,35,0.70), rgba(79,126,184,0.30), transparent)",
+              background: "linear-gradient(to right, rgba(214,28,35,0.70), rgba(29,63,117,0.30), transparent)",
             }}
           />
 

@@ -229,7 +229,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         style={{
           aspectRatio: "4/3",
           cursor: "col-resize",
-          border: "1px solid rgba(79,126,184,0.18)",
+          border: "1px solid rgba(74,127,193,0.18)",
           touchAction: "pan-y", // browser handles vertical; we intercept horizontal
           willChange: "transform", // promote to GPU layer
         }}
@@ -416,7 +416,7 @@ export default memo(function Gallery() {
           ))}
         </div>
 
-        <p className="text-center text-xs mt-8" style={{ color: "rgba(79,126,184,0.45)" }}>
+        <p className="text-center text-xs mt-8" style={{ color: "rgba(74,127,193,0.50)" }}>
           {hint}
         </p>
       </div>

@@ -73,10 +73,10 @@ export default function AdminNav({ active, onChange }: Props) {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="px-4 py-5 mb-2" style={{ borderBottom: "1px solid rgba(79,126,184,0.12)" }}>
+      <div className="px-4 py-5 mb-2" style={{ borderBottom: "1px solid rgba(74,127,193,0.12)" }}>
         <div className="flex items-center gap-2 mb-0.5">
           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-          <p className="text-xs font-bold tracking-widest uppercase" style={{ color: "rgba(111,181,255,0.50)" }}>Admin Panel</p>
+          <p className="text-xs font-bold tracking-widest uppercase" style={{ color: "rgba(137,171,218,0.55)" }}>Admin Panel</p>
         </div>
         <h2 className="text-white font-bold text-base leading-tight">
           Albert <span style={{ color: "#FF2534" }}>Auto</span> Detailing
@@ -87,7 +87,7 @@ export default function AdminNav({ active, onChange }: Props) {
       <nav className="flex-1 overflow-y-auto px-3 py-2">
         {groups.map(group => (
           <div key={group.label} className="mb-4">
-            <p className="text-xs font-bold tracking-widest uppercase px-2 mb-1.5" style={{ color: "rgba(79,126,184,0.45)" }}>
+            <p className="text-xs font-bold tracking-widest uppercase px-2 mb-1.5" style={{ color: "rgba(74,127,193,0.55)" }}>
               {group.label}
             </p>
             {group.items.map(({ id, label, icon: Icon }) => {
@@ -119,7 +119,7 @@ export default function AdminNav({ active, onChange }: Props) {
       </nav>
 
       {/* Footer actions */}
-      <div className="px-3 py-4" style={{ borderTop: "1px solid rgba(79,126,184,0.12)" }}>
+      <div className="px-3 py-4" style={{ borderTop: "1px solid rgba(74,127,193,0.12)" }}>
         {saved && (
           <div className="text-center text-xs font-medium py-1.5 rounded-lg mb-2" style={{ color: "#4ade80", background: "rgba(74,222,128,0.08)" }}>
             ✓ Guardado correctamente
@@ -139,7 +139,7 @@ export default function AdminNav({ active, onChange }: Props) {
           <a
             href="/" target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-center gap-1.5 flex-1 border text-xs font-medium py-2 rounded-lg transition-colors"
-            style={{ borderColor: "rgba(79,126,184,0.25)", color: "rgba(111,181,255,0.70)" }}
+            style={{ borderColor: "rgba(74,127,193,0.25)", color: "rgba(137,171,218,0.75)" }}
           >
             <ExternalLink size={11} /> Ver Sitio
           </a>
@@ -162,7 +162,7 @@ export default function AdminNav({ active, onChange }: Props) {
       {/* Desktop sidebar */}
       <aside
         className="hidden md:flex flex-col w-60 min-h-screen shrink-0"
-        style={{ background: "#0d1117", borderRight: "1px solid rgba(79,126,184,0.12)" }}
+        style={{ background: "#0d1117", borderRight: "1px solid rgba(74,127,193,0.12)" }}
       >
         <SidebarContent />
       </aside>
@@ -170,7 +170,7 @@ export default function AdminNav({ active, onChange }: Props) {
       {/* Mobile topbar */}
       <div
         className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14"
-        style={{ background: "#0d1117", borderBottom: "1px solid rgba(79,126,184,0.12)" }}
+        style={{ background: "#0d1117", borderBottom: "1px solid rgba(74,127,193,0.12)" }}
       >
         <h2 className="text-white font-bold text-sm">Albert <span style={{ color: "#FF2534" }}>Admin</span></h2>
         <div className="flex items-center gap-2">
