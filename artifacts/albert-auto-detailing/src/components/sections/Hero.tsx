@@ -78,7 +78,7 @@ export default function Hero() {
           imageRendering: "auto",
         }}
       >
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src="/hero-bg.mp4" type="video/mp4" />
       </video>
 
       {/* ── Logo splash shown for 2 s at end of each video loop ── */}
@@ -135,14 +135,14 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 1,
-          background: "linear-gradient(105deg, rgba(2,12,36,0.55) 0%, rgba(2,12,36,0.24) 45%, rgba(2,12,36,0.02) 100%)",
+          background: "linear-gradient(105deg, rgba(2,12,36,0.62) 0%, rgba(2,12,36,0.28) 40%, rgba(2,12,36,0.04) 70%, transparent 100%)",
         }}
       />
 
       {/* ── Bottom fade for scroll indicator ── */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ zIndex: 2, background: "linear-gradient(to top, rgba(2,12,36,0.70), transparent)" }}
+        style={{ zIndex: 2, background: "linear-gradient(to top, rgba(2,12,36,0.55), transparent)" }}
       />
 
       {/* ── Left accent line ── */}
