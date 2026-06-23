@@ -37,7 +37,7 @@ export default function Services() {
   const esItems = t.services.items;
 
   return (
-    <section id="services" className="py-24 md:py-32 relative" style={{ background: "#0152AD" }}>
+    <section id="services" className="py-24 md:py-32 relative" style={{ background: "#0d1e38" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
