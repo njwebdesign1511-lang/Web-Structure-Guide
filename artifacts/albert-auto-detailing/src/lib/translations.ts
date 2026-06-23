@@ -213,7 +213,7 @@ export const translations = {
     mobileService: {
       heading1: "Servicio",
       heading2: "Móvil",
-      body: "¡Vamos a donde estés! Disfruta del detailing profesional en tu casa, trabajo o el lugar de tu preferencia. Llevamos nuestros propios suministros y equipo premium.",
+      body: "¡Vamos a donde estés! Disfruta del detailing profesional en tu casa, trabajo en el lugar de tu preferencia. Llevamos nuestros propios suministros y equipo premium.",
       cta: "Programar Servicio Móvil",
     },
     whyUs: {
