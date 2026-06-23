@@ -61,15 +61,23 @@ export default function Navbar() {
               }}
             />
             <div className="flex flex-col leading-tight">
-              <span
-                className="font-display font-bold uppercase text-white"
-                style={{ fontSize: "0.7rem", letterSpacing: "0.10em" }}
-              >
-                Albert Auto Detailing
-              </span>
+              <div className="flex items-baseline gap-1.5">
+                <span
+                  className="font-display font-bold uppercase text-white"
+                  style={{ fontSize: "0.72rem", letterSpacing: "0.10em" }}
+                >
+                  Albert Auto
+                </span>
+                <span
+                  className="font-display font-bold uppercase"
+                  style={{ fontSize: "0.72rem", letterSpacing: "0.10em", color: "#FF2534" }}
+                >
+                  Detailing
+                </span>
+              </div>
               <span
                 className="text-white/45 uppercase"
-                style={{ fontSize: "0.55rem", letterSpacing: "0.20em" }}
+                style={{ fontSize: "0.52rem", letterSpacing: "0.22em" }}
               >
                 Norwalk, CT
               </span>
