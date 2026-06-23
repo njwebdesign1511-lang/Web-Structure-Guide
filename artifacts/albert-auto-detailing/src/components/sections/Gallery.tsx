@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import galleryLexusBefore    from "@/assets/images/gallery-lexus-before.png";
-import galleryLexusAfter     from "@/assets/images/gallery-lexus-after.png";
+import galleryLexusBefore    from "@assets/gallery-lexus-before.png";
+import galleryLexusAfter     from "@assets/gallery-lexus-after.png";
 import galleryHondaBefore    from "@/assets/images/gallery-honda-before.png";
 import galleryHondaAfter     from "@/assets/images/gallery-honda-after.png";
 import galleryHeadlightBefore from "@assets/gallery-headlight-before.png";
