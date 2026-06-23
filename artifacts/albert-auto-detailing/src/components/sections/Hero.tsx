@@ -78,7 +78,7 @@ export default function Hero() {
           imageRendering: "auto",
         }}
       >
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        <source src="/hero-bg-hd.mp4" type="video/mp4" />
       </video>
 
       {/* ── Logo splash shown for 2 s at end of each video loop ── */}
