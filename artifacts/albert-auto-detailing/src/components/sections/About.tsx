@@ -16,7 +16,7 @@ export default function About() {
   const stat2Label = lang === "es" ? t.about.stat2Label : a.stat2Label;
 
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#CCDFF5" }}>
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#0152AD" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
@@ -26,11 +26,11 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/5] md:aspect-square rounded-sm overflow-hidden relative border border-border">
+            <div className="aspect-[4/5] md:aspect-square rounded-sm overflow-hidden relative" style={{ border: "1px solid rgba(255,255,255,0.20)" }}>
               <img src={aboutImg} alt="Professional Auto Detailing Service in Norwalk CT - Albert Auto Detailing" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 border border-primary/20 backdrop-blur-sm -z-10 rounded-sm" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 -z-10 rounded-sm" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)" }} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -38,19 +38,19 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-[#020C24]">{heading}</h2>
-            <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">{p1}</p>
-            <p className="text-gray-600 text-base leading-relaxed mb-8">{p2}</p>
-            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-200">
+            <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(255,255,255,0.70)" }}>{eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">{heading}</h2>
+            <div className="w-20 h-1 mb-8 bg-primary" />
+            <p className="text-lg leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.88)" }}>{p1}</p>
+            <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.75)" }}>{p2}</p>
+            <div className="grid grid-cols-2 gap-6 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.20)" }}>
               <div>
-                <div className="text-3xl font-display font-bold text-[#020C24] mb-2">{a.stat1Value}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat1Label}</div>
+                <div className="text-3xl font-display font-bold text-white mb-2">{a.stat1Value}</div>
+                <div className="text-sm uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.65)" }}>{stat1Label}</div>
               </div>
               <div>
-                <div className="text-3xl font-display font-bold text-[#020C24] mb-2">{a.stat2Value}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat2Label}</div>
+                <div className="text-3xl font-display font-bold text-white mb-2">{a.stat2Value}</div>
+                <div className="text-sm uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.65)" }}>{stat2Label}</div>
               </div>
             </div>
           </motion.div>

@@ -37,7 +37,7 @@ export default function Services() {
   const esItems = t.services.items;
 
   return (
-    <section id="services" className="py-24 md:py-32 relative" style={{ background: "#BBCFF0" }}>
+    <section id="services" className="py-24 md:py-32 relative" style={{ background: "#0152AD" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -46,8 +46,8 @@ export default function Services() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-sm font-bold tracking-widest text-primary uppercase mb-3">{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(255,255,255,0.70)" }}>{eyebrow}</p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </motion.div>
         <motion.div
@@ -67,7 +67,8 @@ export default function Services() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -6, transition: { type: "spring", stiffness: 320, damping: 22 } }}
-                className="bg-white border border-blue-100 p-8 rounded-sm hover:border-primary/50 transition-colors group relative overflow-hidden shadow-sm"
+                className="bg-white p-8 rounded-sm group relative overflow-hidden shadow-sm transition-all"
+                style={{ border: "1px solid rgba(255,255,255,0.30)" }}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Icon className="w-12 h-12 text-primary mb-6 stroke-[1.5]" />

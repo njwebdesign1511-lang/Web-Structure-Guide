@@ -31,12 +31,12 @@ export default function HowItWorks() {
     : "From request to result — a simple, clear, and transparent process.";
 
   return (
-    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#BBCFF0" }}>
+    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#0152AD" }}>
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div style={{
           position: "absolute", top: "30%", right: "-10%", width: "500px", height: "500px",
-          background: "radial-gradient(circle, rgba(29,63,117,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
       </div>
@@ -51,9 +51,9 @@ export default function HowItWorks() {
           className="text-center mb-16 md:mb-20"
         >
           <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#FF2534" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
           <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#FF2534" }} />
-          <p className="text-gray-600 max-w-xl mx-auto">{sub}</p>
+          <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.80)" }}>{sub}</p>
         </motion.div>
 
         {/* Steps */}
@@ -61,7 +61,7 @@ export default function HowItWorks() {
           {/* Vertical connector line (desktop) */}
           <div
             className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px"
-            style={{ background: "linear-gradient(to bottom, transparent, rgba(74,127,193,0.25) 10%, rgba(74,127,193,0.25) 90%, transparent)", transform: "translateX(-50%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.30) 10%, rgba(255,255,255,0.30) 90%, transparent)", transform: "translateX(-50%)" }}
           />
 
           <div className="flex flex-col gap-6 md:gap-8">
@@ -82,8 +82,8 @@ export default function HowItWorks() {
                       className="inline-block rounded-sm p-5 md:p-6 max-w-sm w-full"
                       style={{
                         background: "#FFFFFF",
-                        border: "1px solid #AABDE0",
-                        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                        border: "1px solid rgba(255,255,255,0.30)",
+                        boxShadow: "0 2px 12px rgba(0,0,0,0.10)",
                       }}
                     >
                       <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#FF2534" }}>{step.n}</p>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                   {/* Center circle */}
                   <div
                     className="relative z-10 hidden md:flex w-10 h-10 rounded-full items-center justify-center shrink-0"
-                    style={{ background: "#FF2534", border: "3px solid #0d1e38", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
+                    style={{ background: "#FF2534", border: "3px solid #0152AD", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
                   >
                     <span className="text-white text-xs font-bold">{i + 1}</span>
                   </div>
