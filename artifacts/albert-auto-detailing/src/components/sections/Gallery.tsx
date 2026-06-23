@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect, useCallback, memo } from "react";
-import { motion } from "framer-motion";
-import galleryLexusBefore   from "@/assets/images/gallery-lexus-before.png";
-import galleryLexusAfter    from "@/assets/images/gallery-lexus-after.png";
-import galleryHondaBefore   from "@/assets/images/gallery-honda-before.png";
-import galleryHondaAfter    from "@/assets/images/gallery-honda-after.png";
-import galleryHeadlightBefore from "@/assets/images/gallery-headlight-before.png";
-import galleryHeadlightAfter  from "@/assets/images/gallery-headlight-after.png";
+import { motion, AnimatePresence } from "framer-motion";
+import galleryLexusBefore    from "@/assets/images/gallery-lexus-before.png";
+import galleryLexusAfter     from "@/assets/images/gallery-lexus-after.png";
+import galleryHondaBefore    from "@/assets/images/gallery-honda-before.png";
+import galleryHondaAfter     from "@/assets/images/gallery-honda-after.png";
+import galleryHeadlightBefore from "@assets/gallery-headlight-before.png";
+import galleryHeadlightAfter  from "@assets/gallery-headlight-after.png";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -62,23 +62,91 @@ const DEFAULT_PAIRS: Pair[] = [
   },
 ];
 
+// ─── Lightbox ──────────────────────────────────────────────────────────────────
+interface LightboxProps {
+  src: string;
+  alt: string;
+  onClose: () => void;
+}
+
+const Lightbox = memo(function Lightbox({ src, alt, onClose }: LightboxProps) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.22 }}
+        className="fixed inset-0 flex items-center justify-center"
+        style={{ zIndex: 9999, background: "rgba(0,0,0,0.92)", backdropFilter: "blur(6px)" }}
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.88, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.92, opacity: 0 }}
+          transition={{ duration: 0.28, ease: "easeOut" }}
+          className="relative flex items-center justify-center"
+          style={{ maxWidth: "min(92vw, 900px)", maxHeight: "90vh" }}
+          onClick={e => e.stopPropagation()}
+        >
+          <img
+            src={src}
+            alt={alt}
+            className="rounded-xl object-contain"
+            style={{
+              maxWidth: "100%",
+              maxHeight: "88vh",
+              boxShadow: "0 8px 64px rgba(0,0,0,0.8)",
+              display: "block",
+            }}
+          />
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="absolute -top-4 -right-4 flex items-center justify-center rounded-full text-white font-bold"
+            style={{
+              width: "36px",
+              height: "36px",
+              background: "#FF2534",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.6)",
+              fontSize: "1.1rem",
+              lineHeight: 1,
+            }}
+          >
+            ✕
+          </button>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+});
+
 // ─── Before/After Card ──────────────────────────────────────────────────────────
-// All real-time position changes go directly to the DOM (no React re-renders during drag).
-// Touch listeners are attached imperatively with { passive: false } so preventDefault works.
 interface CardProps {
   pair: Pair;
   lang: string;
   isAnimating: boolean;
   onAnimationEnd: () => void;
   loading?: "eager" | "lazy";
+  onOpenImage: (src: string, alt: string) => void;
 }
 
 const STEP_MS = 1800;
 
 const BeforeAfterCard = memo(function BeforeAfterCard({
-  pair, lang, isAnimating, onAnimationEnd, loading,
+  pair, lang, isAnimating, onAnimationEnd, loading, onOpenImage,
 }: CardProps) {
-  // DOM refs — position updates bypass React reconciler for 60fps drag
   const containerRef = useRef<HTMLDivElement>(null);
   const beforeImgRef = useRef<HTMLImageElement>(null);
   const dividerRef   = useRef<HTMLDivElement>(null);
@@ -86,23 +154,20 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
   const beforeLblRef = useRef<HTMLDivElement>(null);
   const afterLblRef  = useRef<HTMLDivElement>(null);
 
-  // Mutable bookkeeping (no state, no re-renders)
-  const posRef       = useRef(50);
-  const animRef      = useRef(false);
-  const interacted   = useRef(false);
-  const timers       = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const touchDir     = useRef<"h" | "v" | null>(null);
-  const touchOrigin  = useRef({ x: 0, y: 0 });
-  const onEndRef     = useRef(onAnimationEnd);
-  onEndRef.current   = onAnimationEnd; // always up-to-date without deps
+  const posRef     = useRef(50);
+  const animRef    = useRef(false);
+  const interacted = useRef(false);
+  const timers     = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const touchDir   = useRef<"h" | "v" | null>(null);
+  const touchOrigin = useRef({ x: 0, y: 0 });
+  const onEndRef   = useRef(onAnimationEnd);
+  onEndRef.current = onAnimationEnd;
 
   const clearTimers = () => { timers.current.forEach(clearTimeout); timers.current = []; };
 
-  // ── Core: write position straight to DOM ────────────────────────────────────
   const applyPos = useCallback((p: number, withTransition: boolean) => {
     posRef.current = p;
     const tr = withTransition ? `1.8s cubic-bezier(0.22, 1, 0.36, 1)` : "none";
-
     if (beforeImgRef.current) {
       beforeImgRef.current.style.transition = withTransition ? `clip-path ${tr}` : "none";
       beforeImgRef.current.style.clipPath   = `inset(0 ${100 - p}% 0 0)`;
@@ -115,7 +180,6 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
       handleRef.current.style.transition = withTransition ? `left ${tr}` : "none";
       handleRef.current.style.left       = `${p}%`;
     }
-    // Label fade: smooth always, but driven by DOM not React
     if (beforeLblRef.current) beforeLblRef.current.style.opacity = String(Math.min(1, p / 25));
     if (afterLblRef.current)  afterLblRef.current.style.opacity  = String(Math.min(1, (100 - p) / 25));
   }, []);
@@ -124,7 +188,6 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     interacted.current = true;
     animRef.current    = false;
     clearTimers();
-    // Cancel any in-flight CSS transition instantly
     applyPos(posRef.current, false);
   }, [applyPos]);
 
@@ -134,12 +197,10 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     return Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
   };
 
-  // ── Mouse ────────────────────────────────────────────────────────────────────
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     stopAnim();
     applyPos(posFrom(e.clientX), false);
-
     const onMove = (ev: MouseEvent) => applyPos(posFrom(ev.clientX), false);
     const onUp   = () => {
       window.removeEventListener("mousemove", onMove);
@@ -149,21 +210,17 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     window.addEventListener("mouseup",   onUp,   { passive: true });
   }, [stopAnim, applyPos]);
 
-  // ── Touch — imperative with { passive: false } so preventDefault works ───────
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-
     const handleStart = (e: TouchEvent) => {
       const t = e.touches[0];
       touchOrigin.current = { x: t.clientX, y: t.clientY };
       touchDir.current    = null;
       stopAnim();
     };
-
     const handleMove = (e: TouchEvent) => {
       const t = e.touches[0];
-      // Determine axis on first movement ≥ 4px
       if (touchDir.current === null) {
         const dx = Math.abs(t.clientX - touchOrigin.current.x);
         const dy = Math.abs(t.clientY - touchOrigin.current.y);
@@ -171,17 +228,14 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         touchDir.current = dx >= dy ? "h" : "v";
       }
       if (touchDir.current === "h") {
-        e.preventDefault(); // ← actually works because listener is non-passive
+        e.preventDefault();
         applyPos(posFrom(t.clientX), false);
       }
     };
-
     const handleEnd = () => { touchDir.current = null; };
-
     el.addEventListener("touchstart", handleStart, { passive: true  });
-    el.addEventListener("touchmove",  handleMove,  { passive: false }); // KEY FIX
+    el.addEventListener("touchmove",  handleMove,  { passive: false });
     el.addEventListener("touchend",   handleEnd,   { passive: true  });
-
     return () => {
       el.removeEventListener("touchstart", handleStart);
       el.removeEventListener("touchmove",  handleMove);
@@ -189,7 +243,6 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     };
   }, [stopAnim, applyPos]);
 
-  // ── Keyboard ─────────────────────────────────────────────────────────────────
   const onKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     e.preventDefault();
@@ -197,35 +250,31 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     applyPos(Math.max(0, Math.min(100, posRef.current + (e.key === "ArrowLeft" ? -5 : 5))), false);
   }, [stopAnim, applyPos]);
 
-  // ── Sequential auto-animation ─────────────────────────────────────────────────
   useEffect(() => {
     if (!isAnimating) return;
     if (interacted.current) { onEndRef.current(); return; }
-
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) { onEndRef.current(); return; }
-
     animRef.current = true;
     const ts: ReturnType<typeof setTimeout>[] = [];
     timers.current = ts;
-
-    // Schedule: 50 → 20 → 80 → 50 → done
     ts.push(setTimeout(() => { if (!animRef.current) return; applyPos(20, true); }, 60));
     ts.push(setTimeout(() => { if (!animRef.current) return; applyPos(80, true); }, 60 + STEP_MS));
     ts.push(setTimeout(() => { if (!animRef.current) return; applyPos(50, true); }, 60 + STEP_MS * 2));
-    ts.push(setTimeout(() => {
-      animRef.current = false;
-      onEndRef.current();
-    }, 60 + STEP_MS * 3));
-
+    ts.push(setTimeout(() => { animRef.current = false; onEndRef.current(); }, 60 + STEP_MS * 3));
     return () => { ts.forEach(clearTimeout); animRef.current = false; };
   }, [isAnimating, applyPos]);
 
-  // Text (React renders these — labels' opacity is managed separately via DOM refs)
-  const beforeLabel = lang === "es" ? "ANTES"    : "BEFORE";
-  const afterLabel  = lang === "es" ? "DESPUÉS"  : "AFTER";
+  const beforeLabel = lang === "es" ? "ANTES"   : "BEFORE";
+  const afterLabel  = lang === "es" ? "DESPUÉS" : "AFTER";
   const title = (lang === "es" && pair.titleEs)       ? pair.titleEs       : pair.title;
   const desc  = (lang === "es" && pair.descriptionEs) ? pair.descriptionEs : pair.description;
+
+  const expandIcon = (
+    <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
+      <path d="M2 2h4M2 2v4M14 2h-4M14 2v4M2 14h4M2 14v-4M14 14h-4M14 14v-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+  );
 
   return (
     <motion.div
@@ -237,6 +286,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
     >
       <h3 className="text-white font-bold text-base tracking-wide">{title}</h3>
 
+      {/* Slider */}
       <div
         ref={containerRef}
         className="relative overflow-hidden rounded-lg select-none"
@@ -244,8 +294,8 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
           aspectRatio: "4/3",
           cursor: "col-resize",
           border: "1px solid rgba(20,96,160,0.18)",
-          touchAction: "pan-y", // browser handles vertical; we intercept horizontal
-          willChange: "transform", // promote to GPU layer
+          touchAction: "pan-y",
+          willChange: "transform",
         }}
         onMouseDown={onMouseDown}
         onKeyDown={onKeyDown}
@@ -256,7 +306,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         aria-valuemax={100}
         aria-valuenow={50}
       >
-        {/* AFTER — base layer, always fully visible */}
+        {/* AFTER — base layer */}
         <img
           src={pair.afterSrc}
           alt={pair.afterAlt ?? `${title} — after`}
@@ -266,7 +316,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
           draggable={false}
         />
 
-        {/* BEFORE — clipped; starts at 50% */}
+        {/* BEFORE — clipped */}
         <img
           ref={beforeImgRef}
           src={pair.beforeSrc}
@@ -282,40 +332,17 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         <div
           ref={dividerRef}
           className="absolute top-0 bottom-0 pointer-events-none"
-          style={{
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "2px",
-            background: "rgba(255,255,255,0.92)",
-            boxShadow: "0 0 8px rgba(0,0,0,0.40)",
-            zIndex: 10,
-          }}
+          style={{ left: "50%", transform: "translateX(-50%)", width: "2px", background: "rgba(255,255,255,0.92)", boxShadow: "0 0 8px rgba(0,0,0,0.40)", zIndex: 10 }}
         />
 
         {/* Handle */}
         <div
           ref={handleRef}
           className="absolute top-1/2 pointer-events-none flex items-center justify-center"
-          style={{
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            background: "white",
-            boxShadow: "0 2px 16px rgba(0,0,0,0.38)",
-            border: "2px solid rgba(214,28,35,0.35)",
-            zIndex: 11,
-          }}
+          style={{ left: "50%", transform: "translate(-50%, -50%)", width: "40px", height: "40px", borderRadius: "50%", background: "white", boxShadow: "0 2px 16px rgba(0,0,0,0.38)", border: "2px solid rgba(214,28,35,0.35)", zIndex: 11 }}
         >
           <svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true">
-            <path
-              d="M7 10l-4 0M7 10l-2-2M7 10l-2 2M13 10l4 0M13 10l2-2M13 10l2 2"
-              stroke="#1a1a1a"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M7 10l-4 0M7 10l-2-2M7 10l-2 2M13 10l4 0M13 10l2-2M13 10l2 2" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
 
@@ -323,13 +350,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         <div
           ref={beforeLblRef}
           className="absolute top-3 left-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
-          style={{
-            background: "rgba(2,12,36,0.75)",
-            color: "#EAEAEA",
-            border: "1px solid rgba(255,255,255,0.13)",
-            zIndex: 9,
-            transition: "opacity 0.25s ease",
-          }}
+          style={{ background: "rgba(2,12,36,0.75)", color: "#EAEAEA", border: "1px solid rgba(255,255,255,0.13)", zIndex: 9, transition: "opacity 0.25s ease" }}
           aria-hidden="true"
         >
           {beforeLabel}
@@ -339,16 +360,37 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         <div
           ref={afterLblRef}
           className="absolute top-3 right-3 px-2 py-0.5 rounded text-xs font-bold tracking-widest uppercase pointer-events-none"
-          style={{
-            background: "rgba(214,28,35,0.80)",
-            color: "white",
-            zIndex: 9,
-            transition: "opacity 0.25s ease",
-          }}
+          style={{ background: "rgba(214,28,35,0.80)", color: "white", zIndex: 9, transition: "opacity 0.25s ease" }}
           aria-hidden="true"
         >
           {afterLabel}
         </div>
+      </div>
+
+      {/* Expand buttons */}
+      <div className="flex gap-2">
+        <button
+          onClick={() => onOpenImage(pair.beforeSrc, pair.beforeAlt ?? `${title} — before`)}
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-all"
+          style={{ background: "rgba(2,12,36,0.08)", border: "1px solid rgba(2,12,36,0.15)", color: "#374151" }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.15)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(2,12,36,0.08)"; }}
+          aria-label={`View before image for ${title}`}
+        >
+          {expandIcon}
+          {lang === "es" ? "Ver Antes" : "View Before"}
+        </button>
+        <button
+          onClick={() => onOpenImage(pair.afterSrc, pair.afterAlt ?? `${title} — after`)}
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-all"
+          style={{ background: "rgba(214,28,35,0.06)", border: "1px solid rgba(214,28,35,0.20)", color: "#C41C27" }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.14)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(214,28,35,0.06)"; }}
+          aria-label={`View after image for ${title}`}
+        >
+          {expandIcon}
+          {lang === "es" ? "Ver Después" : "View After"}
+        </button>
       </div>
 
       {desc && <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>}
@@ -365,6 +407,7 @@ export default memo(function Gallery() {
   const sectionRef  = useRef<HTMLElement>(null);
   const hasAnimated = useRef(false);
   const [currentAnim, setCurrentAnim] = useState<number | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const eyebrow = lang === "es" ? t.gallery.eyebrow : g.eyebrow;
   const heading  = lang === "es" ? t.gallery.heading  : g.heading;
@@ -376,7 +419,6 @@ export default memo(function Gallery() {
     ...contentPairs.filter(p => p.beforeSrc && p.afterSrc),
   ].filter(p => p.visible !== false);
 
-  // Trigger animation sequence when section enters viewport (once only)
   useEffect(() => {
     if (allPairs.length === 0) return;
     const el = sectionRef.current;
@@ -392,9 +434,16 @@ export default memo(function Gallery() {
     return () => obs.disconnect();
   }, [allPairs.length]);
 
-  // When a card finishes, advance to next
   const onCardEnd = useCallback((idx: number) => {
     setCurrentAnim(prev => (prev === idx ? idx + 1 : prev));
+  }, []);
+
+  const openImage = useCallback((src: string, alt: string) => {
+    setLightbox({ src, alt });
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightbox(null);
   }, []);
 
   const hint = lang === "es"
@@ -402,38 +451,43 @@ export default memo(function Gallery() {
     : "Drag the handle to compare before & after";
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#FFFFFF" }}>
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-600">{body}</p>
-        </motion.div>
+    <>
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />
+      )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {allPairs.map((pair, idx) => (
-            <BeforeAfterCard
-              key={pair.id}
-              pair={pair}
-              lang={lang}
-              isAnimating={currentAnim === idx}
-              onAnimationEnd={() => onCardEnd(idx)}
-              loading={idx === 0 ? "eager" : "lazy"}
-            />
-          ))}
+      <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#FFFFFF" }}>
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center mb-16 md:mb-24"
+          >
+            <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+            <p className="max-w-2xl mx-auto text-gray-600">{body}</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {allPairs.map((pair, idx) => (
+              <BeforeAfterCard
+                key={pair.id}
+                pair={pair}
+                lang={lang}
+                isAnimating={currentAnim === idx}
+                onAnimationEnd={() => onCardEnd(idx)}
+                loading={idx === 0 ? "eager" : "lazy"}
+                onOpenImage={openImage}
+              />
+            ))}
+          </div>
+
+          <p className="text-center text-xs mt-8 text-gray-400">{hint}</p>
         </div>
-
-        <p className="text-center text-xs mt-8 text-gray-400">
-          {hint}
-        </p>
-      </div>
-    </section>
+      </section>
+    </>
   );
 });
