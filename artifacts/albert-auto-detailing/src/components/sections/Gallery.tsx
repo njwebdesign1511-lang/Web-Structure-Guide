@@ -1,11 +1,5 @@
 import { useRef, useState, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
-import galleryLexusBefore    from "@assets/gallery-lexus-before.png";
-import galleryLexusAfter     from "@assets/gallery-lexus-after.png";
-import galleryHondaBefore    from "@/assets/images/gallery-honda-before.png";
-import galleryHondaAfter     from "@/assets/images/gallery-honda-after.png";
-import galleryHeadlightBefore from "@assets/gallery-headlight-before.png";
-import galleryHeadlightAfter  from "@assets/gallery-headlight-after.png";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -30,8 +24,8 @@ const DEFAULT_PAIRS: Pair[] = [
     titleEs: "Detailing de Motor — Lexus",
     description: "Full engine bay degreasing and detail on a Lexus — restored to factory-clean condition.",
     descriptionEs: "Desengrase y detailing completo del compartimento del motor de un Lexus.",
-    beforeSrc: galleryLexusBefore,
-    afterSrc: galleryLexusAfter,
+    beforeSrc: "/gallery/gallery-lexus-before.png",
+    afterSrc: "/gallery/gallery-lexus-after.png",
     beforeAlt: "Lexus engine bay before engine cleaning — Albert Auto Detailing Norwalk CT",
     afterAlt: "Lexus engine bay after engine cleaning — Albert Auto Detailing Norwalk CT",
     visible: true,
@@ -42,8 +36,8 @@ const DEFAULT_PAIRS: Pair[] = [
     titleEs: "Detailing de Motor — Honda",
     description: "Honda CR-V engine bay deep cleaned — grease, grime, and buildup removed completely.",
     descriptionEs: "Limpieza profunda del motor de un Honda CR-V — grasa, suciedad y depósitos eliminados.",
-    beforeSrc: galleryHondaBefore,
-    afterSrc: galleryHondaAfter,
+    beforeSrc: "/gallery/gallery-honda-before.png",
+    afterSrc: "/gallery/gallery-honda-after.png",
     beforeAlt: "Honda engine bay before engine cleaning — Albert Auto Detailing",
     afterAlt: "Honda engine bay after engine cleaning — Albert Auto Detailing",
     visible: true,
@@ -54,8 +48,8 @@ const DEFAULT_PAIRS: Pair[] = [
     titleEs: "Restauración de Faros",
     description: "Foggy, oxidized headlights professionally restored to crystal-clear clarity.",
     descriptionEs: "Faros opacos y oxidados restaurados profesionalmente a una claridad de cristal.",
-    beforeSrc: galleryHeadlightBefore,
-    afterSrc: galleryHeadlightAfter,
+    beforeSrc: "/gallery/gallery-headlight-before.png",
+    afterSrc: "/gallery/gallery-headlight-after.png",
     beforeAlt: "Cloudy headlight before restoration — Albert Auto Detailing Norwalk CT",
     afterAlt: "Crystal-clear headlight after restoration — Albert Auto Detailing Norwalk CT",
     visible: true,
@@ -308,11 +302,10 @@ export default memo(function Gallery() {
   const heading  = lang === "es" ? t.gallery.heading  : g.heading;
   const body     = lang === "es" ? t.gallery.body     : g.body;
 
-  const contentPairs: Pair[] = ((content as any).beforeAfterPairs ?? []) as Pair[];
-  const allPairs: Pair[] = [
-    ...DEFAULT_PAIRS,
-    ...contentPairs.filter(p => p.beforeSrc && p.afterSrc),
-  ].filter(p => p.visible !== false);
+  const rawPairs: Pair[] | undefined = (content as any).beforeAfterPairs;
+  const allPairs: Pair[] = (rawPairs ?? DEFAULT_PAIRS).filter(
+    p => p.visible !== false && p.beforeSrc && p.afterSrc,
+  );
 
   useEffect(() => {
     if (allPairs.length === 0) return;
