@@ -45,9 +45,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
           <motion.div
-            className="flex items-center gap-3 overflow-hidden"
+            className="flex items-center gap-2.5 overflow-hidden"
             initial={false}
-            animate={{ opacity: scrolled ? 1 : 0, x: scrolled ? 0 : -16 }}
+            animate={{ opacity: scrolled ? 1 : 0, x: scrolled ? 0 : -14 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ pointerEvents: scrolled ? "auto" : "none" }}
           >
@@ -56,26 +56,20 @@ export default function Navbar() {
               alt="Albert Auto Detailing"
               className="w-auto object-contain shrink-0"
               style={{
-                height: "clamp(64px, 8vw, 84px)",
-                filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.8))",
+                height: "44px",
+                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.7))",
               }}
             />
             <div className="flex flex-col leading-tight">
               <span
                 className="font-display font-bold uppercase text-white"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)", letterSpacing: "0.08em" }}
+                style={{ fontSize: "0.7rem", letterSpacing: "0.10em" }}
               >
-                Albert Auto
+                Albert Auto Detailing
               </span>
               <span
-                className="font-display font-bold uppercase"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)", letterSpacing: "0.08em", color: "#FF2534" }}
-              >
-                Detailing
-              </span>
-              <span
-                className="text-white/50 uppercase"
-                style={{ fontSize: "clamp(0.55rem, 0.7vw, 0.65rem)", letterSpacing: "0.18em" }}
+                className="text-white/45 uppercase"
+                style={{ fontSize: "0.55rem", letterSpacing: "0.20em" }}
               >
                 Norwalk, CT
               </span>
