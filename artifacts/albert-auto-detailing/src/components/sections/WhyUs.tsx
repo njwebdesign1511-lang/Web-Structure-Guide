@@ -15,7 +15,7 @@ export default function WhyUs() {
   const benefits = lang === "es" ? t.whyUs.benefits : w.benefits;
 
   return (
-    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#001830", borderBottom: "1px solid rgba(255,255,255,0.15)" }}>
+    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
@@ -24,13 +24,14 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(255,255,255,0.70)" }}>{eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white uppercase">{heading}</h2>
+            <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-[#020C24] uppercase">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.85)" }}>{body}</p>
-            <a href="#contact" className="font-bold tracking-widest uppercase flex items-center gap-2 transition-colors" style={{ color: "rgba(255,255,255,0.90)" }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#ffffff")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.90)")}
+            <p className="text-lg leading-relaxed mb-8 text-gray-700">{body}</p>
+            <a href="#contact" className="font-bold tracking-widest uppercase flex items-center gap-2 transition-colors"
+              style={{ color: "#003B7A" }}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#001830")}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#003B7A")}
             >
               {cta} <span aria-hidden="true">&rarr;</span>
             </a>
@@ -44,12 +45,12 @@ export default function WhyUs() {
           >
             {benefits.map((benefit, i) => (
               <div key={i} className="flex items-start gap-3 p-4 rounded-sm transition-all"
-                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.20)" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.20)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+                style={{ background: "#F0F6FF", border: "1px solid #DAEAFF" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#E0EEFF")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#F0F6FF")}
               >
-                <CheckCircle2 className="w-6 h-6 shrink-0 text-white" />
-                <span className="text-white font-medium">{benefit}</span>
+                <CheckCircle2 className="w-6 h-6 shrink-0" style={{ color: "#003B7A" }} />
+                <span className="text-[#020C24] font-medium">{benefit}</span>
               </div>
             ))}
           </motion.div>

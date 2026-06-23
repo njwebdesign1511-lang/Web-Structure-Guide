@@ -388,7 +388,7 @@ export default memo(function Gallery() {
     : "Drag the handle to compare before & after";
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#001830" }}>
+    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -397,10 +397,10 @@ export default memo(function Gallery() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(255,255,255,0.70)" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.80)" }}>{body}</p>
+          <p className="max-w-2xl mx-auto text-gray-600">{body}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -416,7 +416,7 @@ export default memo(function Gallery() {
           ))}
         </div>
 
-        <p className="text-center text-xs mt-8" style={{ color: "rgba(255,255,255,0.50)" }}>
+        <p className="text-center text-xs mt-8 text-gray-400">
           {hint}
         </p>
       </div>

@@ -22,7 +22,7 @@ export default function FAQ() {
   const c = content.contact as any;
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#001830" }}>
+    <section id="faq" className="py-24 md:py-32 relative" style={{ background: "#F8FAFD" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -31,8 +31,8 @@ export default function FAQ() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(255,255,255,0.70)" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">{heading}</h2>
+          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#020C24] mb-6">{heading}</h2>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </motion.div>
         <div className="flex flex-col gap-3">
@@ -44,13 +44,13 @@ export default function FAQ() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.06, ease: "easeOut" }}
               className="rounded-sm overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.22)", background: "#FFFFFF" }}
+              style={{ border: "1px solid #E5E7EB", background: "#FFFFFF" }}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left group transition-colors"
                 style={{ background: "transparent" }}
-                onMouseEnter={e => ((e.currentTarget).style.background = "rgba(1,82,173,0.05)")}
+                onMouseEnter={e => ((e.currentTarget).style.background = "rgba(0,59,122,0.04)")}
                 onMouseLeave={e => ((e.currentTarget).style.background = "transparent")}
               >
                 <span className="text-[#020C24] font-semibold pr-4 group-hover:text-primary transition-colors">{item.q}</span>
@@ -76,7 +76,7 @@ export default function FAQ() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.75)" }}>
+          <p className="text-sm mb-4 text-gray-500">
             {lang === "es" ? "¿Más preguntas? Escríbenos directamente." : "More questions? Reach out to us directly."}
           </p>
           <a
