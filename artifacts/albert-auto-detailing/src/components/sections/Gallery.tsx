@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
-import gallery1 from "@/assets/images/gallery-1.png";
-import gallery2 from "@/assets/images/gallery-2.png";
-import gallery3 from "@/assets/images/gallery-3.png";
-import gallery4 from "@/assets/images/gallery-4.png";
+import galleryLexusBefore   from "@/assets/images/gallery-lexus-before.png";
+import galleryLexusAfter    from "@/assets/images/gallery-lexus-after.png";
+import galleryHondaBefore   from "@/assets/images/gallery-honda-before.png";
+import galleryHondaAfter    from "@/assets/images/gallery-honda-after.png";
+import galleryHeadlightBefore from "@/assets/images/gallery-headlight-before.png";
+import galleryHeadlightAfter  from "@/assets/images/gallery-headlight-after.png";
 import { useContent } from "@/contexts/ContentContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -24,26 +26,38 @@ interface Pair {
 const DEFAULT_PAIRS: Pair[] = [
   {
     id: "d1",
-    title: "Paint Correction",
-    titleEs: "Corrección de Pintura",
-    description: "Professional paint correction restoring the vehicle to showroom condition.",
-    descriptionEs: "Corrección de pintura profesional, restaurando cada panel a condición de showroom.",
-    beforeSrc: gallery1,
-    afterSrc: gallery2,
-    beforeAlt: "Vehicle before paint correction — Albert Auto Detailing Norwalk CT",
-    afterAlt: "Vehicle after paint correction — Albert Auto Detailing Norwalk CT",
+    title: "Engine Detail — Lexus",
+    titleEs: "Detailing de Motor — Lexus",
+    description: "Full engine bay degreasing and detail on a Lexus — restored to factory-clean condition.",
+    descriptionEs: "Desengrase y detailing completo del compartimento del motor de un Lexus.",
+    beforeSrc: galleryLexusBefore,
+    afterSrc: galleryLexusAfter,
+    beforeAlt: "Lexus engine bay before engine cleaning — Albert Auto Detailing Norwalk CT",
+    afterAlt: "Lexus engine bay after engine cleaning — Albert Auto Detailing Norwalk CT",
     visible: true,
   },
   {
     id: "d2",
-    title: "Interior Detail",
-    titleEs: "Detailing Interior",
-    description: "Deep interior cleaning — every surface, crevice, and fabric restored to spotless condition.",
-    descriptionEs: "Limpieza interior profunda — cada superficie, grieta y tela restaurada a condición impecable.",
-    beforeSrc: gallery3,
-    afterSrc: gallery4,
-    beforeAlt: "Car interior before deep cleaning — Albert Auto Detailing",
-    afterAlt: "Car interior after deep cleaning — Albert Auto Detailing",
+    title: "Engine Detail — Honda",
+    titleEs: "Detailing de Motor — Honda",
+    description: "Honda CR-V engine bay deep cleaned — grease, grime, and buildup removed completely.",
+    descriptionEs: "Limpieza profunda del motor de un Honda CR-V — grasa, suciedad y depósitos eliminados.",
+    beforeSrc: galleryHondaBefore,
+    afterSrc: galleryHondaAfter,
+    beforeAlt: "Honda engine bay before engine cleaning — Albert Auto Detailing",
+    afterAlt: "Honda engine bay after engine cleaning — Albert Auto Detailing",
+    visible: true,
+  },
+  {
+    id: "d3",
+    title: "Headlight Restoration",
+    titleEs: "Restauración de Faros",
+    description: "Foggy, oxidized headlights professionally restored to crystal-clear clarity.",
+    descriptionEs: "Faros opacos y oxidados restaurados profesionalmente a una claridad de cristal.",
+    beforeSrc: galleryHeadlightBefore,
+    afterSrc: galleryHeadlightAfter,
+    beforeAlt: "Cloudy headlight before restoration — Albert Auto Detailing Norwalk CT",
+    afterAlt: "Crystal-clear headlight after restoration — Albert Auto Detailing Norwalk CT",
     visible: true,
   },
 ];
