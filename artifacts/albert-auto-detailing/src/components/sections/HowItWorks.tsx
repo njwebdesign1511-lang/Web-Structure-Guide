@@ -31,7 +31,7 @@ export default function HowItWorks() {
     : "From request to result — a simple, clear, and transparent process.";
 
   return (
-    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#0d1e38" }}>
+    <section id="process" className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#001830" }}>
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div style={{
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                   {/* Center circle */}
                   <div
                     className="relative z-10 hidden md:flex w-10 h-10 rounded-full items-center justify-center shrink-0"
-                    style={{ background: "#FF2534", border: "3px solid #0d1e38", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
+                    style={{ background: "#FF2534", border: "3px solid #001830", boxShadow: "0 0 0 2px rgba(214,28,35,0.30)" }}
                   >
                     <span className="text-white text-xs font-bold">{i + 1}</span>
                   </div>

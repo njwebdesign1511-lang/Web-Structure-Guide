@@ -215,11 +215,11 @@ export default function ServicesPackages() {
     <section
       id="packages"
       className="py-24 md:py-32 relative overflow-hidden"
-      style={{ background: "#0d1e38" }}
+      style={{ background: "#001830" }}
     >
       {/* Subtle radial glows */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(214,28,35,0.06) 0%, transparent 65%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 40% at 80% 80%, rgba(29,63,117,0.06) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,59,122,0.06) 0%, transparent 60%)" }} />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
 

@@ -15,7 +15,7 @@ export default function WhyUs() {
   const benefits = lang === "es" ? t.whyUs.benefits : w.benefits;
 
   return (
-    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#0d1e38", borderBottom: "1px solid rgba(255,255,255,0.15)" }}>
+    <section id="why-us" className="py-24 md:py-32 relative" style={{ background: "#001830", borderBottom: "1px solid rgba(255,255,255,0.15)" }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div

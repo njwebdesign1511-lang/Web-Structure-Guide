@@ -6,15 +6,15 @@ export default function TermsPage() {
   const isEs = lang === "es";
 
   return (
-    <div className="min-h-screen font-sans" style={{ background: "#0d1e38", color: "#EAEAEA" }}>
+    <div className="min-h-screen font-sans" style={{ background: "#001830", color: "#EAEAEA" }}>
       {/* Nav */}
-      <header className="border-b py-4 px-6 flex items-center justify-between" style={{ borderColor: "rgba(74,127,193,0.20)" }}>
+      <header className="border-b py-4 px-6 flex items-center justify-between" style={{ borderColor: "rgba(20,96,160,0.20)" }}>
         <a href="/" className="flex items-center">
           <img src={logoImg} alt="Albert Auto Detailing" className="h-14 w-auto object-contain" />
         </a>
-        <a href="/" className="text-sm transition-colors" style={{ color: "#89abda" }}
+        <a href="/" className="text-sm transition-colors" style={{ color: "#4d8fd4" }}
           onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#EAEAEA")}
-          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#89abda")}
+          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = "#4d8fd4")}
         >
           ← {isEs ? "Volver al inicio" : "Back to home"}
         </a>
@@ -26,7 +26,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold text-white mb-4">
             {isEs ? "Términos y Condiciones" : "Terms & Conditions"}
           </h1>
-          <p className="text-sm" style={{ color: "#89abda" }}>
+          <p className="text-sm" style={{ color: "#4d8fd4" }}>
             Albert Auto Detailing — Norwalk, CT &nbsp;·&nbsp; {isEs ? "Última actualización" : "Last updated"}: {new Date().getFullYear()}
           </p>
         </div>
@@ -60,8 +60,8 @@ export default function TermsPage() {
 
           <section className="mb-8">
             <h2 className="text-xl font-bold text-white mb-3">{isEs ? "3. Política de cancelación" : "3. Cancellation Policy"}</h2>
-            <div className="rounded-sm p-4 mb-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(74,127,193,0.15)" }}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#89abda" }}>
+            <div className="rounded-sm p-4 mb-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(20,96,160,0.15)" }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#4d8fd4" }}>
                 {isEs ? "Pendiente de aprobación del propietario" : "Pending owner approval"}
               </p>
               <p className="text-gray-500 text-sm">
@@ -86,12 +86,12 @@ export default function TermsPage() {
             <p className="text-gray-400 text-sm leading-relaxed">
               {isEs ? "Para preguntas sobre estos términos:" : "For questions about these terms:"}
             </p>
-            <p className="text-sm mt-2" style={{ color: "#89abda" }}>Albert Auto Detailing — Norwalk, CT</p>
+            <p className="text-sm mt-2" style={{ color: "#4d8fd4" }}>Albert Auto Detailing — Norwalk, CT</p>
           </section>
         </div>
       </main>
 
-      <footer className="border-t py-6 text-center text-xs" style={{ borderColor: "rgba(74,127,193,0.15)", color: "#89abda" }}>
+      <footer className="border-t py-6 text-center text-xs" style={{ borderColor: "rgba(20,96,160,0.15)", color: "#4d8fd4" }}>
         &copy; {new Date().getFullYear()} Albert Auto Detailing. {isEs ? "Todos los derechos reservados." : "All rights reserved."}
       </footer>
     </div>

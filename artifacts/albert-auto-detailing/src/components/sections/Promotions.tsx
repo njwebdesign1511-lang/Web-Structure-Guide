@@ -14,13 +14,13 @@ export default function Promotions() {
   const activeItems = Array.isArray(items) ? items : [];
 
   return (
-    <section id="promotions" className="py-16 border-y relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1d3f75 0%, #0f2347 50%, #1d3f75 100%)", borderColor: "rgba(74,127,193,0.45)" }}>
+    <section id="promotions" className="py-16 border-y relative overflow-hidden" style={{ background: "linear-gradient(135deg, #003B7A 0%, #002050 50%, #003B7A 100%)", borderColor: "rgba(20,96,160,0.45)" }}>
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at top, rgba(214,28,35,0.08) 0%, transparent 70%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Tag className="w-4 h-4" style={{ color: "#89abda" }} />
-            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#89abda" }}>{eyebrow}</span>
+            <Tag className="w-4 h-4" style={{ color: "#4d8fd4" }} />
+            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#4d8fd4" }}>{eyebrow}</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white">{heading}</h2>
         </div>
@@ -33,11 +33,11 @@ export default function Promotions() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="rounded-lg p-5 text-center group transition-all"
-              style={{ background: "rgba(29,63,117,0.18)", border: "1px solid rgba(74,127,193,0.30)" }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(74,127,193,0.60)")}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(74,127,193,0.30)")}
+              style={{ background: "rgba(0,59,122,0.18)", border: "1px solid rgba(20,96,160,0.30)" }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(20,96,160,0.60)")}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(20,96,160,0.30)")}
             >
-              <Star className="w-5 h-5 mx-auto mb-3 transition-colors" style={{ color: "#89abda" }} />
+              <Star className="w-5 h-5 mx-auto mb-3 transition-colors" style={{ color: "#4d8fd4" }} />
               <p className="text-white font-semibold text-sm leading-snug">{item}</p>
             </motion.div>
           ))}

@@ -41,10 +41,10 @@
   --color-destructive-border: var(--destructive-border);
 
   /* ── Albert Auto Detailing brand palette ── */
-  --color-navy:     #0d1e38;
-  --color-midnight: #132354;
-  --color-metallic: #4a7fc1;
-  --color-electric: #89abda;
+  --color-navy:     #001830;
+  --color-midnight: #002660;
+  --color-metallic: #1460a0;
+  --color-electric: #4d8fd4;
   --color-red-cta:  #FF2534;
   --color-red-dark: #C41C27;
 
@@ -59,34 +59,34 @@
 }
 
 :root {
-  --background: 216 55% 14%;
+  --background: 213 100% 9%;
   --foreground: 0 0% 100%;
 
-  --card: 216 52% 20%;
+  --card: 218 100% 19%;
   --card-foreground: 0 0% 100%;
-  --card-border: 216 40% 34%;
+  --card-border: 213 65% 28%;
 
-  --popover: 216 52% 20%;
+  --popover: 218 100% 19%;
   --popover-foreground: 0 0% 100%;
-  --popover-border: 216 40% 34%;
+  --popover-border: 213 65% 28%;
 
   --primary: 358 100% 58%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 216 52% 20%;
+  --secondary: 218 100% 19%;
   --secondary-foreground: 0 0% 100%;
 
-  --muted: 216 45% 17%;
+  --muted: 215 100% 13%;
   --muted-foreground: 0 0% 95%;
 
-  --accent: 216 55% 60%;
-  --accent-foreground: 216 55% 14%;
+  --accent: 210 62% 57%;
+  --accent-foreground: 213 100% 9%;
 
   --destructive: 358 80% 44%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 216 38% 32%;
-  --input: 216 52% 20%;
+  --border: 213 65% 25%;
+  --input: 218 100% 19%;
   --ring: 358 100% 58%;
 
   --radius: 0.25rem;
@@ -111,9 +111,9 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground scroll-smooth;
-    background: #0d1e38;
+    background: #001830;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(74,127,193,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(20,96,160,0.07) 0%, transparent 60%),
       radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255,37,52,0.05) 0%, transparent 55%);
     background-attachment: fixed;
   }
@@ -127,7 +127,7 @@
 @layer utilities {
   .section-divider {
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(29,63,117,0.45) 30%, rgba(214,28,35,0.25) 60%, transparent);
+    background: linear-gradient(to right, transparent, rgba(0,59,122,0.45) 30%, rgba(214,28,35,0.25) 60%, transparent);
   }
 
   .eyebrow-line::before,
@@ -159,13 +159,13 @@
 
   /* Elegant card glass */
   .glass-card {
-    background: rgba(19, 35, 84, 0.65);
+    background: rgba(0, 38, 96, 0.65);
     backdrop-filter: blur(14px);
-    border: 1px solid rgba(74, 127, 193, 0.25);
+    border: 1px solid rgba(20, 96, 160, 0.25);
   }
   .glass-card:hover {
-    border-color: rgba(74, 127, 193, 0.48);
-    background: rgba(19, 35, 84, 0.82);
+    border-color: rgba(20, 96, 160, 0.48);
+    background: rgba(0, 38, 96, 0.82);
   }
 
   /* ── Smooth scroll ── */
@@ -235,7 +235,7 @@
     z-index: 0;
     background:
       radial-gradient(ellipse 70% 55% at 92% 8%,  rgba(214,28,35,0.065) 0%, transparent 100%),
-      radial-gradient(ellipse 60% 50% at 8%  92%,  rgba(29,63,117,0.065) 0%, transparent 100%);
+      radial-gradient(ellipse 60% 50% at 8%  92%,  rgba(0,59,122,0.065) 0%, transparent 100%);
     animation: premiumSectionPulse 18s ease-in-out infinite alternate;
   }
 
@@ -257,7 +257,7 @@
   html.premium-mode h2 {
     text-shadow:
       0 0 40px rgba(214,28,35,0.16),
-      0 0 80px rgba(29,63,117,0.09);
+      0 0 80px rgba(0,59,122,0.09);
     transition: text-shadow 0.5s ease;
   }
 
@@ -266,7 +266,7 @@
     text-shadow:
       0 2px 30px rgba(0,0,0,0.65),
       0 0 60px rgba(214,28,35,0.13),
-      0 0 120px rgba(29,63,117,0.07);
+      0 0 120px rgba(0,59,122,0.07);
   }
 
   /* ── Cards elevadas al hover ── */
@@ -281,7 +281,7 @@
     box-shadow:
       0 22px 55px rgba(0,0,0,0.38),
       0 0  28px rgba(214,28,35,0.10),
-      0 0  14px rgba(29,63,117,0.08) !important;
+      0 0  14px rgba(0,59,122,0.08) !important;
   }
 
   /* ── Botones premium: más dramáticos al hover ── */
@@ -291,7 +291,7 @@
     box-shadow:
       0 14px 38px rgba(0,0,0,0.30),
       0 0   22px rgba(214,28,35,0.22),
-      0 0   10px rgba(29,63,117,0.12) !important;
+      0 0   10px rgba(0,59,122,0.12) !important;
   }
 
   /* ── Shimmer sutil en eyebrow texts ── */
@@ -342,8 +342,8 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     cursor: pointer;
-    border: 1px solid rgba(29,63,117,0.45);
-    background: rgba(13,30,56,0.72);
+    border: 1px solid rgba(0,59,122,0.45);
+    background: rgba(0,24,48,0.72);
     color: rgba(255,255,255,0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -356,22 +356,22 @@
   }
   .premium-toggle:hover {
     border-color: rgba(214,28,35,0.50);
-    background: rgba(29,63,117,0.88);
+    background: rgba(0,59,122,0.88);
     color: rgba(255,255,255,0.92);
     box-shadow: 0 4px 22px rgba(214,28,35,0.16);
   }
 
   /* Login prompt: aún más sutil */
   .premium-toggle.premium-toggle-login {
-    border-color: rgba(29,63,117,0.28);
-    background: rgba(13,30,56,0.50);
+    border-color: rgba(0,59,122,0.28);
+    background: rgba(0,24,48,0.50);
     color: rgba(255,255,255,0.40);
   }
   .premium-toggle.premium-toggle-login:hover {
-    border-color: rgba(29,63,117,0.55);
+    border-color: rgba(0,59,122,0.55);
     color: rgba(255,255,255,0.80);
-    background: rgba(29,63,117,0.72);
-    box-shadow: 0 4px 18px rgba(29,63,117,0.20);
+    background: rgba(0,59,122,0.72);
+    box-shadow: 0 4px 18px rgba(0,59,122,0.20);
   }
 
   html.premium-mode .premium-toggle {
@@ -413,8 +413,8 @@
     width: 1.6rem;
     height: 1.6rem;
     border-radius: 9999px;
-    border: 1px solid rgba(29,63,117,0.38);
-    background: rgba(13,30,56,0.65);
+    border: 1px solid rgba(0,59,122,0.38);
+    background: rgba(0,24,48,0.65);
     color: rgba(255,255,255,0.42);
     cursor: pointer;
     backdrop-filter: blur(10px);
@@ -433,7 +433,7 @@
     bottom: calc(100% + 0.5rem);
     right: 0;
     background: rgba(13,25,55,0.96);
-    border: 1px solid rgba(29,63,117,0.38);
+    border: 1px solid rgba(0,59,122,0.38);
     border-radius: 0.6rem;
     padding: 0.65rem 0.85rem;
     white-space: nowrap;
@@ -504,12 +504,12 @@
     width: 100%;
     max-width: 360px;
     background: rgba(11,22,50,0.97);
-    border: 1px solid rgba(29,63,117,0.38);
+    border: 1px solid rgba(0,59,122,0.38);
     border-radius: 1.1rem;
     padding: 2rem 1.75rem 1.75rem;
     box-shadow:
       0 30px 80px rgba(0,0,0,0.60),
-      0 0 60px rgba(29,63,117,0.08),
+      0 0 60px rgba(0,59,122,0.08),
       inset 0 1px 0 rgba(255,255,255,0.06);
   }
 
@@ -573,13 +573,13 @@
   .premium-login-input-icon {
     position: absolute;
     left: 0.85rem;
-    color: rgba(74,127,193,0.75);
+    color: rgba(20,96,160,0.75);
     pointer-events: none;
   }
   .premium-login-input {
     width: 100%;
     background: rgba(8,18,42,0.80);
-    border: 1px solid rgba(29,63,117,0.32);
+    border: 1px solid rgba(0,59,122,0.32);
     border-radius: 0.6rem;
     padding: 0.7rem 2.4rem 0.7rem 2.2rem;
     font-size: 0.82rem;
@@ -591,8 +591,8 @@
     color: rgba(255,255,255,0.22);
   }
   .premium-login-input:focus {
-    border-color: rgba(74,127,193,0.65);
-    box-shadow: 0 0 0 3px rgba(29,63,117,0.15);
+    border-color: rgba(20,96,160,0.65);
+    box-shadow: 0 0 0 3px rgba(0,59,122,0.15);
   }
   .premium-login-eye {
     position: absolute;
@@ -646,7 +646,7 @@
   /* ── Tabs ── */
   .premium-login-tabs {
     display: flex;
-    border: 1px solid rgba(29,63,117,0.32);
+    border: 1px solid rgba(0,59,122,0.32);
     border-radius: 0.6rem;
     overflow: hidden;
     margin-bottom: 0.1rem;
@@ -669,9 +669,9 @@
     color: rgba(255,255,255,0.65);
   }
   .premium-login-tab.active {
-    background: rgba(29,63,117,0.30);
+    background: rgba(0,59,122,0.30);
     color: rgba(255,255,255,0.92);
-    box-shadow: inset 0 -2px 0 rgba(74,127,193,0.70);
+    box-shadow: inset 0 -2px 0 rgba(20,96,160,0.70);
   }
 
   /* ═══════════════════════════════════════
@@ -689,8 +689,8 @@
     gap: 0.45rem;
     padding: 0.55rem 1.1rem 0.55rem 0.85rem;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #1d3f75 0%, #132354 100%);
-    border: 1px solid rgba(74,127,193,0.55);
+    background: linear-gradient(135deg, #003B7A 0%, #002660 100%);
+    border: 1px solid rgba(20,96,160,0.55);
     color: rgba(255,255,255,0.92);
     font-size: 0.72rem;
     font-weight: 700;
@@ -698,7 +698,7 @@
     cursor: pointer;
     box-shadow:
       0 6px 24px rgba(0,0,0,0.35),
-      0 0 18px rgba(29,63,117,0.25);
+      0 0 18px rgba(0,59,122,0.25);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition:
@@ -708,11 +708,11 @@
     white-space: nowrap;
   }
   .ai-chat-fab:hover {
-    border-color: rgba(74,127,193,0.80);
+    border-color: rgba(20,96,160,0.80);
     box-shadow:
       0 10px 32px rgba(0,0,0,0.40),
-      0 0 26px rgba(29,63,117,0.35);
-    background: linear-gradient(135deg, #255090 0%, #1a3060 100%);
+      0 0 26px rgba(0,59,122,0.35);
+    background: linear-gradient(135deg, #1060b0 0%, #002d70 100%);
   }
   .ai-chat-fab-label {
     text-transform: uppercase;
@@ -725,7 +725,7 @@
     height: 0.55rem;
     border-radius: 9999px;
     background: #FF2534;
-    border: 1.5px solid #0d1e38;
+    border: 1.5px solid #001830;
     animation: aiChatPulse 2s ease-in-out infinite;
   }
   @keyframes aiChatPulse {
@@ -746,11 +746,11 @@
     display: flex;
     flex-direction: column;
     background: rgba(11,22,50,0.98);
-    border: 1px solid rgba(29,63,117,0.38);
+    border: 1px solid rgba(0,59,122,0.38);
     border-radius: 1.1rem;
     box-shadow:
       0 28px 72px rgba(0,0,0,0.55),
-      0 0 50px rgba(29,63,117,0.10),
+      0 0 50px rgba(0,59,122,0.10),
       inset 0 1px 0 rgba(255,255,255,0.05);
     overflow: hidden;
   }
@@ -761,16 +761,16 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.85rem 1rem;
-    background: rgba(29,63,117,0.55);
-    border-bottom: 1px solid rgba(74,127,193,0.22);
+    background: rgba(0,59,122,0.55);
+    border-bottom: 1px solid rgba(20,96,160,0.22);
     flex-shrink: 0;
   }
   .ai-chat-header-avatar {
     width: 2rem;
     height: 2rem;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #1d3f75, #132354);
-    border: 1px solid rgba(74,127,193,0.45);
+    background: linear-gradient(135deg, #003B7A, #002660);
+    border: 1px solid rgba(20,96,160,0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -836,13 +836,13 @@
     flex-direction: column;
     gap: 0.65rem;
     scrollbar-width: thin;
-    scrollbar-color: rgba(29,63,117,0.35) transparent;
+    scrollbar-color: rgba(0,59,122,0.35) transparent;
   }
   .ai-chat-messages::-webkit-scrollbar {
     width: 3px;
   }
   .ai-chat-messages::-webkit-scrollbar-thumb {
-    background: rgba(29,63,117,0.40);
+    background: rgba(0,59,122,0.40);
     border-radius: 9999px;
   }
 
@@ -861,8 +861,8 @@
     width: 1.4rem;
     height: 1.4rem;
     border-radius: 9999px;
-    background: rgba(29,63,117,0.65);
-    border: 1px solid rgba(74,127,193,0.30);
+    background: rgba(0,59,122,0.65);
+    border: 1px solid rgba(20,96,160,0.30);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -879,8 +879,8 @@
     word-wrap: break-word;
   }
   .ai-chat-bubble.assistant {
-    background: rgba(29,63,117,0.45);
-    border: 1px solid rgba(74,127,193,0.22);
+    background: rgba(0,59,122,0.45);
+    border: 1px solid rgba(20,96,160,0.22);
     color: rgba(255,255,255,0.85);
     border-bottom-left-radius: 0.25rem;
   }
@@ -919,14 +919,14 @@
     align-items: flex-end;
     gap: 0.5rem;
     padding: 0.75rem;
-    border-top: 1px solid rgba(29,63,117,0.22);
+    border-top: 1px solid rgba(0,59,122,0.22);
     background: rgba(8,18,42,0.60);
     flex-shrink: 0;
   }
   .ai-chat-input {
     flex: 1;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(29,63,117,0.30);
+    border: 1px solid rgba(0,59,122,0.30);
     border-radius: 0.65rem;
     padding: 0.55rem 0.75rem;
     color: rgba(255,255,255,0.88);
@@ -943,8 +943,8 @@
     color: rgba(255,255,255,0.22);
   }
   .ai-chat-input:focus {
-    border-color: rgba(74,127,193,0.60);
-    box-shadow: 0 0 0 3px rgba(29,63,117,0.15);
+    border-color: rgba(20,96,160,0.60);
+    box-shadow: 0 0 0 3px rgba(0,59,122,0.15);
   }
   .ai-chat-input:disabled {
     opacity: 0.55;

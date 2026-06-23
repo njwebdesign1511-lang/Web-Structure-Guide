@@ -33,42 +33,42 @@ export default function Contact() {
       iconStyle: { background: "rgba(214,28,35,0.15)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Phone className="w-8 h-8" style={{ color: "#89abda" }} />,
+      Icon: () => <Phone className="w-8 h-8" style={{ color: "#4d8fd4" }} />,
       title: lang === "es" ? esMethods[1].title : "Call Us",
       value: c.phone,
       href: `tel:${String(c.phone).replace(/\D/g, "")}`,
       actionText: lang === "es" ? esMethods[1].actionText : c.callLabel,
       show: !!c.phone,
-      cardStyle: { background: "#132354", border: "1px solid rgba(74,127,193,0.25)" } as React.CSSProperties,
-      cardHoverBorder: "rgba(74,127,193,0.55)",
-      iconStyle: { background: "rgba(29,63,117,0.20)" } as React.CSSProperties,
+      cardStyle: { background: "#002660", border: "1px solid rgba(20,96,160,0.25)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(20,96,160,0.55)",
+      iconStyle: { background: "rgba(0,59,122,0.20)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Mail className="w-8 h-8" style={{ color: "#89abda" }} />,
+      Icon: () => <Mail className="w-8 h-8" style={{ color: "#4d8fd4" }} />,
       title: lang === "es" ? esMethods[2].title : "Email",
       value: c.email,
       href: `mailto:${c.email}`,
       actionText: lang === "es" ? esMethods[2].actionText : c.emailLabel,
       show: !!c.email,
-      cardStyle: { background: "#132354", border: "1px solid rgba(74,127,193,0.25)" } as React.CSSProperties,
-      cardHoverBorder: "rgba(74,127,193,0.55)",
-      iconStyle: { background: "rgba(29,63,117,0.20)" } as React.CSSProperties,
+      cardStyle: { background: "#002660", border: "1px solid rgba(20,96,160,0.25)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(20,96,160,0.55)",
+      iconStyle: { background: "rgba(0,59,122,0.20)" } as React.CSSProperties,
     },
     {
-      Icon: () => <Instagram className="w-8 h-8" style={{ color: "#89abda" }} />,
+      Icon: () => <Instagram className="w-8 h-8" style={{ color: "#4d8fd4" }} />,
       title: lang === "es" ? esMethods[3].title : "Instagram",
       value: `@${c.instagram}`,
       href: `https://instagram.com/${c.instagram}`,
       actionText: lang === "es" ? esMethods[3].actionText : c.instagramLabel,
       show: !!c.instagram,
-      cardStyle: { background: "#132354", border: "1px solid rgba(74,127,193,0.25)" } as React.CSSProperties,
-      cardHoverBorder: "rgba(74,127,193,0.55)",
-      iconStyle: { background: "rgba(29,63,117,0.20)" } as React.CSSProperties,
+      cardStyle: { background: "#002660", border: "1px solid rgba(20,96,160,0.25)" } as React.CSSProperties,
+      cardHoverBorder: "rgba(20,96,160,0.55)",
+      iconStyle: { background: "rgba(0,59,122,0.20)" } as React.CSSProperties,
     },
   ].filter(m => m.show);
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#1d3f75" }}>
+    <section id="contact" className="py-24 md:py-32 relative" style={{ background: "#003B7A" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at bottom, rgba(214,28,35,0.08) 0%, transparent 60%)" }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div

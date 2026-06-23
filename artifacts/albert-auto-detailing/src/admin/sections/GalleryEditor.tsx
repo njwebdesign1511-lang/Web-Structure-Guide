@@ -128,7 +128,7 @@ function PairCard({
                 <img src={pair.afterSrc} alt="After preview" className="mt-2 h-20 w-full object-cover rounded-lg" onError={e => ((e.currentTarget as HTMLImageElement).style.display = "none")} />
               )}
             </div>
-            <div className="rounded-lg p-3 text-xs" style={{ background: "rgba(29,63,117,0.10)", border: "1px solid rgba(74,127,193,0.20)", color: "#89abda" }}>
+            <div className="rounded-lg p-3 text-xs" style={{ background: "rgba(0,59,122,0.10)", border: "1px solid rgba(20,96,160,0.20)", color: "#4d8fd4" }}>
               💡 Sube las imágenes a un servicio de imágenes (Google Photos, Imgur, Cloudinary, etc.) y pega la URL aquí.
             </div>
           </div>

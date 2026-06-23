@@ -229,7 +229,7 @@ const BeforeAfterCard = memo(function BeforeAfterCard({
         style={{
           aspectRatio: "4/3",
           cursor: "col-resize",
-          border: "1px solid rgba(74,127,193,0.18)",
+          border: "1px solid rgba(20,96,160,0.18)",
           touchAction: "pan-y", // browser handles vertical; we intercept horizontal
           willChange: "transform", // promote to GPU layer
         }}
@@ -388,7 +388,7 @@ export default memo(function Gallery() {
     : "Drag the handle to compare before & after";
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#0d1e38" }}>
+    <section id="gallery" ref={sectionRef} className="py-24 md:py-32 relative" style={{ background: "#001830" }}>
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
