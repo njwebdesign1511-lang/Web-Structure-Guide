@@ -42,12 +42,13 @@ export default function Navbar() {
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}
       style={scrolled ? { background: "rgba(0,24,48,0.94)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(20,96,160,0.20)" } : { background: "transparent" }}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-3">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-end relative">
+        {/* Logo — absolutely pinned to the left so it never crowds the nav links */}
+        <a href="#home" className="absolute left-4 md:left-6 flex items-center gap-3">
           <motion.div
-            className="flex items-center gap-2.5 overflow-hidden"
+            className="flex items-center gap-3"
             initial={false}
-            animate={{ opacity: scrolled ? 1 : 0, x: scrolled ? 0 : -14 }}
+            animate={{ opacity: scrolled ? 1 : 0, x: scrolled ? 0 : -18 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ pointerEvents: scrolled ? "auto" : "none" }}
           >
@@ -56,20 +57,20 @@ export default function Navbar() {
               alt="Albert Auto Detailing"
               className="w-auto object-contain shrink-0"
               style={{
-                height: "44px",
-                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.7))",
+                height: "46px",
+                filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.8))",
               }}
             />
             <div className="flex flex-col leading-tight">
               <span
                 className="font-display font-bold uppercase text-white"
-                style={{ fontSize: "0.7rem", letterSpacing: "0.10em" }}
+                style={{ fontSize: "0.78rem", letterSpacing: "0.09em", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}
               >
                 Albert Auto Detailing
               </span>
               <span
-                className="text-white/45 uppercase"
-                style={{ fontSize: "0.55rem", letterSpacing: "0.20em" }}
+                className="text-white/55 uppercase"
+                style={{ fontSize: "0.6rem", letterSpacing: "0.22em" }}
               >
                 Norwalk, CT
               </span>
