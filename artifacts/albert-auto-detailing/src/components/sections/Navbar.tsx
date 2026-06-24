@@ -93,17 +93,6 @@ export default function Navbar() {
             <span style={{ color: "rgba(137,171,218,0.35)", fontSize: "0.65rem" }}>|</span>
             <span style={{ color: lang === "es" ? "#FFFFFF" : "rgba(137,171,218,0.55)" }}>ES</span>
           </button>
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="site-btn px-5 py-2 text-white text-sm font-bold tracking-wider uppercase rounded-sm flex items-center gap-2"
-            style={{ background: "#FF2534" }}
-            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
-            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
-          >
-            <WaIcon /> {t.nav.bookNow}
-          </a>
         </nav>
         <div className="flex items-center gap-3 md:hidden">
           <button
