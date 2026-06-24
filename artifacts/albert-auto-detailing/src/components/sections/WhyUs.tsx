@@ -25,7 +25,6 @@ export default function WhyUs() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#1460a0" }}>{eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-[#020C24] uppercase">{heading}</h2>
             <div className="w-20 h-1 bg-primary mb-8" />
             <p className="text-lg leading-relaxed mb-8 text-gray-700">{body}</p>
             <a href="#contact" className="font-bold tracking-widest uppercase flex items-center gap-2 transition-colors"
