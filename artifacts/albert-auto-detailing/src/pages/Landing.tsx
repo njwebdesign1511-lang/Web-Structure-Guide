@@ -5,7 +5,6 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import ServicesPackages from "@/components/sections/ServicesPackages";
-import Promotions from "@/components/sections/Promotions";
 import MobileService from "@/components/sections/MobileService";
 import WhyUs from "@/components/sections/WhyUs";
 import Gallery from "@/components/sections/Gallery";
@@ -62,7 +61,6 @@ export default function Landing() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        {s.promotions && <Promotions />}
         {s.about && <About />}
         {s.services && <Services />}
         <ServicesPackages />
