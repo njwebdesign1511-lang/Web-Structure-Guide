@@ -26,8 +26,8 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/5] md:aspect-square rounded-sm overflow-hidden relative" style={{ border: "1px solid #E5E7EB" }}>
-              <img src={aboutImg} alt="Professional Auto Detailing Service in Norwalk CT - Albert Auto Detailing" className="w-full h-full object-cover" loading="lazy" />
+            <div className="rounded-sm overflow-hidden relative" style={{ border: "1px solid #E5E7EB" }}>
+              <img src={aboutImg} alt="Professional Auto Detailing Service in Norwalk CT - Albert Auto Detailing" className="w-full h-auto object-contain block" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 -z-10 rounded-sm" style={{ background: "rgba(0,59,122,0.06)", border: "1px solid rgba(0,59,122,0.12)" }} />
