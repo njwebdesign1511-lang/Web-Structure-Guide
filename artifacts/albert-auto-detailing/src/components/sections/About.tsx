@@ -30,7 +30,6 @@ export default function About() {
               <img src={aboutImg} alt="Professional Auto Detailing Service in Norwalk CT - Albert Auto Detailing" className="w-full h-auto object-contain block" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 -z-10 rounded-sm" style={{ background: "rgba(0,59,122,0.06)", border: "1px solid rgba(0,59,122,0.12)" }} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
