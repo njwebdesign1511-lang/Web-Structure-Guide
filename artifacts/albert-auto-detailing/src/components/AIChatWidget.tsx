@@ -1,35 +1,69 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, ChevronDown, Loader2 } from "lucide-react";
+import { X, Send, ChevronDown, Loader2, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useContent } from "@/contexts/ContentContext";
 
-function ChatGPTIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 41 41"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.13-3.386 10.079 10.079 0 0 0-10.43 4.963 9.962 9.962 0 0 0-6.66 4.834 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.129 3.386 10.079 10.079 0 0 0 10.43-4.963 9.967 9.967 0 0 0 6.66-4.834 10.079 10.079 0 0 0-1.239-11.818zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.051-4.645a7.497 7.497 0 0 1 11.133 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.499v4.993l-4.331 2.5-4.331-2.5V18z" />
-    </svg>
-  );
-}
+const WaIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
+function WaButton({ href, lang }: { href: string; lang: "en" | "es" }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg text-white text-xs font-bold transition-all"
+      style={{ background: "#25D366", boxShadow: "0 2px 8px rgba(37,211,102,0.4)" }}
+      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#1DA851"; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#25D366"; }}
+    >
+      <WaIcon />
+      {lang === "es" ? "Escribir por WhatsApp" : "Chat on WhatsApp"}
+    </a>
+  );
+}
+
+function MessageContent({ content, waHref, lang }: { content: string; waHref: string; lang: "en" | "es" }) {
+  const parts = content.split("{{WA_BUTTON}}");
+  return (
+    <span>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {i < parts.length - 1 && (
+            <span style={{ display: "block", marginTop: "4px" }}>
+              <WaButton href={waHref} lang={lang} />
+            </span>
+          )}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 const WELCOME: Record<"en" | "es", string> = {
-  es: "Hola 👋 Soy el asistente virtual de Premium Detailing. Puedo ayudarte a conocer nuestros servicios, recomendarte el mejor tratamiento para tu vehículo o guiarte para solicitar una cotización.",
-  en: "Hi 👋 I'm the virtual assistant of Premium Detailing. I can help you learn about our services, recommend the best treatment for your vehicle, or guide you to request a quote.",
+  es: "¡Hola! 👋 Soy el asistente virtual de Albert Auto Detailing. Puedo ayudarte con información sobre nuestros servicios, responder tus preguntas sobre tu vehículo o conectarte con nuestro equipo. ¿En qué puedo ayudarte hoy?",
+  en: "Hi there! 👋 I'm the virtual assistant for Albert Auto Detailing. I can help you with info about our services, answer questions about your vehicle, or connect you with our team. How can I help you today?",
 };
 
 export default function AIChatWidget() {
   const { lang } = useLanguage();
+  const { content } = useContent();
+
+  const c = content.contact as any;
+  const waNumber = c?.whatsapp ?? "14756898301";
+  const waText   = c?.whatsappText ?? (lang === "es" ? "Hola, me gustaría una cotización." : "Hi! I'd like a quote.");
+  const waHref   = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+
   const welcomeMsg = (): Message => ({ role: "assistant", content: WELCOME[lang] });
 
   const [open, setOpen]           = useState(false);
@@ -41,7 +75,6 @@ export default function AIChatWidget() {
   const inputRef  = useRef<HTMLTextAreaElement>(null);
   const abortRef  = useRef<AbortController | null>(null);
 
-  // Reset welcome message when language changes
   useEffect(() => {
     setMessages([welcomeMsg()]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,6 +113,7 @@ export default function AIChatWidget() {
         body: JSON.stringify({
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
           lang,
+          waHref,
         }),
         signal: abortRef.current.signal,
       });
@@ -133,7 +167,9 @@ export default function AIChatWidget() {
         const copy = [...prev];
         copy[copy.length - 1] = {
           role: "assistant",
-          content: lang === "es" ? "Lo siento, hubo un error. Por favor intenta de nuevo." : "Sorry, an error occurred. Please try again.",
+          content: lang === "es"
+            ? "Lo siento, hubo un error. Por favor intenta de nuevo."
+            : "Sorry, an error occurred. Please try again.",
         };
         return copy;
       });
@@ -141,7 +177,7 @@ export default function AIChatWidget() {
       setStreaming(false);
       if (!open) setUnread(true);
     }
-  }, [input, messages, streaming, open]);
+  }, [input, messages, streaming, open, lang, waHref]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -152,7 +188,7 @@ export default function AIChatWidget() {
 
   return (
     <>
-      {/* ── Floating action button ── */}
+      {/* Floating action button */}
       <motion.button
         onClick={() => setOpen(o => !o)}
         className="ai-chat-fab"
@@ -169,7 +205,7 @@ export default function AIChatWidget() {
             transition={{ duration: 0.18 }}
             style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
-            {open ? <ChevronDown size={22} /> : <ChatGPTIcon size={22} />}
+            {open ? <ChevronDown size={22} /> : <MessageCircle size={22} />}
           </motion.span>
         </AnimatePresence>
         <span className="ai-chat-fab-label">
@@ -180,7 +216,7 @@ export default function AIChatWidget() {
         {!open && unread && <span className="ai-chat-unread" />}
       </motion.button>
 
-      {/* ── Chat window ── */}
+      {/* Chat window */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -193,10 +229,10 @@ export default function AIChatWidget() {
             {/* Header */}
             <div className="ai-chat-header">
               <div className="ai-chat-header-avatar">
-                <ChatGPTIcon size={16} />
+                <MessageCircle size={16} />
               </div>
               <div className="ai-chat-header-info">
-                <span className="ai-chat-header-name">{lang === "es" ? "Asistente IA" : "AI Assistant"}</span>
+                <span className="ai-chat-header-name">{lang === "es" ? "Asistente Virtual" : "Virtual Assistant"}</span>
                 <span className="ai-chat-header-sub">Albert Auto Detailing</span>
               </div>
               <div className="ai-chat-header-dot" title={lang === "es" ? "En línea" : "Online"} />
@@ -217,7 +253,7 @@ export default function AIChatWidget() {
                 >
                   {msg.role === "assistant" && (
                     <div className="ai-chat-bubble-icon">
-                      <ChatGPTIcon size={11} />
+                      <MessageCircle size={11} />
                     </div>
                   )}
                   <div className={`ai-chat-bubble ${msg.role}`}>
@@ -226,7 +262,7 @@ export default function AIChatWidget() {
                         <span /><span /><span />
                       </span>
                     ) : (
-                      msg.content
+                      <MessageContent content={msg.content} waHref={waHref} lang={lang as "en" | "es"} />
                     )}
                   </div>
                 </motion.div>
