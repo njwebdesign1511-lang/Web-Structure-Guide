@@ -254,7 +254,7 @@ export const translations = {
         { q: "¿Cómo puedo reservar una cita?", a: "Puedes reservar por WhatsApp al 475-689-8301, llamarnos directamente o completar nuestro formulario en línea. Confirmamos tu cita rápidamente." },
         { q: "¿Muestran precios en la página?", a: "No mostramos precios fijos porque cada vehículo y servicio es único. Contáctanos para una cotización gratuita y personalizada — sin compromiso." },
         { q: "¿Qué servicios ofrecen?", a: "Ofrecemos lavado interior y exterior, corrección de pintura, recubrimiento cerámico, restauración de faros, limpieza de motor, protección de cuero, eliminación de manchas y paquetes completos de detailing." },
-        { q: "¿Dónde están ubicados?", a: "Estamos en 12 Jenny Jenks St, Norwalk, Connecticut 06851. También ofrecemos servicio móvil en Norwalk, Stamford, Bridgeport y áreas cercanas de CT." },
+        { q: "¿Dónde están ubicados?", a: "Estamos ubicados en Norwalk Connecticut 06851. También ofrecemos servicio móvil en Norwalk, Stamford, Bridgeport y áreas cercanas de CT." },
         { q: "¿Puedo contactarlos por WhatsApp?", a: "¡Por supuesto! WhatsApp es nuestro canal preferido. Escríbenos o llámanos al 475-689-8301 y respondemos lo antes posible." },
       ],
     },

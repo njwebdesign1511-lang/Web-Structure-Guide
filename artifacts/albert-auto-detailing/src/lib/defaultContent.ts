@@ -87,7 +87,7 @@ export const defaultContent = {
       { q: "How can I book an appointment?", a: "You can book through WhatsApp at 475-689-8301, call us directly, or fill out our online quote form. We'll confirm your appointment promptly." },
       { q: "Do you show prices online?", a: "We don't list fixed prices because every vehicle and service is unique. Contact us for a free personalized quote — no obligation whatsoever." },
       { q: "What services do you offer?", a: "We offer interior & exterior wash, paint correction, ceramic coating, headlight restoration, engine cleaning, leather protection, stain removal, and full detailing packages." },
-      { q: "Where are you located?", a: "We are based at 12 Jenny Jenks St, Norwalk, Connecticut 06851. We also offer mobile service throughout Norwalk, Stamford, Bridgeport, and surrounding CT areas." },
+      { q: "Where are you located?", a: "We are located in Norwalk, Connecticut 06851. We also offer mobile service throughout Norwalk, Stamford, Bridgeport, and surrounding CT areas." },
       { q: "Can I contact you through WhatsApp?", a: "Absolutely! WhatsApp is our preferred channel. Message or call us at 475-689-8301 and we'll respond as quickly as possible." },
     ],
   },
