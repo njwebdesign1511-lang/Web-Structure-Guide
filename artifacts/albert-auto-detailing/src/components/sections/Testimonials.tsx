@@ -152,10 +152,10 @@ export default function Testimonials() {
     }
   };
 
-  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#4d8fd4] focus:outline-none transition-colors";
-  const inputStyle = { background: "#001830", borderColor: "rgba(20,96,160,0.30)" };
+  const inputCls = "w-full border rounded-sm px-4 py-3 text-[#020C24] text-sm placeholder-gray-400 focus:outline-none transition-colors";
+  const inputStyle = { background: "#ffffff", borderColor: "rgba(20,96,160,0.25)" };
   const focusIn  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "#FF2534");
-  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "rgba(20,96,160,0.30)");
+  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => (e.currentTarget.style.borderColor = "rgba(20,96,160,0.25)");
 
   const sliderVariants = {
     enter:  (d: number) => ({ x: d > 0 ? "60%" : "-60%", opacity: 0 }),
