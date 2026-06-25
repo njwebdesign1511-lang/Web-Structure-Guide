@@ -335,14 +335,17 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: 16 }}
               transition={{ duration: 0.35 }}
               className="max-w-2xl mx-auto mt-6 rounded-sm p-8 flex flex-col gap-5"
-              style={{ background: "#002d6b", border: "1px solid rgba(20,96,160,0.32)" }}
+              style={{ background: "#ffffff", border: "1px solid #e5e7eb" }}
             >
               <div className="flex items-center justify-between mb-1">
-                <h3 className="text-white font-bold text-lg">{L.writeReview}</h3>
+                <h3 className="font-bold text-lg" style={{ color: "#020C24" }}>{L.writeReview}</h3>
                 <button
                   type="button"
                   onClick={() => setFormOpen(false)}
-                  className="text-xs text-gray-500 hover:text-white transition-colors"
+                  className="text-xs transition-colors"
+                  style={{ color: "#6b7280" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#020C24")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#6b7280")}
                 >
                   {L.cancel}
                 </button>
@@ -350,7 +353,7 @@ export default function Testimonials() {
 
               {/* Star rating input */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#ffffff" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#020C24" }}>
                   {L.ratingLabel}
                 </label>
                 <StarInput value={form.rating} onChange={n => setForm(f => ({ ...f, rating: n }))} />
@@ -358,7 +361,7 @@ export default function Testimonials() {
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#020C24" }}>
                   {L.nameLabel}
                 </label>
                 <input
@@ -376,7 +379,7 @@ export default function Testimonials() {
 
               {/* Service */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#020C24" }}>
                   {L.serviceLabel}
                 </label>
                 <input
@@ -393,7 +396,7 @@ export default function Testimonials() {
 
               {/* Comment */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#020C24" }}>
                   {L.commentLabel}
                 </label>
                 <textarea
