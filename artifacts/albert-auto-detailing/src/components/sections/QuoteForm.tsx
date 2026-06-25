@@ -98,12 +98,12 @@ export default function QuoteForm() {
     setTimeout(() => { setSent(false); setForm(empty); }, 4000);
   };
 
-  const inputCls = "w-full border rounded-sm px-4 py-3 text-white text-sm placeholder-[#4d8fd4] focus:outline-none transition-colors";
-  const inputStyle = { background: "#001830", borderColor: "rgba(20,96,160,0.30)" };
+  const inputCls = "w-full border rounded-sm px-4 py-3 text-[#020C24] text-sm placeholder-gray-400 focus:outline-none transition-colors";
+  const inputStyle = { background: "#ffffff", borderColor: "#d1d5db" };
   const focusIn  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.currentTarget.style.borderColor = "#FF2534");
-  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.currentTarget.style.borderColor = "rgba(20,96,160,0.30)");
+  const focusOut = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => (e.currentTarget.style.borderColor = "#d1d5db");
   const labelCls = "block text-xs font-bold tracking-widest uppercase mb-1.5";
-  const labelStyle = { color: "#4d8fd4" };
+  const labelStyle = { color: "#020C24" };
 
   return (
     <section id="quote" className="py-24 md:py-32 border-t border-border relative overflow-hidden" style={{ background: "#003B7A" }}>
@@ -128,7 +128,7 @@ export default function QuoteForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="rounded-sm p-8 flex flex-col gap-5"
-          style={{ background: "#001830", border: "1px solid rgba(20,96,160,0.25)" }}
+          style={{ background: "#ffffff", border: "1px solid #e5e7eb" }}
         >
           {/* Name + Phone */}
           <div className="grid sm:grid-cols-2 gap-5">
@@ -162,7 +162,7 @@ export default function QuoteForm() {
               <input type="text" value={form.model} onChange={set("model")} required className={inputCls} style={inputStyle}
                 placeholder={L.model} onFocus={focusIn} onBlur={focusOut} />
               <select value={form.year} onChange={set("year")} className={inputCls}
-                style={{ ...inputStyle, color: form.year ? "#FFFFFF" : "#4d8fd4" }}
+                style={{ ...inputStyle, color: form.year ? "#020C24" : "#9ca3af" }}
                 onFocus={focusIn} onBlur={focusOut}>
                 <option value="">{L.selectYear}</option>
                 {YEARS.map(y => <option key={y} value={y}>{y}</option>)}
@@ -175,7 +175,7 @@ export default function QuoteForm() {
             <div>
               <label className={labelCls} style={labelStyle}>{L.service}</label>
               <select required value={form.service} onChange={set("service")} className={inputCls}
-                style={{ ...inputStyle, color: form.service ? "#FFFFFF" : "#4d8fd4" }}
+                style={{ ...inputStyle, color: form.service ? "#020C24" : "#9ca3af" }}
                 onFocus={focusIn} onBlur={focusOut}>
                 <option value="">{L.selectService}</option>
                 {serviceOptions.map(s => <option key={s} value={s}>{s}</option>)}
@@ -209,7 +209,7 @@ export default function QuoteForm() {
               : (<><Send className="w-4 h-4" /> {L.submit}</>)}
           </button>
 
-          <p className="text-center text-xs" style={{ color: "#4d8fd4" }}>
+          <p className="text-center text-xs" style={{ color: "#6b7280" }}>
             {lang === "es"
               ? "Al enviar, se abrirá WhatsApp con tu solicitud pre-escrita. Sin compromiso."
               : "Submitting opens WhatsApp with your request pre-filled. No obligation."}
