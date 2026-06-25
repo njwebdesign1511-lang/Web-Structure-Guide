@@ -14,12 +14,16 @@ interface Review {
 
 function StarRating({ count = 5 }: { count?: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-1">
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className="w-4 h-4"
-          style={{ fill: i < count ? "#FF2534" : "transparent", color: "#FF2534" }}
+          className="w-5 h-5"
+          style={{
+            fill: i < count ? "#F5C842" : "transparent",
+            color: i < count ? "#F5C842" : "rgba(245,200,66,0.25)",
+            filter: i < count ? "drop-shadow(0 0 4px rgba(245,200,66,0.55))" : "none",
+          }}
         />
       ))}
     </div>
@@ -29,7 +33,7 @@ function StarRating({ count = 5 }: { count?: number }) {
 function StarInput({ value, onChange }: { value: number; onChange: (n: number) => void }) {
   const [hovered, setHovered] = useState(0);
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1.5">
       {Array.from({ length: 5 }).map((_, i) => {
         const n = i + 1;
         const active = n <= (hovered || value);
@@ -40,11 +44,17 @@ function StarInput({ value, onChange }: { value: number; onChange: (n: number) =
             onClick={() => onChange(n)}
             onMouseEnter={() => setHovered(n)}
             onMouseLeave={() => setHovered(0)}
-            className="transition-transform hover:scale-110"
+            className="transition-all duration-150 hover:scale-125"
+            style={{ transform: active ? "scale(1.08)" : "scale(1)" }}
           >
             <Star
-              className="w-7 h-7"
-              style={{ fill: active ? "#FF2534" : "transparent", color: active ? "#FF2534" : "rgba(20,96,160,0.40)" }}
+              className="w-8 h-8"
+              style={{
+                fill: active ? "#F5C842" : "transparent",
+                color: active ? "#F5C842" : "rgba(245,200,66,0.25)",
+                filter: active ? "drop-shadow(0 0 6px rgba(245,200,66,0.65))" : "none",
+                transition: "all 0.15s ease",
+              }}
             />
           </button>
         );
@@ -340,7 +350,7 @@ export default function Testimonials() {
 
               {/* Star rating input */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#4d8fd4" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#ffffff" }}>
                   {L.ratingLabel}
                 </label>
                 <StarInput value={form.rating} onChange={n => setForm(f => ({ ...f, rating: n }))} />
@@ -348,7 +358,7 @@ export default function Testimonials() {
 
               {/* Name */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#4d8fd4" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
                   {L.nameLabel}
                 </label>
                 <input
@@ -366,7 +376,7 @@ export default function Testimonials() {
 
               {/* Service */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#4d8fd4" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
                   {L.serviceLabel}
                 </label>
                 <input
@@ -383,7 +393,7 @@ export default function Testimonials() {
 
               {/* Comment */}
               <div>
-                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#4d8fd4" }}>
+                <label className="block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#ffffff" }}>
                   {L.commentLabel}
                 </label>
                 <textarea
