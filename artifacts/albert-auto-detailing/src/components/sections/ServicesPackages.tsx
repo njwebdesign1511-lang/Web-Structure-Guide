@@ -313,7 +313,9 @@ export default function ServicesPackages() {
                   <div className="flex flex-col gap-2 pt-2">
                     {/* Book Now */}
                     <a
-                      href="#quote"
+                      href="http://albert-auto-detailing-106997.square.site/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="site-btn flex items-center justify-center gap-2 py-2.5 px-4 font-bold text-xs tracking-widest uppercase"
                       style={{ background: "#FFFFFF", border: "1.5px solid #111111", color: "#111111" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#111111"; (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF"; }}
