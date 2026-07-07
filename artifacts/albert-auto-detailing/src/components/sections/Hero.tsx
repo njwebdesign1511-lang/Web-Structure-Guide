@@ -135,7 +135,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 1,
-          background: "linear-gradient(180deg, rgba(0,38,96,0.55) 0%, rgba(0,24,60,0.35) 50%, rgba(0,38,96,0.60) 100%)",
+          background: "linear-gradient(to right, rgba(0,38,96,0.75) 0%, rgba(0,24,60,0.45) 40%, rgba(0,38,96,0.15) 70%, transparent 100%)",
         }}
       />
 
