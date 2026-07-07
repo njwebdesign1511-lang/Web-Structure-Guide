@@ -130,6 +130,15 @@ export default function Hero() {
         )}
       </AnimatePresence>
 
+      {/* ── Blue tint layer over the video ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 1,
+          background: "linear-gradient(180deg, rgba(0,38,96,0.55) 0%, rgba(0,24,60,0.35) 50%, rgba(0,38,96,0.60) 100%)",
+        }}
+      />
+
       {/* ── Subtle gradient only on the left for text readability ── */}
       <div
         className="absolute inset-0 pointer-events-none"
