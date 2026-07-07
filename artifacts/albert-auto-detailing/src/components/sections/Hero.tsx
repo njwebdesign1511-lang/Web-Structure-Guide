@@ -230,18 +230,22 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.58 }}
             className="flex flex-wrap gap-3"
           >
-            {/* Get a Free Quote — solid red → goes to contact/WhatsApp section */}
+            {/* Get a Free Quote — solid red → goes to Square booking */}
             <a
-              href="#contact"
+              href="http://albert-auto-detailing-106997.square.site/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
               style={{ background: "#FF2534" }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#C41C27")}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = "#FF2534")}
             >{btn1}</a>
 
-            {/* Book Appointment — white outline */}
+            {/* Book Appointment — white outline → goes to Square booking */}
             <a
-              href="#quote"
+              href="http://albert-auto-detailing-106997.square.site/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="site-btn px-7 py-3 text-white font-bold tracking-[0.13em] uppercase text-sm text-center"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.30)", backdropFilter: "blur(4px)" }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.55)"; }}
