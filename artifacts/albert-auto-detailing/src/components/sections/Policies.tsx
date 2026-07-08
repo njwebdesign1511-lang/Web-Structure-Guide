@@ -96,7 +96,7 @@ export default function Policies() {
     : "By using our services, you agree to the following terms.";
 
   return (
-    <section id="policies" className="py-10 md:py-14 relative" style={{ background: "#020C24" }}>
+    <section id="policies" className="py-10 md:py-14 relative" style={{ background: "#F8FAFD" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
 
         {/* Toggle button */}
@@ -105,18 +105,18 @@ export default function Policies() {
             onClick={() => setOpen(v => !v)}
             className="flex items-center gap-2 px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all"
             style={{
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              background: "#020C24",
+              border: "1px solid #020C24",
               color: "#ffffff",
               borderRadius: "2px",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,37,52,0.15)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,37,52,0.4)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#FF2534";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#FF2534";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.05)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.15)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#020C24";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "#020C24";
             }}
           >
             {btnLabel}
@@ -145,9 +145,9 @@ export default function Policies() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-center mb-10"
                 >
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">{heading}</h2>
+                  <h2 className="text-3xl md:text-4xl font-display font-bold mb-3" style={{ color: "#020C24" }}>{heading}</h2>
                   <div className="w-16 h-1 mx-auto mb-4" style={{ background: "#FF2534" }} />
-                  <p className="text-white/50 text-sm max-w-xl mx-auto">{disclaimer}</p>
+                  <p className="text-sm max-w-xl mx-auto" style={{ color: "#555" }}>{disclaimer}</p>
                 </motion.div>
 
                 {/* Grid */}
@@ -160,21 +160,21 @@ export default function Policies() {
                       transition={{ duration: 0.35, delay: 0.12 + i * 0.04, ease: "easeOut" }}
                       className="rounded-sm p-4 flex gap-3"
                       style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.07)",
+                        background: "#ffffff",
+                        border: "1px solid #E5E7EB",
                       }}
                     >
                       <span
                         className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
-                        style={{ background: "rgba(255,37,52,0.18)", color: "#FF2534", minWidth: "1.5rem" }}
+                        style={{ background: "rgba(255,37,52,0.12)", color: "#FF2534", minWidth: "1.5rem" }}
                       >
                         {i + 1}
                       </span>
                       <div>
-                        <h3 className="text-sm font-bold text-white mb-1">
+                        <h3 className="text-sm font-bold mb-1" style={{ color: "#020C24" }}>
                           {lang === "es" ? policy.titleEs : policy.titleEn}
                         </h3>
-                        <p className="text-white/55 text-sm leading-relaxed">
+                        <p className="text-sm leading-relaxed" style={{ color: "#555" }}>
                           {lang === "es" ? policy.textEs : policy.textEn}
                         </p>
                       </div>
