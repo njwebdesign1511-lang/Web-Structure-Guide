@@ -16,6 +16,58 @@ interface Package {
 }
 
 const PACKAGES: Package[] = [
+  // ── $25 ──
+  {
+    name: "Express Shine",
+    nameEs: "Express Shine",
+    price: "$25",
+    features: [
+      "Hand Exterior Wash",
+      "Wheel Cleaning",
+      "Premium Microfiber Towel Dry",
+      "Tire Shine Application",
+    ],
+    featuresEs: [
+      "Lavado exterior a mano",
+      "Limpieza de rines",
+      "Secado con toallas de microfibra premium",
+      "Aplicación de brillo para llantas",
+    ],
+  },
+  // ── $40 ──
+  {
+    name: "Diamond Wash",
+    nameEs: "Diamond Wash",
+    price: "$40",
+    features: [
+      "Snow Foam Pre-Wash",
+      "Bug & Contaminant Removal",
+      "High-Quality Liquid Wax Application",
+      "High-Gloss Finish",
+    ],
+    featuresEs: [
+      "Prelavado con espuma activa (Snow Foam)",
+      "Eliminación de insectos y contaminantes superficiales",
+      "Aplicación de cera líquida de alta calidad",
+      "Acabado de alto brillo",
+    ],
+  },
+  // ── $65 ──
+  {
+    name: "Platinum Armor Wash",
+    nameEs: "Platinum Armor Wash",
+    price: "$65",
+    features: [
+      "Light Paint Decontamination",
+      "Ceramic Spray Sealant Application",
+      "Trim & Plastic Restoration and Protection",
+    ],
+    featuresEs: [
+      "Descontaminación ligera de la pintura",
+      "Aplicación de sellador cerámico (Ceramic Spray Sealant)",
+      "Restauración y protección de molduras y plásticos exteriores",
+    ],
+  },
   // ── $100 ──
   {
     name: "Express Wax",
