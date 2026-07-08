@@ -13,6 +13,7 @@ import FAQ from "@/components/sections/FAQ";
 import QuoteForm from "@/components/sections/QuoteForm";
 import Contact from "@/components/sections/Contact";
 import Location from "@/components/sections/Location";
+import Policies from "@/components/sections/Policies";
 import Footer from "@/components/sections/Footer";
 import PremiumToggle from "@/components/PremiumToggle";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -73,6 +74,7 @@ export default function Landing() {
         {s.quoteForm && <QuoteForm />}
         {s.contact && <Contact />}
         {s.location && <Location />}
+        <Policies />
       </main>
       <Footer />
       <WaFab href={waHref} />
