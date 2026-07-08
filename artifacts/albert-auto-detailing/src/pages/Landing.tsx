@@ -65,6 +65,7 @@ export default function Landing() {
         {s.about && <About />}
         {s.services && <Services />}
         <ServicesPackages />
+        <Policies />
         {s.mobileService && <MobileService />}
         {s.whyUs && <WhyUs />}
         <HowItWorks />
@@ -74,7 +75,6 @@ export default function Landing() {
         {s.quoteForm && <QuoteForm />}
         {s.contact && <Contact />}
         {s.location && <Location />}
-        <Policies />
       </main>
       <Footer />
       <WaFab href={waHref} />

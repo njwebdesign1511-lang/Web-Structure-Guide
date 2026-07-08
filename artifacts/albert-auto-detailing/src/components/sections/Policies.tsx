@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Policy {
@@ -83,75 +85,107 @@ const POLICIES: Policy[] = [
   },
 ];
 
-const icons = ["📅", "🔄", "🚗", "🎒", "💲", "💳", "⭐", "🚫", "🛡️", "⚖️", "📷", "✅"];
-
 export default function Policies() {
   const { lang } = useLanguage();
+  const [open, setOpen] = useState(false);
 
-  const heading  = lang === "es" ? "Políticas de Servicio" : "Service Policies";
-  const eyebrow  = lang === "es" ? "Importante" : "Important";
-  const subtitle = lang === "es"
+  const btnLabel   = lang === "es" ? (open ? "Ocultar políticas" : "Ver políticas") : (open ? "Hide policies" : "View policies");
+  const heading    = lang === "es" ? "Políticas de Servicio" : "Service Policies";
+  const disclaimer = lang === "es"
     ? "Al utilizar nuestros servicios, usted acepta los siguientes términos."
     : "By using our services, you agree to the following terms.";
 
   return (
-    <section id="policies" className="py-24 md:py-32 relative" style={{ background: "#020C24" }}>
+    <section id="policies" className="py-10 md:py-14 relative" style={{ background: "#020C24" }}>
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <p className="text-sm font-bold tracking-widest uppercase mb-3" style={{ color: "#FF2534" }}>{eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">{heading}</h2>
-          <div className="w-20 h-1 mx-auto mb-6" style={{ background: "#FF2534" }} />
-          <p className="text-white/60 text-base max-w-xl mx-auto">{subtitle}</p>
-        </motion.div>
+        {/* Toggle button */}
+        <div className="flex items-center justify-center">
+          <button
+            onClick={() => setOpen(v => !v)}
+            className="flex items-center gap-2 px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              color: "#ffffff",
+              borderRadius: "2px",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,37,52,0.15)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,37,52,0.4)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.05)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.15)";
+            }}
+          >
+            {btnLabel}
+            <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
+              <ChevronDown className="w-4 h-4" />
+            </motion.span>
+          </button>
+        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {POLICIES.map((policy, i) => (
+        {/* Collapsible content */}
+        <AnimatePresence>
+          {open && (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: (i % 4) * 0.07, ease: "easeOut" }}
-              className="rounded-sm p-5 flex gap-4"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
+              key="policies-content"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              style={{ overflow: "hidden" }}
             >
-              <div
-                className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-base mt-0.5"
-                style={{ background: "rgba(255,37,52,0.15)", border: "1px solid rgba(255,37,52,0.3)" }}
-              >
-                {icons[i]}
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="text-xs font-bold tracking-widest uppercase"
-                    style={{ color: "#FF2534" }}
-                  >
-                    {i + 1}.
-                  </span>
-                  <h3 className="text-sm font-bold text-white tracking-wide">
-                    {lang === "es" ? policy.titleEs : policy.titleEn}
-                  </h3>
+              <div className="pt-10">
+                {/* Header */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="text-center mb-10"
+                >
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">{heading}</h2>
+                  <div className="w-16 h-1 mx-auto mb-4" style={{ background: "#FF2534" }} />
+                  <p className="text-white/50 text-sm max-w-xl mx-auto">{disclaimer}</p>
+                </motion.div>
+
+                {/* Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {POLICIES.map((policy, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: 0.12 + i * 0.04, ease: "easeOut" }}
+                      className="rounded-sm p-4 flex gap-3"
+                      style={{
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.07)",
+                      }}
+                    >
+                      <span
+                        className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                        style={{ background: "rgba(255,37,52,0.18)", color: "#FF2534", minWidth: "1.5rem" }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-bold text-white mb-1">
+                          {lang === "es" ? policy.titleEs : policy.titleEn}
+                        </h3>
+                        <p className="text-white/55 text-sm leading-relaxed">
+                          {lang === "es" ? policy.textEs : policy.textEn}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  {lang === "es" ? policy.textEs : policy.textEn}
-                </p>
               </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+        </AnimatePresence>
+
       </div>
     </section>
   );
