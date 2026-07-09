@@ -1,7 +1,7 @@
 import { Router, type IRouter } from "express";
 import { db, siteContentTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
-import { logger } from "../lib/logger";
+import { logger } from "../lib/logger.js";
 
 const router: IRouter = Router();
 
