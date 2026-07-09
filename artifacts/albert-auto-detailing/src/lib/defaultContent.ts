@@ -97,7 +97,7 @@ export const defaultContent = {
     body: "Ready to give your vehicle the premium treatment it deserves? Contact us today to schedule your detailing service.",
     phone: "475-689-8301",
     email: "albertautodetailing2024@gmail.com",
-    instagram: "albert_auto_detailing",
+    instagram: "albert_auto__detailing",
     whatsapp: "14756898301",
     facebook: "",
     tiktok: "",
