@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { openai } from "@workspace/integrations-openai-ai-server";
+import { openai } from "../lib/openaiClient";
 
 const router = Router();
 
@@ -120,6 +120,11 @@ router.post("/openai/chat", async (req, res) => {
   const resolvedLang = (lang === "en" || lang === "es") ? lang : "en";
   const resolvedWaHref = waHref ?? "https://wa.me/14756898301";
 
+  const fixedClosingLine =
+    resolvedLang === "es"
+      ? "\n\nPara más información escríbenos vía WhatsApp {{WA_BUTTON}}"
+      : "\n\nFor more information, message us on WhatsApp {{WA_BUTTON}}";
+
   try {
     const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -139,6 +144,7 @@ router.post("/openai/chat", async (req, res) => {
       }
     }
 
+    res.write(`data: ${JSON.stringify({ content: fixedClosingLine })}\n\n`);
     res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
     res.end();
   } catch (err) {
