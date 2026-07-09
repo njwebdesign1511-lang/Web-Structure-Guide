@@ -59,6 +59,14 @@ A professional bilingual (EN/ES) auto detailing business website with a private 
 - After changing `lib/db/src/schema/`, run `pnpm --filter @workspace/db run push` to migrate.
 - The API server must be restarted after code changes (it pre-bundles with esbuild).
 
+## Deploying outside Replit (GitHub + Vercel)
+
+- The repo is portable: `vercel.json` builds the frontend as a static site and runs `api/index.ts` (a thin re-export of the same Express app used on Replit) as a serverless function.
+- On Vercel, you need your own Postgres (e.g. Neon) via `DATABASE_URL`, plus `ADMIN_PASSWORD` and `OPENAI_API_KEY`. See `DEPLOY.md` for full steps.
+- The OpenAI client (`lib/integrations-openai-ai-server/src/client.ts`) prefers Replit's AI Integration proxy when present, and falls back to a plain `OPENAI_API_KEY` otherwise — same code works on both platforms.
+- `vite.config.ts` no longer throws if `PORT`/`BASE_PATH` are unset (needed for Vercel's build, which doesn't set them) — Replit's workflow still sets them explicitly for dev.
+- Known limitation: admin panel photo uploads write to local disk, which doesn't persist on Vercel's serverless filesystem. See `DEPLOY.md` for details.
+
 ## Pointers
 
 - See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details

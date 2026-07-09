@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm --filter @workspace/api-spec run codegen && pnpm --filter @workspace/albert-auto-detailing run build",
+  "outputDirectory": "artifacts/albert-auto-detailing/dist/public",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
+}
