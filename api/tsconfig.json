@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["index.ts", "../artifacts/api-server/src/**/*.ts"],
+  "references": [
+    {
+      "path": "../lib/db"
+    },
+    {
+      "path": "../lib/api-zod"
+    },
+    {
+      "path": "../lib/integrations-openai-ai-server"
+    }
+  ]
+}

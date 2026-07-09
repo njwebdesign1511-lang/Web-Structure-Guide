@@ -30,10 +30,10 @@ router.post("/reviews", async (req, res) => {
       .insert(reviews)
       .values({ name: String(name), rating: parsedRating, service: service ? String(service) : undefined, comment: String(comment) })
       .returning({ id: reviews.id });
-    res.json({ ok: true, id: row.id });
+    return res.json({ ok: true, id: row.id });
   } catch (err) {
     req.log.error(err, "Failed to save review");
-    res.status(500).json({ ok: false, error: "Internal error" });
+    return res.status(500).json({ ok: false, error: "Internal error" });
   }
 });
 
@@ -44,10 +44,10 @@ router.get("/reviews/all", async (req, res) => {
   }
   try {
     const rows = await db.select().from(reviews).orderBy(desc(reviews.createdAt));
-    res.json(rows);
+    return res.json(rows);
   } catch (err) {
     req.log.error(err, "Failed to fetch all reviews");
-    res.status(500).json({ error: "Internal error" });
+    return res.status(500).json({ error: "Internal error" });
   }
 });
 
@@ -60,10 +60,10 @@ router.patch("/reviews/:id/visibility", async (req, res) => {
     const id = Number(req.params.id);
     const { visible } = req.body as { visible: boolean };
     await db.update(reviews).set({ visible }).where(eq(reviews.id, id));
-    res.json({ ok: true });
+    return res.json({ ok: true });
   } catch (err) {
     req.log.error(err, "Failed to update review visibility");
-    res.status(500).json({ ok: false, error: "Internal error" });
+    return res.status(500).json({ ok: false, error: "Internal error" });
   }
 });
 
@@ -74,10 +74,10 @@ router.delete("/reviews/:id", async (req, res) => {
   }
   try {
     await db.delete(reviews).where(eq(reviews.id, Number(req.params.id)));
-    res.json({ ok: true });
+    return res.json({ ok: true });
   } catch (err) {
     req.log.error(err, "Failed to delete review");
-    res.status(500).json({ ok: false, error: "Internal error" });
+    return res.status(500).json({ ok: false, error: "Internal error" });
   }
 });
 

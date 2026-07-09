@@ -15,10 +15,10 @@ router.post("/leads", async (req, res) => {
       .insert(leads)
       .values({ name, phone, email, vehicle, service, preferredDate, message, lang })
       .returning({ id: leads.id });
-    res.json({ ok: true, id: lead.id });
+    return res.json({ ok: true, id: lead.id });
   } catch (err) {
     req.log.error(err, "Failed to save lead");
-    res.status(500).json({ ok: false, error: "Internal error" });
+    return res.status(500).json({ ok: false, error: "Internal error" });
   }
 });
 
@@ -35,10 +35,10 @@ router.get("/leads/stats", async (req, res) => {
       .from(leads)
       .orderBy(desc(leads.createdAt))
       .limit(5);
-    res.json({ total: Number(total), recent });
+    return res.json({ total: Number(total), recent });
   } catch (err) {
     req.log.error(err, "Failed to fetch leads stats");
-    res.status(500).json({ error: "Internal error" });
+    return res.status(500).json({ error: "Internal error" });
   }
 });
 
