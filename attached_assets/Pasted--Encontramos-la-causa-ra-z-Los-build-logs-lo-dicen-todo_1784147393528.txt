@@ -1,0 +1,33 @@
+¡Encontramos la causa raíz! Los build logs lo dicen todo. Mira estas líneas del principio:
+Found .vercelignore (repository root)
+Removed 86 ignored files defined in .vercelignore
+  /artifacts/api-server/src/app.ts
+  /artifacts/api-server/src/index.ts
+  /artifacts/api-server/src/routes/admin.ts
+  /artifacts/api-server/src/routes/auth.ts
+  ...
+Ahí está el problema. Hay un archivo llamado .vercelignore que le está diciendo a Vercel "ignora estos archivos, no los subas". Y entre los archivos que está ignorando está todo el código del servidor Express (app.ts, index.ts, las rutas...).
+O sea: Vercel intenta construir la función api/index.ts, pero esa función necesita importar el código de artifacts/api-server/src/app.ts — y ese código fue borrado por el .vercelignore antes de construir. Sin ese código, la función no se puede crear. Por eso Vercel nunca la despliega y da NOT_FOUND.
+Confirmación adicional en los logs: nunca aparece la palabra "Functions" ni "Serverless Function" construyéndose. Vercel solo construyó el frontend (Vite) y terminó. La función jamás se procesó.
+Este es el descubrimiento clave que le faltaba a Replit. Los dos arreglos anteriores tocaron el vercel.json, pero el verdadero saboteador es el archivo .vercelignore, que Replit ni había mirado.
+Mensaje para darle a Replit (cópialo tal cual, esto es lo definitivo):
+
+ENCONTRÉ LA CAUSA RAÍZ en los build logs de Vercel. El problema NO es el vercel.json ni el rewrite. El problema es el archivo .vercelignore.
+Los build logs muestran esto al inicio de la construcción:
+Found .vercelignore (repository root)
+Removed 86 ignored files defined in .vercelignore
+  /artifacts/api-server/src/app.ts
+  /artifacts/api-server/src/index.ts
+  /artifacts/api-server/src/routes/admin.ts
+  /artifacts/api-server/src/routes/auth.ts
+  (y más archivos del api-server)
+El .vercelignore está eliminando TODO el código del servidor Express (artifacts/api-server/src/**) ANTES de que Vercel construya la función. La función api/index.ts importa desde ../artifacts/api-server/src/app, pero ese código ya fue borrado por el .vercelignore, así que la función no se puede crear y Vercel nunca la despliega. Por eso /api/reviews devuelve NOT_FOUND: la función serverless literalmente no existe en el output.
+Además, en los build logs NUNCA aparece que se construya ninguna Serverless Function — solo se construye el frontend con Vite y termina. Confirma que la función no se está procesando en absoluto.
+Por favor:
+
+Revisa el contenido del archivo .vercelignore en la raíz del repositorio.
+Quita del .vercelignore las reglas que excluyen artifacts/api-server/** (o los archivos que la función serverless necesita), para que ese código SÍ esté disponible durante el build de la función. O, si pre-bundleas con esbuild, asegúrate de que el bundle resultante (api/dist/**) NO esté siendo ignorado y que la función lo incluya con includeFiles.
+El objetivo: que el código del que depende api/index.ts esté presente en el build, para que Vercel pueda crear la función.
+VERIFICACIÓN OBLIGATORIA antes de decir que está resuelto: después del deploy, entra a https://albertautodetailing.com/api/reviews directamente en el navegador y confirma que responde JSON (algo como []), NO la página "404: NOT_FOUND" de Vercel. Y confirma en el dashboard de Vercel → deployment → pestaña Functions que api/index.ts aparece listada.
+
+No modifiques el frontend, imágenes, videos ni el admin. El objetivo es únicamente que la función serverless se despliegue.
