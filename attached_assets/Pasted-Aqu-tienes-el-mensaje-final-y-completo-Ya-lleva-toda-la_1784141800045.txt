@@ -1,0 +1,24 @@
+Aquí tienes el mensaje final y completo. Ya lleva toda la información que descubrimos juntos, así que el agente de Replit tiene todo el contexto para arreglarlo bien de una sola vez. Solo cópialo y pégalo tal cual:
+
+Mi página está desplegada en Vercel (proyecto web-structure-guide-albert-auto-detailing, dominio albertautodetailing.com) y tiene un problema: al enviar un review, la petición a /api/reviews devuelve error 404. La página en general funciona (frontend estático), pero el backend de Express no se está alcanzando.
+Ya verifiqué lo siguiente y lo descarto como causa:
+
+TODAS las variables de entorno están correctamente configuradas en Vercel: DATABASE_URL, ADMIN_PASSWORD, las de Supabase (VITE_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, VITE_SUPABASE_ANON_KEY) y las de Cloudinary. Así que el problema NO son las variables.
+La base de datos es Supabase (PostgreSQL).
+
+El error 404 indica que la Serverless Function de Express (api/index.ts) no se está desplegando o no se está alcanzando. Por favor diagnostica y corrige lo siguiente:
+
+Revisa los build logs del último deployment en Vercel y verifica si la función api/index.ts realmente se construye y despliega. Sospecho que falla al empaquetarse porque es un monorepo pnpm que importa paquetes del workspace (@workspace/db, @workspace/db/schema) y el bundler de Vercel no los resuelve en producción.
+Si la función no se despliega correctamente, ajusta la configuración para que los imports del workspace se resuelvan (por ejemplo functions con includeFiles en vercel.json, o pre-empaquetar el api-server con esbuild antes del deploy, o mover las dependencias necesarias). Elige la solución más robusta y estándar para un monorepo pnpm en Vercel.
+Verifica que el rewrite en vercel.json esté enviando bien las peticiones /api/* hacia la función de Express.
+Después de desplegar, confirma con una petición real que https://albertautodetailing.com/api/reviews responda correctamente (que un POST guarde el review y un GET lo devuelva), no solamente que el proyecto compile.
+
+MUY IMPORTANTE: No modifiques el frontend, los textos, las imágenes, los videos, el diseño ni el panel de admin. Todo eso ya funciona y debe quedar exactamente igual. El único cambio permitido es en la configuración del backend/rutas para que /api/reviews funcione. No cambies las variables de entorno.
+Cuando termines, dime exactamente qué archivos modificaste y por qué.
+
+Después de que Replit lo haga:
+
+Deja que Replit aplique el cambio y lo suba a GitHub (él lo hace, o tú le das a "commit & push" en Replit).
+Espera 1-2 minutos a que Vercel se actualice solo.
+Entra a tu página, recarga con F5, e intenta subir un review.
+Cuéntame si funcionó o si sale algún error nuevo.
