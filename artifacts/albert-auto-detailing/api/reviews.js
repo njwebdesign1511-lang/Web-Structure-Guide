@@ -3,10 +3,12 @@ const supabase = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABAS
 export default async function handler(req, res) {
   if (req.method === "GET") {
     const { data } = await supabase.from("reviews").select("*").order("created_at", { ascending: false });
-    return res.json(data || []);
+    const mapped = (data || []).map(r => ({ ...r, createdAt: r.created_at }));
+    return res.json(mapped);
   }
   if (req.method === "POST") {
-    const { data } = await supabase.from("reviews").insert(req.body).select();
+    const { name, service, comment, rating } = req.body;
+    const { data } = await supabase.from("reviews").insert({ name, service, comment, rating }).select();
     return res.json(data?.[0] || {});
   }
 }
