@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/api-spec run codegen && pnpm --filter @workspace/albert-auto-detailing run build && node api/build.mjs",
+  "buildCommand": "pnpm --filter @workspace/api-spec run codegen && pnpm --filter albert-auto-detailing run build && node api/build.mjs",
   "outputDirectory": "artifacts/albert-auto-detailing/dist",
   "installCommand": "corepack enable && pnpm install --no-frozen-lockfile",
   "functions": {
