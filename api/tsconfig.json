@@ -6,7 +6,7 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["index.ts", "../artifacts/api-server/src/**/*.ts"],
+  "include": ["index.ts"],
   "references": [
     {
       "path": "../lib/db"
